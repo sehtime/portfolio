@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resume — Sehyoung Hamjong</title>
+<meta name="description" content="Resume of Sehyoung Hamjong — UX / Product / Industrial Designer. Experience Lead at Merkle." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-in">
+    <a class="brand" href="index.html">Sehyoung Hamjong<b>.</b></a>
+    <div class="links">
+      <a href="index.html">UX Design</a>
+      <a href="industrial.html">Industrial Design</a>
+      <a href="about.html">About</a>
+      <a class="active" href="resume.html">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero wrap">
+  <span class="eyebrow">Resume</span>
+  <h1>10+ years from <span class="em">objects</span> to <span class="em">experiences</span>.</h1>
+  <p class="lead">Human-centered product and experience designer — the last 9 years in UX/product. I own end-to-end design from research through delivery, turn ambiguity into prioritized direction, and blend UX, UI, and industrial design to ship accessible, high-quality work.</p>
+  <div style="margin-top:26px"><a class="btn" href="assets/Sehyoung-Hamjong-Resume.pdf" download>Download PDF ↓</a></div>
+</header>
+
+<section class="wrap res-grid">
+  <div>
+    <div class="sec-head"><h2>Experience</h2></div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Merkle · <span>Experience Lead &amp; Lead UX Designer</span></h3><span class="dates">Dec 2021 – Jul 2026</span></div>
+      <p>Shaped strategy and led clients on some engagements, owned hands-on UX craft on others. For GM Energy, helped shape the digital experience for a new home-energy product line — storyboards, journey maps, and service blueprints across shopping, checkout, installation, and an executive dashboard — producing a sales guide adopted across their entire sales organization. Designed and independently facilitated a T. Rowe Price visioning workshop for 20+ product owners. Coached 1–2 designers per engagement.</p>
+    </div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Shell – Agile Hub · <span>Product Designer</span></h3><span class="dates">Apr 2019 – Dec 2021</span></div>
+      <p>Sole UX designer on Shell's Pricing Excellence Tool — now used across Shell's global chemicals business. Co-led the kickoff workshop in Rotterdam with 15+ international participants, then owned end-to-end design: research, journey mapping, wireframes, prototypes, and UI specifications. The first release nearly tripled weekly active users (28 → 80).</p>
+    </div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Softway · <span>UX Designer</span></h3><span class="dates">Aug 2017 – Jan 2019</span></div>
+      <p>Led UX and strategy for e-commerce, web, mobile, and internal sites. Drove a user-centered approach through personas, journey mapping, iterative ideation, and usability testing; improved usability through research and heuristic evaluation.</p>
+    </div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Advent · <span>Industrial Designer</span></h3><span class="dates">Feb 2015 – Aug 2017</span></div>
+      <p>Designed and built custom booths, POS displays, and showcases for exhibitions and commercial spaces — cutting a four-week build process to two by improving communication and standardizing components for the most popular series.</p>
+    </div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Tramontina USA · <span>Industrial Designer</span></h3><span class="dates">Jul 2013 – Feb 2015</span></div>
+      <p>Brought competitive housewares to market on the Product Development team — 3D surface modeling, hand sketching, and high-resolution prototypes for buyers at Walmart, Costco, Target, and Williams Sonoma.</p>
+    </div>
+
+    <div class="res-item reveal">
+      <div class="top"><h3>Earlier · <span>Synchrotech · Protostar Engineering</span></h3><span class="dates">2011 – 2013</span></div>
+      <p>Freelance set-model prototyping and AutoCAD drawings with architects; design internship contributing to the USA Olympic skeleton sled in SolidWorks.</p>
+    </div>
+  </div>
+
+  <aside class="res-side reveal">
+    <h4>Design</h4>
+    <p>UX strategy &amp; design thinking, user research &amp; usability testing, journey mapping, service blueprinting, information architecture, wireframing, prototyping, workshop design &amp; facilitation, accessibility (WCAG) &amp; inclusive design, Agile/SAFe &amp; PI planning, AI-assisted design workflows, mentorship.</p>
+    <h4>Industrial design</h4>
+    <p>2D sketching, 3D modeling, human factors, photorealistic rendering, materials &amp; methods, molding &amp; casting, manufacturing processes.</p>
+    <h4>Software</h4>
+    <p>Figma, FigJam, Figma Make, Miro, Adobe Creative Suite, Claude, SolidWorks, KeyShot, Sketchbook Pro.</p>
+    <h4>Education</h4>
+    <p><b>University of Houston</b> — Gerald D. Hines College of Architecture &amp; Design, 2012. B.S. Industrial Design, Minor in Architecture.</p>
+    <h4>Contact</h4>
+    <p>Houston, TX<br /><a href="mailto:shamjong@gmail.com" style="color:var(--accent);font-weight:600">shamjong@gmail.com</a><br />832 282 5151</p>
+  </aside>
+</section>
+
+<footer class="site">
+  <div class="foot">
+    <span>© 2026 Sehyoung Hamjong</span>
+    <span>Houston, TX · Industrial Design, University of Houston</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

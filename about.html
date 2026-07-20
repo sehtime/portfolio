@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>About — Sehyoung Hamjong</title>
+<meta name="description" content="About Sehyoung Hamjong — UX and product designer with an industrial design foundation, based in Houston, TX." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-in">
+    <a class="brand" href="index.html">Sehyoung Hamjong<b>.</b></a>
+    <div class="links">
+      <a href="index.html">UX Design</a>
+      <a href="industrial.html">Industrial Design</a>
+      <a class="active" href="about.html">About</a>
+      <a href="resume.html">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-hero wrap">
+  <span class="eyebrow">About</span>
+  <h1>Curious by nature, <span class="em">maker</span> by training.</h1>
+</header>
+
+<section class="wrap" style="padding-bottom:clamp(56px,8vw,80px)">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="portrait">portrait photo — drop your headshot here</div>
+    </div>
+    <div class="body-copy reveal">
+      <p>I grew up in Houston, Texas and graduated with a Bachelor of Science in Industrial Design from the University of Houston, with a minor in Architecture. I started out designing physical products — housewares, exhibits, prototypes — before moving into digital product and UX.</p>
+      <p>That background shapes how I work: I lead groups, hold a sustained vision for collaborative efforts, and bring ideas from concept to manufacturing — or from research to shipped product. I like solving complex problems with simple, effective solutions and connecting people with beautiful experiences.</p>
+      <p>For the last several years I've worked as an Experience Lead and Lead UX Designer at Merkle — shaping strategy, running workshops, and coaching designers across complex, multi-workstream engagements. Before that I was the sole UX designer on a pricing tool now used across Shell's global chemicals business.</p>
+      <p>When I'm not designing, you'll usually find me working on cars — fixing anything from a flat tire to a blown piston.</p>
+      <p class="quote">"Every project is more challenging than the one before, and that's what pushes me forward. I love design's ever-changing environment — this is what makes me happy."</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-bottom:clamp(64px,9vw,100px)">
+  <div class="sec-head"><h2>Contact</h2></div>
+  <div style="display:flex;gap:56px;flex-wrap:wrap;font-size:18px">
+    <div><span class="kicker" style="display:block;margin-bottom:6px">Email</span><a class="mail" href="mailto:shamjong@gmail.com">shamjong@gmail.com</a></div>
+    <div><span class="kicker" style="display:block;margin-bottom:6px">Phone</span><a href="tel:+18322825151">832 282 5151</a></div>
+    <div><span class="kicker" style="display:block;margin-bottom:6px">Resume</span><a href="resume.html" style="border-bottom:2px solid var(--accent);padding-bottom:2px;font-weight:600">View resume →</a></div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="foot">
+    <span>© 2026 Sehyoung Hamjong</span>
+    <span>Houston, TX · Industrial Design, University of Houston</span>
+  </div>
+</footer>
+
+<script>
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

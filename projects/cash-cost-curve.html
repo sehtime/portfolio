@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Cash Cost Curve 2.0 — Sehyoung Hamjong</title>
+<meta name="description" content="UX case study: Cash Cost Curve 2.0 — opening the black box so pricing analysts can see and edit the cost model behind every curve." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../css/style.css" />
+<style>
+.slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
+blockquote.pull{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#3a3833;border-left:2px solid var(--accent);padding-left:20px;margin:34px 0 8px}
+blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+
+<nav class="site">
+  <div class="nav-in">
+    <a class="brand" href="../index.html">Sehyoung Hamjong<b>.</b></a>
+    <div class="links">
+      <a class="active" href="../index.html">UX Design</a>
+      <a href="../industrial.html">Industrial Design</a>
+      <a href="../about.html">About</a>
+      <a href="../resume.html">Resume</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap"><a class="back" href="../index.html">← Back to UX work</a></div>
+
+<header class="page-hero wrap">
+  <span class="eyebrow">Enterprise · Pricing Excellence Tool</span>
+  <h1>Cash Cost Curve 2.0</h1>
+  <p class="lead">Opening the black box — giving pricing analysts the power to see, question, and edit the cost model behind every curve.</p>
+</header>
+
+<article class="case">
+  <div class="slot" style="margin-top:8px">HERO IMAGE — 04_Design/Figma collection/Cash cost curve/"CCC - chart.png"</div>
+
+  <div class="case-meta">
+    <div><span>Role</span>Product Designer — sole UX designer</div>
+    <div><span>Context</span>Module of the Pricing Excellence Tool · Shell Agile Hub</div>
+    <div><span>Focus</span>Data density · Progressive disclosure · Trust</div>
+  </div>
+
+  <h2>What a cash cost curve is — and why it mattered</h2>
+  <p>A cash cost curve ranks every producer of a chemical by what it costs them to make it, plotted against capacity. Where your assets sit on that curve — and where the demand line crosses it — tells you what the market price should be and how much room you have to negotiate. At the Rotterdam workshop, marketing managers voted the cash cost curve the single highest-value thing the tool could give them.</p>
+  <p>The first version delivered that view: curves built from consultant models, filterable by product, region, and supply scenario, with demand, marginal cost, and market price lines overlaid — and Shell's own assets highlightable at a glance.</p>
+
+  <h2>The problem: a curve you can't question</h2>
+  <p>A curve you can only look at is a black box — and "no black box" was the loudest requirement users gave us. Analysts didn't just want to see the consultant's model; they needed to interrogate it, adjust its assumptions, and maintain their own view of the world alongside it. That desire for self-sufficiency — "creating our own view" rather than relying on third parties — had been on the wall since day one of the workshop.</p>
+  <blockquote class="pull">"Need to interrogate inputs and assumptions. Retaining business logic. NO BLACK BOX."<cite>Workshop risk list, Rotterdam</cite></blockquote>
+
+  <h2>The design: every assumption, inspectable and editable</h2>
+  <p>CCC 2.0 turns the curve from a picture into a model. Behind every bar on the chart is an asset — a real plant — and users can open it: plant info and notes, the yield table, capacity and selectivity, fixed costs, pricing, and product transport costs, each a tab in an edit-asset workspace.</p>
+  <p>The hardest design problem was the yield table: a deep matrix of feedstocks against coproducts, utilities, and extraction stages — spreadsheet-grade density that had to stay legible and safely editable in a web tool. The answer was aggressive progressive disclosure: collapsible row groups for coproduct families and extraction stages, one clearly-focused editable cell at a time, and explicit save/cancel affordances so exploration never silently became a commitment. The Excel tool this product replaced had failed precisely because power came without integrity — CCC 2.0 had to offer the same power with it.</p>
+  <div class="slot">SCREEN — 04_Design/Modules/02_Cash Cost Curve/View curve/"CCC 2.0 - Yield table - steam cracker.png" (verify asset details are mock before publishing)</div>
+  <p>Finding the right asset had its own complexity: filtering cascades from product to region to technology to producer, and the available technologies change with the product chosen — a steam cracker matters for ethylene, not for MEG. The data panel bakes that logic in, so users can't build a nonsensical view.</p>
+  <div class="slot">SCREEN — 04_Design/Modules/02_Cash Cost Curve/View curve/"CCC 2.0 - Data panel.png" (producer names visible — review before publishing)</div>
+
+  <h2>Outcome</h2>
+  <p>CCC 2.0 moved the cash cost curve from a consultant's deliverable to a living model the business owns — assumptions visible, adjustable, and annotated with the team's own notes and news. It closed the loop on the product vision from the first workshop: a tool that can be trusted <em>because</em> it's transparent, across all roles and regions.</p>
+</article>
+
+<div class="pager wrap">
+  <a href="shell-pricing.html"><span class="dir">Previous case study</span>← Pricing Excellence Tool</a>
+  <a href="site-optimization.html"><span class="dir">Next case study</span>Site Optimization →</a>
+</div>
+
+<footer class="site" style="margin-top:40px">
+  <div class="foot">
+    <span>© 2026 Sehyoung Hamjong</span>
+    <span>Houston, TX</span>
+  </div>
+</footer>
+</body>
+</html>
