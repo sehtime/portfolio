@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>if(sessionStorage.getItem('sehgate')!=='1')document.documentElement.classList.add('gated');</script>
+<style>html.gated body>*:not(#seh-gate){display:none!important}#seh-gate{position:fixed;inset:0;z-index:99999;background:#faf9f6;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',system-ui,sans-serif}</style>
+<script src="../gate.js" defer></script>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pricing Excellence Tool — Sehyoung Hamjong</title>
@@ -48,7 +51,7 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
 </header>
 
 <article class="case">
-  <div class="slot" style="margin-top:8px">HERO IMAGE — use: 04_Design/Modules/03_Price Viewer/Formula and custom markers/"PV - Selected and chart.png" (review formula tooltip before publishing)</div>
+  <div class="slot" style="margin-top:8px">Product screen — image coming soon</div>
 
   <div class="case-meta">
     <div><span>Role</span>Product Designer — sole UX designer</div>
@@ -74,19 +77,19 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
     <div class="day"><b>Ideate</b><p>Co-created problem statements and a north-star product vision; wrote user stories by product line.</p></div>
     <div class="day"><b>Create</b><p>Participants sketched the tool themselves; we converged on a layout, prioritized the feature backlog, and named the risks.</p></div>
   </div>
-  <div class="slot">WORKSHOP IMAGE — export from Apple_Workshop synthesis PDF: Day 3 photo (p.30) or UI sketches (p.38)</div>
+  <div class="slot">Workshop photo — image coming soon</div>
 
   <h2>The insight that reframed everything</h2>
   <p>The problem arrived at the Agile Hub framed as a technology problem: "the tool needs to be improved." The workshop revealed the technology issues were symptoms. The real problems: data lived in too many places, and nobody fully trusted it.</p>
   <p>Commercial Analysts — who wanted to be strategists — were spending their days acting as human data libraries for everyone else's requests. Gathering pricing data was voted the single most frustrating step by every user group. And the group was emphatic about trust: <b>no black box</b>. Users needed to interrogate inputs, see source formulas, and keep business logic transparent.</p>
   <p>So the team aligned on a foundation-first strategy — build a central data repository (a data lake) before the analytics — captured in a shared vision:</p>
-  <blockquote class="pull">"An easy to use tool that can be trusted and is transparent across all roles and regions so that users have the power to make informed pricing decisions to maximize Shell margins."<cite>Product vision, co-created at the Rotterdam workshop</cite></blockquote>
+  <blockquote class="pull">"An easy to use tool that can be trusted and is transparent across all roles and regions so that users have the power to make informed pricing decisions to maximize margins."<cite>Product vision, co-created at the Rotterdam workshop</cite></blockquote>
 
   <h2>End-to-end design</h2>
   <p>From there I owned design across the product's life: research touchpoints with users (scheduled with the week's notice they asked for), journey maps, wireframes, prototypes, and UI specifications for the development team — working in sprints alongside the PM, tech lead, and 12 developers, embedded with a product owner and subject-matter experts from the business.</p>
   <p>The dashboard wireframe sketched with users in Rotterdam became the seed of the product: a data panel for products, regions, sources, currencies and units on the left; charts with comments and export on the right. Sprint by sprint that grew into the real thing — a Price Viewer where users plug their actual contract formulas in and run them against industry markers to see if their contracts beat the market; Supply &amp; Demand modules with outage tracking to spot tightening markets; manual price forecasting; and personalized dashboards.</p>
-  <div class="slot">PROCESS IMAGE 1 (before) — Sprint 1/02_Wireframes/02_Screens/"Dashboard - Products.png"</div>
-  <div class="slot">PROCESS IMAGE 2 (after) — 04_Design/Figma collection/Cash cost curve/"CCC - chart.png" or Modules/01_Supply &amp; Demand/Outages/"MSD - Outages - Chart.png"</div>
+  <div class="slot">Early wireframe — image coming soon</div>
+  <div class="slot">Shipped module screen — image coming soon</div>
   <p>Two design principles carried through every sprint, straight from the workshop's risk list: <b>transparency</b> — every chart can show its source formula and data lineage, because trust was the product's real currency — and <b>consistency across roles and regions</b>, so an analyst in Houston and a marketing manager in Singapore read the same numbers the same way.</p>
 
   <h2>Designing the system</h2>
