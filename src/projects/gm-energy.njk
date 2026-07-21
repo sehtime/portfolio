@@ -1,54 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<script>if(sessionStorage.getItem('sehgate')!=='1')document.documentElement.classList.add('gated');</script>
-<style>html.gated body>*:not(#seh-gate){display:none!important}#seh-gate{position:fixed;inset:0;z-index:99999;background:#faf9f6;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',system-ui,sans-serif}</style>
-<script src="../gate.js" defer></script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>HEMS eCommerce — GM Energy — Sehyoung Hamjong</title>
-<meta name="description" content="UX case study: taking GM Energy into ecommerce for the first time — service design vision, evidence-based personas, financing inside checkout, a two-track testing program, and the ownership experience behind it." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../css/style.css" />
-<style>
-.slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.chip{border:1px solid var(--hair);border-radius:99px;padding:8px 16px;font-size:13.5px;color:var(--muted-2)}
-.chip b{color:var(--accent);font-family:var(--serif);font-style:italic;font-weight:500;margin-right:6px}
-blockquote.pull{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#3a3833;border-left:2px solid var(--accent);padding-left:20px;margin:34px 0 8px}
-blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
-.track-tbl{width:100%;border-collapse:collapse;margin-top:26px;font-size:14.5px}
-.track-tbl th,.track-tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
-.track-tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
-.track-tbl td:first-child{color:var(--muted-2);width:30%}
-.persona-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
-.persona{border:1px solid var(--hair);border-radius:8px;padding:16px}
-.persona b{display:block;font-size:16px;margin-bottom:4px}
-.persona span{font-size:13px;color:var(--muted)}
-.findings{list-style:none;padding:0;margin-top:24px}
-.findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
-.findings li b{display:block;font-size:15px;margin-bottom:3px}
-.findings li span{font-size:14.5px;color:var(--muted-2)}
-@media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
-</style>
-</head>
-<body>
-
-<nav class="site">
-  <div class="nav-in">
-    <a class="brand" href="../index.html">Sehyoung Hamjong<b>.</b></a>
-    <div class="links">
-      <a class="active" href="../index.html">UX Design</a>
-      <a href="../industrial.html">Industrial Design</a>
-      <a href="../about.html">About</a>
-      <a href="../resume.html">Resume</a>
-    </div>
-  </div>
-</nav>
-
-<div class="wrap"><a class="back" href="../index.html">← Back to UX work</a></div>
+---
+title: "HEMS eCommerce — GM Energy — Sehyoung Hamjong"
+description: "UX case study: taking GM Energy into ecommerce for the first time — service design vision, evidence-based personas, financing inside checkout, a two-track testing program, and the ownership experience behind it."
+track: ux
+pager:
+  nextHref: shell-pricing.html
+  nextTitle: Pricing Excellence Tool
+extraStyle: |
+  <style>
+  .slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
+  .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{border:1px solid var(--hair);border-radius:99px;padding:8px 16px;font-size:13.5px;color:var(--muted-2)}
+  .chip b{color:var(--accent);font-family:var(--serif);font-style:italic;font-weight:500;margin-right:6px}
+  blockquote.pull{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#3a3833;border-left:2px solid var(--accent);padding-left:20px;margin:34px 0 8px}
+  blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
+  .track-tbl{width:100%;border-collapse:collapse;margin-top:26px;font-size:14.5px}
+  .track-tbl th,.track-tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
+  .track-tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+  .track-tbl td:first-child{color:var(--muted-2);width:30%}
+  .persona-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
+  .persona{border:1px solid var(--hair);border-radius:8px;padding:16px}
+  .persona b{display:block;font-size:16px;margin-bottom:4px}
+  .persona span{font-size:13px;color:var(--muted)}
+  .findings{list-style:none;padding:0;margin-top:24px}
+  .findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
+  .findings li b{display:block;font-size:15px;margin-bottom:3px}
+  .findings li span{font-size:14.5px;color:var(--muted-2)}
+  @media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
+  </style>
+---
+{% include "partials/back-link.njk" %}
 
 <header class="page-hero wrap">
   <span class="eyebrow">Experience Lead · Service Design → Launch → Optimization · Merkle (dentsu)</span>
@@ -150,16 +130,4 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
   <div class="slot">Sales guide — image coming soon</div>
 </article>
 
-<div class="pager wrap">
-  <span></span>
-  <a href="shell-pricing.html"><span class="dir">Next case study</span>Pricing Excellence Tool →</a>
-</div>
-
-<footer class="site" style="margin-top:40px">
-  <div class="foot">
-    <span>© 2026 Sehyoung Hamjong</span>
-    <span>Houston, TX</span>
-  </div>
-</footer>
-</body>
-</html>
+{% include "partials/pager.njk" %}

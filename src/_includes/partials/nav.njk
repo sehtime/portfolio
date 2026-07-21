@@ -1,0 +1,11 @@
+<nav class="site">
+  <div class="nav-in">
+    <a class="brand" href="/index.html">Sehyoung Hamjong<b>.</b></a>
+    <div class="links">
+      <a href="/index.html"{% if activeSection == "ux" or track == "ux" %} class="active"{% endif %}>UX Design</a>
+      <a href="/industrial.html"{% if activeSection == "industrial" or track == "industrial" %} class="active"{% endif %}>Industrial Design</a>
+      <a href="/about.html"{% if activeSection == "about" %} class="active"{% endif %}>About</a>
+      <a href="/resume.html"{% if activeSection == "resume" %} class="active"{% endif %}>Resume</a>
+    </div>
+  </div>
+</nav>

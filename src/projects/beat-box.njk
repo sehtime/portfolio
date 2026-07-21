@@ -1,0 +1,39 @@
+---
+title: "Beat Box — Sehyoung Hamjong"
+description: "Beat Box — industrial design work by Sehyoung Hamjong."
+track: industrial
+bodyDark: true
+pager:
+  prevHref: zoom.html
+  prevTitle: Zoom
+  nextHref: play.html
+  nextTitle: Play
+extraStyle: |
+  <style>
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:980px;margin:0 auto;padding:0 var(--gut) clamp(64px,9vw,100px)}
+  .gal .slot{aspect-ratio:4/3;border-radius:6px;border:1px dashed rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-align:center;color:#8f877a;font:11px ui-monospace,Menlo,monospace;padding:10px;background:var(--dark-2)}
+  .gal img{border-radius:6px;border:1px solid var(--dark-hair);width:100%}
+  @media(max-width:640px){.gal{grid-template-columns:1fr}}
+  </style>
+---
+{% include "partials/back-link.njk" %}
+
+<header class="page-hero wrap">
+  <span class="eyebrow">Concept</span>
+  <h1>Beat Box</h1>
+</header>
+
+<div style="max-width:980px;margin:0 auto;padding:0 var(--gut) 34px">
+  <img class="case-hero-img" style="border-color:var(--dark-hair)" src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1496724862433-3OS880B4UU8MEAG2XBCD/speaker1.29.jpg" alt="Beat Box — cover image" />
+</div>
+
+<div class="gal">
+  <div class="slot">Project image — coming soon</div>
+  <div class="slot">Project image — coming soon</div>
+  <div class="slot">Project image — coming soon</div>
+  <div class="slot">Project image — coming soon</div>
+  <div class="slot">Project image — coming soon</div>
+  <div class="slot">Project image — coming soon</div>
+</div>
+
+{% include "partials/pager.njk" %}

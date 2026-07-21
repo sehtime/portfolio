@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include "partials/head.njk" %}
+</head>
+<body{% if bodyDark %} class="page-dark"{% endif %}>
+
+{% include "partials/nav.njk" %}
+
+{{ content | safe }}
+
+{% include "partials/footer.njk" %}
+{% if showReveal %}{% include "partials/reveal-script.njk" %}{% endif %}
+</body>
+</html>

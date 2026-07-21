@@ -1,34 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<script>if(sessionStorage.getItem('sehgate')!=='1')document.documentElement.classList.add('gated');</script>
-<style>html.gated body>*:not(#seh-gate){display:none!important}#seh-gate{position:fixed;inset:0;z-index:99999;background:#faf9f6;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',system-ui,sans-serif}</style>
-<script src="../gate.js" defer></script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Visual/Interaction — Sehyoung Hamjong</title>
-<meta name="description" content="Mobile App Re-Design — Soundcloud visual and interaction design study." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../css/style.css" />
-<style>.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}}</style>
-</head>
-<body>
-
-<nav class="site">
-  <div class="nav-in">
-    <a class="brand" href="../index.html">Sehyoung Hamjong<b>.</b></a>
-    <div class="links">
-      <a class="active" href="../index.html">UX Design</a>
-      <a href="../industrial.html">Industrial Design</a>
-      <a href="../about.html">About</a>
-      <a href="../resume.html">Resume</a>
-    </div>
-  </div>
-</nav>
-
-<div class="wrap"><a class="back" href="../index.html">← Back to UX work</a></div>
+---
+title: "Visual/Interaction — Sehyoung Hamjong"
+description: "Mobile App Re-Design — Soundcloud visual and interaction design study."
+track: ux
+pager:
+  prevHref: content-curation.html
+  prevTitle: Content Curation
+extraStyle: |
+  <style>.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}}</style>
+---
+{% include "partials/back-link.njk" %}
 
 <header class="page-hero wrap">
   <span class="eyebrow">Visual · Interaction</span>
@@ -158,16 +138,4 @@
   </div>
 </article>
 
-<div class="pager wrap">
-  <a href="content-curation.html"><span class="dir">Previous case study</span>← Content Curation</a>
-  <span></span>
-</div>
-
-<footer class="site" style="margin-top:40px">
-  <div class="foot">
-    <span>© 2026 Sehyoung Hamjong</span>
-    <span>Houston, TX</span>
-  </div>
-</footer>
-</body>
-</html>
+{% include "partials/pager.njk" %}

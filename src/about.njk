@@ -1,32 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<script>if(sessionStorage.getItem('sehgate')!=='1')document.documentElement.classList.add('gated');</script>
-<style>html.gated body>*:not(#seh-gate){display:none!important}#seh-gate{position:fixed;inset:0;z-index:99999;background:#faf9f6;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',system-ui,sans-serif}</style>
-<script src="gate.js" defer></script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About — Sehyoung Hamjong</title>
-<meta name="description" content="About Sehyoung Hamjong — UX and product designer with an industrial design foundation, based in Houston, TX." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/style.css" />
-</head>
-<body>
-
-<nav class="site">
-  <div class="nav-in">
-    <a class="brand" href="index.html">Sehyoung Hamjong<b>.</b></a>
-    <div class="links">
-      <a href="index.html">UX Design</a>
-      <a href="industrial.html">Industrial Design</a>
-      <a class="active" href="about.html">About</a>
-      <a href="resume.html">Resume</a>
-    </div>
-  </div>
-</nav>
-
+---
+layout: layouts/base.njk
+title: "About — Sehyoung Hamjong"
+description: "About Sehyoung Hamjong — UX and product designer with an industrial design foundation, based in Houston, TX."
+activeSection: about
+isTopLevel: true
+showReveal: true
+---
 <header class="page-hero wrap">
   <span class="eyebrow">About</span>
   <h1>Curious by nature, <span class="em">maker</span> by training.</h1>
@@ -52,20 +31,6 @@
   <div style="display:flex;gap:56px;flex-wrap:wrap;font-size:18px">
     <div><span class="kicker" style="display:block;margin-bottom:6px">Email</span><a class="mail" href="mailto:shamjong@gmail.com">shamjong@gmail.com</a></div>
     <div><span class="kicker" style="display:block;margin-bottom:6px">Phone</span><a href="tel:+18322825151">832 282 5151</a></div>
-    <div><span class="kicker" style="display:block;margin-bottom:6px">Resume</span><a href="resume.html" style="border-bottom:2px solid var(--accent);padding-bottom:2px;font-weight:600">View resume →</a></div>
+    <div><span class="kicker" style="display:block;margin-bottom:6px">Resume</span><a href="/resume.html" style="border-bottom:2px solid var(--accent);padding-bottom:2px;font-weight:600">View resume →</a></div>
   </div>
 </section>
-
-<footer class="site">
-  <div class="foot">
-    <span>© 2026 Sehyoung Hamjong</span>
-    <span>Houston, TX · Industrial Design, University of Houston</span>
-  </div>
-</footer>
-
-<script>
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
-</body>
-</html>

@@ -1,0 +1,4 @@
+<div class="pager wrap"{% if track == "industrial" %} style="border-top-color:var(--dark-hair)"{% endif %}>
+  {% if pager.prevHref %}<a href="/projects/{{ pager.prevHref }}"><span class="dir">Previous {% if track == "industrial" %}project{% else %}case study{% endif %}</span>← {{ pager.prevTitle }}</a>{% else %}<span></span>{% endif %}
+  {% if pager.nextHref %}<a href="/projects/{{ pager.nextHref }}"><span class="dir">Next {% if track == "industrial" %}project{% else %}case study{% endif %}</span>{{ pager.nextTitle }} →</a>{% else %}<span></span>{% endif %}
+</div>

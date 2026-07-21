@@ -159,6 +159,7 @@ article.case figcaption{font-size:13px;color:var(--muted);margin-top:10px;font-f
 .contact-strip h2 .em{font-style:italic;color:var(--accent)}
 a.mail{font-size:16px;font-weight:600;border-bottom:2px solid var(--accent);padding-bottom:3px}
 footer.site{border-top:1px solid var(--hair)}
+footer.site--spaced{margin-top:40px}
 .foot{padding:20px var(--gut) 28px;display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--muted);flex-wrap:wrap;max-width:var(--maxw);margin:0 auto}
 
 /* ---------- reveal (subtle, respects reduced motion) ---------- */

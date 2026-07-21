@@ -1,48 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<script>if(sessionStorage.getItem('sehgate')!=='1')document.documentElement.classList.add('gated');</script>
-<style>html.gated body>*:not(#seh-gate){display:none!important}#seh-gate{position:fixed;inset:0;z-index:99999;background:#faf9f6;display:flex;align-items:center;justify-content:center;padding:20px;font-family:'Space Grotesk',system-ui,sans-serif}</style>
-<script src="../gate.js" defer></script>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pricing Excellence Tool — Sehyoung Hamjong</title>
-<meta name="description" content="UX case study: sole UX designer on Shell's Pricing Excellence Tool — from a design sprint in Rotterdam to a product used across Shell's global chemicals business." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../css/style.css" />
-<style>
-.slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:34px 0 8px}
-.stat{border:1px solid var(--hair);border-radius:8px;padding:20px}
-.stat b{display:block;font-size:clamp(26px,3.5vw,38px);font-weight:600;letter-spacing:-.02em;color:var(--accent)}
-.stat span{font-size:13px;color:var(--muted)}
-.days{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
-.day{border:1px solid var(--hair);border-radius:8px;padding:16px}
-.day b{display:block;font-family:var(--serif);font-style:italic;color:var(--accent);margin-bottom:6px}
-.day p{font-size:13.5px;color:var(--muted-2);margin:0}
-blockquote.pull{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#3a3833;border-left:2px solid var(--accent);padding-left:20px;margin:34px 0 8px}
-blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
-@media(max-width:760px){.stat-row{grid-template-columns:1fr}.days{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:480px){.days{grid-template-columns:1fr}}
-</style>
-</head>
-<body>
-
-<nav class="site">
-  <div class="nav-in">
-    <a class="brand" href="../index.html">Sehyoung Hamjong<b>.</b></a>
-    <div class="links">
-      <a class="active" href="../index.html">UX Design</a>
-      <a href="../industrial.html">Industrial Design</a>
-      <a href="../about.html">About</a>
-      <a href="../resume.html">Resume</a>
-    </div>
-  </div>
-</nav>
-
-<div class="wrap"><a class="back" href="../index.html">← Back to UX work</a></div>
+---
+title: "Pricing Excellence Tool — Sehyoung Hamjong"
+description: "UX case study: sole UX designer on Shell's Pricing Excellence Tool — from a design sprint in Rotterdam to a product used across Shell's global chemicals business."
+track: ux
+pager:
+  prevHref: gm-energy.html
+  prevTitle: HEMS eCommerce
+  nextHref: cash-cost-curve.html
+  nextTitle: Cash Cost Curve 2.0
+extraStyle: |
+  <style>
+  .slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
+  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:34px 0 8px}
+  .stat{border:1px solid var(--hair);border-radius:8px;padding:20px}
+  .stat b{display:block;font-size:clamp(26px,3.5vw,38px);font-weight:600;letter-spacing:-.02em;color:var(--accent)}
+  .stat span{font-size:13px;color:var(--muted)}
+  .days{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+  .day{border:1px solid var(--hair);border-radius:8px;padding:16px}
+  .day b{display:block;font-family:var(--serif);font-style:italic;color:var(--accent);margin-bottom:6px}
+  .day p{font-size:13.5px;color:var(--muted-2);margin:0}
+  blockquote.pull{font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.4vw,24px);line-height:1.5;color:#3a3833;border-left:2px solid var(--accent);padding-left:20px;margin:34px 0 8px}
+  blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;font-size:13px;color:var(--muted);margin-top:10px}
+  @media(max-width:760px){.stat-row{grid-template-columns:1fr}.days{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.days{grid-template-columns:1fr}}
+  </style>
+---
+{% include "partials/back-link.njk" %}
 
 <header class="page-hero wrap">
   <span class="eyebrow">Enterprise · Product Design · Shell Agile Hub</span>
@@ -52,7 +34,7 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
 
 <article class="case">
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <figure style="margin-top:8px"><img src="../assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
+  <figure style="margin-top:8px"><img src="/assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
   <figcaption>The Supply &amp; Demand module — labels sanitized for public display.</figcaption></figure>
 
   <div class="case-meta">
@@ -91,7 +73,7 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
   <p>From there I owned design across the product's life: research touchpoints with users (scheduled with the week's notice they asked for), journey maps, wireframes, prototypes, and UI specifications for the development team — working in sprints alongside the PM, tech lead, and 12 developers, embedded with a product owner and subject-matter experts from the business.</p>
   <p>The dashboard wireframe sketched with users in Rotterdam became the seed of the product: a data panel for products, regions, sources, currencies and units on the left; charts with comments and export on the right. Sprint by sprint that grew into the real thing — a Price Viewer where users plug their actual contract formulas in and run them against industry markers to see if their contracts beat the market; Supply &amp; Demand modules with outage tracking to spot tightening markets; manual price forecasting; and personalized dashboards.</p>
   <div class="slot">Early wireframe — image coming soon</div>
-  <figure><img src="../assets/img/price-viewer.jpg" alt="Price Viewer module — marker labels blurred for public display" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
+  <figure><img src="/assets/img/price-viewer.jpg" alt="Price Viewer module — marker labels blurred for public display" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
   <figcaption>The Price Viewer — plug in a contract formula and run it against market markers. Marker labels are blurred here for confidentiality.</figcaption></figure>
   <p>Two design principles carried through every sprint, straight from the workshop's risk list: <b>transparency</b> — every chart can show its source formula and data lineage, because trust was the product's real currency — and <b>consistency across roles and regions</b>, so an analyst in Houston and a marketing manager in Singapore read the same numbers the same way.</p>
 
@@ -105,16 +87,4 @@ blockquote.pull cite{display:block;font-family:var(--sans);font-style:normal;fon
   <blockquote class="pull">"I feel like we had to go through this process to get to this point. Now this feels like one team. It feels like our solution."<cite>Workshop participant, Chemicals Commercial Business</cite></blockquote>
 </article>
 
-<div class="pager wrap">
-  <a href="gm-energy.html"><span class="dir">Previous case study</span>← HEMS eCommerce</a>
-  <a href="cash-cost-curve.html"><span class="dir">Next case study</span>Cash Cost Curve 2.0 →</a>
-</div>
-
-<footer class="site" style="margin-top:40px">
-  <div class="foot">
-    <span>© 2026 Sehyoung Hamjong</span>
-    <span>Houston, TX</span>
-  </div>
-</footer>
-</body>
-</html>
+{% include "partials/pager.njk" %}
