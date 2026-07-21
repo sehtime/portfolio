@@ -4,8 +4,9 @@ Personal portfolio for Sehyoung Hamjong (UX & Product Designer, Experience Lead 
 Built with Eleventy (11ty) as a static site generator — templates + partials, output is still plain static HTML/CSS/JS with no client-side framework.
 
 ## Live site
-- Currently deployed via GitHub Pages, custom domain: sehyoung.com (see `CNAME`)
-- Migrating to Netlify (see Deployment section below) — GitHub Pages/CNAME stay in place until the Netlify cutover is verified
+- Deployed via Netlify, custom domain: sehyoung.com (DNS managed in Cloudflare, custom domain configured in Netlify's dashboard — no `CNAME` file needed anymore)
+- Netlify builds from `main` with `npm run build` (via `netlify.toml`), publishes `_site/`
+- Every branch/PR gets an automatic Netlify deploy preview URL — use that to check changes before merging to `main`
 - Git remote: https://github.com/sehtime/portfolio.git, branch `main`
 - Pushing to `main` updates the live site — treat commits accordingly
 
@@ -25,7 +26,7 @@ Built with Eleventy (11ty) as a static site generator — templates + partials, 
 - `gate.js` — client-side password gate (uses `sessionStorage` key `sehgate`); wired into `base.njk`/nav partial
 - `.eleventy.js` — Eleventy config
 - `package.json` — `npm start` runs local dev server (`eleventy --serve`), `npm run build` builds to `_site/`
-- `netlify.toml` — build command + publish dir for Netlify (not yet connected, see below)
+- `netlify.toml` — build command + publish dir for Netlify
 
 ## URLs are unchanged
 Output paths still resolve exactly as before migration (e.g. `/projects/gm-energy.html`) — existing links, bookmarks, and any inbound links don't break.
@@ -37,14 +38,6 @@ Output paths still resolve exactly as before migration (e.g. `/projects/gm-energ
 - Nav highlights the active top-level section (UX vs Industrial) — this logic lives in the nav partial, preserve it when editing
 - New case study pages go in `src/projects/` and get linked from the relevant grid on `index.njk` or `industrial.njk`
 - No client-side JS framework — Eleventy only touches build-time templating, the shipped output is still plain HTML/CSS/JS
-
-## Deployment migration (in progress)
-Moving hosting from GitHub Pages to Netlify to support the Eleventy build step:
-1. Connect the `sehtime/portfolio` GitHub repo in Netlify (auto-detects `netlify.toml`)
-2. Deploy previews become automatic on every branch/PR
-3. Add `sehyoung.com` as a custom domain in Netlify, update DNS at the registrar per Netlify's instructions
-4. Verify on the `*.netlify.app` subdomain first, then cut over DNS
-5. Only after DNS cutover is confirmed working: remove `CNAME`, disable GitHub Pages
 
 ## Workflow notes
 - This is a real git repo already connected to GitHub — commit with clear messages, and confirm before pushing to `main` since it's live
