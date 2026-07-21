@@ -1,0 +1,4 @@
+{% macro projectCard(slug) %}
+{% set draft = collections.project | isDraft(slug) %}
+<a class="card reveal{% if draft %} card--draft{% endif %}"{% if not draft %} href="/projects/{{ slug }}.html"{% endif %}>{{ caller() }}{% if draft %}<span class="draft-badge">In progress</span>{% endif %}</a>
+{% endmacro %}

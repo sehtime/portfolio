@@ -6,6 +6,7 @@ activeSection: industrial
 isTopLevel: true
 bodyDark: true
 ---
+{% import "partials/project-card.njk" as cards with context %}
 <header class="page-hero wrap">
   <span class="eyebrow">Where I started</span>
   <h1>From sketch to manufacturing — objects built for how people <span class="em">actually</span> use them.</h1>
@@ -14,14 +15,14 @@ bodyDark: true
 
 <section class="wrap" style="padding-bottom:clamp(72px,11vw,120px)">
   <div class="grid">
-    <a class="card reveal" href="/projects/exhibit-design.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1497300911420-119TID3JM47KRY9PJ4PU/Exhibit+Design+Cover+copy.jpg" alt="Exhibit Design cover" loading="lazy"></div><h3>Exhibit Design</h3><div class="cap">Advent</div></a>
-    <a class="card reveal" href="/projects/tesoura-shears.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1484294200931-XYJ8K9PVK8NW5NSW7DXD/Tramontina_scissors+blur.jpg" alt="Tesoura Kitchen Shears cover" loading="lazy"></div><h3>Tesoura Kitchen Shears</h3><div class="cap">Tramontina</div></a>
-    <a class="card reveal" href="/projects/pro-line-kitchen-shears.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1470454148024-56BHA1A2CFAG0Q0HJ2MX/Tramontina_scissors6+blur.jpg" alt="Pro Line Kitchen Shears cover" loading="lazy"></div><h3>Pro Line Kitchen Shears</h3><div class="cap">Tramontina</div></a>
-    <a class="card reveal" href="/projects/nesting-mixing-bowls.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1474857648317-2NW3G2DUM9CHOWLBWZ0K/Tramontina_mixing+bowls+blur.jpg" alt="Nesting Mixing Bowls cover" loading="lazy"></div><h3>Nesting Mixing Bowls</h3><div class="cap">Tramontina</div></a>
-    <a class="card reveal" href="/projects/lifeline.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1478236038947-JE067TUH2DB8IMKM2884/lifeline.jpg" alt="Lifeline cover" loading="lazy"></div><h3>Lifeline</h3><div class="cap">Concept</div></a>
-    <a class="card reveal" href="/projects/angel-eye.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1477771558823-QF5DCQ6ZLFJDBNVYQNVT/angel+eye7.jpg" alt="Angel Eye cover" loading="lazy"></div><h3>Angel Eye</h3><div class="cap">Concept</div></a>
-    <a class="card reveal" href="/projects/zoom.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1465939174839-AU14KMCAPHBS7RE2AOKX/angel+eye+render35.jpg" alt="Zoom cover" loading="lazy"></div><h3>Zoom</h3><div class="cap">Concept</div></a>
-    <a class="card reveal" href="/projects/beat-box.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1496724862433-3OS880B4UU8MEAG2XBCD/speaker1.29.jpg" alt="Beat Box cover" loading="lazy"></div><h3>Beat Box</h3><div class="cap">Concept</div></a>
-    <a class="card reveal" href="/projects/play.html"><div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1465936480886-FCZC9NQCSJEC9BQYQK2D/seh+portfolio55.jpg" alt="Play cover" loading="lazy"></div><h3>Play</h3><div class="cap">Concept</div></a>
+    {% call cards.projectCard("exhibit-design") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1497300911420-119TID3JM47KRY9PJ4PU/Exhibit+Design+Cover+copy.jpg" alt="Exhibit Design cover" loading="lazy"></div><h3>Exhibit Design</h3><div class="cap">Advent</div>{% endcall %}
+    {% call cards.projectCard("tesoura-shears") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1484294200931-XYJ8K9PVK8NW5NSW7DXD/Tramontina_scissors+blur.jpg" alt="Tesoura Kitchen Shears cover" loading="lazy"></div><h3>Tesoura Kitchen Shears</h3><div class="cap">Tramontina</div>{% endcall %}
+    {% call cards.projectCard("pro-line-kitchen-shears") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1470454148024-56BHA1A2CFAG0Q0HJ2MX/Tramontina_scissors6+blur.jpg" alt="Pro Line Kitchen Shears cover" loading="lazy"></div><h3>Pro Line Kitchen Shears</h3><div class="cap">Tramontina</div>{% endcall %}
+    {% call cards.projectCard("nesting-mixing-bowls") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1474857648317-2NW3G2DUM9CHOWLBWZ0K/Tramontina_mixing+bowls+blur.jpg" alt="Nesting Mixing Bowls cover" loading="lazy"></div><h3>Nesting Mixing Bowls</h3><div class="cap">Tramontina</div>{% endcall %}
+    {% call cards.projectCard("lifeline") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1478236038947-JE067TUH2DB8IMKM2884/lifeline.jpg" alt="Lifeline cover" loading="lazy"></div><h3>Lifeline</h3><div class="cap">Concept</div>{% endcall %}
+    {% call cards.projectCard("angel-eye") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1477771558823-QF5DCQ6ZLFJDBNVYQNVT/angel+eye7.jpg" alt="Angel Eye cover" loading="lazy"></div><h3>Angel Eye</h3><div class="cap">Concept</div>{% endcall %}
+    {% call cards.projectCard("zoom") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1465939174839-AU14KMCAPHBS7RE2AOKX/angel+eye+render35.jpg" alt="Zoom cover" loading="lazy"></div><h3>Zoom</h3><div class="cap">Concept</div>{% endcall %}
+    {% call cards.projectCard("beat-box") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1496724862433-3OS880B4UU8MEAG2XBCD/speaker1.29.jpg" alt="Beat Box cover" loading="lazy"></div><h3>Beat Box</h3><div class="cap">Concept</div>{% endcall %}
+    {% call cards.projectCard("play") %}<div class="thumb"><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1465936480886-FCZC9NQCSJEC9BQYQK2D/seh+portfolio55.jpg" alt="Play cover" loading="lazy"></div><h3>Play</h3><div class="cap">Concept</div>{% endcall %}
   </div>
 </section>

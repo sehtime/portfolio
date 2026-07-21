@@ -3,6 +3,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("gate.js");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addGlobalData("permalink", () => "{{ page.filePathStem }}.html");
+  eleventyConfig.addFilter("isDraft", function (collection, slug) {
+    const item = (collection || []).find((p) => p.fileSlug === slug);
+    return item ? !!item.data.draft : false;
+  });
 
   return {
     dir: {
