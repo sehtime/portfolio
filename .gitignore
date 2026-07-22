@@ -1,3 +1,7 @@
 node_modules/
 _site/
 .DS_Store
+
+# Raw NDA / internal source material — never commit or deploy.
+# Web-safe, sanitized exports live in assets/img/ instead.
+assets/background/

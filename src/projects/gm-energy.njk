@@ -25,7 +25,36 @@ extraStyle: |
   .findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
   .findings li b{display:block;font-size:15px;margin-bottom:3px}
   .findings li span{font-size:14.5px;color:var(--muted-2)}
+  .inits{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}
+  .init{border:1px solid var(--hair);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;background:#fffdfb}
+  .init .ph{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);display:flex;align-items:center;justify-content:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;text-align:center;padding:10px}
+  .init .body{padding:15px 18px 17px}
+  .init h3{font-size:15.5px;font-weight:600;margin-bottom:6px;padding:0}
+  .init p{font-size:13.5px;color:var(--muted-2);line-height:1.46;margin:0}
+  .init .todo{margin-top:11px;font-size:11px;color:#b06a4f;font-family:ui-monospace,Menlo,monospace;line-height:1.4}
   @media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:640px){.inits{grid-template-columns:1fr}}
+  .jmap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:8px}
+  .wmed{width:min(1000px,94vw);margin-left:50%;transform:translateX(-50%)}
+  .jgal-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
+  .jgal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .jcard{border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fffdfb}
+  .jcard img{width:100%;display:block;border-bottom:1px solid var(--hair)}
+  .jcard .cap{padding:15px 17px 16px}
+  .jcard .step{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:12.5px;display:block;margin-bottom:4px}
+  .jcard h4{font-size:15px;font-weight:600;margin:0 0 5px;padding:0}
+  .jcard p{font-size:13px;color:var(--muted-2);margin:0;line-height:1.46}
+  @media(max-width:640px){.jgal{grid-template-columns:1fr}}
+  .journey-split{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .journey-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .journey-imgs figure{margin:0}
+  .journey-imgs img{width:100%;display:block;border-radius:8px;border:1px solid var(--hair)}
+  .journey-imgs figcaption{margin-top:6px;font-size:12px;color:var(--muted);text-align:center}
+  .journey-text h3{font-size:clamp(19px,2.2vw,23px);font-weight:600;letter-spacing:-.01em;line-height:1.35;margin-bottom:12px}
+  .journey-text p{font-size:15px;color:var(--muted-2);line-height:1.65}
+  .journey-text p+p{margin-top:14px}
+  @media(max-width:900px){.journey-split{grid-template-columns:1fr}}
+  @media(max-width:480px){.journey-imgs{grid-template-columns:1fr}}
   </style>
   <script>if(sessionStorage.getItem('hems-gate')!=='1')document.documentElement.classList.add('hems-gated');</script>
   <style>html.hems-gated #hems-gate-target{display:none!important}html:not(.hems-gated) #hems-unlock{display:none!important}</style>
@@ -69,7 +98,8 @@ extraStyle: |
 
 <article class="case" id="hems-gate-target">
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <div class="slot" style="margin-top:8px">Journey map / service blueprint — image coming soon</div>
+  <figure class="jmap"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
 
   <div class="case-meta">
     <div><span>Role</span>User Experience Lead</div>
@@ -92,15 +122,39 @@ extraStyle: |
   <p>In fall 2022, home energy management systems were an emerging category and GM was entering it for the first time. There was no ecommerce presence, no established journey, and no agreed definition of who the customer even was.</p>
   <p>The engagement began as a service design project with four goals: define how GM Energy should engage with and serve its customers; identify the systems, platforms, and processes needed to enable that experience; craft a future-state vision through concepts and prototypes; and develop the roadmap to bring it to life. The work wasn't redesigning an experience — it was deciding what the experience should be, then carrying it to launch and beyond.</p>
 
-  <h2>Research</h2>
-  <p>With nothing to audit, research had to build the ground truth. Desk research across GM's existing consumer and brand work, then fieldwork — GM dealerships to experience the electric offering firsthand, competitor EV dealerships, and generator dealers to learn how home backup power actually gets sold today. Consumer interviews and surveys followed, and a series of service design workshops kept GM stakeholders building alongside us: ecosystem mapping, cross-selling opportunities, archetypes, and collaborative journey mapping.</p>
+  <h2>Research: understanding the ecosystem and the product line</h2>
+  <p>With nothing to audit, research had to build the ground truth — and the first job was simply to understand two things: the ecosystem GM Energy was stepping into, and the product line itself. I went into the field: GM dealerships to experience the electric offering firsthand, competitor EV dealerships, and generator dealers to learn how home backup power actually gets sold today — all alongside desk research across GM's existing consumer and brand work.</p>
+  <p>That fed a categorization exercise: mapping the emerging HEMS products against the customers most likely to want each one. It turned a raw catalog of chargers, storage, and backup hardware into a map of <em>who each product is for</em> — the foundation everything downstream would build on. Throughout, service design workshops kept GM stakeholders building alongside us rather than reviewing from a distance.</p>
+  <figure class="wmed"><img src="/assets/img/ecosystem-map.jpg" alt="GM Energy customer scenarios and product ecosystem — each HEMS product mapped to the customers most likely to want it" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>Customer scenarios × product ecosystem — mapping every HEMS product to who it's for, with the cross-sell sequence between them.</figcaption></figure>
 
-  <h2>Mapping a journey that didn't exist yet</h2>
-  <p>The research became an end-to-end journey map and service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step, the blueprint mapped touchpoints, frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing simultaneously, the blueprint became the organization's shared source of truth for what had to be built — and it kept being revised for years as reality caught up with the vision.</p>
-  <p>Storyboards zoomed into the moments that mattered most — micro-views of a single step considering the customer, GM staff, and environment, across digital and physical worlds. The install consultation, for example: an authorized installer standing in a customer's garage, where the digital experience has to hand off gracefully to a person.</p>
+  <h2>From a master blueprint to detailed journeys</h2>
+  <p>That understanding became a large end-to-end service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the organization's shared source of truth for what had to be built — and it kept being revised for years as reality caught up with the vision.</p>
+  <p>Momentum mattered more than certainty here. In a category no one had mapped yet, waiting for perfect data would have stalled everything — so we made our assumptions explicit and kept moving, treating the blueprint as <em>a living hypothesis, not a finished truth</em>. Every assumption became something to test: usability studies and surveys probed the riskiest ones, and incoming research — the audience segmentation especially — was absorbed the moment it landed, confirming or overturning what we'd sketched. That discipline of assume-then-validate is what let a zero-to-one map stay honest as the real product took shape.</p>
+  <p>The master map showed the whole system, but the real design work lived in the columns. I pulled individual columns out of the blueprint — checkout and financing especially — and expanded each into its own detailed journey map, married to the user personas so a map showed not just <em>what</em> happens at a step, but <em>who</em> it's happening to and how it feels. That's where a wall-sized diagram turned into decisions a team could design against.</p>
+  <figure class="jmap"><img src="/assets/img/checkout-journey.jpg" alt="The checkout section highlighted on the master blueprint and expanded into a detailed journey in a working session" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The checkout section spotlighted on the master blueprint and worked into its own detailed journey in a live session — where the checkout design and wireframing began. Shown at scale; detail intentionally not legible.</figcaption></figure>
+
+  <h2>One blueprint, many journeys</h2>
+  <div class="journey-split">
+    <div class="journey-imgs">
+      <figure><img src="/assets/img/journey-checkout.jpg" alt="Detailed checkout and financing journey" loading="lazy" /><figcaption>Checkout &amp; financing</figcaption></figure>
+      <figure><img src="/assets/img/journey-combined.jpg" alt="EV and HEMS combined ownership journey" loading="lazy" /><figcaption>EV + HEMS combined</figcaption></figure>
+      <figure><img src="/assets/img/journey-ev.jpg" alt="GM EV owner journey" loading="lazy" /><figcaption>The EV owner's path</figcaption></figure>
+      <figure><img src="/assets/img/journey-simplified.jpg" alt="Simplified stakeholder journey" loading="lazy" /><figcaption>Simplified stakeholder view</figcaption></figure>
+    </div>
+    <div class="journey-text">
+      <h3>Each version was a refinement — the journey evolving as we understood more about the customer.</h3>
+      <p>What started as a single checkout and financing path grew into a family of purpose-built views: a combined arc for customers buying an EV and home energy together, a dedicated path for the EV owner alone, and a simplified version distilled for stakeholders who needed the shape of the story, not every step.</p>
+      <p>Range mattered as much as depth — the same underlying blueprint could go granular or high-level depending on who needed to understand it, and each new version reflected what the latest research had taught us.</p>
+    </div>
+  </div>
+  <p style="margin-top:10px;font-size:13px;color:var(--muted)">All shown at scale; detail intentionally not legible.</p>
+
+  <p>Storyboards zoomed in further still — micro-views of a single moment considering the customer, GM staff, and environment, across digital and physical worlds. The install consultation, for example: an authorized installer standing in a customer's garage, where the digital experience has to hand off gracefully to a person.</p>
   <div class="slot">Storyboard — image coming soon</div>
 
-  <h2>Personas that earned their keep</h2>
+  <h2>Personas</h2>
   <p>The first personas were built the usual way — stakeholder interviews plus secondary research — producing three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). Dentsu's M1 segmentation sharpened the targeting: Tech Builders near-term, Smart Living long-term. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
   <p>The interesting part came later. Rather than let the personas calcify, we rebuilt them from evidence — pulling sentiments from <em>every</em> usability study run since May 2023, categorizing them by knowledge, cost, and concerns, then sorting real test participants into groups and deriving new attribute charts from what actual people said.</p>
   <p>That analysis surfaced a segment the market was only beginning to recognize. Driven by increasingly frequent extreme weather, a group emerged that wants home energy security and has no interest in an electric vehicle at all — <b>Rhonda</b>, prioritizing HEMS over EVs. For a company rooted in vehicles, that's a strategic finding, not just a design one: the energy business has a market that isn't downstream of vehicle sales.</p>
@@ -153,8 +207,107 @@ extraStyle: |
   <p>It also meant designing the feedback system itself. We mapped customer-satisfaction survey triggers across the entire ecosystem — post-sale, post-install, post-support-call, per partner — and then did the less obvious work of pruning them, prioritizing which moments genuinely warranted asking so customers weren't buried under surveys from four companies about the same purchase.</p>
 
   <h2>The wider system</h2>
-  <p>As the experience matured, the work widened to everything around it: Home Energy Consultant booking flows, global navigation and sitemap architecture, CRM moment maps for the purchase, dealer-referral, and Genie journeys, agent-assisted ordering, error states, an executive dashboard for the business, and a roadmap sequencing ecommerce milestones against vehicle software releases. Accessibility ran throughout — WCAG audits of the live site plus a designer-facing checklist and Figma annotation kit covering contrast, keyboard operability, and motion, so compliance was something the team designed toward rather than remediated.</p>
-  <p>Quarterly competitive analysis across eight energy competitors — Panasonic, Schneider, Eaton, Enphase, Emporia, Generac, LG, and Span — tracked each one through awareness, consideration, purchase, and post-purchase, including their mobile apps. It confirmed the size of the bet: most competitors still have no direct ecommerce at all, only lead forms, dealer networks, and quote requests. GM Energy sells online.</p>
+  <p>Zero-to-one commerce is never just a storefront. As the experience matured, the work widened across the whole lifecycle — each of these a smaller initiative in its own right. A selection:</p>
+
+  <!-- ============================================================
+       SELECTED INITIATIVES — fillable grid.
+       For each tile: tweak the one-liner, drop ONE sanitized image
+       into the .ph slot (swap the <div class="ph"> for an <img>),
+       and delete the .todo line when done. Add or remove tiles freely.
+       ============================================================ -->
+  <div class="inits">
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Home Energy Consultant booking</h3>
+        <p>Scheduling flows for a 1:1 consultation with a Home Energy Consultant, woven into the shopping and support journeys.</p>
+        <div class="todo">▸ add: your specific role + one sanitized screen</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Navigation &amp; information architecture</h3>
+        <p>Global nav and sitemap for a growing catalog — grounded in a 24-product card sort that pushed toward simpler, four-category grouping.</p>
+        <div class="todo">▸ add: sitemap or nav artifact + the IA decision</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Agent-assisted ordering</h3>
+        <p>A "buy on behalf of" path letting an agent build, place, and take payment on an order for a customer over the phone.</p>
+        <div class="todo">▸ add: the flow + why it mattered for HEMS</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>My Account &amp; order tracking</h3>
+        <p>The post-purchase account — order status, installation scheduling, and documents — the screens customers live in after buying.</p>
+        <div class="todo">▸ add: a sanitized account screen + one insight</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Error &amp; edge states</h3>
+        <p>The unglamorous half of commerce — error, empty, loading, and eligibility states across the funnel, so the happy path never dead-ends.</p>
+        <div class="todo">▸ add: an example state + the principle behind it</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Accessibility (WCAG)</h3>
+        <p>Live-site audits plus a designer-facing checklist and Figma annotation kit for contrast, keyboard, and motion — so compliance was designed toward, not remediated.</p>
+        <div class="todo">▸ add: the checklist/annotation kit + your role</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Executive dashboard</h3>
+        <p>A business-facing view giving leadership visibility into the funnel and program health at a glance.</p>
+        <div class="todo">▸ add: a sanitized dashboard view + what it answered</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Competitive analysis</h3>
+        <p>Quarterly teardown of eight energy competitors across the full journey — confirming most still can't sell online, only take leads.</p>
+        <div class="todo">▸ add: a comparison artifact + the headline takeaway</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>Roadmap &amp; CRM moments</h3>
+        <p>A roadmap sequencing ecommerce milestones against GM's vehicle software (OTA) releases, plus moment maps feeding a triggered CRM lifecycle.</p>
+        <div class="todo">▸ add: roadmap or moment-map artifact</div>
+      </div>
+    </div>
+
+    <div class="init">
+      <div class="ph">Image — coming soon</div>
+      <div class="body">
+        <h3>[ Your initiative ]</h3>
+        <p>Anything the sweep missed — duplicate a tile to add more. Keep each to one idea, one image, one sentence.</p>
+        <div class="todo">▸ template tile — copy me for new initiatives</div>
+      </div>
+    </div>
+
+  </div>
 
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
