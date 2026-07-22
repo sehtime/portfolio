@@ -33,6 +33,13 @@ extraStyle: |
   <p class="lead">Sole UX designer on a pricing platform now used across Shell's global chemicals business — from a design sprint in Rotterdam to a first release that nearly tripled weekly active users.</p>
 </header>
 
+{% if draft %}
+<div class="wrap" style="max-width:640px;padding:8px var(--gut) clamp(56px,8vw,88px);text-align:center">
+  <span class="draft-badge" style="position:static;transform:none;display:inline-block;margin-bottom:14px">In progress</span>
+  <div style="font-weight:600;font-size:19px;letter-spacing:-.01em;margin-bottom:10px">This case study is still being written</div>
+  <p style="color:var(--muted-2);font-size:15.5px;line-height:1.6">Check back soon — in the meantime, continue on to the next project below.</p>
+</div>
+{% else %}
 <article class="case">
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
   <figure style="margin-top:8px"><img src="/assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
@@ -87,5 +94,6 @@ extraStyle: |
   <p>The result that mattered most to me was the one from the workshop's closing circle:</p>
   <blockquote class="pull">"I feel like we had to go through this process to get to this point. Now this feels like one team. It feels like our solution."<cite>Workshop participant, Chemicals Commercial Business</cite></blockquote>
 </article>
+{% endif %}
 
 {% include "partials/pager.njk" %}
