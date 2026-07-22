@@ -27,6 +27,8 @@ extraStyle: |
   .findings li span{font-size:14.5px;color:var(--muted-2)}
   @media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
   </style>
+  <script>if(sessionStorage.getItem('hems-gate')!=='1')document.documentElement.classList.add('hems-gated');</script>
+  <style>html.hems-gated #hems-gate-target{display:none!important}html:not(.hems-gated) #hems-unlock{display:none!important}</style>
 ---
 {% include "partials/back-link.njk" %}
 
@@ -36,7 +38,36 @@ extraStyle: |
   <p class="lead">GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
 </header>
 
-<article class="case">
+<div id="hems-unlock" class="wrap" style="max-width:380px;padding:80px var(--gut);text-align:center">
+  <div style="font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink)">This project is password protected</div>
+  <div style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted-2);margin:8px 0 22px">Enter the password to view this case study.</div>
+  <input id="hems-pw" type="password" autocomplete="off" placeholder="Password" style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font-size:15px;box-sizing:border-box;font-family:inherit" />
+  <div id="hems-err" style="color:#e8501f;font-size:13px;height:18px;margin-top:8px"></div>
+  <button id="hems-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15px;cursor:pointer;font-family:inherit">Enter</button>
+</div>
+<script>
+(function(){
+  var PASSWORD = "sunday";
+  var btn = document.getElementById('hems-go');
+  if(!btn) return;
+  var pw = document.getElementById('hems-pw');
+  var err = document.getElementById('hems-err');
+  function go(){
+    if(pw.value === PASSWORD){
+      sessionStorage.setItem('hems-gate','1');
+      document.documentElement.classList.remove('hems-gated');
+    } else {
+      err.textContent = 'Incorrect password';
+      pw.value = '';
+      pw.focus();
+    }
+  }
+  btn.addEventListener('click', go);
+  pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') go(); });
+})();
+</script>
+
+<article class="case" id="hems-gate-target">
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
   <div class="slot" style="margin-top:8px">Journey map / service blueprint — image coming soon</div>
 

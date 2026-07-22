@@ -8,7 +8,8 @@ pager:
   nextHref: content-curation.html
   nextTitle: Content Curation
 extraStyle: |
-  <style>.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}}</style>
+  <style>.img-pair{display:grid;grid-template-columns:1fr 1fr;gap:22px}@media(max-width:640px){.img-pair{grid-template-columns:1fr}}
+  .case-hero-img{border:none;border-radius:0;width:calc(100% + 2 * var(--gut));max-width:none;margin-inline:calc(-1 * var(--gut))}</style>
 ---
 {% include "partials/back-link.njk" %}
 
@@ -112,12 +113,6 @@ extraStyle: |
   </div>
   <p>We used the results from this workshop as a starting point to prototype two experiences to test with users and get feedback on improvements. This data will also be used to identify other areas that eSigns can test and improve — giving us a backlog for phase two of the project.</p>
 
-  <div class="case-meta" style="margin-top:44px">
-    <div><span>UX Strategist</span>Sehyoung Hamjong</div>
-    <div><span>Graphic Designers</span>Terence Tang, Jason Villanueva</div>
-    <div><span>UX Director</span>JJ Jose</div>
-    <div><span>Art Directors</span>Linsy Nguyen, Ismael Vazquez</div>
-  </div>
 </article>
 
 {% include "partials/pager.njk" %}

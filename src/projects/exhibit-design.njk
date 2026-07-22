@@ -8,10 +8,26 @@ pager:
   nextTitle: Tesoura Kitchen Shears
 extraStyle: |
   <style>
-  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:980px;margin:0 auto;padding:0 var(--gut) clamp(64px,9vw,100px)}
-  .gal .slot{aspect-ratio:4/3;border-radius:6px;border:1px dashed rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-align:center;color:#8f877a;font:11px ui-monospace,Menlo,monospace;padding:10px;background:var(--dark-2)}
-  .gal img{border-radius:6px;border:1px solid var(--dark-hair);width:100%}
-  @media(max-width:640px){.gal{grid-template-columns:1fr}}
+  .gal{column-count:2;column-gap:22px;max-width:980px;margin:0 auto;padding:0 var(--gut) clamp(64px,9vw,100px)}
+  .gal .slot{aspect-ratio:4/3;border-radius:6px;border:1px dashed rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-align:center;color:#8f877a;font:11px ui-monospace,Menlo,monospace;padding:10px;background:var(--dark-2);break-inside:avoid;margin-bottom:22px}
+  .gal figure{break-inside:avoid;margin:0 0 22px}
+  .gal img{border-radius:6px;border:1px solid var(--dark-hair);width:100%;display:block}
+  @media(max-width:640px){.gal{column-count:1}}
+  .spotlight{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;background:var(--dark-2);margin-bottom:clamp(48px,7vw,72px)}
+  .spotlight--reverse .spotlight-media{order:2}
+  .spotlight--reverse .spotlight-text{order:1}
+  .spotlight-media{display:flex;align-items:center;justify-content:center;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px);padding-left:clamp(48px,9vw,120px);padding-right:clamp(16px,3vw,32px)}
+  .spotlight-media img{width:100%;height:auto;border-radius:6px;display:block}
+  .spotlight-text{display:flex;flex-direction:column;justify-content:center;padding-top:clamp(40px,6vw,72px);padding-bottom:clamp(40px,6vw,72px);padding-left:clamp(16px,3vw,32px);padding-right:clamp(48px,9vw,120px)}
+  .spotlight--reverse .spotlight-media{padding-left:clamp(16px,3vw,32px);padding-right:clamp(48px,9vw,120px)}
+  .spotlight--reverse .spotlight-text{padding-left:clamp(48px,9vw,120px);padding-right:clamp(16px,3vw,32px)}
+  .spotlight-text .eyebrow{margin-bottom:14px}
+  .spotlight-text .headline{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(21px,2.4vw,28px);line-height:1.4;color:var(--on-dark);margin-bottom:16px;max-width:32ch}
+  .spotlight-text p{color:var(--on-dark-muted);font-size:15.5px;line-height:1.7;max-width:42ch}
+  .spotlight-text p+p{margin-top:14px}
+  @media(max-width:760px){.spotlight{grid-template-columns:1fr}.spotlight-media img{min-height:260px}.spotlight--reverse .spotlight-media{order:1}.spotlight--reverse .spotlight-text{order:2}.spotlight-media,.spotlight-text,.spotlight--reverse .spotlight-media,.spotlight--reverse .spotlight-text{padding-left:var(--gut);padding-right:var(--gut)}}
+  .gal-full{max-width:980px;margin:0 auto;padding:0 var(--gut) clamp(48px,7vw,72px)}
+  .gal-full img{border-radius:6px;border:1px solid var(--dark-hair);width:100%;display:block}
   </style>
 ---
 {% include "partials/back-link.njk" %}
@@ -19,28 +35,61 @@ extraStyle: |
 <header class="page-hero wrap">
   <span class="eyebrow">Advent</span>
   <h1>Exhibit Design</h1>
+  <p class="lead">At Advent, I designed trade show booths and displays for a range of client companies — translating each brand's story and products into a physical environment built to stand out on a crowded show floor. My role spanned the full arc: concepting the initial direction, developing the design, and building the booths and displays for deployment.</p>
 </header>
 
-<div style="max-width:980px;margin:0 auto;padding:0 var(--gut) 34px">
-  <img class="case-hero-img" style="border-color:var(--dark-hair)" src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1497300911420-119TID3JM47KRY9PJ4PU/Exhibit+Design+Cover+copy.jpg" alt="Exhibit Design — cover image" />
+<div class="spotlight">
+  <div class="spotlight-media"><img src="/assets/img/exhibit-design/sonogage.png" alt="Sonogage" loading="lazy" /></div>
+  <div class="spotlight-text">
+    <span class="eyebrow">Featured project</span>
+    <h3 class="headline">Sonogage</h3>
+    <p>[Add your explanation here — tell me what you'd like this to say and I'll drop it in.]</p>
+  </div>
+</div>
+
+<div class="gal-full">
+  <img src="/assets/img/exhibit-design/qci-rendering.jpg" alt="QCI Rendering" loading="lazy" />
 </div>
 
 <div class="gal">
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
+  <figure><img src="/assets/img/exhibit-design/cq-meeting-room.jpg" alt="CQ Meeting Room" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/polin-waterparks.jpg" alt="Polin Waterparks" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/carku-exhibit.jpg" alt="Carku Exhibit" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/elleffe-exhibit.jpg" alt="Elleffe Exhibit" loading="lazy" /></figure>
+</div>
+
+<div class="spotlight spotlight--reverse">
+  <div class="spotlight-media"><img src="/assets/img/exhibit-design/microprobes-exhibit.jpg" alt="Microprobes Exhibit" loading="lazy" /></div>
+  <div class="spotlight-text">
+    <span class="eyebrow">Featured project</span>
+    <h3 class="headline">Microprobes</h3>
+    <p>[Add your explanation here — tell me what you'd like this to say and I'll drop it in.]</p>
+  </div>
+</div>
+
+<div class="gal">
+  <figure><img src="/assets/img/exhibit-design/unicorn-tires-exhibit.jpg" alt="Unicorn Tires Exhibit" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/gowell-exhibit.jpg" alt="Gowell Exhibit" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/axis-foldable-kiosk.jpg" alt="Axis Foldable Kiosk" loading="lazy" /></figure>
+</div>
+
+<div class="spotlight">
+  <div class="spotlight-media"><img src="/assets/img/exhibit-design/gowell-exhibit-2.jpg" alt="Pegasus Star / Tool Rack Display" loading="lazy" /></div>
+  <div class="spotlight-text">
+    <span class="eyebrow">Featured project</span>
+    <h3 class="headline">Pegasus Star</h3>
+    <p>[Add your explanation here — tell me what you'd like this to say and I'll drop it in.]</p>
+  </div>
+</div>
+
+<div class="gal-full">
+  <img src="/assets/img/exhibit-design/woodgroup-exhibit.jpg" alt="Woodgroup Exhibit" loading="lazy" />
+</div>
+
+<div class="gal">
+  <figure><img src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1495470627503-FMQ37XCWC8XGSFRONK14/Ygrene+Exhibit.jpg" alt="Ygrene Exhibit" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/loxim-exhibit.jpg" alt="Loxim Exhibit" loading="lazy" /></figure>
+  <figure><img src="/assets/img/exhibit-design/amazon-snowball-display.jpg" alt="Amazon Snowball Display" loading="lazy" /></figure>
 </div>
 
 {% include "partials/pager.njk" %}

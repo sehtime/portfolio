@@ -13,7 +13,7 @@ Built with Eleventy (11ty) as a static site generator — templates + partials, 
 ## Structure (post-Eleventy-migration)
 - `src/` — source of truth; all pages are `.njk` templates here (flat `.html` files no longer exist, removed from repo, still in git history)
 - `src/_includes/layouts/base.njk` — shared page shell every template extends
-- `src/_includes/partials/` — shared head, nav, footer, pager, back-link partials. Edit nav/footer/gate wiring here once, not per-page.
+- `src/_includes/partials/` — shared head, nav, footer, pager, back-link partials. Edit nav/footer wiring here once, not per-page.
 - `src/index.njk` — homepage, UX case studies grid
 - `src/industrial.njk` — Industrial Design work
 - `src/about.njk` — About page
@@ -22,8 +22,9 @@ Built with Eleventy (11ty) as a static site generator — templates + partials, 
 - `_site/` — Eleventy's build output (generated, not source — don't hand-edit)
 - `css/style.css` — single shared stylesheet for the whole site (unchanged, not templated)
 - `assets/img/` — project and site images
-- `assets/Sehyoung-Hamjong-Resume.pdf` — downloadable resume
-- `gate.js` — client-side password gate (uses `sessionStorage` key `sehgate`); wired into `base.njk`/nav partial
+- `assets/Sehyoung-Hamjong-Resume.pdf` — downloadable resume (generated file, don't hand-edit — see below)
+- `resume-pdf/resume.html` — source of the downloadable resume PDF: a plain, ATS-friendly single-page template (no site fonts/styling), kept in sync by hand with `src/resume.njk`'s content
+- `scripts/build-resume-pdf.sh` — regenerates `assets/Sehyoung-Hamjong-Resume.pdf` from `resume-pdf/resume.html` via headless Chrome; run `npm run resume:pdf`. Not wired into the Netlify build (needs a local Chrome install), so after editing resume content in both places, re-run this manually to refresh the PDF.
 - `.eleventy.js` — Eleventy config
 - `package.json` — `npm start` runs local dev server (`eleventy --serve`), `npm run build` builds to `_site/`
 - `netlify.toml` — build command + publish dir for Netlify
@@ -33,7 +34,8 @@ Output paths still resolve exactly as before migration (e.g. `/projects/gm-energ
 
 ## Conventions
 - Edit templates in `src/`, never the generated `_site/` output
-- Shared chrome (nav, footer, head, gate) lives in `src/_includes/partials/` — change once, applies everywhere
+- Shared chrome (nav, footer, head) lives in `src/_includes/partials/` — change once, applies everywhere
+- The HEMS eCommerce project (`src/projects/gm-energy.njk`) has its own standalone password gate (separate from the rest of the site, which is now public) — self-contained in that page's front matter/body, not shared via partials
 - Fonts: Space Grotesk + Newsreader, loaded from Google Fonts via the shared head partial
 - Nav highlights the active top-level section (UX vs Industrial) — this logic lives in the nav partial, preserve it when editing
 - New case study pages go in `src/projects/` and get linked from the relevant grid on `index.njk` or `industrial.njk`

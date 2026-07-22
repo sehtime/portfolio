@@ -1,6 +1,5 @@
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
-  eleventyConfig.addPassthroughCopy("gate.js");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addGlobalData("permalink", () => "{{ page.filePathStem }}.html");
   eleventyConfig.addFilter("isDraft", function (collection, slug) {
