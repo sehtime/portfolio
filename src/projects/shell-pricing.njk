@@ -11,10 +11,6 @@ pager:
 extraStyle: |
   <style>
   .slot{border:1px dashed #c9c6bf;border-radius:6px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;text-align:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:14px;margin-top:30px}
-  .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin:34px 0 8px}
-  .stat{border:1px solid var(--hair);border-radius:8px;padding:20px}
-  .stat b{display:block;font-size:clamp(26px,3.5vw,38px);font-weight:600;letter-spacing:-.02em;color:var(--accent)}
-  .stat span{font-size:13px;color:var(--muted)}
   .days{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .day{border:1px solid var(--hair);border-radius:8px;padding:16px}
   .day b{display:block;font-family:var(--serif);font-style:italic;color:var(--accent);margin-bottom:6px}
@@ -40,21 +36,35 @@ extraStyle: |
   <p style="color:var(--muted-2);font-size:15.5px;line-height:1.6">Check back soon — in the meantime, continue on to the next project below.</p>
 </div>
 {% else %}
-<article class="case">
+<article class="case" id="shell-case">
+  <div class="tldr-keep" style="display:flex;justify-content:center;margin-bottom:6px">
+    <div class="view-toggle" role="tablist" aria-label="Case study view">
+      <button class="vt-btn on" id="vt-detailed" type="button" aria-selected="true">Detailed</button>
+      <button class="vt-btn" id="vt-tldr" type="button" aria-selected="false">TL;DR</button>
+    </div>
+  </div>
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <figure style="margin-top:8px"><img src="/assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
+  <figure class="tldr-keep" style="margin-top:8px"><img src="/assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
   <figcaption>The Supply &amp; Demand module — labels sanitized for public display.</figcaption></figure>
 
-  <div class="case-meta">
+  <div class="case-meta tldr-keep">
     <div><span>Role</span>Product Designer — sole UX designer</div>
     <div><span>Team</span>PM · Tech Lead · 12 developers · embedded Product Owner &amp; SMEs</div>
     <div><span>Timeline</span>Apr 2019 – Dec 2021 · Shell Agile Hub</div>
   </div>
 
-  <div class="stat-row">
-    <div class="stat"><b>28 → 80</b><span>Weekly active users after the first release — nearly 3×</span></div>
-    <div class="stat"><b>Global</b><span>Used across Shell's chemicals business worldwide</span></div>
-    <div class="stat"><b>15+</b><span>International participants in the Rotterdam design sprint</span></div>
+  <div class="impact-block tldr-keep">
+    <h2>Impact</h2>
+    <ul class="impact-list">
+      <li><b>Nearly tripled weekly active users with the first release</b><span>From 28 to 80 weekly active users, with parallel gains in shared analyses and time in tool — on a problem an external vendor had already failed at once.</span></li>
+      <li><b>Reframed a "technology problem" into a trust problem</b><span>The Rotterdam design sprint revealed the failed tool was a symptom — data lived everywhere and nobody trusted it. That insight drove a foundation-first data strategy and a no-black-box design principle.</span></li>
+      <li><b>Designed a system that scaled to five modules</b><span>As sole UX designer, built the design system and module architecture that let the product grow for two and a half years without users relearning anything — now used across Shell's global chemicals business.</span></li>
+    </ul>
+    <div class="stat-row">
+      <div class="stat"><b>28 → 80</b><span>Weekly active users after the first release — nearly 3×</span></div>
+      <div class="stat"><b>5 modules</b><span>Grown from one shared architecture, used worldwide</span></div>
+      <div class="stat"><b>15+</b><span>International participants in the Rotterdam design sprint</span></div>
+    </div>
   </div>
 
   <h2>The challenge</h2>
@@ -89,11 +99,28 @@ extraStyle: |
   <p>Shipping one screen at a time for two and a half years only works if the parts agree with each other. I built and maintained the product's design system — a UI kit (first in Sketch, later Figma), a color palette tuned for dense data visualization, and a consistent architecture every module inherits: a dark data panel on the left for products, regions, scenarios and units; a light chart canvas on the right with export, chart options, and comments.</p>
   <p>That skeleton let the product grow to five modules — Supply &amp; Demand, Price Viewer, Cash Cost Curve, Value in Use, and user Profiles — without users relearning anything. It also carried the collaboration layer the workshop asked for: comments and replies on outages, super-user roles for maintaining shared data, notifications, and the ability to save, organize, and share analyses from a personal account — so an analysis stops being one person's spreadsheet and becomes something the whole team can pick up.</p>
 
+  <div class="tldr-keep">
   <h2>Outcome</h2>
   <p>The tool's first release nearly tripled weekly active users — from 28 to 80 — with parallel gains in shared analyses and time in tool. Development continued sprint after sprint for two and a half years, expanding to more product lines and integrating with a sister deal-analysis tool. It's now used across Shell's global chemicals business.</p>
   <p>The result that mattered most to me was the one from the workshop's closing circle:</p>
   <blockquote class="pull">"I feel like we had to go through this process to get to this point. Now this feels like one team. It feels like our solution."<cite>Workshop participant, Chemicals Commercial Business</cite></blockquote>
+  </div>
 </article>
+
+<script>
+(function(){
+  var art = document.getElementById('shell-case');
+  var bD = document.getElementById('vt-detailed'), bT = document.getElementById('vt-tldr');
+  if(!art || !bD) return;
+  function set(tldr){
+    art.classList.toggle('case--tldr', tldr);
+    bD.classList.toggle('on', !tldr); bT.classList.toggle('on', tldr);
+    bD.setAttribute('aria-selected', !tldr); bT.setAttribute('aria-selected', tldr);
+  }
+  bD.addEventListener('click', function(){ set(false); });
+  bT.addEventListener('click', function(){ set(true); });
+})();
+</script>
 {% endif %}
 
 {% include "partials/pager.njk" %}
