@@ -20,6 +20,8 @@ extraStyle: |
   @media(max-width:760px){.stat-row{grid-template-columns:1fr}.days{grid-template-columns:repeat(2,1fr)}}
   @media(max-width:480px){.days{grid-template-columns:1fr}}
   </style>
+  <script>if(sessionStorage.getItem('shell-gate')!=='1')document.documentElement.classList.add('shell-gated');</script>
+  <style>html.shell-gated #shell-case{display:none!important}html:not(.shell-gated) #shell-unlock{display:none!important}</style>
 ---
 {% include "partials/back-link.njk" %}
 
@@ -36,6 +38,34 @@ extraStyle: |
   <p style="color:var(--muted-2);font-size:15.5px;line-height:1.6">Check back soon — in the meantime, continue on to the next project below.</p>
 </div>
 {% else %}
+<div id="shell-unlock" class="wrap" style="max-width:380px;padding:80px var(--gut);text-align:center">
+  <div style="font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink)">This project is password protected</div>
+  <div style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted-2);margin:8px 0 22px">Enter the password to view this case study.</div>
+  <input id="shell-pw" type="password" autocomplete="off" placeholder="Password" style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font-size:15px;box-sizing:border-box;font-family:inherit" />
+  <div id="shell-err" style="color:#e8501f;font-size:13px;height:18px;margin-top:8px"></div>
+  <button id="shell-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15px;cursor:pointer;font-family:inherit">Enter</button>
+</div>
+<script>
+(function(){
+  var PASSWORD = "sunday";
+  var btn = document.getElementById('shell-go');
+  if(!btn) return;
+  var pw = document.getElementById('shell-pw');
+  var err = document.getElementById('shell-err');
+  function go(){
+    if(pw.value === PASSWORD){
+      sessionStorage.setItem('shell-gate','1');
+      document.documentElement.classList.remove('shell-gated');
+    } else {
+      err.textContent = 'Incorrect password';
+      pw.value = '';
+      pw.focus();
+    }
+  }
+  btn.addEventListener('click', go);
+  pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') go(); });
+})();
+</script>
 <article class="case" id="shell-case">
   <div class="tldr-keep" style="display:flex;justify-content:center;margin-bottom:6px">
     <div class="view-toggle" role="tablist" aria-label="Case study view">
