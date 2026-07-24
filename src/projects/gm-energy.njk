@@ -17,15 +17,10 @@ extraStyle: |
   .track-tbl th,.track-tbl td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--hair);vertical-align:top}
   .track-tbl th{font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
   .track-tbl td:first-child{color:var(--muted-2);width:30%}
-  .persona-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:26px}
-  .persona{border:1px solid var(--hair);border-radius:8px;padding:16px}
-  .persona b{display:block;font-size:16px;margin-bottom:4px}
-  .persona span{font-size:13px;color:var(--muted)}
   .findings{list-style:none;padding:0;margin-top:24px}
   .findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
   .findings li b{display:block;font-size:15px;margin-bottom:3px}
   .findings li span{font-size:14.5px;color:var(--muted-2)}
-  @media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
   .jmap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:8px}
   .wmed{width:min(1000px,94vw);margin-left:50%;transform:translateX(-50%)}
   .jgal-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
@@ -47,6 +42,29 @@ extraStyle: |
   .journey-text p+p{margin-top:14px}
   @media(max-width:900px){.journey-split{grid-template-columns:1fr}}
   @media(max-width:480px){.journey-imgs{grid-template-columns:1fr}}
+  :root{--c-markus:#B23A48;--c-tom:#2C97D1;--c-rhonda:#7A4EB2;--c-fiona:#2BA84A}
+  .pmap-legend{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px}
+  .pchip{display:flex;align-items:center;gap:9px;border:1px solid var(--hair);border-radius:99px;padding:6px 14px 6px 7px;background:#fffdfb;cursor:pointer;transition:border-color .2s,box-shadow .2s;font-family:inherit;text-align:left}
+  .pchip img{width:28px;height:28px;border-radius:50%;display:block;border:2px solid var(--pc)}
+  .pchip .nm{font-size:13px;font-weight:600;line-height:1.15}
+  .pchip .rl{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:11.5px;color:var(--muted)}
+  .pchip:hover,.pchip.on{border-color:var(--pc);box-shadow:0 0 0 1px var(--pc)}
+  .pmap-overview{width:min(1100px,94vw);margin:22px auto 0;position:relative}
+  .pmap-overview img{width:100%;display:block;border-radius:10px;border:1px solid var(--hair);background:#fffdfb}
+  .pmap-overview::after{content:"";position:absolute;inset:0;z-index:1;border-radius:10px;background:rgba(250,249,246,.72);opacity:0;transition:opacity .18s;pointer-events:none}
+  .pmap-overview.dimmed::after{opacity:1}
+  .pmap-modal{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:5%;opacity:0;transform:scale(.97);transition:opacity .18s,transform .18s;pointer-events:none}
+  .pmap-modal.show{opacity:1;transform:scale(1)}
+  .pmap-modal img{max-width:100%;max-height:100%;display:block;border-radius:10px;border:1px solid var(--hair);background:#fffdfb;box-shadow:0 16px 40px rgba(0,0,0,.16)}
+  .pmap-detail{width:min(1100px,94vw);margin:40px auto 0;display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+  .pmap-detail--reverse .pmap-text{order:2}
+  .pmap-detail--reverse .pmap-img{order:1}
+  .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:10px}
+  .pmap-name i{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--muted);font-size:13px;margin-left:8px}
+  .pmap-text p{font-size:15px;color:var(--muted-2);line-height:1.65}
+  .pmap-img img{width:100%;display:block;border-radius:8px;border:1px solid var(--hair);background:#fffdfb}
+  @media(max-width:780px){.pmap-detail{grid-template-columns:1fr}.pmap-detail--reverse .pmap-text{order:1}.pmap-detail--reverse .pmap-img{order:2}}
+  .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   </style>
   <script>if(sessionStorage.getItem('hems-gate')!=='1')document.documentElement.classList.add('hems-gated');</script>
   <style>html.hems-gated #hems-gate-target{display:none!important}html:not(.hems-gated) #hems-unlock{display:none!important}</style>
@@ -143,6 +161,109 @@ extraStyle: |
   </div>
   <p style="margin-top:10px;font-size:13px;color:var(--muted)">All shown at scale; detail intentionally not legible.</p>
 
+  <h2>One map, four ways through it</h2>
+  <p>To understand where the purchase opportunities were for the HEMS products, we needed to understand each journey depending on where the customer started. This led to the multiple journeys that illustrated where those opportunities lived, and what each persona's experience looked like.</p>
+  <p>The master blueprint held the whole system; the journeys made it personal. Each detailed journey is a section of the service map pulled out and rebuilt around a specific buyer we'd identified — same underlying machinery, different touchpoints, different order of events.</p>
+  <p>Structuring the work around the four personas produced <b>three distinct journeys</b> — HEMS, EV, and one that didn't exist until a customer forced the issue. Some personas share a journey but enter and leave it at different points; some cross from one journey into another mid-stream. <em>Hover a persona to see their path.</em></p>
+
+  <div class="pmap-legend" id="pmlegend">
+    <button class="pchip" data-p="tom" style="--pc:var(--c-tom)" type="button">
+      <img src="/assets/img/persona-av-tom.jpg" alt="">
+      <span class="nm">Tom<span class="rl">Product Switcher</span></span>
+    </button>
+    <button class="pchip" data-p="markus" style="--pc:var(--c-markus)" type="button">
+      <img src="/assets/img/persona-av-markus.jpg" alt="">
+      <span class="nm">Markus<span class="rl">EV Intender</span></span>
+    </button>
+    <button class="pchip" data-p="rhonda" style="--pc:var(--c-rhonda)" type="button">
+      <img src="/assets/img/persona-av-rhonda.jpg" alt="">
+      <span class="nm">Rhonda<span class="rl">HEMS Upgrader</span></span>
+    </button>
+    <button class="pchip" data-p="fiona" style="--pc:var(--c-fiona)" type="button">
+      <img src="/assets/img/persona-av-fiona.jpg" alt="">
+      <span class="nm">Fiona<span class="rl">EV/HEMS Buyer</span></span>
+    </button>
+  </div>
+
+  <figure class="pmap-overview" id="pmoverview-wrap">
+    <img id="pmoverview-img" src="/assets/img/journey-map-diagrams/overview.jpg" alt="Diagram mapping four personas to three journeys — HEMS, EV, and EV/HEMS combined — with colored lanes showing entry and exit points" loading="lazy" />
+    <div class="pmap-modal" id="pmmodal">
+      <img id="pmmodal-img" src="" alt="" />
+    </div>
+  </figure>
+  <p class="footnote" style="margin-top:10px">Journeys shown as structure only — each block stands in for the fully detailed map behind it.</p>
+
+  <script>
+  (function(){
+    var wrap = document.getElementById('pmoverview-wrap');
+    var modal = document.getElementById('pmmodal');
+    var modalImg = document.getElementById('pmmodal-img');
+    var chips = document.querySelectorAll('#pmlegend .pchip');
+    var data = {
+      tom: { src: '/assets/img/journey-map-diagrams/tom-detailed.jpg', alt: "Tom's detailed EV Journey — starting in the EV Journey, transitioning into the Home Integrated Journey" },
+      markus: { src: '/assets/img/journey-map-diagrams/markus-detailed.jpg', alt: "Markus's detailed Home Integrated Journey — starting in the HEMS Journey, transitioning into the EV Journey" },
+      rhonda: { src: '/assets/img/journey-map-diagrams/rhonda-detailed.jpg', alt: "Rhonda's detailed Home Integrated Journey — HEMS only, start to finish" },
+      fiona: { src: '/assets/img/journey-map-diagrams/fiona-detailed.jpg', alt: "Fiona's detailed EV & HEMS Combined Journey" }
+    };
+    var cur = null;
+    function set(p){
+      var d = p && data[p];
+      if(d){
+        modalImg.setAttribute('src', d.src);
+        modalImg.setAttribute('alt', d.alt);
+        modal.classList.add('show');
+        wrap.classList.add('dimmed');
+      } else {
+        modal.classList.remove('show');
+        wrap.classList.remove('dimmed');
+      }
+      chips.forEach(function(c){ c.classList.toggle('on', c.dataset.p === p); });
+      cur = p;
+    }
+    chips.forEach(function(c){
+      c.addEventListener('mouseenter', function(){ set(c.dataset.p); });
+      c.addEventListener('mouseleave', function(){ if(cur === c.dataset.p && !c.classList.contains('lock')) set(null); });
+      c.addEventListener('click', function(){
+        var lock = c.classList.contains('lock');
+        chips.forEach(function(x){ x.classList.remove('lock'); });
+        if(!lock){ c.classList.add('lock'); set(c.dataset.p); } else { set(null); }
+      });
+    });
+  })();
+  </script>
+
+  <div class="pmap-detail">
+    <div class="pmap-text">
+      <span class="pmap-name" style="color:var(--c-tom)">Tom <i>Product Switcher</i></span>
+      <p>Tom recently purchased a Cadillac Escalade IQ and completed the EV Journey. Now interested in a GM Energy Home system, he crosses over and enters the HEMS Journey through app onboarding — an owner who wants his home to keep up with his vehicle.</p>
+    </div>
+    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/tom.jpg" alt="Tom's path — completing the EV Journey, then entering the HEMS Journey" loading="lazy" /></figure>
+  </div>
+
+  <div class="pmap-detail pmap-detail--reverse">
+    <div class="pmap-text">
+      <span class="pmap-name" style="color:var(--c-markus)">Markus <i>EV Intender</i></span>
+      <p>Tom's mirror image. Markus is completing the HEMS Journey for the purchase of a GM Energy Home System, and has decided to purchase a Silverado EV — entering the EV Journey next.</p>
+    </div>
+    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/markus.jpg" alt="Markus's path — completing the HEMS Journey, then entering the EV Journey" loading="lazy" /></figure>
+  </div>
+
+  <div class="pmap-detail">
+    <div class="pmap-text">
+      <span class="pmap-name" style="color:var(--c-rhonda)">Rhonda <i>HEMS Upgrader</i></span>
+      <p>Rhonda is only interested in purchasing the GM Energy Home System and completes the HEMS Journey — start to finish. She never touches the EV path, the segment that proved the energy business isn't downstream of vehicle sales.</p>
+    </div>
+    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/rhonda.jpg" alt="Rhonda's path — entering and completing the HEMS Journey only" loading="lazy" /></figure>
+  </div>
+
+  <div class="pmap-detail pmap-detail--reverse">
+    <div class="pmap-text">
+      <span class="pmap-name" style="color:var(--c-fiona)">Fiona <i>EV/HEMS Buyer</i></span>
+      <p>Fiona completes the EV/HEMS Combined Journey to purchase a Blazer EV and GM Energy Home System together — buying both products at once, in a single linear path built specifically for her.</p>
+    </div>
+    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/fiona.jpg" alt="Fiona's path — completing the combined EV/HEMS Journey" loading="lazy" /></figure>
+  </div>
+
   <p>Storyboards zoomed in further still — micro-views of a single moment considering the customer, GM staff, and environment, across digital and physical worlds. The install consultation, for example: an authorized installer standing in a customer's garage, where the digital experience has to hand off gracefully to a person.</p>
   <div class="slot">Storyboard — image coming soon</div>
 
@@ -150,14 +271,20 @@ extraStyle: |
   <p>The first personas were built the usual way — stakeholder interviews plus secondary research — producing three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). Dentsu's M1 segmentation sharpened the targeting: Tech Builders near-term, Smart Living long-term. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
   <p>The interesting part came later. Rather than let the personas calcify, we rebuilt them from evidence — pulling sentiments from <em>every</em> usability study run since May 2023, categorizing them by knowledge, cost, and concerns, then sorting real test participants into groups and deriving new attribute charts from what actual people said.</p>
   <p>That analysis surfaced a segment the market was only beginning to recognize. Driven by increasingly frequent extreme weather, a group emerged that wants home energy security and has no interest in an electric vehicle at all — <b>Rhonda</b>, prioritizing HEMS over EVs. For a company rooted in vehicles, that's a strategic finding, not just a design one: the energy business has a market that isn't downstream of vehicle sales.</p>
-  <div class="persona-row">
-    <div class="persona"><b>Markus</b><span>Electro Curious</span></div>
-    <div class="persona"><b>Tom</b><span>Tech Builder</span></div>
-    <div class="persona"><b>Fiona</b><span>Smart Tech</span></div>
-    <div class="persona"><b>Rhonda</b><span>Smart &amp; Safe — HEMS over EV</span></div>
+  <div class="jgal-wrap">
+    <div class="jgal">
+      <figure class="jcard"><img src="/assets/img/persona-markus.jpg" alt="Markus persona card — Tech Builder segment, detail blurred" loading="lazy" />
+        <div class="cap"><span class="step">Tech Builder</span><h4>Markus</h4><p>Efficiency-minded project manager, frustrated by outages — wants visibility and control over home energy, considering an EV.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/persona-tom.jpg" alt="Tom persona card — Shiny Elite segment, detail blurred" loading="lazy" />
+        <div class="cap"><span class="step">Shiny Elite</span><h4>Tom</h4><p>Finance executive and GM EV owner who wants the best of the best — premium products, reliable through blackouts.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/persona-fiona.jpg" alt="Fiona persona card — Smart Tech segment, detail blurred" loading="lazy" />
+        <div class="cap"><span class="step">Smart Tech</span><h4>Fiona</h4><p>Research-driven Lyriq owner weighing solar and backup power — values usability, warranties, and the best possible deal.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/persona-rhonda.jpg" alt="Rhonda persona card — Smart &amp; Safe segment, detail blurred" loading="lazy" />
+        <div class="cap"><span class="step">Smart &amp; Safe</span><h4>Rhonda</h4><p>Educator nearing retirement in blackout-prone Florida — wants dependable backup power and expert guidance, no EV interest.</p></div></figure>
+    </div>
   </div>
+  <p style="margin-top:10px;font-size:13px;color:var(--muted)">Card content intentionally blurred; attribute charts shown for structure, not detail.</p>
   <p style="margin-top:22px">The personas became a working reference packet for the Home Energy Consultant team to facilitate sales calls and for the post-purchase care team — not a poster on a wall.</p>
-  <div class="slot">Persona card — image coming soon</div>
 
   <h2>From vision to wireframes to launch</h2>
   <p>With the blueprint agreed, concepting turned into wireframes for the commerce experience — shop, PDP, bundles, cart, checkout, financing — then sprint-based delivery alongside GM's product and engineering teams. The launched experience sells the HEMS line — the GM Energy Home System, PowerShift Charger, and Vehicle-to-Home bundle — with configurable bundles, GM Financial financing inside the purchase flow, installation scheduling through certified partners, order tracking, and account management.</p>

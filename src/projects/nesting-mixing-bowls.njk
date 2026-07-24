@@ -1,6 +1,6 @@
 ---
 title: "Nesting Mixing Bowls — Sehyoung Hamjong"
-description: "Nesting Mixing Bowls — industrial design work by Sehyoung Hamjong."
+description: "Nesting Mixing Bowls for Tramontina USA — market research, shape studies, nesting geometry, and shop-built prototypes. Industrial design work by Sehyoung Hamjong."
 track: industrial
 bodyDark: true
 pager:
@@ -10,10 +10,20 @@ pager:
   nextTitle: Lifeline
 extraStyle: |
   <style>
-  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:980px;margin:0 auto;padding:0 var(--gut) clamp(64px,9vw,100px)}
-  .gal .slot{aspect-ratio:4/3;border-radius:6px;border:1px dashed rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;text-align:center;color:#8f877a;font:11px ui-monospace,Menlo,monospace;padding:10px;background:var(--dark-2)}
-  .gal img{border-radius:6px;border:1px solid var(--dark-hair);width:100%}
+  body.page-dark article.case p,body.page-dark article.case ul{color:var(--on-dark-muted)}
+  body.page-dark article.case figure img{border-color:var(--dark-hair)}
+  body.page-dark article.case figcaption{color:var(--on-dark-muted)}
+  body.page-dark .case-meta{border-color:var(--dark-hair)}
+  body.page-dark .case-meta div span{color:var(--on-dark-muted)}
+  .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:30px}
+  .gal figure{margin:0}
+  .gal img{border-radius:6px;border:1px solid var(--dark-hair);width:100%;display:block}
   @media(max-width:640px){.gal{grid-template-columns:1fr}}
+  .divider{padding:22px 0;border-top:1px solid var(--dark-hair);border-bottom:1px solid var(--dark-hair);margin:40px 0 4px}
+  .divider h2{padding-top:0!important;margin:0!important}
+  .num{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--accent);font-size:.72em;margin-right:12px}
+  .ph{outline:1px dashed rgba(255,255,255,.25);outline-offset:4px;border-radius:2px}
+  .ph::before{content:"PLACEHOLDER — ";font-size:11px;font-weight:600;letter-spacing:.06em;color:var(--accent)}
   </style>
 ---
 {% include "partials/back-link.njk" %}
@@ -21,18 +31,104 @@ extraStyle: |
 <header class="page-hero wrap">
   <span class="eyebrow">Tramontina</span>
   <h1>Nesting Mixing Bowls</h1>
-  <p class="lead">Nesting Mixing Bowls by Tramontina-USA</p>
+  <p class="lead">A nesting mixing-bowl family with soft-touch lids — taken from market research and shape studies through five nesting-geometry studies in CAD, to prototypes finished and mold-cast by hand in the shop.</p>
 </header>
 
-<div style="max-width:980px;margin:0 auto;padding:0 var(--gut) 34px">
-  <img class="case-hero-img" style="border-color:var(--dark-hair)" src="https://images.squarespace-cdn.com/content/v1/574cf4768a65e20cc7563c02/1474857648317-2NW3G2DUM9CHOWLBWZ0K/Tramontina_mixing+bowls+blur.jpg" alt="Nesting Mixing Bowls — cover image" />
-</div>
+<article class="case">
 
-<div class="gal">
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-  <div class="slot">Project image — coming soon</div>
-</div>
+  <figure style="margin-top:0"><img src="/assets/img/mixing-bowls/final-family.jpg" alt="The Nesting Mixing Bowls family — mixing bowls and prep bowls with lids, rendered as a set" /></figure>
+
+  <div class="case-meta">
+    <div>Product design, market research, CAD modeling, rendering, 3D printing, mold making &amp; casting</div>
+  </div>
+
+  <div class="divider"><h2><span class="num">01</span>Research — what makes a mixing bowl iconic</h2></div>
+
+  <p>Before sketching anything, the market got mapped. Six brands — KitchenAid, Williams-Sonoma, All-Clad, Cuisinart, OXO, and Norpro — were surveyed for the capacities they actually sell, establishing where the common sizes cluster and where a new set had to land. In parallel, a silhouette survey broke the category's shapes down to their key characteristics: the rounded raised band, the base, the curved lip.</p>
+
+  <div class="gal">
+    <figure><img src="/assets/img/mixing-bowls/research-sizes.jpg" alt="Mixing bowl average sizes across six brands — donut chart from 1 quart to 5 quarts" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/research-shapes.jpg" alt="Bowl silhouettes survey with key characteristics — rounded raised band, base, curved lip" loading="lazy" /></figure>
+  </div>
+  <figcaption style="font-size:13px;color:var(--on-dark-muted);margin-top:10px;font-family:var(--serif);font-style:italic">Market survey — capacity clusters across six competitor brands, and the silhouette language of the category.</figcaption>
+
+  <p>A mixing bowl is a tool you use <em>with</em> other tools. Interaction studies looked at how a whisk and a hand mixer actually meet the bowl — upright for beating, tilted for folding — geometry that decides wall angle, depth, and how the bowl behaves when it's held at a slant.</p>
+
+  <figure><img src="/assets/img/mixing-bowls/research-tools.jpg" alt="Tool interaction studies — whisk and hand mixer shown upright and tilted in bowl sections" loading="lazy" />
+  <figcaption>Bowls in use — whisk and hand-mixer geometry, upright and tilted, informing wall angle and depth.</figcaption></figure>
+
+  <div class="divider"><h2><span class="num">02</span>Form development</h2></div>
+
+  <p>Sketch explorations ran in tagged threads pinned to the wall — a <b>ring</b> concept, a <b>stub</b> handle direction, <b>lid</b> studies, and base treatments — worked over the shape survey and size data from research.</p>
+
+  <div class="gal">
+    <figure><img src="/assets/img/mixing-bowls/sketch-wall-survey.jpg" alt="Sketch wall — shape survey and iconic shape studies pinned above concept sketches" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/sketch-wall-ring.jpg" alt="Sketch wall — ring and stub concept threads with tagged sticky notes" loading="lazy" /></figure>
+  </div>
+
+  <figure><img src="/assets/img/mixing-bowls/sketch-wall-lids.jpg" alt="Sketch wall — lid and bottom concept sketches" loading="lazy" />
+  <figcaption>Concept threads tagged on the wall — ring, stub, lids, bottoms — each a different answer to grip, pour, and storage.</figcaption></figure>
+
+  <p>The sketches converged on a family of soft, continuous silhouettes with a pour lip and a non-slip base — and early CAD concepts tested variations on the theme, including a version with a metal clip detail at the rim.</p>
+
+  <div class="gal">
+    <figure><img src="/assets/img/mixing-bowls/concept-silhouettes.jpg" alt="Refined concept silhouettes — four bowl profiles with pour spout and non-slip base" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/early-set.jpg" alt="Early CAD concept — nested set with red lids" loading="lazy" /></figure>
+  </div>
+  <p class="ph">One or two sentences on how these directions were evaluated and what decided the direction that moved forward — e.g. feedback from the team at Tramontina, manufacturing constraints, or cost.</p>
+
+  <div class="divider"><h2><span class="num">03</span>Nesting geometry</h2></div>
+
+  <p>In a nesting set, the section <em>is</em> the product. Five candidate profiles were modeled and cut open in CAD — each studied for how tightly the four bowls seat into one another, how the stack height grows, and where the lids live when the set is put away.</p>
+
+  <figure><img src="/assets/img/mixing-bowls/nesting-studies.jpg" alt="Four of five nesting geometry studies — CAD section views of the nested set" loading="lazy" />
+  <figcaption>Section studies — candidate nesting profiles compared for seat, stack height, and wall consistency.</figcaption></figure>
+
+  <figure><img src="/assets/img/mixing-bowls/stack-drawing.jpg" alt="1:1 scale line drawing of the nested stack" loading="lazy" />
+  <figcaption>The nested stack drafted at 1:1 — the profile that carried forward.</figcaption></figure>
+
+  <div class="divider"><h2><span class="num">04</span>The resolved design</h2></div>
+
+  <figure><img src="/assets/img/mixing-bowls/final-single.jpg" alt="The resolved bowl — deep red body with a soft-touch black lid" loading="lazy" /></figure>
+
+  <ul>
+    <li><b>Soft-touch lid</b> — a flexible overmolded lid with a wide, grippable rim seals each bowl for prep-ahead and storage.</li>
+    <li><b>Bowls seat on their lids</b> — flipped under the bowl, the lid becomes a non-slip base, keeping the bowl planted on the counter while mixing.</li>
+    <li><b>A family, not just a set</b> — the nesting logic scales from full mixing bowls down to small prep bowls, all sharing the same silhouette.</li>
+  </ul>
+  <p class="ph">Confirm/adjust the feature list above — especially the lid-as-base behavior and intended materials (e.g. melamine/ABS body, TPE lid) — and add any features I couldn't see in the renders.</p>
+
+  <div class="gal">
+    <figure><img src="/assets/img/mixing-bowls/final-nested.jpg" alt="Cutaway render of the nested set" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/final-stacked.jpg" alt="The set stacked with lids on" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/final-on-lids.jpg" alt="Bowls seated on their inverted lids" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/final-lid.jpg" alt="The lid — top view showing the wide soft rim" loading="lazy" /></figure>
+  </div>
+  <figcaption style="font-size:13px;color:var(--on-dark-muted);margin-top:10px;font-family:var(--serif);font-style:italic">Nested, stacked, seated on lids — the storage story is the design story.</figcaption>
+
+  <div class="gal">
+    <figure><img src="/assets/img/mixing-bowls/early-scoop.jpg" alt="Cutaway of the scooped rim detail" loading="lazy" /></figure>
+    <figure><img src="/assets/img/mixing-bowls/early-teal.jpg" alt="Teal colorway variant with lid" loading="lazy" /></figure>
+  </div>
+  <p class="ph">Caption or short paragraph on the scooped-rim detail (grip? pour?) and whether colorways were part of the proposal.</p>
+
+  <div class="divider"><h2><span class="num">05</span>Prototyping — making it real</h2></div>
+
+  <p>The design didn't stay on screen. A full-scale bowl was 3D printed, then sanded, primed, and sprayed to a production-level gloss — the same hand-finishing discipline as the Kitchen Shears prototypes, at several times the size.</p>
+
+  <figure><img src="/assets/img/mixing-bowls/proto-bowl.jpg" alt="Bowl prototype sequence — 3D print sanded, primed, spray-painted, and held finished" loading="lazy" />
+  <figcaption>Print → sand → prime → paint — a full-scale bowl finished by hand to a production-level surface.</figcaption></figure>
+
+  <p>The lid needed to <em>feel</em> right, not just look right — so it was cast, not printed. Shop-built acrylic mold boxes, vacuum-degassed silicone, and two-part molds produced flexible lid prototypes that could actually be stretched, seated, and peeled like the real thing.</p>
+
+  <figure><img src="/assets/img/mixing-bowls/proto-molds.jpg" alt="Mold-making sequence — acrylic mold box, vacuum degassing, cured two-part silicone molds, cast lid" loading="lazy" />
+  <figcaption>Mold making — acrylic boxes, degassing under vacuum, two-part silicone molds, and the first cast pulls.</figcaption></figure>
+
+  <figure><img src="/assets/img/mixing-bowls/proto-lid-tests.jpg" alt="Cast lid prototypes sectioned for finish tests — matte and gloss halves compared" loading="lazy" />
+  <figcaption>Finish tests — cast lids sectioned and compared, matte against gloss, to land the right surface.</figcaption></figure>
+
+  <figure style="margin-top:40px"><img src="/assets/img/mixing-bowls/final-on-lids-wide.jpg" alt="Two bowls seated on their inverted lids, one upright and one tilted" loading="lazy" /></figure>
+
+</article>
 
 {% include "partials/pager.njk" %}
