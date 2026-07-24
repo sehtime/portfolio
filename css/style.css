@@ -49,6 +49,16 @@ nav.site{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg)
 .hero .meta{margin-top:32px;display:flex;gap:26px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
 .hero .meta b{color:var(--ink);font-weight:600}
 
+/* hero split — meta column on the right */
+.hero--split{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(32px,6vw,80px);align-items:end}
+.hero-side{border-left:1px solid var(--hair);padding-left:clamp(20px,3vw,36px);align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
+.hero-mark{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(90px,11vw,150px);line-height:.9;color:var(--ink);letter-spacing:-.04em;margin-bottom:auto}
+.hero-mark span{color:var(--accent)}
+.hero-side dl{margin-top:36px;display:flex;flex-direction:column;gap:18px}
+.hero-side dt{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
+.hero-side dd{font-size:15px;font-weight:500;margin-top:3px}
+@media(max-width:860px){.hero--split{grid-template-columns:1fr}.hero-side{border-left:0;padding-left:0;border-top:1px solid var(--hair);padding-top:24px}.hero-mark{display:none}}
+
 /* page-level hero (inner pages) */
 .page-hero{padding:clamp(48px,7vw,80px) 0 clamp(32px,5vw,48px)}
 .page-hero .eyebrow{margin-bottom:16px}
@@ -78,6 +88,22 @@ section{scroll-margin-top:90px}
 .card:hover .thumb.kb img{transform:scale(1.12)}
 @media(prefers-reduced-motion:reduce){.thumb.kb img{transition:none}.card:hover .thumb.kb img{transform:none}}
 .card h3{margin-top:14px;font-size:16px;font-weight:600}
+/* featured case study */
+.feature-in{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,48px);align-items:center;margin-bottom:clamp(40px,6vw,64px);padding-bottom:clamp(40px,6vw,64px);border-bottom:1px solid var(--hair)}
+.feature-thumb{aspect-ratio:16/10;border-radius:10px}
+.feature-body h3{font-size:clamp(24px,3.2vw,34px);letter-spacing:-.02em;margin-top:12px}
+.feature-body p{margin-top:14px;color:var(--muted-2);font-size:15.5px;max-width:44ch}
+.feature-body .cap{margin-top:16px}
+.feature-body .num .go{opacity:0;transform:translateX(-6px);display:inline-block;transition:all .25s var(--ease);color:var(--ink);font-family:var(--sans);font-style:normal;font-weight:600;font-size:13px;margin-left:10px}
+.card:hover .feature-body .num .go{opacity:1;transform:none}
+@media(max-width:860px){.feature-in{grid-template-columns:1fr}}
+/* supporting grid — larger type, arrow affordance */
+.grid--support{grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,44px)}
+.grid--support .card h3{font-size:clamp(18px,2.2vw,22px);letter-spacing:-.015em;display:flex;align-items:baseline;gap:10px}
+.grid--support .card h3::after{content:"→";font-size:.85em;color:var(--accent);opacity:0;transform:translateX(-6px);transition:all .25s var(--ease)}
+.grid--support .card:hover h3::after{opacity:1;transform:none}
+.grid--support .thumb{aspect-ratio:3/2;border-radius:8px}
+@media(max-width:540px){.grid--support{grid-template-columns:1fr}}
 .card .cap{font-size:13px;color:var(--muted);margin-top:3px}
 .card .num{font-family:var(--serif);font-style:italic;color:var(--accent);font-size:14px;margin-top:12px;display:block}
 .card--draft{cursor:default;position:relative}
@@ -172,6 +198,10 @@ a.mail{font-size:16px;font-weight:600;border-bottom:2px solid var(--accent);padd
 footer.site{border-top:1px solid var(--hair)}
 footer.site--spaced{margin-top:40px}
 .foot{padding:20px var(--gut) 28px;display:flex;justify-content:space-between;gap:14px;font-size:12px;color:var(--muted);flex-wrap:wrap;max-width:var(--maxw);margin:0 auto}
+
+/* ---------- scroll reveal (JS adds .js-reveal on <html>) ---------- */
+.js-reveal .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .6s var(--ease)}
+.js-reveal .reveal.is-in{opacity:1;transform:none}
 
 /* ---------- responsive ---------- */
 @media(max-width:860px){

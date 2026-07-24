@@ -10,5 +10,21 @@
 {{ content | safe }}
 
 {% include "partials/footer.njk" %}
+
+<script>
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  document.documentElement.classList.add('js-reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  document.querySelectorAll('.reveal').forEach(function(el, i){
+    el.style.transitionDelay = Math.min(i % 3 * 70, 140) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
 </body>
 </html>
