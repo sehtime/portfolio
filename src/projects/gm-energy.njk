@@ -25,15 +25,7 @@ extraStyle: |
   .findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
   .findings li b{display:block;font-size:15px;margin-bottom:3px}
   .findings li span{font-size:14.5px;color:var(--muted-2)}
-  .inits{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}
-  .init{border:1px solid var(--hair);border-radius:10px;overflow:hidden;display:flex;flex-direction:column;background:#fffdfb}
-  .init .ph{aspect-ratio:16/10;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);display:flex;align-items:center;justify-content:center;color:#a5a29b;font:11px ui-monospace,Menlo,monospace;text-align:center;padding:10px}
-  .init .body{padding:15px 18px 17px}
-  .init h3{font-size:15.5px;font-weight:600;margin-bottom:6px;padding:0}
-  .init p{font-size:13.5px;color:var(--muted-2);line-height:1.46;margin:0}
-  .init .todo{margin-top:11px;font-size:11px;color:#b06a4f;font-family:ui-monospace,Menlo,monospace;line-height:1.4}
   @media(max-width:760px){.persona-row{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:640px){.inits{grid-template-columns:1fr}}
   .jmap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:8px}
   .wmed{width:min(1000px,94vw);margin-left:50%;transform:translateX(-50%)}
   .jgal-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
@@ -171,6 +163,12 @@ extraStyle: |
   <p>With the blueprint agreed, concepting turned into wireframes for the commerce experience — shop, PDP, bundles, cart, checkout, financing — then sprint-based delivery alongside GM's product and engineering teams. The launched experience sells the HEMS line — the GM Energy Home System, PowerShift Charger, and Vehicle-to-Home bundle — with configurable bundles, GM Financial financing inside the purchase flow, installation scheduling through certified partners, order tracking, and account management.</p>
   <div class="slot">Wireframe → launched screen — image coming soon</div>
 
+  <h2>Energy Genie: guided buying, before checkout</h2>
+  <p>Before someone ever reaches checkout, they have to figure out what they actually need — and a HEMS is a considered purchase. Testers told us large purchases take weeks or months of research, that they prefer self-guided exploration, and that they're open to tools if those tools are accurate, unbiased, and genuinely personalized. That's the opening the Energy Genie was designed for: a guided experience earlier in the funnel that helps someone work out what to buy before they ever get to the cart.</p>
+  <p>For Genie 2.0 we tested two directions head-to-head — an open AI chat versus a structured survey — and the answer landed in between. Users relied on the system to lead rather than driving it themselves, and length didn't bother them as long as each step earned its place. The concept became a non-linear pathway merging AI dialog with survey questions in varying combinations, letting different customers enter and exit at different points.</p>
+  <p>Testing the shipped guided experience kept sharpening it: a vehicle-confirmation step was cut after half of testers found it redundant with the step before, and separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendations page itself rated 4 or 5 out of 5 with 80% of testers — the personalized reasoning and outage-risk section landed as "thoughtful" — but even the satisfied ones consistently wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy.</p>
+  <div class="slot">Energy Genie pathway — image coming soon</div>
+
   <h2>Designing for trust: financing inside checkout</h2>
   <p>The hardest problem wasn't the storefront — it was money. A HEMS purchase is a major financial decision, so GM Financial had to live inside the journey: a two-step prequalification where customers first see their buying power, then trade more information — including a full social security number — for real rates, terms, and monthly payments.</p>
   <p>Asking for a social online is a trust cliff, and testing told us exactly how it felt from the other side. Participants said an unexplained SSN field makes a company seem "scammy"; that concrete rate, term, and monthly payment beat the abstraction of "buying power"; and that being asked to prequalify twice, without explanation, read as repetitive and eroded confidence — <em>"I don't understand why I have to get prequalified again."</em> The design response was education and transparency at each sensitive moment: why we're asking, what happens next, what you get in return, and what it does to your credit.</p>
@@ -195,119 +193,14 @@ extraStyle: |
   <p>We also acted as a critical partner to GM's own analytics team — reviewing their survey and heat-mapping studies and returning assessments and recommendations. One finding shaped the PDP directly: product specifications drew the highest engagement of any content (31%), yet only 45% of users ever scrolled far enough to see it.</p>
   <blockquote class="pull">"Overall, the feedback highlights a well-designed process with room for minor improvements in clarity, education and support."<cite>Post-launch usability readout — financing flow, N=16</cite></blockquote>
 
-  <h2>Energy Genie: guided buying</h2>
-  <p>A HEMS is a considered purchase — testers told us large purchases take weeks or months of research, that they prefer self-guided exploration, and that they're open to tools if those tools are accurate, unbiased, and genuinely personalized. That's the opening the Energy Genie was designed for: a guided experience that helps someone work out what they actually need.</p>
-  <p>For Genie 2.0 we tested two directions head-to-head — an open AI chat versus a structured survey — and the answer landed in between. Users relied on the system to lead rather than driving it themselves, and length didn't bother them as long as each step earned its place. The concept became a non-linear pathway merging AI dialog with survey questions in varying combinations, letting different customers enter and exit at different points.</p>
-  <p>Testing the shipped guided experience kept sharpening it: a vehicle-confirmation step was cut after half of testers found it redundant with the step before, and separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendations page itself rated 4 or 5 out of 5 with 80% of testers — the personalized reasoning and outage-risk section landed as "thoughtful" — but even the satisfied ones consistently wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy.</p>
-  <div class="slot">Energy Genie pathway — image coming soon</div>
-
   <h2>Designing the ownership phase</h2>
   <p>Selling the hardware is the easy half. In late 2023 the engagement expanded to the post-purchase experience with an explicit mandate: apply the same rigorous design approach to the ownership phase as the purchase phase.</p>
   <p>That meant journey mapping and service blueprinting for everything after checkout — installation handoff, warranty, support, returns, escalation — across a partner ecosystem where GM owned the brand but not every touchpoint: installers, solar partners, logistics providers, and an EV Concierge contact center whose agents needed training plans built around the new journeys.</p>
   <p>It also meant designing the feedback system itself. We mapped customer-satisfaction survey triggers across the entire ecosystem — post-sale, post-install, post-support-call, per partner — and then did the less obvious work of pruning them, prioritizing which moments genuinely warranted asking so customers weren't buried under surveys from four companies about the same purchase.</p>
 
-  <h2>The wider system</h2>
-  <p>Zero-to-one commerce is never just a storefront. As the experience matured, the work widened across the whole lifecycle — each of these a smaller initiative in its own right. A selection:</p>
-
-  <!-- ============================================================
-       SELECTED INITIATIVES — fillable grid.
-       For each tile: tweak the one-liner, drop ONE sanitized image
-       into the .ph slot (swap the <div class="ph"> for an <img>),
-       and delete the .todo line when done. Add or remove tiles freely.
-       ============================================================ -->
-  <div class="inits">
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Home Energy Consultant booking</h3>
-        <p>Scheduling flows for a 1:1 consultation with a Home Energy Consultant, woven into the shopping and support journeys.</p>
-        <div class="todo">▸ add: your specific role + one sanitized screen</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Navigation &amp; information architecture</h3>
-        <p>Global nav and sitemap for a growing catalog — grounded in a 24-product card sort that pushed toward simpler, four-category grouping.</p>
-        <div class="todo">▸ add: sitemap or nav artifact + the IA decision</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Agent-assisted ordering</h3>
-        <p>A "buy on behalf of" path letting an agent build, place, and take payment on an order for a customer over the phone.</p>
-        <div class="todo">▸ add: the flow + why it mattered for HEMS</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>My Account &amp; order tracking</h3>
-        <p>The post-purchase account — order status, installation scheduling, and documents — the screens customers live in after buying.</p>
-        <div class="todo">▸ add: a sanitized account screen + one insight</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Error &amp; edge states</h3>
-        <p>The unglamorous half of commerce — error, empty, loading, and eligibility states across the funnel, so the happy path never dead-ends.</p>
-        <div class="todo">▸ add: an example state + the principle behind it</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Accessibility (WCAG)</h3>
-        <p>Live-site audits plus a designer-facing checklist and Figma annotation kit for contrast, keyboard, and motion — so compliance was designed toward, not remediated.</p>
-        <div class="todo">▸ add: the checklist/annotation kit + your role</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Executive dashboard</h3>
-        <p>A business-facing view giving leadership visibility into the funnel and program health at a glance.</p>
-        <div class="todo">▸ add: a sanitized dashboard view + what it answered</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Competitive analysis</h3>
-        <p>Quarterly teardown of eight energy competitors across the full journey — confirming most still can't sell online, only take leads.</p>
-        <div class="todo">▸ add: a comparison artifact + the headline takeaway</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>Roadmap &amp; CRM moments</h3>
-        <p>A roadmap sequencing ecommerce milestones against GM's vehicle software (OTA) releases, plus moment maps feeding a triggered CRM lifecycle.</p>
-        <div class="todo">▸ add: roadmap or moment-map artifact</div>
-      </div>
-    </div>
-
-    <div class="init">
-      <div class="ph">Image — coming soon</div>
-      <div class="body">
-        <h3>[ Your initiative ]</h3>
-        <p>Anything the sweep missed — duplicate a tile to add more. Keep each to one idea, one image, one sentence.</p>
-        <div class="todo">▸ template tile — copy me for new initiatives</div>
-      </div>
-    </div>
-
-  </div>
+  <h2>Executive dashboard</h2>
+  <p>Selling the hardware was only half the mandate — leadership needed to see how the business was actually doing. The executive dashboard was one of the largest efforts alongside the storefront itself: a business-facing view giving leadership visibility into funnel performance and program health at a glance, without having to ask the team for a status update.</p>
+  <div class="slot">Executive dashboard — image coming soon</div>
 
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
