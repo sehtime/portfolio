@@ -107,11 +107,17 @@ extraStyle: |
 </script>
 
 <article class="case" id="hems-gate-target">
+  <div class="tldr-keep" style="display:flex;justify-content:center;margin-bottom:6px">
+    <div class="view-toggle" role="tablist" aria-label="Case study view">
+      <button class="vt-btn on" id="vt-detailed" type="button" aria-selected="true">Detailed</button>
+      <button class="vt-btn" id="vt-tldr" type="button" aria-selected="false">TL;DR</button>
+    </div>
+  </div>
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <figure class="jmap"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="jmap tldr-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
 
-  <div class="case-meta">
+  <div class="case-meta tldr-keep">
     <div><span>Role</span>User Experience Lead</div>
     <div><span>Client</span>GM Energy · via Merkle (dentsu)</div>
     <div><span>Timeline</span>Oct 2022 – 2026 · vision through post-launch optimization</div>
@@ -126,6 +132,20 @@ extraStyle: |
     <span class="chip"><b>05</b>My Account</span>
     <span class="chip"><b>06</b>Ownership &amp; care</span>
     <span class="chip"><b>07</b>Executive dashboard</span>
+  </div>
+
+  <div class="impact-block tldr-keep">
+    <h2>Impact</h2>
+    <ul class="impact-list">
+      <li><b>Took GM Energy from zero to a launched commerce experience</b><span>Defined what the experience should be — service blueprint, personas, journeys — then carried it through wireframes, sprint delivery, and launch: configurable bundles, financing inside checkout, installation scheduling, and account management.</span></li>
+      <li><b>Put financing inside the purchase flow</b><span>Designed the GM Financial integration as part of checkout rather than a hand-off — post-launch usability testing (N=16) validated the flow as clear and trustworthy.</span></li>
+      <li><b>Built a research practice, not just a launch</b><span>Structured post-launch research into two standing tracks — validating designs in flight and evaluating what shipped — so evidence feeds every release.</span></li>
+    </ul>
+    <div class="stat-row">
+      <div class="stat"><b>0 → 1</b><span>No digital presence to a launched, financed, installable storefront</span></div>
+      <div class="stat"><b>4 personas</b><span>Evidence-based, reshaping who the business designs for</span></div>
+      <div class="stat"><b>2 tracks</b><span>Standing research program validating and evaluating every release</span></div>
+    </div>
   </div>
 
   <h2>The challenge</h2>
@@ -329,9 +349,26 @@ extraStyle: |
   <p>Selling the hardware was only half the mandate — leadership needed to see how the business was actually doing. The executive dashboard was one of the largest efforts alongside the storefront itself: a business-facing view giving leadership visibility into funnel performance and program health at a glance, without having to ask the team for a status update.</p>
   <div class="slot">Executive dashboard — image coming soon</div>
 
+  <div class="tldr-keep">
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
+  </div>
   <div class="slot">Sales guide — image coming soon</div>
 </article>
+
+<script>
+(function(){
+  var art = document.getElementById('hems-gate-target');
+  var bD = document.getElementById('vt-detailed'), bT = document.getElementById('vt-tldr');
+  if(!art || !bD) return;
+  function set(tldr){
+    art.classList.toggle('case--tldr', tldr);
+    bD.classList.toggle('on', !tldr); bT.classList.toggle('on', tldr);
+    bD.setAttribute('aria-selected', !tldr); bT.setAttribute('aria-selected', tldr);
+  }
+  bD.addEventListener('click', function(){ set(false); });
+  bT.addEventListener('click', function(){ set(true); });
+})();
+</script>
 
 {% include "partials/pager.njk" %}
