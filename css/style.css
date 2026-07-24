@@ -51,10 +51,8 @@ nav.site{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg)
 
 /* hero split — meta column on the right */
 .hero--split{display:grid;grid-template-columns:1.6fr 1fr;gap:clamp(32px,6vw,80px);align-items:end}
-.hero-side{border-left:1px solid var(--hair);padding-left:clamp(20px,3vw,36px);align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end}
-.hero-mark{font-family:var(--serif);font-style:italic;font-weight:500;font-size:clamp(90px,11vw,150px);line-height:.9;color:var(--ink);letter-spacing:-.04em;margin-bottom:auto}
-.hero-mark span{color:var(--accent)}
-.hero-side dl{margin-top:36px;display:flex;flex-direction:column;gap:18px}
+.hero-side{border-left:1px solid var(--hair);padding-left:clamp(20px,3vw,36px);align-self:end}
+.hero-side dl{display:flex;flex-direction:column;gap:18px}
 .hero-side dt{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted)}
 .hero-side dd{font-size:15px;font-weight:500;margin-top:3px}
 @media(max-width:860px){.hero--split{grid-template-columns:1fr}.hero-side{border-left:0;padding-left:0;border-top:1px solid var(--hair);padding-top:24px}.hero-mark{display:none}}
