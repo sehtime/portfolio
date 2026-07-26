@@ -109,6 +109,14 @@ extraStyle: |
   @keyframes lapScroll{0%,6%{transform:translateY(0)}22%,30%{transform:translateY(-24%)}46%,54%{transform:translateY(-47%)}70%,78%{transform:translateY(-71%)}94%,100%{transform:translateY(0)}}
   @keyframes phScroll{0%,7%{transform:translateY(0)}17%,26%{transform:translateY(-19%)}36%,45%{transform:translateY(-38%)}55%,64%{transform:translateY(-57%)}74%,83%{transform:translateY(-76%)}91%,96%{transform:translateY(-94%)}100%{transform:translateY(0)}}
   @media(prefers-reduced-motion:reduce){.dev-stage .view img{animation:none!important}}
+  @media(max-width:760px){
+    .dev-stage{aspect-ratio:1.35}
+    .dev-lap{width:92%}
+    .dev-ph{width:30%;left:0}
+    .jgal{grid-template-columns:1fr!important}
+    .live-grid{grid-template-columns:1fr!important}
+    .chart-grid{grid-template-columns:repeat(2,1fr)}
+  }
   .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
   /* mega menu cycle */
   .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
