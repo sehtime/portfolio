@@ -92,17 +92,17 @@ extraStyle: |
   .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .sb-hint::after{content:"⟶";color:var(--accent)}
   /* device stage — phone + tablet + laptop composition, all scrolling */
-  .dev-stage{position:relative;aspect-ratio:1.78;margin:2px 0 6px}
+  .dev-stage{position:relative;aspect-ratio:1.9;margin:2px 0 6px}
   .dev-stage .view img{width:100%;display:block}
-  .dev-lap{position:absolute;right:0;top:5%;width:60%;z-index:1}
+  .dev-lap{position:absolute;right:0;bottom:0;width:60%;z-index:1}
   .dev-lap .screen{border:11px solid #17150f;border-bottom:none;border-radius:16px 16px 0 0;overflow:hidden;background:#000}
   .dev-lap .view{aspect-ratio:16/10;overflow:hidden}
   .dev-lap .view img{animation:devScroll 40s ease-in-out infinite;animation-delay:2s}
   .dev-lap .base{height:15px;background:linear-gradient(#eceae5,#c6c3bb);border-radius:2px 2px 14px 14px;margin:0 -5%;box-shadow:0 14px 34px rgba(23,21,18,.22)}
-  .dev-tab{position:absolute;left:15%;top:0;width:48%;z-index:3;border:13px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 34px 80px rgba(23,21,18,.24)}
+  .dev-tab{position:absolute;left:15%;bottom:0;width:48%;z-index:3;border:13px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 34px 80px rgba(23,21,18,.24)}
   .dev-tab .view{aspect-ratio:4/3;overflow:hidden}
   .dev-tab .view img{animation:devScroll 30s ease-in-out infinite}
-  .dev-ph{position:absolute;left:0;bottom:6%;width:15.5%;z-index:4;border:5px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 22px 48px rgba(23,21,18,.26)}
+  .dev-ph{position:absolute;left:0;bottom:0;width:15.5%;z-index:4;border:5px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 22px 48px rgba(23,21,18,.26)}
   .dev-ph .view{aspect-ratio:375/812;overflow:hidden;position:relative}
   .dev-ph .view img{position:absolute;inset:0}
   .dev-ph .view img:nth-child(2){opacity:0;animation:phoneSwap 14s ease-in-out infinite}
@@ -170,8 +170,9 @@ extraStyle: |
     <h2 style="padding-top:0">Overview</h2>
     <p>GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
   </div>
-  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
+  <h2>The challenge</h2>
+  <p>In fall 2022, home energy management systems were an emerging category and GM was entering it for the first time. There was no ecommerce presence, no established journey, and no agreed definition of who the customer even was.</p>
+  <p>The engagement began as a service design project with four goals: define how GM Energy should engage with and serve its customers; identify the systems, platforms, and processes needed to enable that experience; craft a future-state vision through concepts and prototypes; and develop the roadmap to bring it to life. The work wasn't redesigning an experience — it was deciding what the experience should be, then carrying it to launch and beyond.</p>
 
   <div class="case-meta brief-keep">
     <div><span>Role</span>User Experience Lead</div>
@@ -204,12 +205,7 @@ extraStyle: |
     </div>
   </div>
 
-  <h2>The challenge</h2>
-  <p>In fall 2022, home energy management systems were an emerging category and GM was entering it for the first time. There was no ecommerce presence, no established journey, and no agreed definition of who the customer even was.</p>
-  <p>The engagement began as a service design project with four goals: define how GM Energy should engage with and serve its customers; identify the systems, platforms, and processes needed to enable that experience; craft a future-state vision through concepts and prototypes; and develop the roadmap to bring it to life. The work wasn't redesigning an experience — it was deciding what the experience should be, then carrying it to launch and beyond.</p>
-
-  
-  <div class="act-kicker"><span>Part 01</span>Build the ground truth</div>
+<div class="act-kicker"><span>Part 01</span>Build the ground truth</div>
   <h2>Research: understanding the ecosystem and the product line</h2>
   <p>With nothing to audit, research had to build the ground truth — and the first job was simply to understand two things: the ecosystem GM Energy was stepping into, and the product line itself. I went into the field: GM dealerships to experience the electric offering firsthand, competitor EV dealerships, and generator dealers to learn how home backup power actually gets sold today — all alongside desk research across GM's existing consumer and brand work.</p>
   <p>That fed a categorization exercise: mapping the emerging HEMS products against the customers most likely to want each one. It turned a raw catalog of chargers, storage, and backup hardware into a map of <em>who each product is for</em> — the foundation everything downstream would build on. Throughout, service design workshops kept GM stakeholders building alongside us rather than reviewing from a distance.</p>
@@ -218,6 +214,8 @@ extraStyle: |
 
   <h2>From a master blueprint to detailed journeys</h2>
   <p>That understanding became a large end-to-end service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the organization's shared source of truth for what had to be built — and it kept being revised for years as reality caught up with the vision.</p>
+  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
   <p>Momentum mattered more than certainty here. In a category no one had mapped yet, waiting for perfect data would have stalled everything — so we made our assumptions explicit and kept moving, treating the blueprint as <em>a living hypothesis, not a finished truth</em>. Every assumption became something to test: usability studies and surveys probed the riskiest ones, and incoming research — the audience segmentation especially — was absorbed the moment it landed, confirming or overturning what we'd sketched. That discipline of assume-then-validate is what let a zero-to-one map stay honest as the real product took shape.</p>
   <p>The master map showed the whole system, but the real design work lived in the columns. I pulled individual columns out of the blueprint — checkout and financing especially — and expanded each into its own detailed journey map, married to the user personas so a map showed not just <em>what</em> happens at a step, but <em>who</em> it's happening to and how it feels. That's where a wall-sized diagram turned into decisions a team could design against.</p>
   <figure class="jmap"><img src="/assets/img/checkout-journey.jpg" alt="The checkout section highlighted on the master blueprint and expanded into a detailed journey in a working session" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
