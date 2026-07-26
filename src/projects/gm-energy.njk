@@ -91,20 +91,16 @@ extraStyle: |
   .sb-strip figcaption b{font-family:var(--sans);font-style:normal;color:var(--accent);margin-right:6px}
   .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .sb-hint::after{content:"⟶";color:var(--accent)}
-  /* device stage — phone overlapping laptop, stepped scrolls */
-  .dev-stage{position:relative;aspect-ratio:1.9;margin:2px 0 6px}
+  /* device stage — official Apple renders, screens composited behind bezel PNGs */
+  .dev-stage{position:relative;aspect-ratio:1.72;margin:2px 0 6px}
+  .dev-lap{position:absolute;right:0;bottom:0;width:78%;aspect-ratio:3860/2540;filter:drop-shadow(0 26px 36px rgba(23,21,18,.20))}
+  .dev-lap .view{position:absolute;left:10.83%;top:13.86%;width:78.34%;height:74.8%;overflow:hidden;border-radius:6px 6px 0 0;background:#000}
+  .dev-ph{position:absolute;left:8%;bottom:0;width:17.5%;aspect-ratio:1350/2760;z-index:4;filter:drop-shadow(0 22px 34px rgba(23,21,18,.26))}
+  .dev-ph .view{position:absolute;left:5.33%;top:2.5%;width:89.33%;height:95%;overflow:hidden;border-radius:14% / 6.5%;background:#000}
+  .dev-stage .bezel{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
   .dev-stage .view img{width:100%;display:block}
-  .dev-lap{position:absolute;right:0;bottom:0;width:78%;z-index:1;filter:drop-shadow(0 30px 40px rgba(23,21,18,.18))}
-  .dev-lap .screen{border:14px solid #0e0d0b;outline:1px solid #3a3833;border-bottom:none;border-radius:18px 18px 0 0;overflow:hidden;background:#000;position:relative}
-  .dev-lap .screen::before{content:"";position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#1d2b23;z-index:5}
-  .dev-lap .view{aspect-ratio:16/10;overflow:hidden}
   .dev-lap .view img{animation:lapScroll 110s ease-in-out infinite}
-  .dev-lap .base{height:14px;background:linear-gradient(#f4f2ee 0%,#d9d6cf 45%,#b7b4ac 100%);border-radius:0 0 18px 18px;margin:0 -4.5%;position:relative;box-shadow:0 10px 22px rgba(23,21,18,.25)}
-  .dev-lap .base::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:13%;height:7px;background:radial-gradient(ellipse at 50% 0,#a8a59d 0%,#c9c6bf 70%,transparent 100%);border-radius:0 0 12px 12px}
-  .dev-ph{position:absolute;left:6%;bottom:0;width:17%;z-index:4;border-radius:12.5% / 6%;background:#0e0d0b;padding:2.6%;box-shadow:inset 0 0 0 2px #3f3d38,inset 0 0 0 4px #0a0908,0 26px 44px rgba(23,21,18,.32)}
-  .dev-ph .view{border-radius:9% / 4.4%;overflow:hidden;aspect-ratio:375/812;position:relative;background:#000}
-  .dev-ph .view::before{content:"";position:absolute;top:2.6%;left:50%;transform:translateX(-50%);width:34%;height:3.4%;background:#0a0908;border-radius:99px;z-index:6}
-  .dev-ph .view img{animation:phScroll 75s ease-in-out infinite}
+  .dev-ph .view img{animation:phScroll 120s ease-in-out infinite}
   @keyframes lapScroll{0%,6%{transform:translateY(0)}22%,30%{transform:translateY(-24%)}46%,54%{transform:translateY(-47%)}70%,78%{transform:translateY(-71%)}94%,100%{transform:translateY(0)}}
   @keyframes phScroll{0%,7%{transform:translateY(0)}17%,26%{transform:translateY(-19%)}36%,45%{transform:translateY(-38%)}55%,64%{transform:translateY(-57%)}74%,83%{transform:translateY(-76%)}91%,96%{transform:translateY(-94%)}100%{transform:translateY(0)}}
   @media(prefers-reduced-motion:reduce){.dev-stage .view img{animation:none!important}}
@@ -146,8 +142,8 @@ extraStyle: |
 <article class="case case--brief" id="hems-gate-target">
   <div class="jmap brief-keep">
     <div class="dev-stage">
-      <div class="dev-lap"><div class="screen"><div class="view"><img src="/assets/img/hems/fig-home-vd.jpg" alt="GM Energy homepage scrolling in a laptop frame"></div></div><div class="base"></div></div>
-      <div class="dev-ph"><div class="view"><img src="/assets/img/hems/fig-mobile-ess-pdp.jpg" alt="Energy Storage Bundle product page scrolling in a phone frame"></div></div>
+      <div class="dev-lap"><div class="view"><img src="/assets/img/hems/fig-home-vd.jpg" alt="GM Energy homepage scrolling on a MacBook Pro"></div><img class="bezel" src="/assets/img/hems/bezel-mbp14.png" alt="" aria-hidden="true"></div>
+      <div class="dev-ph"><div class="view"><img src="/assets/img/hems/fig-mobile-ess-pdp.jpg" alt="Energy Storage Bundle product page scrolling on an iPhone"></div><img class="bezel" src="/assets/img/hems/bezel-iphone16pro.png" alt="" aria-hidden="true"></div>
     </div>
   </div>
   <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
