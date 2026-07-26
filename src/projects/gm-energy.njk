@@ -91,21 +91,24 @@ extraStyle: |
   .sb-strip figcaption b{font-family:var(--sans);font-style:normal;color:var(--accent);margin-right:6px}
   .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .sb-hint::after{content:"⟶";color:var(--accent)}
-  /* device hero — auto-scrolling desktop + mobile */
-  .dev-hero{display:grid;grid-template-columns:2.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:end;margin:6px 0 10px}
-  .browser{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(23,21,18,.14)}
-  .browser .bar{display:flex;gap:6px;padding:11px 14px;background:#f1efea;border-bottom:1px solid var(--hair)}
-  .browser .bar i{width:10px;height:10px;border-radius:50%;background:#dcd9d1;display:block}
-  .browser .view{aspect-ratio:16/10;overflow:hidden}
-  .browser .view img{width:100%;display:block;animation:heroScroll 34s ease-in-out infinite}
-  @keyframes heroScroll{0%,6%{transform:translateY(0)}44%,56%{transform:translateY(-70%)}94%,100%{transform:translateY(0)}}
-  .phone{border:7px solid #171512;border-radius:36px;overflow:hidden;background:#000;box-shadow:0 24px 50px rgba(23,21,18,.2);width:min(240px,60vw);justify-self:center;position:relative}
-  .phone .view{aspect-ratio:375/812;overflow:hidden;position:relative}
-  .phone .view img{position:absolute;inset:0;width:100%;display:block}
-  .phone .view img:nth-child(2){opacity:0;animation:phoneSwap 12s ease-in-out infinite}
-  @keyframes phoneSwap{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
-  @media(max-width:760px){.dev-hero{grid-template-columns:1fr}.phone{display:none}}
-  @media(prefers-reduced-motion:reduce){.browser .view img,.phone .view img:nth-child(2){animation:none}}
+  /* device stage — phone + tablet + laptop composition, all scrolling */
+  .dev-stage{position:relative;aspect-ratio:1.78;margin:2px 0 6px}
+  .dev-stage .view img{width:100%;display:block}
+  .dev-lap{position:absolute;right:0;top:5%;width:60%;z-index:1}
+  .dev-lap .screen{border:11px solid #17150f;border-bottom:none;border-radius:16px 16px 0 0;overflow:hidden;background:#000}
+  .dev-lap .view{aspect-ratio:16/10;overflow:hidden}
+  .dev-lap .view img{animation:devScroll 40s ease-in-out infinite;animation-delay:2s}
+  .dev-lap .base{height:15px;background:linear-gradient(#eceae5,#c6c3bb);border-radius:2px 2px 14px 14px;margin:0 -5%;box-shadow:0 14px 34px rgba(23,21,18,.22)}
+  .dev-tab{position:absolute;left:15%;top:0;width:48%;z-index:3;border:13px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 34px 80px rgba(23,21,18,.24)}
+  .dev-tab .view{aspect-ratio:4/3;overflow:hidden}
+  .dev-tab .view img{animation:devScroll 30s ease-in-out infinite}
+  .dev-ph{position:absolute;left:0;bottom:6%;width:15.5%;z-index:4;border:5px solid #131109;border-radius:24px;overflow:hidden;background:#000;box-shadow:0 22px 48px rgba(23,21,18,.26)}
+  .dev-ph .view{aspect-ratio:375/812;overflow:hidden;position:relative}
+  .dev-ph .view img{position:absolute;inset:0}
+  .dev-ph .view img:nth-child(2){opacity:0;animation:phoneSwap 14s ease-in-out infinite}
+  @keyframes devScroll{0%,7%{transform:translateY(0)}45%,55%{transform:translateY(-72%)}93%,100%{transform:translateY(0)}}
+  @keyframes phoneSwap{0%,42%{opacity:0}50%,92%{opacity:1}100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.dev-stage .view img{animation:none!important}}
   .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
   /* mega menu cycle */
   .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
@@ -139,10 +142,16 @@ extraStyle: |
 <header class="page-hero wrap">
   <span class="eyebrow">Experience Lead · Service Design → Launch → Optimization · Merkle (dentsu)</span>
   <h1>HEMS <span class="em">eCommerce</span></h1>
-  <p class="lead">GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
 </header>
 
 <article class="case case--brief" id="hems-gate-target">
+  <div class="jmap brief-keep">
+    <div class="dev-stage">
+      <div class="dev-lap"><div class="screen"><div class="view"><img src="/assets/img/hems/fig-ultium-lp.jpg" alt="Home Energy landing page scrolling in a laptop frame"></div></div><div class="base"></div></div>
+      <div class="dev-tab"><div class="view"><img src="/assets/img/hems/fig-home-lp.jpg" alt="GM Energy homepage scrolling in a tablet frame"></div></div>
+      <div class="dev-ph"><div class="view"><img src="/assets/img/hems/fig-mobile-hems.jpg" alt="HEMS mobile app"><img src="/assets/img/hems/fig-mobile-outage.jpg" alt="HEMS mobile app — outage state"></div></div>
+    </div>
+  </div>
   <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
     <div class="view-toggle" role="tablist" aria-label="Case study view">
       <button class="vt-btn on" id="vt-brief" type="button" aria-selected="true">Brief</button>
@@ -156,14 +165,11 @@ extraStyle: |
     <div class="gate-err" id="hems-err"></div>
     <button id="hems-go" type="button">View full case study</button>
   </div>
-  <div class="jmap brief-keep">
-    <div class="dev-hero">
-      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img src="/assets/img/hems/fig-home-lp.jpg" alt="GM Energy homepage — final design, scrolling"></div></div>
-      <div class="phone"><div class="view"><img src="/assets/img/hems/fig-mobile-hems.jpg" alt="HEMS mobile app — start screen"><img src="/assets/img/hems/fig-mobile-outage.jpg" alt="HEMS mobile app — outage summary with backup active"></div></div>
-    </div>
-    <p class="dev-hero-cap">The shipped experience — gmenergy.gm.com and the HEMS mobile app.</p>
-  </div>
   <p class="notice"><b>Note</b>This full case study is shared under password for portfolio review. Some identifying details have been sanitized; please don't redistribute.</p>
+  <div class="brief-keep" style="max-width:820px;margin:26px auto 0">
+    <h2 style="padding-top:0">Overview</h2>
+    <p>GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
+  </div>
   <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
 
@@ -425,16 +431,16 @@ extraStyle: |
     <figure><div class="shot"><img src="/assets/img/hems/fig-ultium-lp.jpg" alt="Home Energy landing page — final design" loading="lazy"></div><figcaption>Home Energy landing page.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-shop-plp.jpg" alt="Shop All Products listing page — final design" loading="lazy"></div><figcaption>Shop All Products.</figcaption></figure>
   </div>
-  <h2>Navigation that sells three businesses at once</h2>
-  <p>The mega menu had to hold EV charging, home energy, and live-demo booking in one structure — informed by the card sort that simplified the taxonomy.</p>
+  <h2>The navigation system</h2>
+  <p>The three menu systems of the shipped site.</p>
   <div class="jmap"><div class="nav-cycle">
     <img src="/assets/img/hems/fig-nav-shop.jpg" alt="Shop Products mega menu — final design">
     <img src="/assets/img/hems/fig-nav-guidance.jpg" alt="Get Guidance mega menu — final design">
     <img src="/assets/img/hems/fig-nav-live.jpg" alt="Energy Live mega menu — final design">
   </div>
   <p class="dev-hero-cap">The three menu systems — Shop Products, Get Guidance, and Energy Live — cycling.</p></div>
-  <h2>One prototype, every screen</h2>
-  <p>The full-site prototype carried 140+ desktop and mobile frames — every page, state, and flow, testable before a line of code. A sample; hover any screen to scroll it.</p>
+  <h2>Screens from the full-site prototype</h2>
+  <p>A sample of the prototype file's frames. Hover any screen to scroll it.</p>
   <div class="jmap"><div class="chart-grid">
     <figure><div class="shot"><img src="/assets/img/hems/fig-chart-plp-homeenergy.jpg" alt="Home Energy Solutions PLP" loading="lazy"></div><figcaption>Home Energy PLP</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-powershift.jpg" alt="PowerShift Charger PDP" loading="lazy"></div><figcaption>PowerShift PDP</figcaption></figure>
