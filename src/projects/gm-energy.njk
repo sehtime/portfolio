@@ -91,6 +91,37 @@ extraStyle: |
   .sb-strip figcaption b{font-family:var(--sans);font-style:normal;color:var(--accent);margin-right:6px}
   .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .sb-hint::after{content:"⟶";color:var(--accent)}
+  /* device hero — auto-scrolling desktop + mobile */
+  .dev-hero{display:grid;grid-template-columns:2.3fr 1fr;gap:clamp(20px,4vw,48px);align-items:end;margin:6px 0 10px}
+  .browser{border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 30px 70px rgba(23,21,18,.14)}
+  .browser .bar{display:flex;gap:6px;padding:11px 14px;background:#f1efea;border-bottom:1px solid var(--hair)}
+  .browser .bar i{width:10px;height:10px;border-radius:50%;background:#dcd9d1;display:block}
+  .browser .view{aspect-ratio:16/10;overflow:hidden}
+  .browser .view img{width:100%;display:block;animation:heroScroll 34s ease-in-out infinite}
+  @keyframes heroScroll{0%,6%{transform:translateY(0)}44%,56%{transform:translateY(-70%)}94%,100%{transform:translateY(0)}}
+  .phone{border:7px solid #171512;border-radius:36px;overflow:hidden;background:#000;box-shadow:0 24px 50px rgba(23,21,18,.2);width:min(240px,60vw);justify-self:center;position:relative}
+  .phone .view{aspect-ratio:375/812;overflow:hidden;position:relative}
+  .phone .view img{position:absolute;inset:0;width:100%;display:block}
+  .phone .view img:nth-child(2){opacity:0;animation:phoneSwap 12s ease-in-out infinite}
+  @keyframes phoneSwap{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
+  @media(max-width:760px){.dev-hero{grid-template-columns:1fr}.phone{display:none}}
+  @media(prefers-reduced-motion:reduce){.browser .view img,.phone .view img:nth-child(2){animation:none}}
+  .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
+  /* mega menu cycle */
+  .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
+  .nav-cycle img{position:absolute;inset:0;width:100%;display:block;opacity:0;animation:navFade 15s infinite}
+  .nav-cycle img:nth-child(1){animation-delay:0s}
+  .nav-cycle img:nth-child(2){animation-delay:5s}
+  .nav-cycle img:nth-child(3){animation-delay:10s}
+  @keyframes navFade{0%{opacity:0}4%,29%{opacity:1}37%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.nav-cycle img{animation:none}.nav-cycle img:first-child{opacity:1}}
+  /* screen chart */
+  .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+  .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
+  .chart-grid .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
+  .chart-grid figure:hover .shot img{object-position:bottom}
+  .chart-grid figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.chart-grid{grid-template-columns:repeat(2,1fr)}}
   /* act kickers — narrative parts */
   .act-kicker{margin:clamp(48px,7vw,72px) 0 -6px;padding-top:26px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-2)}
   .act-kicker span{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
@@ -124,6 +155,13 @@ extraStyle: |
     <input id="hems-pw" type="password" autocomplete="off" placeholder="Password" />
     <div class="gate-err" id="hems-err"></div>
     <button id="hems-go" type="button">View full case study</button>
+  </div>
+  <div class="jmap brief-keep">
+    <div class="dev-hero">
+      <div class="browser"><div class="bar"><i></i><i></i><i></i></div><div class="view"><img src="/assets/img/hems/fig-home-lp.jpg" alt="GM Energy homepage — final design, scrolling"></div></div>
+      <div class="phone"><div class="view"><img src="/assets/img/hems/fig-mobile-hems.jpg" alt="HEMS mobile app — start screen"><img src="/assets/img/hems/fig-mobile-outage.jpg" alt="HEMS mobile app — outage summary with backup active"></div></div>
+    </div>
+    <p class="dev-hero-cap">The shipped experience — gmenergy.gm.com and the HEMS mobile app.</p>
   </div>
   <p class="notice"><b>Note</b>This full case study is shared under password for portfolio review. Some identifying details have been sanitized; please don't redistribute.</p>
   <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
@@ -387,6 +425,26 @@ extraStyle: |
     <figure><div class="shot"><img src="/assets/img/hems/fig-ultium-lp.jpg" alt="Home Energy landing page — final design" loading="lazy"></div><figcaption>Home Energy landing page.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-shop-plp.jpg" alt="Shop All Products listing page — final design" loading="lazy"></div><figcaption>Shop All Products.</figcaption></figure>
   </div>
+  <h2>Navigation that sells three businesses at once</h2>
+  <p>The mega menu had to hold EV charging, home energy, and live-demo booking in one structure — informed by the card sort that simplified the taxonomy.</p>
+  <div class="jmap"><div class="nav-cycle">
+    <img src="/assets/img/hems/fig-nav-shop.jpg" alt="Shop Products mega menu — final design">
+    <img src="/assets/img/hems/fig-nav-guidance.jpg" alt="Get Guidance mega menu — final design">
+    <img src="/assets/img/hems/fig-nav-live.jpg" alt="Energy Live mega menu — final design">
+  </div>
+  <p class="dev-hero-cap">The three menu systems — Shop Products, Get Guidance, and Energy Live — cycling.</p></div>
+  <h2>One prototype, every screen</h2>
+  <p>The full-site prototype carried 140+ desktop and mobile frames — every page, state, and flow, testable before a line of code. A sample; hover any screen to scroll it.</p>
+  <div class="jmap"><div class="chart-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-plp-homeenergy.jpg" alt="Home Energy Solutions PLP" loading="lazy"></div><figcaption>Home Energy PLP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-powershift.jpg" alt="PowerShift Charger PDP" loading="lazy"></div><figcaption>PowerShift PDP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-v2hkit.jpg" alt="V2H Enablement Kit PDP" loading="lazy"></div><figcaption>V2H Kit PDP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-hems.jpg" alt="HEMS overview page" loading="lazy"></div><figcaption>HEMS overview</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.jpg" alt="Install quote — eligibility approved" loading="lazy"></div><figcaption>Install quote · eligibility</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-totalcost.jpg" alt="Install quote — total order cost" loading="lazy"></div><figcaption>Install quote · total cost</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-dashboard.jpg" alt="Account dashboard" loading="lazy"></div><figcaption>Account dashboard</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-signin.jpg" alt="Sign in" loading="lazy"></div><figcaption>Sign in</figcaption></figure>
+  </div></div>
   <h2>The product page, three generations</h2>
   <p>The product page below survived three generations: an annotated lo-fi wireframe shaped with stakeholders in early 2023, a branded mid-fidelity pass under the Ultium Home name, and the shipped GM Energy 2.0 experience. Hover any stage to scroll the full screen.</p>
   <div class="evo-wrap">
