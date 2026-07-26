@@ -91,8 +91,12 @@ extraStyle: |
   .sb-strip figcaption b{font-family:var(--sans);font-style:normal;color:var(--accent);margin-right:6px}
   .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
   .sb-hint::after{content:"⟶";color:var(--accent)}
+  /* tighten page top so the device hero is visible on load */
+  .page-hero{padding:clamp(18px,2.5vw,30px) 0 6px}
+  .page-hero h1{font-size:clamp(30px,4.2vw,44px)}
+  .back{margin-top:14px}
   /* device stage — official Apple renders, screens composited behind bezel PNGs */
-  .dev-stage{position:relative;aspect-ratio:1.72;margin:2px 0 6px}
+  .dev-stage{position:relative;aspect-ratio:1.72;margin:0 0 6px;width:min(1020px,90vw);margin-inline:auto}
   .dev-lap{position:absolute;right:0;bottom:0;width:78%;aspect-ratio:3860/2540;filter:drop-shadow(0 26px 36px rgba(23,21,18,.20))}
   .dev-lap .view{position:absolute;left:10.83%;top:13.86%;width:78.34%;height:74.8%;overflow:hidden;border-radius:6px 6px 0 0;background:#000}
   .dev-ph{position:absolute;left:8%;bottom:0;width:17.5%;aspect-ratio:1350/2760;z-index:4;filter:drop-shadow(0 22px 34px rgba(23,21,18,.26))}
