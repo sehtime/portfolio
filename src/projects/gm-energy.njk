@@ -66,8 +66,6 @@ extraStyle: |
   @media(max-width:780px){.pmap-detail{grid-template-columns:1fr}.pmap-detail--reverse .pmap-text{order:1}.pmap-detail--reverse .pmap-img{order:2}}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   </style>
-  <script>if(sessionStorage.getItem('hems-gate')!=='1')document.documentElement.classList.add('hems-gated');</script>
-  <style>html.hems-gated #hems-gate-target{display:none!important}html:not(.hems-gated) #hems-unlock{display:none!important}</style>
 ---
 {% include "partials/back-link.njk" %}
 
@@ -77,47 +75,25 @@ extraStyle: |
   <p class="lead">GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
 </header>
 
-<div id="hems-unlock" class="wrap" style="max-width:380px;padding:80px var(--gut);text-align:center">
-  <div style="font-weight:600;font-size:19px;letter-spacing:-.01em;color:var(--ink)">This project is password protected</div>
-  <div style="font-family:var(--serif);font-style:italic;font-size:15px;color:var(--muted-2);margin:8px 0 22px">Enter the password to view this case study.</div>
-  <input id="hems-pw" type="password" autocomplete="off" placeholder="Password" style="width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:8px;font-size:15px;box-sizing:border-box;font-family:inherit" />
-  <div id="hems-err" style="color:#e8501f;font-size:13px;height:18px;margin-top:8px"></div>
-  <button id="hems-go" style="width:100%;padding:12px;border:0;border-radius:8px;background:var(--ink);color:var(--bg);font-weight:600;font-size:15px;cursor:pointer;font-family:inherit">Enter</button>
-</div>
-<script>
-(function(){
-  var PASSWORD = "sunday";
-  var btn = document.getElementById('hems-go');
-  if(!btn) return;
-  var pw = document.getElementById('hems-pw');
-  var err = document.getElementById('hems-err');
-  function go(){
-    if(pw.value === PASSWORD){
-      sessionStorage.setItem('hems-gate','1');
-      document.documentElement.classList.remove('hems-gated');
-    } else {
-      err.textContent = 'Incorrect password';
-      pw.value = '';
-      pw.focus();
-    }
-  }
-  btn.addEventListener('click', go);
-  pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') go(); });
-})();
-</script>
-
-<article class="case" id="hems-gate-target">
-  <div class="tldr-keep" style="display:flex;justify-content:center;margin-bottom:6px">
+<article class="case case--brief" id="hems-gate-target">
+  <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
     <div class="view-toggle" role="tablist" aria-label="Case study view">
-      <button class="vt-btn on" id="vt-detailed" type="button" aria-selected="true">Detailed</button>
-      <button class="vt-btn" id="vt-tldr" type="button" aria-selected="false">TL;DR</button>
+      <button class="vt-btn on" id="vt-brief" type="button" aria-selected="true">Brief</button>
+      <button class="vt-btn" id="vt-full" type="button" aria-selected="false">Full</button>
     </div>
   </div>
+  <div class="case-gate brief-keep" id="hems-gate">
+    <div class="gate-title">The full case study is password protected</div>
+    <div class="gate-sub">It includes sensitive images and workflows. Enter the password to view it.</div>
+    <input id="hems-pw" type="password" autocomplete="off" placeholder="Password" />
+    <div class="gate-err" id="hems-err"></div>
+    <button id="hems-go" type="button">View full case study</button>
+  </div>
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <figure class="jmap tldr-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
 
-  <div class="case-meta tldr-keep">
+  <div class="case-meta brief-keep">
     <div><span>Role</span>User Experience Lead</div>
     <div><span>Client</span>GM Energy · via Merkle (dentsu)</div>
     <div><span>Timeline</span>Oct 2022 – 2026 · vision through post-launch optimization</div>
@@ -134,7 +110,7 @@ extraStyle: |
     <span class="chip"><b>07</b>Executive dashboard</span>
   </div>
 
-  <div class="impact-block tldr-keep">
+  <div class="impact-block brief-keep">
     <h2>Impact</h2>
     <ul class="impact-list">
       <li><b>Took GM Energy from zero to a launched commerce experience</b><span>Defined what the experience should be — service blueprint, personas, journeys — then carried it through wireframes, sprint delivery, and launch: configurable bundles, financing inside checkout, installation scheduling, and account management.</span></li>
@@ -349,7 +325,7 @@ extraStyle: |
   <p>Selling the hardware was only half the mandate — leadership needed to see how the business was actually doing. The executive dashboard was one of the largest efforts alongside the storefront itself: a business-facing view giving leadership visibility into funnel performance and program health at a glance, without having to ask the team for a status update.</p>
   <div class="slot">Executive dashboard — image coming soon</div>
 
-  <div class="tldr-keep">
+  <div class="brief-keep">
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
   </div>
@@ -358,16 +334,35 @@ extraStyle: |
 
 <script>
 (function(){
+  var PASSWORD = "sunday", KEY = "hems-gate";
   var art = document.getElementById('hems-gate-target');
-  var bD = document.getElementById('vt-detailed'), bT = document.getElementById('vt-tldr');
-  if(!art || !bD) return;
-  function set(tldr){
-    art.classList.toggle('case--tldr', tldr);
-    bD.classList.toggle('on', !tldr); bT.classList.toggle('on', tldr);
-    bD.setAttribute('aria-selected', !tldr); bT.setAttribute('aria-selected', tldr);
+  var bB = document.getElementById('vt-brief'), bF = document.getElementById('vt-full');
+  var gate = document.getElementById('hems-gate');
+  var pw = document.getElementById('hems-pw'), err = document.getElementById('hems-err'), go = document.getElementById('hems-go');
+  if(!art || !bB) return;
+  function setView(full){
+    art.classList.toggle('case--brief', !full);
+    bB.classList.toggle('on', !full); bF.classList.toggle('on', full);
+    bB.setAttribute('aria-selected', !full); bF.setAttribute('aria-selected', full);
+    gate.classList.remove('open'); err.textContent = '';
   }
-  bD.addEventListener('click', function(){ set(false); });
-  bT.addEventListener('click', function(){ set(true); });
+  bB.addEventListener('click', function(){ setView(false); });
+  bF.addEventListener('click', function(){
+    if(sessionStorage.getItem(KEY) === '1'){ setView(true); }
+    else { gate.classList.add('open'); pw.focus(); }
+  });
+  function tryUnlock(){
+    if(pw.value === PASSWORD){
+      sessionStorage.setItem(KEY, '1');
+      pw.value = '';
+      setView(true);
+    } else {
+      err.textContent = 'Incorrect password';
+      pw.value = ''; pw.focus();
+    }
+  }
+  go.addEventListener('click', tryUnlock);
+  pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
 })();
 </script>
 
