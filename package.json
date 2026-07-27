@@ -7,6 +7,7 @@
     "resume:pdf": "bash scripts/build-resume-pdf.sh"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0"
+    "@11ty/eleventy": "^3.0.0",
+    "node-html-parser": "^9.0.0"
   }
 }
