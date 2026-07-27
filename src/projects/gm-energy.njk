@@ -65,6 +65,90 @@ extraStyle: |
   .pmap-img img{width:100%;display:block;border-radius:8px;border:1px solid var(--hair);background:#fffdfb}
   @media(max-width:780px){.pmap-detail{grid-template-columns:1fr}.pmap-detail--reverse .pmap-text{order:1}.pmap-detail--reverse .pmap-img{order:2}}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
+  /* design evolution: 3 fidelity stages */
+  .evo-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
+  .evo-tabs{display:flex;gap:8px;margin-bottom:18px}
+  .evo-tab{border:1px solid var(--hair);background:#fffdfb;border-radius:99px;padding:8px 18px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
+  .evo-tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .evo-tab:not(.on):hover{color:var(--ink)}
+  .evo-grid{display:none;grid-template-columns:1fr 1fr 1fr;gap:18px}
+  .evo-grid.on{display:grid}
+  .evo-stage{position:relative}
+  .evo-stage .frame{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/4}
+  .evo-stage .frame img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 6s ease}
+  .evo-stage:hover .frame img{object-position:bottom}
+  .evo-stage .lbl{margin-top:10px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
+  .evo-stage .lbl b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);margin-top:2px}
+  .evo-stage:not(:first-child)::before{content:"→";position:absolute;left:-16px;top:40%;color:var(--accent);font-size:18px;font-weight:600}
+  @media(max-width:760px){.evo-grid{grid-template-columns:1fr}.evo-stage:not(:first-child)::before{content:"↓";left:50%;top:-24px}}
+  .evo-note{margin-top:14px;font-size:13px;color:var(--muted);font-family:var(--serif);font-style:italic;text-align:center}
+  /* storyboard scroll strip */
+  .sb-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
+  .sb-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
+  .sb-strip figure{flex:0 0 min(340px,80vw);margin:0;scroll-snap-align:start}
+  .sb-strip img{width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fffdfb}
+  .sb-strip figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-family:var(--serif);font-style:italic}
+  .sb-strip figcaption b{font-family:var(--sans);font-style:normal;color:var(--accent);margin-right:6px}
+  .sb-hint{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.07em;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .sb-hint::after{content:"⟶";color:var(--accent)}
+  /* tighten page top so the device hero is visible on load */
+  .page-hero{padding:clamp(8px,1.2vw,16px) 0 2px}
+  .page-hero h1{font-size:clamp(30px,4.2vw,44px)}
+  .page-hero .eyebrow{margin-bottom:8px}
+  .back{margin-top:8px;margin-bottom:0}
+  /* device stage — official Apple renders, screens composited behind bezel PNGs */
+  .dev-stage{position:relative;aspect-ratio:1.72;margin:0 auto;width:min(840px,86vw)}
+  .dev-lap{position:absolute;right:0;bottom:0;width:78%;aspect-ratio:3860/2540;filter:drop-shadow(0 26px 36px rgba(23,21,18,.20))}
+  .dev-lap .view{position:absolute;left:10.85%;top:11.35%;width:78.3%;height:77.2%;overflow:hidden;border-radius:8px 8px 0 0;background:#000;box-shadow:0 0 0 2px #0a0a0a}
+  .dev-ph{position:absolute;left:8%;bottom:0;width:17.5%;aspect-ratio:1350/2760;z-index:4;filter:drop-shadow(0 22px 34px rgba(23,21,18,.26))}
+  .dev-ph .view{position:absolute;left:5.33%;top:2.45%;width:89.33%;height:95.1%;overflow:hidden;border-radius:14% / 6.5%;background:#000;box-shadow:0 0 0 2px #0a0a0a}
+  .dev-stage .bezel{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+  .dev-stage .view img{width:100%;display:block}
+  .dev-lap .view img{animation:lapScroll 96s linear infinite}
+  .dev-ph .view img{animation:phScroll 80s ease-in-out infinite}
+  @keyframes lapScroll{0%{transform:translateY(0)}3.12%{transform:translateY(0)}96.88%{transform:translateY(-88.24%)}99.99%{transform:translateY(-88.24%)}100%{transform:translateY(0)}}
+  @keyframes phScroll{0.00%{transform:translateY(0);animation-timing-function:linear}1.25%{transform:translateY(0);animation-timing-function:linear}7.53%{transform:translateY(-1.64%);animation-timing-function:cubic-bezier(.55,0,.25,1)}9.16%{transform:translateY(-8.18%);animation-timing-function:linear}15.43%{transform:translateY(-9.82%);animation-timing-function:cubic-bezier(.55,0,.25,1)}17.06%{transform:translateY(-16.37%);animation-timing-function:linear}23.34%{transform:translateY(-18.01%);animation-timing-function:cubic-bezier(.55,0,.25,1)}24.97%{transform:translateY(-24.55%);animation-timing-function:linear}31.24%{transform:translateY(-26.19%);animation-timing-function:cubic-bezier(.55,0,.25,1)}32.87%{transform:translateY(-32.74%);animation-timing-function:linear}39.15%{transform:translateY(-34.38%);animation-timing-function:cubic-bezier(.55,0,.25,1)}40.78%{transform:translateY(-40.92%);animation-timing-function:linear}47.05%{transform:translateY(-42.56%);animation-timing-function:cubic-bezier(.55,0,.25,1)}48.68%{transform:translateY(-49.11%);animation-timing-function:linear}54.96%{transform:translateY(-50.75%);animation-timing-function:cubic-bezier(.55,0,.25,1)}56.59%{transform:translateY(-57.29%);animation-timing-function:linear}62.86%{transform:translateY(-58.93%);animation-timing-function:cubic-bezier(.55,0,.25,1)}64.49%{transform:translateY(-65.48%);animation-timing-function:linear}70.77%{transform:translateY(-67.12%);animation-timing-function:cubic-bezier(.55,0,.25,1)}72.40%{transform:translateY(-73.66%);animation-timing-function:linear}78.67%{transform:translateY(-75.30%);animation-timing-function:cubic-bezier(.55,0,.25,1)}80.30%{transform:translateY(-81.85%);animation-timing-function:linear}86.57%{transform:translateY(-83.49%);animation-timing-function:cubic-bezier(.55,0,.25,1)}88.21%{transform:translateY(-90.03%);animation-timing-function:linear}94.48%{transform:translateY(-91.67%);animation-timing-function:cubic-bezier(.55,0,.25,1)}96.11%{transform:translateY(-91.82%);animation-timing-function:linear}99.86%{transform:translateY(-91.82%);animation-timing-function:linear}100%{transform:translateY(0)}}
+  @media(prefers-reduced-motion:reduce){.dev-stage .view img{animation:none!important}}
+  @media(max-width:760px){
+    .dev-stage{aspect-ratio:1.35}
+    .dev-lap{width:92%}
+    .dev-ph{width:30%;left:0}
+    .jgal{grid-template-columns:1fr!important}
+    .live-grid{grid-template-columns:1fr!important}
+    .chart-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
+  /* mega menu cycle */
+  .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
+  .nav-cycle img{position:absolute;inset:0;width:100%;display:block;opacity:0;animation:navFade 15s infinite}
+  .nav-cycle img:nth-child(1){animation-delay:0s}
+  .nav-cycle img:nth-child(2){animation-delay:5s}
+  .nav-cycle img:nth-child(3){animation-delay:10s}
+  @keyframes navFade{0%{opacity:0}4%,29%{opacity:1}37%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.nav-cycle img{animation:none}.nav-cycle img:first-child{opacity:1}}
+  /* screen chart */
+  .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
+  .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
+  .chart-grid .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
+  .chart-grid figure:hover .shot img{object-position:bottom}
+  .chart-grid figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.chart-grid{grid-template-columns:repeat(2,1fr)}}
+  /* brief tracks grid */
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px;margin-top:18px;padding:0;list-style:none}
+  .tracks li{border-left:2px solid var(--hair);padding:2px 0 2px 16px}
+  .tracks li b{display:block;font-size:15px;margin-bottom:2px}
+  .tracks li span{font-size:13.5px;color:var(--muted-2);line-height:1.5}
+  @media(max-width:640px){.tracks{grid-template-columns:1fr}}
+  /* act kickers — narrative parts */
+  .act-kicker{margin:clamp(48px,7vw,72px) 0 -6px;padding-top:26px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-2)}
+  .act-kicker span{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
+  /* launched-site gallery */
+  .live-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-top:26px}
+  .live-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/4}
+  .live-grid .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 8s ease}
+  .live-grid figure:hover .shot img{object-position:bottom}
+  .live-grid figcaption{font-size:12.5px;color:var(--muted);margin-top:8px;font-family:var(--serif);font-style:italic}
+  @media(max-width:760px){.live-grid{grid-template-columns:1fr}}
   </style>
 ---
 {% include "partials/back-link.njk" %}
@@ -72,10 +156,15 @@ extraStyle: |
 <header class="page-hero wrap">
   <span class="eyebrow">Experience Lead · Service Design → Launch → Optimization · Merkle (dentsu)</span>
   <h1>HEMS <span class="em">eCommerce</span></h1>
-  <p class="lead">GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
 </header>
 
 <article class="case case--brief" id="hems-gate-target">
+  <div class="jmap brief-keep">
+    <div class="dev-stage">
+      <div class="dev-lap"><div class="view"><img src="/assets/img/hems/live-home-desktop.jpg" alt="The live gmenergy.com homepage scrolling on a MacBook Pro"></div><img class="bezel" src="/assets/img/hems/bezel-mbp14.png" alt="" aria-hidden="true"></div>
+      <div class="dev-ph"><div class="view"><img src="/assets/img/hems/live-hes-mobile.jpg" alt="Home Energy System product page scrolling on an iPhone"></div><img class="bezel" src="/assets/img/hems/bezel-iphone16pro.png" alt="" aria-hidden="true"></div>
+    </div>
+  </div>
   <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
     <div class="view-toggle" role="tablist" aria-label="Case study view">
       <button class="vt-btn on" id="vt-brief" type="button" aria-selected="true">Brief</button>
@@ -90,8 +179,10 @@ extraStyle: |
     <button id="hems-go" type="button">View full case study</button>
   </div>
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
-  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
+  <div class="brief-keep" style="max-width:820px;margin:26px auto 0">
+    <h2 style="padding-top:0">Overview</h2>
+    <p>GM Energy's first step into ecommerce — taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
+  </div>
 
   <div class="case-meta brief-keep">
     <div><span>Role</span>User Experience Lead</div>
@@ -100,42 +191,50 @@ extraStyle: |
     <div><span>Team</span>Rotating core team of 6–10</div>
   </div>
 
-  <div class="chips">
-    <span class="chip"><b>01</b>Shopping &amp; PDP</span>
-    <span class="chip"><b>02</b>Checkout &amp; Financing</span>
-    <span class="chip"><b>03</b>Energy Genie</span>
-    <span class="chip"><b>04</b>Installation</span>
-    <span class="chip"><b>05</b>My Account</span>
-    <span class="chip"><b>06</b>Ownership &amp; care</span>
-    <span class="chip"><b>07</b>Executive dashboard</span>
-  </div>
 
   <div class="impact-block brief-keep">
     <h2>Impact</h2>
     <ul class="impact-list">
       <li><b>Took GM Energy from zero to a launched commerce experience</b><span>Defined what the experience should be — service blueprint, personas, journeys — then carried it through wireframes, sprint delivery, and launch: configurable bundles, financing inside checkout, installation scheduling, and account management.</span></li>
-      <li><b>Put financing inside the purchase flow</b><span>Designed the GM Financial integration as part of checkout rather than a hand-off — post-launch usability testing (N=16) validated the flow as clear and trustworthy.</span></li>
-      <li><b>Built a research practice, not just a launch</b><span>Structured post-launch research into two standing tracks — validating designs in flight and evaluating what shipped — so evidence feeds every release.</span></li>
+      <li><b>Unified purchase, financing, and installation into one checkout</b><span>Took what began as a hand-off between GM Energy, GM Financial, and the install partner and integrated it into a single flow — purchasing the products, financing them with installation, and quoting the install in one process, so the customer is never passed back and forth. One of the hardest problems in the project, and it took many iterations to get right.</span></li>
+      <li><b>Established the research framework for validation testing</b><span>Set the foundation for how the team tests: every study starts by defining what we're asking, why we're asking it, what the result should tell us — and how that answer will drive the design decision. Our senior UX designer then evolved that foundation into the mature, well-defined testing process the team runs today.</span></li>
     </ul>
     <div class="stat-row">
       <div class="stat"><b>0 → 1</b><span>No digital presence to a launched, financed, installable storefront</span></div>
       <div class="stat"><b>4 personas</b><span>Evidence-based, reshaping who the business designs for</span></div>
-      <div class="stat"><b>2 tracks</b><span>Standing research program validating and evaluating every release</span></div>
+      <div class="stat"><b>7+ workstreams</b><span>Storefront · Checkout · Sales guide · Installation · Energy Genie · Executive dashboard · Dealership experience</span></div>
     </div>
   </div>
 
+  <div class="brief-keep">
+    <h2>The major tracks</h2>
+    <p>One engagement, many parallel workstreams — moved between continuously from 2022 through launch and beyond.</p>
+    <ul class="tracks">
+      <li><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to UI for visual design.</span></li>
+      <li><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — no hand-offs between three companies.</span></li>
+      <li><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an install into a quote inside checkout.</span></li>
+      <li><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — concept pathways through shipped feature.</span></li>
+      <li><b>Sales guide</b><span>Self-initiated playbook putting the journey in every consultant's hands — adopted across the GME sales organization.</span></li>
+      <li><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></li>
+      <li><b>Dealership experience</b><span>Future-state concepts for how home energy gets sold in physical retail.</span></li>
+      <li><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></li>
+    </ul>
+  </div>
+
+<div class="act-kicker"><span>Part 01</span>Build the ground truth</div>
   <h2>The challenge</h2>
   <p>In fall 2022, home energy management systems were an emerging category and GM was entering it for the first time. There was no ecommerce presence, no established journey, and no agreed definition of who the customer even was.</p>
-  <p>The engagement began as a service design project with four goals: define how GM Energy should engage with and serve its customers; identify the systems, platforms, and processes needed to enable that experience; craft a future-state vision through concepts and prototypes; and develop the roadmap to bring it to life. The work wasn't redesigning an experience — it was deciding what the experience should be, then carrying it to launch and beyond.</p>
-
+  <p>The engagement began as a service design project with four goals: define how GM Energy should engage with and serve its customers; identify the systems, platforms, and processes needed to enable that experience; craft a future-state vision through concepts and prototypes; and develop the roadmap to bring it to life. The work concentrated on deciding what the experience should be, then carrying it to launch and beyond.</p>
   <h2>Research: understanding the ecosystem and the product line</h2>
-  <p>With nothing to audit, research had to build the ground truth — and the first job was simply to understand two things: the ecosystem GM Energy was stepping into, and the product line itself. I went into the field: GM dealerships to experience the electric offering firsthand, competitor EV dealerships, and generator dealers to learn how home backup power actually gets sold today — all alongside desk research across GM's existing consumer and brand work.</p>
+  <p>With nothing to audit, research had to build the ground truth — and the first job was simply to understand two things: the ecosystem GM Energy was offering through its product line, and how competitors were approaching the space. I did field research visiting GM dealers, competitor EV dealerships, and home power generator dealers to learn how home backup power actually gets sold today. Alongside desk research, we found that GM was unique — the only company offering both EVs and home battery systems, with the sole direct competitor being Tesla and its EV-plus-Powerwall lineup.</p>
   <p>That fed a categorization exercise: mapping the emerging HEMS products against the customers most likely to want each one. It turned a raw catalog of chargers, storage, and backup hardware into a map of <em>who each product is for</em> — the foundation everything downstream would build on. Throughout, service design workshops kept GM stakeholders building alongside us rather than reviewing from a distance.</p>
   <figure class="wmed"><img src="/assets/img/ecosystem-map.jpg" alt="GM Energy customer scenarios and product ecosystem — each HEMS product mapped to the customers most likely to want it" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>Customer scenarios × product ecosystem — mapping every HEMS product to who it's for, with the cross-sell sequence between them.</figcaption></figure>
 
   <h2>From a master blueprint to detailed journeys</h2>
   <p>That understanding became a large end-to-end service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the organization's shared source of truth for what had to be built — and it kept being revised for years as reality caught up with the vision.</p>
+  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.jpg" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems. Shown at scale; detail intentionally not legible.</figcaption></figure>
   <p>Momentum mattered more than certainty here. In a category no one had mapped yet, waiting for perfect data would have stalled everything — so we made our assumptions explicit and kept moving, treating the blueprint as <em>a living hypothesis, not a finished truth</em>. Every assumption became something to test: usability studies and surveys probed the riskiest ones, and incoming research — the audience segmentation especially — was absorbed the moment it landed, confirming or overturning what we'd sketched. That discipline of assume-then-validate is what let a zero-to-one map stay honest as the real product took shape.</p>
   <p>The master map showed the whole system, but the real design work lived in the columns. I pulled individual columns out of the blueprint — checkout and financing especially — and expanded each into its own detailed journey map, married to the user personas so a map showed not just <em>what</em> happens at a step, but <em>who</em> it's happening to and how it feels. That's where a wall-sized diagram turned into decisions a team could design against.</p>
   <figure class="jmap"><img src="/assets/img/checkout-journey.jpg" alt="The checkout section highlighted on the master blueprint and expanded into a detailed journey in a working session" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
@@ -156,6 +255,20 @@ extraStyle: |
     </div>
   </div>
   <p style="margin-top:10px;font-size:13px;color:var(--muted)">All shown at scale; detail intentionally not legible.</p>
+
+  <h2>The living maps: 2022 → 2025</h2>
+  <p>The maps never stopped. Three years after the first blueprint, the current generation integrates everything the research kept teaching us — personas, pain points, CRM actions, and opportunities on one canvas.</p>
+  <figure class="jmap"><img src="/assets/img/hems/journey-v2-2025.jpg" alt="GM Energy for Home Journey Map V2, May 2025" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The 2025 V2 journey map — pre-purchase, purchase, and post-purchase with main and supporting flows.</figcaption></figure>
+  <div class="jgal-wrap"><div class="jgal" style="grid-template-columns:repeat(3,1fr)">
+    <figure class="jcard"><img src="/assets/img/hems/journey-integrated-2025.jpg" alt="Integrated HEMS journey mega-map, October 2025" loading="lazy"><div class="cap"><h4>Integrated journey</h4><p>Phases, persona swimlanes, pains, and opportunities.</p></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/journey-ev-2025.jpg" alt="GM EV journey mega-map, September 2025" loading="lazy"><div class="cap"><h4>EV journey</h4><p>Order-to-ownership for the vehicle side.</p></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/journey-combined-2025.jpg" alt="Combined EV + HEMS journey, September 2025" loading="lazy"><div class="cap"><h4>EV + HEMS combined</h4><p>Fiona's world — both purchases as one arc.</p></div></figure>
+  </div></div>
+  <h2>Information architecture</h2>
+  <p>The service maps set the journey; the sitemap set the structure. Every page of the eventual site, mapped before it existed.</p>
+  <figure class="wmed"><img src="/assets/img/hems/sitemap.jpg" alt="Basic sitemap — the full site page tree" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
 
   <h2>One map, four ways through it</h2>
   <p>To understand where the purchase opportunities were for the HEMS products, we needed to understand each journey depending on where the customer started. This led to the multiple journeys that illustrated where those opportunities lived, and what each persona's experience looked like.</p>
@@ -261,7 +374,21 @@ extraStyle: |
   </div>
 
   <p>Storyboards zoomed in further still — micro-views of a single moment considering the customer, GM staff, and environment, across digital and physical worlds. The install consultation, for example: an authorized installer standing in a customer's garage, where the digital experience has to hand off gracefully to a person.</p>
-  <div class="slot">Storyboard — image coming soon</div>
+  <h2>Storyboarding the service moments</h2>
+  <p>The journeys defined <em>where</em> the moments happen; storyboards made them human. I developed Disney-style storyboards across five workstreams — the shopping experience, checkout, Energy Genie, the installation experience, and the executive dashboard — using images and captions to walk clients and the team through the journey, and coaching teammates on what each frame has to carry: the physical and emotional decisions a customer faces at that moment. The sequence below walks the in-person install consultation end to end, with the customer's view and the consultant's view side by side in every scene.</p>
+  <div class="sb-wrap">
+    <div class="sb-hint">Scroll the sequence</div>
+    <div class="sb-strip">
+      <figure><img src="/assets/img/hems/story5-0.jpg" alt="Story 5 opener — customer and consultant goals with journey locator" loading="lazy"><figcaption><b>Setup</b>Customer &amp; consultant goals, and where this story sits on the journey map.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-1.jpg" alt="Scene 1 — booking confirmation email" loading="lazy"><figcaption><b>Scene 1</b>The confirmation email sets expectations for the visit.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-4.jpg" alt="Scene 4 — in-home inspection with checklist" loading="lazy"><figcaption><b>Scene 4</b>The consultant works a structured inspection checklist in the home.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-9.jpg" alt="Scene 9 — itemized quote walkthrough" loading="lazy"><figcaption><b>Scene 9</b>The itemized quote, walked through line by line.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-12.jpg" alt="Scene 12 — financing conversation" loading="lazy"><figcaption><b>Scene 12</b>Financing options discussed in context, not in a form.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-17.jpg" alt="Scene 17 — shipment and installer tracking" loading="lazy"><figcaption><b>Scene 17</b>Shipment and installer tracking close the loop.</figcaption></figure>
+    </div>
+  </div>
+  <figure class="jmap"><img src="/assets/img/hems/story5-board.jpg" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
+  <figcaption>The full board — 18 scenes across five phases, with alternate-journey branches for cancellations and rescheduling. A second storyboard covered the remote two-way-video consultation variant.</figcaption></figure>
 
   <h2>Personas</h2>
   <p>The first personas were built the usual way — stakeholder interviews plus secondary research — producing three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). Dentsu's M1 segmentation sharpened the targeting: Tech Builders near-term, Smart Living long-term. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
@@ -269,36 +396,145 @@ extraStyle: |
   <p>That analysis surfaced a segment the market was only beginning to recognize. Driven by increasingly frequent extreme weather, a group emerged that wants home energy security and has no interest in an electric vehicle at all — <b>Rhonda</b>, prioritizing HEMS over EVs. For a company rooted in vehicles, that's a strategic finding, not just a design one: the energy business has a market that isn't downstream of vehicle sales.</p>
   <div class="jgal-wrap">
     <div class="jgal">
-      <figure class="jcard"><img src="/assets/img/persona-markus.jpg" alt="Markus persona card — Tech Builder segment, detail blurred" loading="lazy" />
+      <figure class="jcard"><img src="/assets/img/hems/persona-markus-full.jpg" alt="Markus persona card — Tech Builder segment" loading="lazy" />
         <div class="cap"><span class="step">Tech Builder</span><h4>Markus</h4><p>Efficiency-minded project manager, frustrated by outages — wants visibility and control over home energy, considering an EV.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/persona-tom.jpg" alt="Tom persona card — Shiny Elite segment, detail blurred" loading="lazy" />
+      <figure class="jcard"><img src="/assets/img/hems/persona-tom-full.jpg" alt="Tom persona card — Shiny Elite segment" loading="lazy" />
         <div class="cap"><span class="step">Shiny Elite</span><h4>Tom</h4><p>Finance executive and GM EV owner who wants the best of the best — premium products, reliable through blackouts.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/persona-fiona.jpg" alt="Fiona persona card — Smart Tech segment, detail blurred" loading="lazy" />
+      <figure class="jcard"><img src="/assets/img/hems/persona-fiona-full.jpg" alt="Fiona persona card — Smart Tech segment" loading="lazy" />
         <div class="cap"><span class="step">Smart Tech</span><h4>Fiona</h4><p>Research-driven Lyriq owner weighing solar and backup power — values usability, warranties, and the best possible deal.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/persona-rhonda.jpg" alt="Rhonda persona card — Smart &amp; Safe segment, detail blurred" loading="lazy" />
+      <figure class="jcard"><img src="/assets/img/hems/persona-rhonda-full.jpg" alt="Rhonda persona card — Smart &amp; Safe segment" loading="lazy" />
         <div class="cap"><span class="step">Smart &amp; Safe</span><h4>Rhonda</h4><p>Educator nearing retirement in blackout-prone Florida — wants dependable backup power and expert guidance, no EV interest.</p></div></figure>
     </div>
   </div>
   <p style="margin-top:10px;font-size:13px;color:var(--muted)">Card content intentionally blurred; attribute charts shown for structure, not detail.</p>
   <p style="margin-top:22px">The personas became a working reference packet for the Home Energy Consultant team to facilitate sales calls and for the post-purchase care team — not a poster on a wall.</p>
 
-  <h2>From vision to wireframes to launch</h2>
-  <p>With the blueprint agreed, concepting turned into wireframes for the commerce experience — shop, PDP, bundles, cart, checkout, financing — then sprint-based delivery alongside GM's product and engineering teams. The launched experience sells the HEMS line — the GM Energy Home System, PowerShift Charger, and Vehicle-to-Home bundle — with configurable bundles, GM Financial financing inside the purchase flow, installation scheduling through certified partners, order tracking, and account management.</p>
-  <div class="slot">Wireframe → launched screen — image coming soon</div>
+  
+  <h2>Personas that evolved with the evidence</h2>
+  <p>The personas weren't a one-time deliverable — they were rebuilt as segmentation research, validation studies, and live customer data came in.</p>
+  <div class="jgal-wrap"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/persona-traits.jpg" alt="Behavioral traits compared across all four personas" loading="lazy"><div class="cap"><h4>Behavioral traits, side by side</h4><p>Motivations, learning preferences, purchase drivers, and buying styles.</p></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/persona-matrix.jpg" alt="Persona comparison matrix — four personas by eleven attributes" loading="lazy"><div class="cap"><h4>The comparison matrix</h4><p>Four personas × eleven attributes on one slide.</p></div></figure>
+  </div></div>
+  <div class="journey-split" style="align-items:start">
+    <div class="journey-imgs" style="grid-template-columns:1fr"><figure><img src="/assets/img/hems/persona-old-tom.jpg" alt="The 2022-era Tom persona card" loading="lazy" /><figcaption>Tom, 2022 — assumption-based, pre-research.</figcaption></figure></div>
+    <div class="journey-text">
+      <h3>Old Tom, meet new Tom.</h3>
+      <p>The 2022 personas were sketched from assumptions and desk research. Three years of segmentation workshops, validation studies, and shipped-product data turned them into the evidence-based cards above — same names, much sharper people.</p>
+    </div>
+  </div>
 
-  <h2>Energy Genie: guided buying, before checkout</h2>
-  <p>Before someone ever reaches checkout, they have to figure out what they actually need — and a HEMS is a considered purchase. Testers told us large purchases take weeks or months of research, that they prefer self-guided exploration, and that they're open to tools if those tools are accurate, unbiased, and genuinely personalized. That's the opening the Energy Genie was designed for: a guided experience earlier in the funnel that helps someone work out what to buy before they ever get to the cart.</p>
-  <p>For Genie 2.0 we tested two directions head-to-head — an open AI chat versus a structured survey — and the answer landed in between. Users relied on the system to lead rather than driving it themselves, and length didn't bother them as long as each step earned its place. The concept became a non-linear pathway merging AI dialog with survey questions in varying combinations, letting different customers enter and exit at different points.</p>
-  <p>Testing the shipped guided experience kept sharpening it: a vehicle-confirmation step was cut after half of testers found it redundant with the step before, and separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendations page itself rated 4 or 5 out of 5 with 80% of testers — the personalized reasoning and outage-risk section landed as "thoughtful" — but even the satisfied ones consistently wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy.</p>
-  <div class="slot">Energy Genie pathway — image coming soon</div>
+  <div class="act-kicker"><span>Part 02</span>Design the storefront</div>
+  <h2>From research to the storefront</h2>
+  <p>Everything upstream — the blueprint, the journeys, the personas, the storyboards — converged into the storefront: the home page, category landing pages, and product pages that introduce home energy to people who have never bought it. Concepting turned into wireframes, then sprint-based delivery alongside GM's product and engineering teams.</p>
+  <h2>Wireframing the storefront</h2>
+  <p>Every storefront page started as an annotated lo-fi wireframe — the yellow stickies carry the content strategy, personalization notes, and stakeholder decisions.</p>
+  <div class="jgal-wrap"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/evo-lofi-home.jpg" alt="Ultium Home homepage lo-fi wireframe with content-strategy annotations" loading="lazy"><div class="cap"><h4>Homepage wireframe</h4></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/evo-lofi-shop.jpg" alt="Shop landing lo-fi wireframe — bundles vs individual products" loading="lazy"><div class="cap"><h4>Shop wireframe</h4></div></figure>
+  </div></div>
+  <figure class="jmap"><img src="/assets/img/hems/flow-board-shopping.jpg" alt="The full shopping experience flow board — navigation through configurator on one artboard" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The full shopping flow on one board — navigation, landing, category, product, and configurator screens connected.</figcaption></figure>
+  <h2>The mid-fidelity pass</h2>
+  <p>Under the Ultium Home name, the wireframes became a branded system — a dark, cinematic landing experience over a disciplined product grid.</p>
+  <div class="jgal-wrap"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/mid-ultium-lp.jpg" alt="Ultium Home landing page — dark hi-fi design" loading="lazy"><div class="cap"><h4>Landing page</h4></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/mid-plp.jpg" alt="Product listing page — six backup-system tiers" loading="lazy"><div class="cap"><h4>Product listing</h4></div></figure>
+  </div></div>
+  <h2>The final designs</h2>
+  <p>The full-site prototype carried every page of the experience at launch fidelity. Hover to scroll each page.</p>
+  <div class="live-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-home-lp.jpg" alt="GM Energy homepage — final design" loading="lazy"></div><figcaption>Homepage — cross-brand landing.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-ultium-lp.jpg" alt="Home Energy landing page — final design" loading="lazy"></div><figcaption>Home Energy landing page.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-shop-plp.jpg" alt="Shop All Products listing page — final design" loading="lazy"></div><figcaption>Shop All Products.</figcaption></figure>
+  </div>
+  <h2>The navigation system</h2>
+  <p>The three menu systems of the shipped site.</p>
+  <div class="jmap"><div class="nav-cycle">
+    <img src="/assets/img/hems/fig-nav-shop.jpg" alt="Shop Products mega menu — final design">
+    <img src="/assets/img/hems/fig-nav-guidance.jpg" alt="Get Guidance mega menu — final design">
+    <img src="/assets/img/hems/fig-nav-live.jpg" alt="Energy Live mega menu — final design">
+  </div>
+  <p class="dev-hero-cap">The three menu systems — Shop Products, Get Guidance, and Energy Live — cycling.</p></div>
+  <h2>Screens from the full-site prototype</h2>
+  <p>A sample of the prototype file's frames. Hover any screen to scroll it.</p>
+  <div class="jmap"><div class="chart-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-plp-homeenergy.jpg" alt="Home Energy Solutions PLP" loading="lazy"></div><figcaption>Home Energy PLP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-powershift.jpg" alt="PowerShift Charger PDP" loading="lazy"></div><figcaption>PowerShift PDP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-v2hkit.jpg" alt="V2H Enablement Kit PDP" loading="lazy"></div><figcaption>V2H Kit PDP</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-hems.jpg" alt="HEMS overview page" loading="lazy"></div><figcaption>HEMS overview</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.jpg" alt="Install quote — eligibility approved" loading="lazy"></div><figcaption>Install quote · eligibility</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-totalcost.jpg" alt="Install quote — total order cost" loading="lazy"></div><figcaption>Install quote · total cost</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-dashboard.jpg" alt="Account dashboard" loading="lazy"></div><figcaption>Account dashboard</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-signin.jpg" alt="Sign in" loading="lazy"></div><figcaption>Sign in</figcaption></figure>
+  </div></div>
+  <h2>The product page, three generations</h2>
+  <p>The product page below survived three generations: an annotated lo-fi wireframe shaped with stakeholders in early 2023, a branded mid-fidelity pass under the Ultium Home name, and the shipped GM Energy 2.0 experience. Hover any stage to scroll the full screen.</p>
+  <div class="evo-wrap">
+    <div class="evo-grid on" id="evo-pdp">
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-bundle-page.jpg" alt="Lo-fi bundle page wireframe with sticky-note annotations" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-pdp.jpg" alt="Ultium Home mid-fidelity backup system PDP" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-pdp.jpg" alt="Shipped GM Energy V2H Bundle product page" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
+    </div>
+    </div>
+
+
+  <h2>The screens we shipped</h2>
+  <div class="live-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/live-hero.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy"></div><figcaption>The live homepage.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-v2h-pdp.jpg" alt="V2H Bundle product page — final design" loading="lazy"></div><figcaption>V2H Bundle PDP — final design.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-powershift.jpg" alt="Live PowerShift Charger PDP" loading="lazy"></div><figcaption>PowerShift Charger PDP, live — hover to scroll.</figcaption></figure>
+  </div>
+
+  <div class="act-kicker"><span>Part 03</span>Solve checkout</div>
+  <h2>Solving the checkout experience</h2>
+  <p>The storefront introduces the products; checkout is where the project earned its keep. Cart and checkout went through the same three generations — and unlike a typical storefront, every stage had to carry financing, installation, and deposit logic inside it.</p>
+  <div class="evo-wrap">
+    <div class="evo-tabs" role="tablist" aria-label="Checkout design evolution">
+      <button class="evo-tab on" data-evo="cart" type="button">Cart</button>
+      <button class="evo-tab" data-evo="checkout" type="button">Checkout</button>
+    </div>
+    <div class="evo-grid on" id="evo-cart">
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-cart.jpg" alt="Lo-fi cart wireframe" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-cart.jpg" alt="Ultium Home mid-fidelity cart" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-cart.jpg" alt="Shipped GM Energy cart summary" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
+    </div>
+    <div class="evo-grid" id="evo-checkout">
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-checkout.jpg" alt="Lo-fi checkout wireframe with deposit annotation" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-checkout.jpg" alt="Ultium Home mid-fidelity checkout" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
+      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-checkout.jpg" alt="Shipped GM Energy one-page checkout with GM Financial financing" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
+    </div>
+    <p class="evo-note">One product, three names, three years — the underlying journey held from wireframe to launch.</p>
+  </div>
+
+  <h2>The machinery underneath</h2>
+  <p>Checkout wasn't one flow — it was a matrix of business flows spanning hardware, installation, financing, and payment states, each mapped end to end with order management and partner systems.</p>
+  <figure class="jmap"><img src="/assets/img/hems/checkout-business-flows.jpg" alt="Ecomm 2.0 business flows — swimlane diagrams across payment and financing permutations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The business-flow swimlanes: hardware and install, with and without financing, across credit outcomes — the design's contract with order management, GM Financial, and install partners.</figcaption></figure>
 
   <h2>Designing for trust: financing inside checkout</h2>
   <p>The hardest problem wasn't the storefront — it was money. A HEMS purchase is a major financial decision, so GM Financial had to live inside the journey: a two-step prequalification where customers first see their buying power, then trade more information — including a full social security number — for real rates, terms, and monthly payments.</p>
   <p>Asking for a social online is a trust cliff, and testing told us exactly how it felt from the other side. Participants said an unexplained SSN field makes a company seem "scammy"; that concrete rate, term, and monthly payment beat the abstraction of "buying power"; and that being asked to prequalify twice, without explanation, read as repetitive and eroded confidence — <em>"I don't understand why I have to get prequalified again."</em> The design response was education and transparency at each sensitive moment: why we're asking, what happens next, what you get in return, and what it does to your credit.</p>
   <p>Underneath the visible flow sat combinatorial complexity most storefronts never face. Checkout wasn't one path but a matrix: hardware only, hardware plus installation, with or without a down payment, in states where financing was available and states where it wasn't, at full approval, partial approval, or decline — plus agent-assisted orders placed on the customer's behalf. Each permutation needed its own designed states and its own validation, and the team ran user-acceptance testing across roughly thirty distinct scenarios to prove the flow held together.</p>
 
+  
+  <div class="slot">Financing-integration wireframes &amp; storyboards — Seh locating originals</div>
+  <h2>Checkout, shipped</h2>
+  <div class="jgal-wrap"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/ship-checkout-flow.jpg" alt="One-page checkout flow boards — shipped design" loading="lazy"><div class="cap"><h4>The one-page checkout, mapped</h4></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/ship-my-orders.jpg" alt="My Orders — desktop and mobile empty states" loading="lazy"><div class="cap"><h4>My Orders — desktop &amp; mobile</h4></div></figure>
+  </div></div>
+  <div class="live-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-cart.jpg" alt="Cart — final design" loading="lazy"></div><figcaption>The cart — final design.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-prequal.jpg" alt="Financing prequalification landing — final design" loading="lazy"></div><figcaption>Prequalification — see your buying power before committing.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-checkout-review.jpg" alt="Checkout review step — final design" loading="lazy"></div><figcaption>Checkout review — the final look before submission.</figcaption></figure>
+  </div>
+
+  <div class="act-kicker"><span>Part 04</span>Keep it honest</div>
   <h2>Building a testing practice, not just running tests</h2>
   <p>Post-launch, research became a standing operation. I helped structure it as two deliberate tracks so the team could both validate designs in flight and evaluate what shipped:</p>
+  <figure class="jmap"><img src="/assets/img/hems/testing-process.jpg" alt="The two-track testing process canvas — formal and informal approaches plus the 2025 Testing Quickstart Guide" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The practice on one canvas: the formal readout track, the informal rapid-test track, and the Testing Quickstart Guide that lets anyone on the team spin up a study. Behind it: quarterly usability check-ins and 45+ UAT sessions producing ~1,900 captures before launches.</figcaption></figure>
   <table class="track-tbl">
     <tr><th></th><th>Formal</th><th>Informal</th></tr>
     <tr><td>Intent</td><td>Retroactively evaluate shipped experiences</td><td>Proactively validate solutions mid-exploration</td></tr>
@@ -321,16 +557,61 @@ extraStyle: |
   <p>That meant journey mapping and service blueprinting for everything after checkout — installation handoff, warranty, support, returns, escalation — across a partner ecosystem where GM owned the brand but not every touchpoint: installers, solar partners, logistics providers, and an EV Concierge contact center whose agents needed training plans built around the new journeys.</p>
   <p>It also meant designing the feedback system itself. We mapped customer-satisfaction survey triggers across the entire ecosystem — post-sale, post-install, post-support-call, per partner — and then did the less obvious work of pruning them, prioritizing which moments genuinely warranted asking so customers weren't buried under surveys from four companies about the same purchase.</p>
 
+  
+  <div class="act-kicker"><span>Part 05</span>Supporting tracks</div>
+  <h2>Beyond the storefront: the supporting tracks</h2>
+  <p>The commerce experience was the spine, but the engagement grew tracks of its own — each with the same research-first rigor. Three of the largest: a guided-buying experience for the top of the funnel, a business-facing dashboard for leadership, and a sales guide that puts the journey in every consultant's hands.</p>
+
+  <h2>Energy Genie: guided buying, before checkout</h2>
+  <p>Before someone ever reaches checkout, they have to figure out what they actually need — and a HEMS is a considered purchase. Testers told us large purchases take weeks or months of research, that they prefer self-guided exploration, and that they're open to tools if those tools are accurate, unbiased, and genuinely personalized. That's the opening the Energy Genie was designed for: a guided experience earlier in the funnel that helps someone work out what to buy before they ever get to the cart.</p>
+  <p>For Genie 2.0 we tested two directions head-to-head — an open AI chat versus a structured survey — and the answer landed in between. Users relied on the system to lead rather than driving it themselves, and length didn't bother them as long as each step earned its place. The concept became a non-linear pathway merging AI dialog with survey questions in varying combinations, letting different customers enter and exit at different points.</p>
+  <p>Testing the shipped guided experience kept sharpening it: a vehicle-confirmation step was cut after half of testers found it redundant with the step before, and separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendations page itself rated 4 or 5 out of 5 with 80% of testers — the personalized reasoning and outage-risk section landed as "thoughtful" — but even the satisfied ones consistently wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy.</p>
+  <div class="journey-split">
+    <div class="journey-imgs" style="grid-template-columns:1fr">
+      <figure><img src="/assets/img/hems/genie-before-bot.jpg" alt="The existing GM Energy virtual assistant — a menu-driven bot" loading="lazy" /><figcaption>The starting point: a menu-driven bot that dead-ends into "book an appointment."</figcaption></figure>
+      <figure><img src="/assets/img/hems/genie-research-ford.jpg" alt="Ford's EV lifestyle quiz — competitive research" loading="lazy" /><figcaption>Research: guided-buying patterns across automotive, smart home, and retail.</figcaption></figure>
+    </div>
+    <div class="journey-text">
+      <h3>From a dead-end chatbot to guided pathways.</h3>
+      <p>The existing assistant could answer menu prompts and hand you to a human — it couldn't help you figure out <em>what to buy</em>. We studied guided-buying experiences across industries (Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder) and real owner sentiment from home-battery communities.</p>
+      <p>The concept that emerged — Genie 2.0 — treats the chat assistant and the guided survey as one non-linear system: customers enter and exit wherever they are, and every path lands them at a recommendation they understand.</p>
+    </div>
+  </div>
+  <figure class="wmed" style="margin-top:30px"><img src="/assets/img/hems/genie-pathways.jpg" alt="Genie 2.0 Guided Experience Pathways concept diagram" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>Genie 2.0 Guided Experience Pathways — three customers weaving between AI chat and survey experiences on their own routes to a recommendation.</figcaption></figure>
+  <div class="live-grid" style="grid-template-columns:1fr 1fr">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-genie-lp.jpg" alt="Energy Genie landing page — final design" loading="lazy"></div><figcaption>The Energy Genie landing page — final design.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-genie-results.jpg" alt="Genie recommendation results page — final design" loading="lazy"></div><figcaption>The results page — personalized recommendation with reasoning.</figcaption></figure>
+  </div>
+
   <h2>Executive dashboard</h2>
   <p>Selling the hardware was only half the mandate — leadership needed to see how the business was actually doing. The executive dashboard was one of the largest efforts alongside the storefront itself: a business-facing view giving leadership visibility into funnel performance and program health at a glance, without having to ask the team for a status update.</p>
-  <div class="slot">Executive dashboard — image coming soon</div>
+  <figure class="wmed"><img src="/assets/img/hems/dash-wip.jpg" alt="Executive dashboard design in progress in Figma — annotation card over a line-graph widget" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>Work in progress — an annotation layer lets analysts pin commentary directly onto the data widgets.</figcaption></figure>
+  <div class="jgal-wrap" style="margin-top:22px"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/dash-map-light.jpg" alt="US map component exploration — light theme" loading="lazy"><div class="cap"><h4>Map exploration — light</h4><p>Regional install and sales density, editorial-styled for executive readouts.</p></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/dash-map-dark.jpg" alt="US map component exploration — dark theme" loading="lazy"><div class="cap"><h4>Map exploration — dark</h4><p>The same component tuned for the dashboard's dark data-panel context.</p></div></figure>
+  </div></div>
+
+  
+  <h2>The sales guide: seven versions to get it right</h2>
+  <p>The sales guide started as an opportunity I spotted, not a request: the sales team needed the same journey the site was built on, in a form they could use in conversation. I produced it and remained its primary point of contact throughout the project — and it was adopted across the entire GME sales organization, evolving through seven versions between April 2024 and December 2025 as consultant feedback reshaped it from a graphics-heavy 48-page deck into a step-by-step 35-page guide.</p>
+  <div class="jgal-wrap"><div class="jgal" style="grid-template-columns:repeat(3,1fr)">
+    <figure class="jcard"><img src="/assets/img/hems/salesguide-p1.jpg" alt="GM Energy Sales Guide cover" loading="lazy"><div class="cap"><h4>Cover — Dec 2025 edition</h4></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/salesguide-p5.jpg" alt="Basic Sitemap page — every page of the site at a glance" loading="lazy"><div class="cap"><h4>Site at a glance</h4></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/salesguide-p6.jpg" alt="Explore Products flowchart page" loading="lazy"><div class="cap"><h4>Guided flowcharts</h4></div></figure>
+  </div></div>
 
   <div class="brief-keep">
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
+  <div class="live-grid">
+    <figure><div class="shot"><img src="/assets/img/hems/live-hero.jpg" alt="Live gmenergy.gm.com homepage hero" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-powershift.jpg" alt="Live PowerShift Charger product page" loading="lazy"></div><figcaption>PowerShift Charger PDP, live — hover to scroll the full page.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-v2h.jpg" alt="Live V2H Enablement Kit product page" loading="lazy"></div><figcaption>V2H Enablement Kit PDP, live.</figcaption></figure>
   </div>
-  <div class="slot">Sales guide — image coming soon</div>
-</article>
+  </div>
+  </article>
 
 <script>
 (function(){
@@ -363,6 +644,17 @@ extraStyle: |
   }
   go.addEventListener('click', tryUnlock);
   pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
+})();
+(function(){
+  var tabs = document.querySelectorAll('.evo-tab');
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){
+      tabs.forEach(function(x){ x.classList.toggle('on', x === t); });
+      document.querySelectorAll('.evo-grid').forEach(function(g){
+        g.classList.toggle('on', g.id === 'evo-' + t.dataset.evo);
+      });
+    });
+  });
 })();
 </script>
 
