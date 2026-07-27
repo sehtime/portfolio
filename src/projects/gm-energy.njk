@@ -138,6 +138,10 @@ extraStyle: |
   .tcard .shot{aspect-ratio:16/10;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb}
   .tcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
   .tcard:hover .shot img{object-position:bottom}
+  .tcard .shot--scroll{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .tcard .shot--scroll img{width:100%;height:auto;object-fit:unset;object-position:unset;transition:none}
+  .tcard .shot--scroll::-webkit-scrollbar{width:6px}
+  .tcard .shot--scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   .tcard .shot--future{display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:12px}
   .tcard b{display:block;font-size:15.5px;margin-top:12px}
   .tcard span{display:block;font-size:13.5px;color:var(--muted-2);line-height:1.55;margin-top:3px}
@@ -213,7 +217,7 @@ extraStyle: |
     <h2>The major tracks</h2>
     <p>One engagement, many parallel workstreams — moved between continuously from 2022 through launch and beyond.</p>
     <div class="track-cards">
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/live-home-desktop.jpg" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to the UI team to apply visual design. Hover to scroll the live homepage.</span></div>
+      <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.jpg" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to the UI team to apply visual design. Scroll the live homepage above.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-checkout-review.jpg" alt="Checkout review step — final design" loading="lazy"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.jpg" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/genie-pathways.jpg" alt="Energy Genie guided experience pathways concept" loading="lazy"></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
