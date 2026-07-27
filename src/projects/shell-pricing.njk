@@ -37,12 +37,6 @@ extraStyle: |
 </div>
 {% else %}
 <article class="case case--brief" id="shell-case">
-  <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
-    <div class="view-toggle" role="tablist" aria-label="Case study view">
-      <button class="vt-btn on" id="vt-brief" type="button" aria-selected="true">Brief</button>
-      <button class="vt-btn" id="vt-full" type="button" aria-selected="false">Full</button>
-    </div>
-  </div>
   <div class="case-gate brief-keep" id="shell-gate">
     <div class="gate-title">The full case study is password protected</div>
     <div class="gate-sub">It includes sensitive images and workflows. Enter the password to view it.</div>
@@ -53,6 +47,13 @@ extraStyle: |
   <p class="notice"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
   <figure class="brief-keep" style="margin-top:8px"><img src="/assets/img/shell-supply-demand.jpg" alt="Supply &amp; Demand module of the Pricing Excellence Tool — sanitized view" style="width:100%;border-radius:8px;border:1px solid var(--hair)" loading="lazy" />
   <figcaption>The Supply &amp; Demand module — labels sanitized for public display.</figcaption></figure>
+
+  <div class="brief-keep" style="display:flex;justify-content:center;margin-bottom:6px">
+    <div class="view-toggle" role="tablist" aria-label="Case study view">
+      <button class="vt-btn on" id="vt-brief" type="button" aria-selected="true">Brief</button>
+      <button class="vt-btn" id="vt-full" type="button" aria-selected="false">Full</button>
+    </div>
+  </div>
 
   <div class="case-meta brief-keep">
     <div><span>Role</span>Product Designer</div>
