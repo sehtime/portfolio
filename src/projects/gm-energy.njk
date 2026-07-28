@@ -143,10 +143,12 @@ extraStyle: |
   .tcard .shot--scroll::-webkit-scrollbar{width:6px}
   .tcard .shot--scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   .tcard .shot--static img{object-position:center!important;transition:none!important}
-  .tcard .shot--genie{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
-  .tcard .shot--genie img{width:100%;height:auto;object-fit:unset;object-position:unset;transition:none}
-  .tcard .shot--genie::-webkit-scrollbar{width:6px}
-  .tcard .shot--genie::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
+  .tcard .shot--genie{position:relative;overflow:hidden}
+  .tcard .shot--genie .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:none}
+  .tcard .shot--genie .flyout{position:absolute;top:0;right:0;bottom:0;width:44%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#fff;box-shadow:-10px 0 24px rgba(0,0,0,.28)}
+  .tcard .shot--genie .flyout img{width:100%;height:auto;display:block;object-fit:unset;transition:none}
+  .tcard .shot--genie .flyout::-webkit-scrollbar{width:5px}
+  .tcard .shot--genie .flyout::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   .tcard .shot--future{display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:12px}
   .tcard b{display:block;font-size:15.5px;margin-top:12px}
   .tcard span{display:block;font-size:13.5px;color:var(--muted-2);line-height:1.55;margin-top:3px}
@@ -225,7 +227,7 @@ extraStyle: |
       <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.jpg" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to the UI team to apply visual design. Scroll the live homepage above.</span></div>
       <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/checkout-flow-card.jpg" alt="Checkout wireframe flow matrix — four purchase variants" loading="lazy" style="object-fit:contain;background:#fff"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.jpg" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
-      <div class="tcard reveal"><div class="shot shot--genie" id="genie-shot"><img src="/assets/img/hems/genie-recos.jpg" alt="Energy Genie personalized recommendation results" loading="lazy"></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
+      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.jpg" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-recos.jpg" alt="Energy Genie personalized recommendation results flyout" loading="lazy"></div></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/salesguide-p5-crop.jpg" alt="Sales guide sitemap spread" loading="lazy"></div><b>Sales guide</b><span>Self-initiated playbook putting the journey in every consultant's hands — adopted across the GME sales organization.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/dash-map-light.jpg" alt="Dashboard map component exploration" loading="lazy"></div><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/journey-v2-2025.jpg" alt="2025 journey map" loading="lazy"></div><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></div>
