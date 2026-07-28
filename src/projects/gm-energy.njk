@@ -118,14 +118,17 @@ extraStyle: |
     .chart-grid{grid-template-columns:repeat(2,1fr)}
   }
   .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
-  /* mega menu cycle */
-  .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
-  .nav-cycle img{position:absolute;inset:0;width:100%;display:block;opacity:0;animation:navFade 15s infinite}
-  .nav-cycle img:nth-child(1){animation-delay:0s}
-  .nav-cycle img:nth-child(2){animation-delay:5s}
-  .nav-cycle img:nth-child(3){animation-delay:10s}
-  @keyframes navFade{0%{opacity:0}4%,29%{opacity:1}37%,100%{opacity:0}}
-  @media(prefers-reduced-motion:reduce){.nav-cycle img{animation:none}.nav-cycle img:first-child{opacity:1}}
+  /* mega menus — three page columns, menus animate open/close in loop */
+  .menu-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .menu-col .frame{position:relative;aspect-ratio:1600/1050;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fff}
+  .menu-col .page{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  .menu-col .menu{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;animation:menuPop 9s ease-in-out infinite}
+  .menu-col:nth-child(2) .menu{animation-delay:3s}
+  .menu-col:nth-child(3) .menu{animation-delay:6s}
+  @keyframes menuPop{0%,8%{opacity:0}16%,44%{opacity:1}52%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.menu-col .menu{animation:none;opacity:1;transform:none}}
+  .menu-col figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.menu-trio{grid-template-columns:1fr}}
   /* screen chart */
   .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
@@ -142,10 +145,35 @@ extraStyle: |
   .tcard .shot--scroll img{width:100%;height:auto;object-fit:unset;object-position:unset;transition:none}
   .tcard .shot--scroll::-webkit-scrollbar{width:6px}
   .tcard .shot--scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
+  .tcard .shot--static img{object-position:center!important;transition:none!important}
+  .tcard .shot--genie{position:relative;overflow:hidden}
+  .tcard .shot--genie .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;transition:none}
+  .tcard .shot--genie .flyout{position:absolute;top:0;right:0;bottom:0;width:44%;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch;background:#fff;box-shadow:-10px 0 24px rgba(0,0,0,.28)}
+  .tcard .shot--genie .flyout img{width:100%;height:auto;display:block;object-fit:unset;transition:none}
+  .tcard .shot--genie .flyout::-webkit-scrollbar{width:5px}
+  .tcard .shot--genie .flyout::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   .tcard .shot--future{display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:12px}
   .tcard b{display:block;font-size:15.5px;margin-top:12px}
   .tcard span{display:block;font-size:13.5px;color:var(--muted-2);line-height:1.55;margin-top:3px}
   @media(max-width:640px){.track-cards{grid-template-columns:1fr}}
+  /* outcome gallery: menu cycle + scrollable page */
+  .lg-menus{position:relative}
+  .lg-menus .mstate{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;animation:menuSeq 24s ease-in-out infinite}
+  .lg-menus .mstate:nth-of-type(3){animation-delay:8s}
+  .lg-menus .mstate:nth-of-type(4){animation-delay:16s}
+  @keyframes menuSeq{0%{opacity:0}5%,28%{opacity:1}33%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.lg-menus .mstate{animation:none}.lg-menus .mstate:first-of-type{opacity:1}}
+  .live-grid .shot.lg-scroll{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .lg-scroll img{width:100%!important;height:auto!important;object-fit:unset!important;transition:none!important}
+  .lg-scroll::-webkit-scrollbar{width:6px}
+  .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
+  /* outcome gallery wide variant */
+  .live-grid--wide{width:min(1240px,94vw);margin-left:50%;transform:translateX(-50%)}
+  .live-grid--wide .shot{aspect-ratio:1600/1050!important}
+  .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important}
+  .lg-auto img{width:100%;height:auto;object-fit:unset;transition:none;animation:lgAuto 60s ease-in-out infinite}
+  @keyframes lgAuto{0%,4%{transform:translateY(0)}46%,54%{transform:translateY(-89%)}96%,100%{transform:translateY(0)}}
+  @media(prefers-reduced-motion:reduce){.lg-auto img{animation:none}}
   /* act kickers — narrative parts */
   .act-kicker{margin:clamp(48px,7vw,72px) 0 -6px;padding-top:26px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-2)}
   .act-kicker span{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
@@ -218,10 +246,10 @@ extraStyle: |
     <p>One engagement, many parallel workstreams — moved between continuously from 2022 through launch and beyond.</p>
     <div class="track-cards">
       <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.jpg" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to the UI team to apply visual design. Scroll the live homepage above.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-checkout-review.jpg" alt="Checkout review step — final design" loading="lazy"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
+      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/checkout-flow-card.jpg" alt="Checkout wireframe flow matrix — four purchase variants" loading="lazy" style="object-fit:contain;background:#fff"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.jpg" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/live-genie-chat.jpg" alt="The shipped Energy Genie assistant answering an installation-cost question" loading="lazy"></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/salesguide-p5-crop.jpg" alt="Sales guide sitemap spread" loading="lazy"></div><b>Sales guide</b><span>Self-initiated playbook putting the journey in every consultant's hands — adopted across the GME sales organization.</span></div>
+      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.jpg" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-recos.jpg" alt="Energy Genie personalized recommendation results flyout" loading="lazy"></div></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
+      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/salesguide-welcome.jpg" alt="Sales guide welcome spread (sanitized)" loading="lazy"></div><b>Sales guide</b><span>Self-initiated playbook putting the journey in every consultant's hands — adopted across the GME sales organization.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/dash-map-light.jpg" alt="Dashboard map component exploration" loading="lazy"></div><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/journey-v2-2025.jpg" alt="2025 journey map" loading="lazy"></div><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></div>
       <div class="tcard reveal"><div class="shot shot--future">Future-state concepts — in exploration</div><b>Dealership experience</b><span>Future-state concepts for how home energy gets sold in physical retail.</span></div>
@@ -462,12 +490,11 @@ extraStyle: |
   </div>
   <h2>The navigation system</h2>
   <p>The three menu systems of the shipped site.</p>
-  <div class="jmap"><div class="nav-cycle">
-    <img src="/assets/img/hems/fig-nav-shop.jpg" alt="Shop Products mega menu — final design">
-    <img src="/assets/img/hems/fig-nav-guidance.jpg" alt="Get Guidance mega menu — final design">
-    <img src="/assets/img/hems/fig-nav-live.jpg" alt="Energy Live mega menu — final design">
-  </div>
-  <p class="dev-hero-cap">The three menu systems — Shop Products, Get Guidance, and Energy Live — cycling.</p></div>
+  <div class="jmap"><div class="menu-trio">
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="EV Charging mega menu opening on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="Vehicle-To-Home mega menu opening on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-home-energy.jpg" alt="Home Energy mega menu opening on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
+  </div></div>
   <h2>Screens from the full-site prototype</h2>
   <p>A sample of the prototype file's frames. Hover any screen to scroll it.</p>
   <div class="jmap"><div class="chart-grid">
@@ -519,6 +546,8 @@ extraStyle: |
     <p class="evo-note">One product, three names, three years — the underlying journey held from wireframe to launch.</p>
   </div>
 
+  <figure class="jmap"><img src="/assets/img/hems/checkout-flow-full.jpg" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
+  <figcaption>All the checkout flows on one board — product-only and product-plus-install, paying by card or financing through GM Financial, with the installer handoffs annotated. Shown at scale.</figcaption></figure>
   <h2>The machinery underneath</h2>
   <p>Checkout wasn't one flow — it was a matrix of business flows spanning hardware, installation, financing, and payment states, each mapped end to end with order management and partner systems.</p>
   <figure class="jmap"><img src="/assets/img/hems/checkout-business-flows.jpg" alt="Ecomm 2.0 business flows — swimlane diagrams across payment and financing permutations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
@@ -618,10 +647,10 @@ extraStyle: |
   <div class="brief-keep">
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
-  <div class="live-grid">
-    <figure><div class="shot"><img src="/assets/img/hems/live-hero.jpg" alt="Live gmenergy.gm.com homepage hero" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-powershift.jpg" alt="Live PowerShift Charger product page" loading="lazy"></div><figcaption>PowerShift Charger PDP, live — hover to scroll the full page.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-v2h.jpg" alt="Live V2H Enablement Kit product page" loading="lazy"></div><figcaption>V2H Enablement Kit PDP, live.</figcaption></figure>
+  <div class="live-grid live-grid--wide">
+    <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-menu-closed.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.jpg" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — mega menus in motion.</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/live-hes-fullpage.jpg" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>Energy Home System PDP, live — scrolls itself; hover to take over.</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/live-howitworks.jpg" alt="How It Works page, live — full page auto-scrolling" loading="lazy"></div><figcaption>How It Works, live — scrolls itself; hover to take over.</figcaption></figure>
   </div>
   </div>
   </article>
@@ -657,6 +686,24 @@ extraStyle: |
   }
   go.addEventListener('click', tryUnlock);
   pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
+})();
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = [].slice.call(document.querySelectorAll('#genie-shot, .lg-drift'));
+  els.forEach(function(el){
+    var paused = false, dir = 1;
+    el.addEventListener('mouseenter', function(){ paused = true; });
+    el.addEventListener('mouseleave', function(){ paused = false; });
+    el.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
+    setInterval(function(){
+      if (paused) return;
+      var max = el.scrollHeight - el.clientHeight;
+      if (max <= 0) return;
+      el.scrollTop += dir * 0.6;
+      if (el.scrollTop >= max) dir = -1;
+      if (el.scrollTop <= 0) dir = 1;
+    }, 40);
+  });
 })();
 (function(){
   var tabs = document.querySelectorAll('.evo-tab');
