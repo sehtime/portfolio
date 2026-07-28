@@ -118,14 +118,17 @@ extraStyle: |
     .chart-grid{grid-template-columns:repeat(2,1fr)}
   }
   .dev-hero-cap{text-align:center;font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted);margin-top:14px}
-  /* mega menu cycle */
-  .nav-cycle{position:relative;aspect-ratio:1600/518;border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fff;margin-top:26px}
-  .nav-cycle img{position:absolute;inset:0;width:100%;display:block;opacity:0;animation:navFade 15s infinite}
-  .nav-cycle img:nth-child(1){animation-delay:0s}
-  .nav-cycle img:nth-child(2){animation-delay:5s}
-  .nav-cycle img:nth-child(3){animation-delay:10s}
-  @keyframes navFade{0%{opacity:0}4%,29%{opacity:1}37%,100%{opacity:0}}
-  @media(prefers-reduced-motion:reduce){.nav-cycle img{animation:none}.nav-cycle img:first-child{opacity:1}}
+  /* mega menus — three page columns, menus animate open/close in loop */
+  .menu-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px}
+  .menu-col .frame{position:relative;aspect-ratio:1600/820;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fff}
+  .menu-col .page{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top}
+  .menu-col .menu{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;animation:menuPop 9s ease-in-out infinite}
+  .menu-col:nth-child(2) .menu{animation-delay:3s}
+  .menu-col:nth-child(3) .menu{animation-delay:6s}
+  @keyframes menuPop{0%,8%{opacity:0}16%,44%{opacity:1}52%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.menu-col .menu{animation:none;opacity:1;transform:none}}
+  .menu-col figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
+  @media(max-width:760px){.menu-trio{grid-template-columns:1fr}}
   /* screen chart */
   .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
@@ -469,12 +472,11 @@ extraStyle: |
   </div>
   <h2>The navigation system</h2>
   <p>The three menu systems of the shipped site.</p>
-  <div class="jmap"><div class="nav-cycle">
-    <img src="/assets/img/hems/fig-nav-shop.jpg" alt="Shop Products mega menu — final design">
-    <img src="/assets/img/hems/fig-nav-guidance.jpg" alt="Get Guidance mega menu — final design">
-    <img src="/assets/img/hems/fig-nav-live.jpg" alt="Energy Live mega menu — final design">
-  </div>
-  <p class="dev-hero-cap">The three menu systems — Shop Products, Get Guidance, and Energy Live — cycling.</p></div>
+  <div class="jmap"><div class="menu-trio">
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="EV Charging mega menu opening on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="Vehicle-To-Home mega menu opening on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
+    <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.jpg" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-home-energy.jpg" alt="Home Energy mega menu opening on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
+  </div></div>
   <h2>Screens from the full-site prototype</h2>
   <p>A sample of the prototype file's frames. Hover any screen to scroll it.</p>
   <div class="jmap"><div class="chart-grid">
