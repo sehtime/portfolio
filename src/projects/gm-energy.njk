@@ -649,8 +649,8 @@ extraStyle: |
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
   <div class="live-grid live-grid--wide">
     <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-menu-closed.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.jpg" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com, mega menus in motion.</figcaption></figure>
-    <figure><div class="shot lg-scroll"><img src="/assets/img/hems/live-hes-fullpage.jpg" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>GM Energy Home System PDP, live — scroll the full page.</figcaption></figure>
-    <figure><div class="shot lg-auto"><img src="/assets/img/hems/live-howitworks.jpg" alt="How It Works page, live — full page auto-scrolling" loading="lazy"></div><figcaption>How It Works, live.</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/live-hes-fullpage.jpg" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>GM Energy Home System PDP, live — scrolls itself; hover to take over.</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/live-howitworks.jpg" alt="How It Works page, live — full page auto-scrolling" loading="lazy"></div><figcaption>How It Works, live — scrolls itself; hover to take over.</figcaption></figure>
   </div>
   </div>
   </article>
@@ -688,20 +688,22 @@ extraStyle: |
   pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); });
 })();
 (function(){
-  var el = document.getElementById('genie-shot');
-  if(!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var paused = false, dir = 1;
-  el.addEventListener('mouseenter', function(){ paused = true; });
-  el.addEventListener('mouseleave', function(){ paused = false; });
-  el.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
-  setInterval(function(){
-    if (paused) return;
-    var max = el.scrollHeight - el.clientHeight;
-    if (max <= 0) return;
-    el.scrollTop += dir * 0.6;
-    if (el.scrollTop >= max) dir = -1;
-    if (el.scrollTop <= 0) dir = 1;
-  }, 40);
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var els = [].slice.call(document.querySelectorAll('#genie-shot, .lg-drift'));
+  els.forEach(function(el){
+    var paused = false, dir = 1;
+    el.addEventListener('mouseenter', function(){ paused = true; });
+    el.addEventListener('mouseleave', function(){ paused = false; });
+    el.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
+    setInterval(function(){
+      if (paused) return;
+      var max = el.scrollHeight - el.clientHeight;
+      if (max <= 0) return;
+      el.scrollTop += dir * 0.6;
+      if (el.scrollTop >= max) dir = -1;
+      if (el.scrollTop <= 0) dir = 1;
+    }, 40);
+  });
 })();
 (function(){
   var tabs = document.querySelectorAll('.evo-tab');
