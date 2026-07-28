@@ -167,6 +167,13 @@ extraStyle: |
   .lg-scroll img{width:100%!important;height:auto!important;object-fit:unset!important;transition:none!important}
   .lg-scroll::-webkit-scrollbar{width:6px}
   .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
+  /* outcome gallery wide variant */
+  .live-grid--wide{width:min(1240px,94vw);margin-left:50%;transform:translateX(-50%)}
+  .live-grid--wide .shot{aspect-ratio:1600/1050}
+  .live-grid--wide .shot>img:first-child{width:100%;height:auto;object-fit:unset;object-position:unset}
+  .lg-auto img{width:100%;height:auto;object-fit:unset;transition:none;animation:lgAuto 60s ease-in-out infinite}
+  @keyframes lgAuto{0%,4%{transform:translateY(0)}46%,54%{transform:translateY(-89%)}96%,100%{transform:translateY(0)}}
+  @media(prefers-reduced-motion:reduce){.lg-auto img{animation:none}}
   /* act kickers — narrative parts */
   .act-kicker{margin:clamp(48px,7vw,72px) 0 -6px;padding-top:26px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-2)}
   .act-kicker span{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
@@ -640,10 +647,10 @@ extraStyle: |
   <div class="brief-keep">
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
-  <div class="live-grid">
-    <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-home-desktop.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy" style="object-position:top"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.jpg" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com, mega menus in motion.</figcaption></figure>
+  <div class="live-grid live-grid--wide">
+    <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-home-desktop.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.jpg" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com, mega menus in motion.</figcaption></figure>
     <figure><div class="shot lg-scroll"><img src="/assets/img/hems/live-hes-fullpage.jpg" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>GM Energy Home System PDP, live — scroll the full page.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-v2h.jpg" alt="Live V2H Enablement Kit product page" loading="lazy"></div><figcaption>V2H Enablement Kit PDP, live.</figcaption></figure>
+    <figure><div class="shot lg-auto"><img src="/assets/img/hems/live-v2h-fullpage.jpg" alt="Live V2H Enablement Kit product page — full page auto-scrolling" loading="lazy"></div><figcaption>V2H Enablement Kit PDP, live.</figcaption></figure>
   </div>
   </div>
   </article>
