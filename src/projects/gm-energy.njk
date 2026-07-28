@@ -156,6 +156,17 @@ extraStyle: |
   .tcard b{display:block;font-size:15.5px;margin-top:12px}
   .tcard span{display:block;font-size:13.5px;color:var(--muted-2);line-height:1.55;margin-top:3px}
   @media(max-width:640px){.track-cards{grid-template-columns:1fr}}
+  /* outcome gallery: menu cycle + scrollable page */
+  .lg-menus{position:relative}
+  .lg-menus .mstate{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;animation:menuSeq 24s ease-in-out infinite;-webkit-mask-image:linear-gradient(to bottom,#000 86%,transparent 100%);mask-image:linear-gradient(to bottom,#000 86%,transparent 100%)}
+  .lg-menus .mstate:nth-of-type(3){animation-delay:8s}
+  .lg-menus .mstate:nth-of-type(4){animation-delay:16s}
+  @keyframes menuSeq{0%{opacity:0}5%,28%{opacity:1}33%,100%{opacity:0}}
+  @media(prefers-reduced-motion:reduce){.lg-menus .mstate{animation:none}.lg-menus .mstate:first-of-type{opacity:1}}
+  .lg-scroll{overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .lg-scroll img{width:100%!important;height:auto!important;object-fit:unset!important;transition:none!important}
+  .lg-scroll::-webkit-scrollbar{width:6px}
+  .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   /* act kickers — narrative parts */
   .act-kicker{margin:clamp(48px,7vw,72px) 0 -6px;padding-top:26px;border-top:2px solid var(--ink);display:flex;align-items:baseline;gap:14px;font-family:var(--serif);font-style:italic;font-size:17px;color:var(--muted-2)}
   .act-kicker span{font-family:var(--sans);font-style:normal;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--accent)}
@@ -630,8 +641,8 @@ extraStyle: |
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience — and, just as importantly, a practice around it: a service blueprint the organization builds against, evidence-based personas that reshaped who the business thinks it serves, a two-track testing program feeding improvements into every release, an ownership experience designed with the same rigor as the sale, and a sales guide that puts the same journey in every seller's hands. Zero to launched, with the machinery to keep going.</p>
   <div class="live-grid">
-    <figure><div class="shot"><img src="/assets/img/hems/live-hero.jpg" alt="Live gmenergy.gm.com homepage hero" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/live-pdp-powershift.jpg" alt="Live PowerShift Charger product page" loading="lazy"></div><figcaption>PowerShift Charger PDP, live — hover to scroll the full page.</figcaption></figure>
+    <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-home-desktop.jpg" alt="Live gmenergy.gm.com homepage" loading="lazy" style="object-position:top"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.jpg" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.jpg" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — gmenergy.gm.com, mega menus in motion.</figcaption></figure>
+    <figure><div class="shot lg-scroll"><img src="/assets/img/hems/live-hes-fullpage.jpg" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>GM Energy Home System PDP, live — scroll the full page.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/live-pdp-v2h.jpg" alt="Live V2H Enablement Kit product page" loading="lazy"></div><figcaption>V2H Enablement Kit PDP, live.</figcaption></figure>
   </div>
   </div>
