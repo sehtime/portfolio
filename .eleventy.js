@@ -24,6 +24,45 @@ module.exports = function (eleventyConfig) {
     });
   }
 
+  // Stripping the Full-view markup is not enough on its own: passthrough copy
+  // ships every file in assets/, so Full-only images would still be live and
+  // fetchable by direct URL. After a BRIEF_ONLY build, delete any hems image
+  // that nothing in the output actually references.
+  if (process.env.BRIEF_ONLY === "1") {
+    eleventyConfig.on("eleventy.after", async () => {
+      const fs = require("fs");
+      const path = require("path");
+      const hemsDir = path.join("_site", "assets", "img", "hems");
+      if (!fs.existsSync(hemsDir)) return;
+
+      const referenced = new Set();
+      const walk = (dir) => {
+        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+          const p = path.join(dir, entry.name);
+          if (entry.isDirectory()) walk(p);
+          else if (/\.(html|css|js|xml|json)$/i.test(entry.name)) {
+            const text = fs.readFileSync(p, "utf8");
+            for (const m of text.matchAll(/assets\/img\/hems\/([^"'`)\s\\]+)/g)) {
+              referenced.add(decodeURIComponent(m[1]));
+            }
+          }
+        }
+      };
+      walk("_site");
+
+      const pruned = [];
+      for (const name of fs.readdirSync(hemsDir)) {
+        if (!referenced.has(name)) {
+          fs.unlinkSync(path.join(hemsDir, name));
+          pruned.push(name);
+        }
+      }
+      console.log(
+        `[briefOnly] pruned ${pruned.length} unreferenced hems asset(s); kept ${referenced.size}`
+      );
+    });
+  }
+
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addGlobalData("permalink", () => "{{ page.filePathStem }}.html");
