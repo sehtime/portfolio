@@ -20,6 +20,13 @@ module.exports = function (eleventyConfig) {
         if (child.nodeType === 1 && (!keep || isGateOrToggle)) child.remove();
       }
       article.classList.remove("case--brief");
+      // `.case:not(.case--brief) > .brief-only{display:none}` would now hide the
+      // Brief-only sections we just kept, since case--brief is gone. There is no
+      // toggle left in this build, so drop the class and let them render
+      // unconditionally. (brief-keep is left alone -- page CSS selects on it.)
+      for (const el of article.querySelectorAll(".brief-only")) {
+        el.classList.remove("brief-only");
+      }
       // strip page scripts tied to the Full view (incl. the password gate)
       for (const sc of root.querySelectorAll("script")) {
         const t = sc.text || "";
