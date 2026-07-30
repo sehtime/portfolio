@@ -265,7 +265,7 @@ extraStyle: |
       <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.webp" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Wireframed the full site, went deep on home, landing, and product pages, then handed off to the UI team to apply visual design. Scroll the live homepage above.</span></div>
       <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/checkout-flow-card.webp" alt="Checkout wireframe flow matrix — four purchase variants" loading="lazy" style="object-fit:contain;background:#fff"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.webp" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
-      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.webp" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-recos.webp" alt="Energy Genie personalized recommendation results flyout" loading="lazy"></div></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
+      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.webp" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-conversation-card.webp" alt="Energy Genie flyout — the assistant reads back what it heard, then moves into structured questions" loading="lazy"></div></div><b>Energy Genie</b><span>A guided buying experience for the top of the funnel — non-linear pathways blending survey and AI dialog, concept through shipped feature.</span></div>
       <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/salesguide-welcome.webp" alt="Sales guide welcome spread (sanitized)" loading="lazy"></div><b>Sales guide</b><span>Self-initiated playbook putting the journey in every consultant's hands — adopted across the GME sales organization.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/dash-map-light.webp" alt="Dashboard map component exploration" loading="lazy"></div><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></div>
       <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/journey-v2-2025.webp" alt="2025 journey map" loading="lazy"></div><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></div>
@@ -645,7 +645,7 @@ extraStyle: |
   <figcaption>Genie 2.0 Guided Experience Pathways — three customers weaving between AI chat and survey experiences on their own routes to a recommendation.</figcaption></figure>
   <div class="live-grid" style="grid-template-columns:1fr 1fr">
     <figure><div class="shot"><img src="/assets/img/hems/fig-genie-lp.webp" alt="Energy Genie landing page — final design" loading="lazy"></div><figcaption>The Energy Genie landing page — final design.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/fig-genie-results.webp" alt="Genie recommendation results page — final design" loading="lazy"></div><figcaption>The results page — personalized recommendation with reasoning.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/genie-conversation.webp" alt="Energy Genie guided conversation — the assistant summarizes what it heard, then moves into structured questions" loading="lazy"></div><figcaption>The non-linear pathway in practice — open dialog, a read-back of what was heard, then structured questions.</figcaption></figure>
   </div>
 
   <h2>Executive dashboard</h2>
@@ -745,7 +745,7 @@ extraStyle: |
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   var els = [].slice.call(document.querySelectorAll('#genie-shot, .lg-drift'));
   els.forEach(function(el){
-    var paused = false, dir = 1;
+    var paused = false, dir = 1, pos = 0;
     el.addEventListener('mouseenter', function(){ paused = true; });
     el.addEventListener('mouseleave', function(){ paused = false; });
     el.addEventListener('touchstart', function(){ paused = true; }, {passive:true});
@@ -753,9 +753,15 @@ extraStyle: |
       if (paused) return;
       var max = el.scrollHeight - el.clientHeight;
       if (max <= 0) return;
-      el.scrollTop += dir * 0.6;
-      if (el.scrollTop >= max) dir = -1;
-      if (el.scrollTop <= 0) dir = 1;
+      // Pace by scroll range, not a fixed step, so a shorter or taller image
+      // still takes ~28s to traverse. (25 ticks/s x 28s = 700.)
+      // Track position as a float: assigning scrollTop += a sub-pixel value
+      // gets rounded away and the drift stalls.
+      if (Math.abs(pos - el.scrollTop) > 2) pos = el.scrollTop;  // user scrolled — resync
+      pos += dir * (max / 700);
+      if (pos >= max) { pos = max; dir = -1; }
+      if (pos <= 0) { pos = 0; dir = 1; }
+      el.scrollTop = pos;
     }, 40);
   });
 })();
