@@ -203,6 +203,10 @@ extraStyle: |
   .gseq .shot.lg-scroll::-webkit-scrollbar{width:6px}
   .gseq .shot.lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   .gseq figcaption{font-size:12px;color:var(--muted);margin-top:9px;text-align:center}
+  /* a text cell inside a gseq row, paired with an image alongside it */
+  .gseq .gcopy{align-self:center}
+  .gseq .gcopy p{margin:0;color:var(--muted-2);font-size:16.5px}
+  .gseq .gcopy p + p{margin-top:14px}
   @media(max-width:760px){.gseq{grid-template-columns:1fr!important}}
   /* part rail — sticky section nav (Full view only; hidden in Brief by the case--brief rule) */
   .part-rail{position:fixed;left:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
@@ -653,10 +657,9 @@ extraStyle: |
   <div class="act-kicker" id="part-05"><span>Part 05</span>Supporting tracks</div>
   <h2>Energy Genie: helping people work out what to buy</h2>
   <p>A home energy system is a considered purchase — testers told us they spend weeks or months researching one. They wanted to explore on their own, and they were open to using a tool as long as it was accurate, unbiased and actually personalized.</p>
-  <p>What existed was a menu-driven assistant that could answer prompts and pass you to a human, but couldn't help you decide <em>what to buy</em>. We looked at how other companies handled it — Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder — and at what home-battery owners were saying in their own communities.</p>
   <div class="gseq gseq--2">
     <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie-before-bot.webp" alt="The existing GM Energy virtual assistant — a menu-driven bot" loading="lazy"></div><figcaption>The assistant that already existed. It dead-ends into "book an appointment."</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/genie-research-ford.webp" alt="Ford's EV lifestyle quiz — competitive research" loading="lazy"></div><figcaption>Ford's EV lifestyle quiz, one of the guided-buying tools we looked at.</figcaption></figure>
+    <div class="gcopy"><p>What existed was a menu-driven assistant that could answer prompts and pass you to a human, but couldn't help you decide <em>what to buy</em>. We looked at how other companies handled it — Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder — and at what home-battery owners were saying in their own communities.</p></div>
   </div>
 
   <div class="sub-label">Genie 1.0 — the survey that shipped</div>
