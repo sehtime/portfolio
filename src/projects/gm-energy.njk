@@ -207,6 +207,7 @@ extraStyle: |
   .gseq .gcopy{align-self:center}
   .gseq .gcopy p{margin:0;color:var(--muted-2);font-size:16.5px}
   .gseq .gcopy p + p{margin-top:14px}
+  .gseq .shot--placeholder{aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#8f8c85;font:12px ui-monospace,Menlo,monospace;padding:16px}
   @media(max-width:760px){.gseq{grid-template-columns:1fr!important}}
   /* part rail — sticky section nav (Full view only; hidden in Brief by the case--brief rule) */
   .part-rail{position:fixed;left:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
@@ -657,9 +658,9 @@ extraStyle: |
   <div class="act-kicker" id="part-05"><span>Part 05</span>Supporting tracks</div>
   <h2>Energy Genie: helping people work out what to buy</h2>
   <p>A home energy system is a considered purchase — testers told us they spend weeks or months researching one. They wanted to explore on their own, and they were open to using a tool as long as it was accurate, unbiased and actually personalized.</p>
-  <div class="gseq gseq--2">
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie-before-bot.webp" alt="The existing GM Energy virtual assistant — a menu-driven bot" loading="lazy"></div><figcaption>The assistant that already existed. It dead-ends into "book an appointment."</figcaption></figure>
-    <div class="gcopy"><p>What existed was a menu-driven assistant that could answer prompts and pass you to a human, but couldn't help you decide <em>what to buy</em>. We looked at how other companies handled it — Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder — and at what home-battery owners were saying in their own communities.</p></div>
+  <p>What existed was a menu-driven assistant that could answer prompts and pass you to a human, but couldn't help you decide <em>what to buy</em>. We looked at how other companies handled it — Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder — and at what home-battery owners were saying in their own communities.</p>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--placeholder">Placeholder — Genie flow map goes here</div><figcaption>Caption to follow.</figcaption></figure>
   </div>
 
   <div class="sub-label">Genie 1.0 — the survey that shipped</div>
