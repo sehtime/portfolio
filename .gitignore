@@ -5,3 +5,11 @@ _site/
 # Raw NDA / internal source material — never commit or deploy.
 # Web-safe, sanitized exports live in assets/img/ instead.
 assets/background/
+
+# Candidate images under review. Outside assets/ on purpose: passthrough copy
+# only walks css/ and assets/, so nothing here can reach _site even locally.
+# Never stage candidates inside assets/ — an unreferenced file there is copied
+# to _site and ships as a fetchable URL, and the BRIEF_ONLY prune cannot catch
+# it (the prune is a set difference over *referenced* assets, so a file nothing
+# references is in neither set).
+_staging/
