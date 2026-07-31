@@ -172,9 +172,11 @@ extraStyle: |
   .live-grid--wide .shot{aspect-ratio:1600/1050!important}
   .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important}
   /* sequence row — tall self-scrolling panels read as a set (Genie) */
-  .live-grid--wide.lg-seq .shot{aspect-ratio:3/4!important;display:grid;align-content:safe center;scrollbar-gutter:stable}
-  .live-grid.lg-seq--pair{grid-template-columns:1fr 1fr}
-  .live-grid--wide.lg-seq.lg-seq--pair .shot{aspect-ratio:1/1!important}
+  .live-grid--wide.lg-seq .shot{aspect-ratio:3/4!important;display:grid;align-content:safe center}
+  .live-grid--wide.lg-seq .shot.lg-scroll{scrollbar-gutter:stable}
+  .live-grid.lg-seq--flat{grid-template-columns:1fr 1fr}
+  .live-grid--wide.lg-seq.lg-seq--flat .shot{aspect-ratio:16/10!important}
+  .live-grid.lg-seq--solo{grid-template-columns:minmax(0,560px);justify-content:center}
   .lg-seq figcaption{font-family:var(--sans);font-style:normal;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);text-align:center;margin-top:10px}
   .lg-afford{width:min(1240px,94vw);margin:30px 0 -14px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
   .lg-afford span{font-family:var(--sans);font-style:normal;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:var(--accent);border-radius:999px;padding:3px 10px}
@@ -185,6 +187,12 @@ extraStyle: |
   .sub-label{margin:38px 0 -4px;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);display:flex;align-items:center;gap:10px}
   .sub-label::after{content:"";flex:1;height:1px;background:var(--hair)}
   .sub-label + p{margin-top:10px}
+  /* phase strip — the flow's own phase annotations, echoing the red brackets on the source boards */
+  .phases{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:16px;margin:26px 0 2px;padding:0;list-style:none}
+  .phases li{padding-top:11px;border-top:1.5px solid var(--accent);font-size:12px;font-weight:600;line-height:1.35;color:var(--ink)}
+  .phases li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:5px}
+  .phases--wide{width:min(1240px,94vw);margin-left:50%;transform:translateX(-50%)}
+  @media(max-width:700px){.phases{grid-auto-flow:row;gap:12px}}
   /* part rail — sticky section nav (Full view only; hidden in Brief by the case--brief rule) */
   .part-rail{position:fixed;left:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
   .part-rail.on{opacity:1;pointer-events:auto}
@@ -647,35 +655,57 @@ extraStyle: |
   </div>
 
   <div class="sub-label">Genie 1.0 — the survey that shipped</div>
-  <p>The first Genie was a questionnaire. Customers worked through named sections — EV charging, energy storage, solar panels, savings, installation — with Previous and Next at the foot of every step, while the tool did arithmetic in the background: choose your home's square footage and the appliances you'd want running, and it estimated daily and outage energy use as you went, then matched the total to a product bundle.</p>
+  <p>The first Genie was a questionnaire. It ran in named sections — EV charging, energy storage, solar, savings, installation — with Previous and Next at the foot of every step, doing arithmetic in the background: pick your square footage and the appliances you'd want running in an outage, and it estimated daily and outage energy use as you went, then matched the total to a product bundle. Its own explainer promised three steps, and that's what it delivered.</p>
+  <ol class="phases">
+    <li><i>01</i>Answer some questions</li>
+    <li><i>02</i>Get a personalized energy solution</li>
+    <li><i>03</i>Add to cart &amp; checkout</li>
+  </ol>
   <div class="lg-afford"><span>Interactive</span>Each screen scrolls on its own — hover to take over.</div>
   <div class="live-grid live-grid--wide lg-seq">
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-genie-lp.webp" alt="Energy Genie landing page — final design" loading="lazy"></div><figcaption>Landing page</figcaption></figure>
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie-survey-step.webp" alt="Energy Genie survey step — selecting appliances to power during an outage, with live kWh estimates" loading="lazy"></div><figcaption>A question step</figcaption></figure>
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-genie-results.webp" alt="Genie recommendation results page — personalized recommendation with reasoning" loading="lazy"></div><figcaption>The recommendation</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie/v1-01-landing.webp" alt="Energy Genie 1.0 landing page" loading="lazy"></div><figcaption>Landing page</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie/v1-02-question.webp" alt="Energy Genie 1.0 survey step — selecting appliances to power during an outage, with live kWh estimates" loading="lazy"></div><figcaption>A question step</figcaption></figure>
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie/v1-03-results.webp" alt="Energy Genie 1.0 recommendation page with personalized reasoning" loading="lazy"></div><figcaption>The recommendation</figcaption></figure>
   </div>
-  <p>Testing the shipped guided experience kept sharpening it: a vehicle-confirmation step was cut after half of testers found it redundant with the step before, and separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendations page itself rated 4 or 5 out of 5 with 80% of testers — the personalized reasoning and outage-risk section landed as "thoughtful" — but even the satisfied ones consistently wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy.</p>
+  <p>Testing kept sharpening it. A vehicle-confirmation step was cut after half of testers found it redundant with the step before; separate "Priorities" and "Goals" pages were merged after half found the distinction vague. The recommendation page itself rated 4 or 5 out of 5 with 80% of testers, who called the personalized reasoning and outage-risk section "thoughtful." But even the satisfied ones wanted two or three options rather than a single answer, and 60% wanted installation detail before they'd feel ready to buy. That finding is what the next version was built to answer.</p>
 
-  <div class="sub-label">Genie 2.0 — merging the survey with an AI dialog</div>
-  <p>Genie 2.0 was designed for two scenarios rather than one — an open AI chat and a structured survey. Discovery research pointed at a blend rather than a choice: people brought the mental model of an AI assistant to it, expecting the system to lead rather than driving it themselves, and length didn't bother them as long as each step earned its place. The concept became a non-linear pathway merging AI dialog with survey questions in varying combinations, letting different customers enter and exit at different points.</p>
-  <p>The concept treats the chat assistant and the guided survey as one non-linear system: customers enter and exit wherever they are, and every path lands them at a recommendation they understand.</p>
-  <figure class="wmed" style="margin-top:30px"><img src="/assets/img/hems/genie-pathways.webp" alt="Genie 2.0 Guided Experience Pathways concept diagram" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>Genie 2.0 Guided Experience Pathways — three customers weaving between AI chat and survey experiences on their own routes to a recommendation.</figcaption></figure>
+  <div class="sub-label">Genie 2.0 — two ways in</div>
+  <p>Genie 2.0 stopped being a destination. Rather than a page you navigated to, it became a panel available across the site — homepage and nav, the shop-all listing, product pages, public charging, installation, financing — with the prompt rewritten for wherever you happened to be. On a product page it offered "Good for outages?" and "Don't know how to install this?"; on the listing page, "Too many options? Let's narrow it down"; on financing, "Understand your monthly payments."</p>
+  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie/v2-00-entry-points.webp" alt="Genie 2.0 entry points diagram — six site surfaces, each with prompts written for that context" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>Six entry points, each with its own prompts. The same assistant, asking a different opening question depending on where it caught you.</figcaption></figure>
+  <p>From there it forked. Both routes open by collecting what the customer needs; they diverge in where the recommendation sits.</p>
 
-  <p>That gave the concept two ways in. A customer who already had a question could just ask it, and Genie answered as a knowledge base — drawing on property data, local utility context, and outage history so the answer was about <em>their</em> house: what a home their size typically draws, how often their area actually loses power. A customer who didn't know where to start got the other route: prompts that asked questions instead of answering them, gathering enough to arrive at a recommendation. Neither route dead-ended into the other. The conversation could hand off to the guided quiz, and either could hand off to a human Home Energy Consultant.</p>
-  <div class="lg-afford"><span>Interactive</span>The tall screen scrolls on its own — hover to take over.</div>
-  <div class="live-grid live-grid--wide lg-seq lg-seq--pair">
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie-conversation.webp" alt="Energy Genie 2.0 guided conversation — the assistant summarizes what it heard, then moves into structured questions" loading="lazy"></div><figcaption>Opening the conversation</figcaption></figure>
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie-knowledge-answer.webp" alt="Energy Genie 2.0 answering a free-form question about installation cost, then offering the guided quiz and a consultant" loading="lazy"></div><figcaption>Answering, then handing off</figcaption></figure>
+  <p><strong>The guided path asks the questions.</strong> It's the route for someone with no idea where to start, and the entry prompt says exactly that — "Don't know where to start? Let us guide you!" Structured steps gather the essentials: where you live, your monthly bill, your energy goal. But every step keeps a free-text field open beneath the options, so a question that doesn't fit the choices never traps you. It closes on a single recommendation with the reasoning attached.</p>
+  <ol class="phases">
+    <li><i>01</i>Collect customer needs</li>
+    <li><i>02</i>Answer outstanding questions</li>
+    <li><i>03</i>Recommend product</li>
+  </ol>
+  <div class="live-grid live-grid--wide lg-seq lg-seq--flat">
+    <figure><div class="shot"><img src="/assets/img/hems/genie/v2-guided-01-goal.webp" alt="Genie 2.0 guided path — an energy-goal question with three choices and a free-text field beneath" loading="lazy"></div><figcaption>A step, with an escape hatch</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/genie/v2-guided-02-reco.webp" alt="Genie 2.0 guided path — the recommendation, with the customer classified and the chat input still open" loading="lazy"></div><figcaption>The recommendation</figcaption></figure>
   </div>
+
+  <p><strong>The chat path answers them.</strong> You type what you're actually thinking and Genie reads it back as a summary before doing anything else. It draws on property data, local utility context and outage history, so the replies are about your house rather than houses in general — in the prototype a customer says their biggest fear is a storm-related outage, and Genie answers that their area had repeated outages last spring. And where the guided path ends at a recommendation, this one reaches it sooner and then keeps tuning: two products side by side instead of one, a plain-language explainer when the customer asks what V2H even means, and an energy profile that redraws as new answers change it.</p>
+  <ol class="phases">
+    <li><i>01</i>Collect customer needs</li>
+    <li><i>02</i>Fine-tune recommendations</li>
+  </ol>
+  <div class="lg-afford"><span>Interactive</span>The full conversation — it scrolls on its own, hover to take over.</div>
+  <div class="live-grid live-grid--wide lg-seq lg-seq--solo">
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/genie/v2-chat-01-full.webp" alt="Genie 2.0 chat path, end to end — free-form question, read-back, structured details, two product options, a V2H explainer, and an energy profile chart" loading="lazy"></div><figcaption>Chat path, end to end</figcaption></figure>
+  </div>
+  <p>Two products rather than one, and the reasoning open to challenge — that is the 1.0 testing finding answered directly. Neither route is sealed off from the other: the conversation can hand off to the guided quiz, the guided quiz keeps a chat field open throughout, and either can hand off to a human Home Energy Consultant.</p>
+  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie-pathways.webp" alt="Genie 2.0 Guided Experience Pathways concept diagram" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figcaption>The concept behind both: three customers weaving between chat and survey on their own routes to a recommendation, entering and exiting at different points.</figcaption></figure>
 
   <div class="sub-label">What it would have been worth</div>
   <p>The research behind it was framed around two questions rather than one — how does Genie 2.0 benefit the customer, and how does it benefit the business — split by the analytics layer sitting between them, with a loop running both ways: experience data informs strategy, strategy informs experience. Most of this framing and the synthesis that followed was our senior designers' work; I contributed to it, largely checking that it held together as a direction worth taking.</p>
-  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie2-themes.webp" alt="Genie 2.0 research themes board — front-end customer questions above an analytics layer, back-end business questions below, linked by a two-way loop" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie/biz-01-themes.webp" alt="Genie 2.0 research themes board — front-end customer questions above an analytics layer, back-end business questions below, linked by a two-way loop" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The framing board. Front end asks what would make a customer use it — or not; back end asks which teams the resulting data serves, down to legal.</figcaption></figure>
   <p>The case that came out of it went past buying. Genie 2.0 was framed as a strategic intelligence layer — useful to the customer at the front end, and to the business at the back end — on the argument that every conversation is a small piece of research. Which products draw organic interest, where people hesitate, which terms they find unclear or intimidating. The assistant layer, as the value proposition put it, "captures real customer questions in their own words — offering ongoing voice-of-customer feedback without surveys."</p>
   <p>The rest follows from that. Interest clustered by geography surfaces demand hotspots — storage in outage-prone zip codes. Drop-off points read as a diagnostic: which stage loses people, and whether it's pricing, installation questions, or product comparison. The structured inputs the tool already collects — home type, energy priorities, location — enrich lead scoring instead of expiring with the session. And because it's a conversation rather than a fixed page, it doubles as a testbed: you can gauge appetite for smart panels or V2G readiness before any of it reaches market.</p>
-  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie2-insights-business.webp" alt="Genie 2.0 insights synthesis — the business half, grouped into seven columns from overall company benefit through product strategy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="wmed" style="margin-top:26px"><img src="/assets/img/hems/genie/biz-02-insights.webp" alt="Genie 2.0 insights synthesis — the business half, grouped into seven columns from overall company benefit through product strategy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The business half of the synthesis, in seven columns. Each card is sourced — first-party surveys and analytics alongside Baymard guidelines — and every claim above traces back to one of them.</figcaption></figure>
   <p>None of it shipped. Genie 2.0 was scoped and prototyped, then put on hold — it sits on the program's status board between two other paused workstreams, its usability test still dated TBD. The Genie that's live is still the survey.</p>
 
