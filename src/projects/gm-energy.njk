@@ -198,6 +198,19 @@ extraStyle: |
   .gseq--full{grid-template-columns:minmax(0,1000px)}
   .gseq .shot--nat{aspect-ratio:auto}
   .gseq .shot--bare{border:0;background:none;border-radius:0}
+  /* evolution matrix — stages across, page types down, every cell the same fixed frame */
+  .gmatrix{width:min(1000px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:88px repeat(3,1fr);gap:12px 14px;align-items:start}
+  /* width utility so existing inner grids can join the 1000px system without restructuring */
+  .gwrap{width:min(1000px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
+  .gm-head{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);line-height:1.4;padding-bottom:2px}
+  .gm-head b{display:block;font-weight:600;color:var(--accent)}
+  .gm-row{font-size:12px;font-weight:600;color:var(--ink);align-self:center;line-height:1.3}
+  .gmatrix .shot{aspect-ratio:3/4;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;display:grid;align-content:safe center}
+  .gmatrix .shot.lg-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+  .gmatrix .shot.lg-scroll::-webkit-scrollbar{width:5px}
+  .gmatrix .shot.lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
+  .gmatrix .shot img{width:100%;height:auto;display:block}
+  @media(max-width:760px){.gmatrix{grid-template-columns:1fr}.gm-head{display:none}.gm-row{margin-top:16px}}
   .gseq .shot--tall{aspect-ratio:16/10}
   .gseq .shot img{width:100%;height:auto;display:block}
   .gseq .shot.lg-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
@@ -515,50 +528,51 @@ extraStyle: |
   <div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
   <h2>From wireframes to shipped design</h2>
   <p>All of that fed into the storefront — the home page, category landing pages and product pages that introduce home energy to people who have never bought it. I wireframed the full site, went deep on the pages that mattered most, and partnered with the UI team on the visual design, working in sprints alongside GM's product and engineering teams.</p>
-  <div class="sub-label">Annotated lo-fi wireframes</div>
-  <p>Every storefront page started as an annotated lo-fi wireframe — the yellow stickies carry the content strategy, personalization notes, and stakeholder decisions.</p>
-  <div class="jgal-wrap"><div class="jgal">
-    <figure class="jcard"><img src="/assets/img/hems/evo-lofi-home.webp" alt="Ultium Home homepage lo-fi wireframe with content-strategy annotations" loading="lazy"><div class="cap"><h4>Homepage wireframe</h4></div></figure>
-    <figure class="jcard"><img src="/assets/img/hems/evo-lofi-shop.webp" alt="Shop landing lo-fi wireframe — bundles vs individual products" loading="lazy"><div class="cap"><h4>Shop wireframe</h4></div></figure>
-  </div></div>
-  <figure class="jmap"><img src="/assets/img/hems/flow-board-shopping.webp" alt="The full shopping experience flow board — navigation through configurator on one artboard" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>The full shopping flow on one board — navigation, landing, category, product, and configurator screens connected.</figcaption></figure>
-  <div class="sub-label">The mid-fidelity pass</div>
-  <p>Under the Ultium Home name, the wireframes became a branded system — a dark, cinematic landing experience over a disciplined product grid.</p>
-  <div class="jgal-wrap"><div class="jgal">
-    <figure class="jcard"><img src="/assets/img/hems/mid-ultium-lp.webp" alt="Ultium Home landing page — dark hi-fi design" loading="lazy"><div class="cap"><h4>Landing page</h4></div></figure>
-    <figure class="jcard"><img src="/assets/img/hems/mid-plp.webp" alt="Product listing page — six backup-system tiers" loading="lazy"><div class="cap"><h4>Product listing</h4></div></figure>
-  </div></div>
-  <div class="sub-label">The product page, three generations</div>
-  <p>The product page below survived three generations: an annotated lo-fi wireframe shaped with stakeholders in early 2023, a branded mid-fidelity pass under the Ultium Home name, and the shipped GM Energy 2.0 experience. Hover any stage to scroll the full screen.</p>
-  <div class="evo-wrap">
-    <div class="evo-grid on" id="evo-pdp">
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-bundle-page.webp" alt="Lo-fi bundle page wireframe with sticky-note annotations" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-pdp.webp" alt="Ultium Home mid-fidelity backup system PDP" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-pdp.webp" alt="Shipped GM Energy V2H Bundle product page" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
-    </div>
-    </div>
+  <p>Every page started as an annotated lo-fi wireframe, with the stickies carrying content strategy, personalization notes and stakeholder decisions. It then went through a branded mid-fidelity pass under the Ultium Home name before shipping as GM Energy. Three page types went the whole distance, and putting them side by side is the clearest way to see what changed.</p>
+  <div class="lg-afford"><span>Interactive</span>The tall pages scroll on their own — hover to take over.</div>
+  <div class="gmatrix">
+    <div class="gm-head"></div>
+    <div class="gm-head">Stage 1 · Jan 2023<b>Annotated wireframe</b></div>
+    <div class="gm-head">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div>
+    <div class="gm-head">Stage 3 · Shipped<b>GM Energy</b></div>
 
+    <div class="gm-row">Landing page</div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/evo-lofi-home.webp" alt="Homepage lo-fi wireframe with content-strategy annotations" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/mid-ultium-lp.webp" alt="Ultium Home landing page — dark mid-fidelity design" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-ultium-lp.webp" alt="Home Energy landing page — shipped design" loading="lazy"></div>
+
+    <div class="gm-row">Product listing</div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/evo-lofi-shop.webp" alt="Shop landing lo-fi wireframe — bundles versus individual products" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/mid-plp.webp" alt="Product listing page — six backup-system tiers" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-shop-plp.webp" alt="Shop All Products listing page — shipped design" loading="lazy"></div>
+
+    <div class="gm-row">Product page</div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/evo-lofi-bundle-page.webp" alt="Lo-fi bundle page wireframe with sticky-note annotations" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/evo-mid-pdp.webp" alt="Ultium Home mid-fidelity backup system product page" loading="lazy"></div>
+    <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-v2h-pdp.webp" alt="V2H Bundle product page — shipped design" loading="lazy"></div>
+  </div>
+
+  <div class="sub-label">The shopping flow</div>
+  <p>Every screen of the shopping experience on one board — navigation, landing, category, product and configurator, connected.</p>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/flow-board-shopping.webp" alt="The full shopping experience flow board — navigation through configurator on one artboard" loading="lazy"></div><figcaption>The shopping flow, start to finish.</figcaption></figure>
+  </div>
 
   <h2>The shipped storefront</h2>
-  <p>The full-site prototype carried every page of the experience at launch fidelity. Hover to scroll each page.</p>
-  <div class="sub-label">Final page designs</div>
-  <div class="live-grid">
-    <figure><div class="shot"><img src="/assets/img/hems/fig-home-lp.webp" alt="GM Energy homepage — final design" loading="lazy"></div><figcaption>Homepage — cross-brand landing.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/fig-ultium-lp.webp" alt="Home Energy landing page — final design" loading="lazy"></div><figcaption>Home Energy landing page.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/fig-shop-plp.webp" alt="Shop All Products listing page — final design" loading="lazy"></div><figcaption>Shop All Products.</figcaption></figure>
-    <figure><div class="shot"><img src="/assets/img/hems/fig-v2h-pdp.webp" alt="V2H Bundle product page — final design" loading="lazy"></div><figcaption>V2H Bundle PDP.</figcaption></figure>
+  <p>The full-site prototype carried every page at launch fidelity — over 140 frames covering the storefront, the install quote and the account.</p>
+  <div class="gseq gseq--1">
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-home-lp.webp" alt="GM Energy homepage — shipped design, full page" loading="lazy"></div><figcaption>The homepage, as shipped</figcaption></figure>
   </div>
   <div class="sub-label">The navigation system</div>
   <p>The three menu systems of the shipped site.</p>
-  <div class="jmap"><div class="menu-trio">
+  <div class="gwrap"><div class="menu-trio">
     <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.webp" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu opening on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
     <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.webp" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu opening on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
     <figure class="menu-col" style="margin:0"><div class="frame"><img class="page" src="/assets/img/hems/live-menu-closed.webp" alt="" aria-hidden="true" loading="lazy"><img class="menu" src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu opening on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
   </div></div>
   <div class="sub-label">More from the prototype</div>
   <p>A sample of the prototype file's 140+ frames. Hover any screen to scroll it.</p>
-  <div class="jmap"><div class="chart-grid">
+  <div class="gwrap"><div class="chart-grid">
     <figure><div class="shot"><img src="/assets/img/hems/fig-chart-plp-homeenergy.webp" alt="Home Energy Solutions PLP" loading="lazy"></div><figcaption>Home Energy PLP</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-powershift.webp" alt="PowerShift Charger PDP" loading="lazy"></div><figcaption>PowerShift PDP</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-chart-pdp-v2hkit.webp" alt="V2H Enablement Kit PDP" loading="lazy"></div><figcaption>V2H Kit PDP</figcaption></figure>
@@ -664,7 +678,7 @@ extraStyle: |
     <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/genie/v1-00-flow-map.webp" alt="The shipped Energy Genie survey laid out as a flow — intro, EV charging, energy storage, solar, savings and installation, ending on the recommendation" loading="lazy"></div><figcaption>The shipped survey end to end. Each row is one section of the questionnaire, left to right in the order a customer answered them.</figcaption></figure>
   </div>
 
-  <div class="sub-label">Genie 1.0 — the survey that shipped</div>
+  <div class="sub-label">Genie 1.0</div>
   <p>The first version was a questionnaire. It ran in five sections — EV charging, energy storage, solar, savings and installation — with Previous and Next at the bottom of every step. It calculated as you went: pick your square footage and the appliances you'd want running during an outage, and it estimated your daily and outage energy use, then matched that total to a product bundle. The page explained it as three steps.</p>
   <ol class="phases">
     <li><i>01</i>Answer some questions</li>
