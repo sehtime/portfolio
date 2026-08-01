@@ -156,6 +156,27 @@ extraStyle: |
   }
   go.addEventListener('click', tryUnlock);
   pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') tryUnlock(); })
+
+  // Local-preview convenience: once unlocked, a reload shouldn't drop you back
+  // to Brief or lose your place. sessionStorage is per-tab and clears with it.
+  // Stripped from production along with the rest of the gate.
+  if(sessionStorage.getItem(KEY) === '1') setView(true);
+  var SPOS = 'shell-scroll', saveTimer;
+  var savePos = function(){ sessionStorage.setItem(SPOS, String(window.scrollY)); };
+  window.addEventListener('scroll', function(){
+    clearTimeout(saveTimer); saveTimer = setTimeout(savePos, 150);
+  }, {passive:true});
+  window.addEventListener('beforeunload', savePos);
+  var y = parseInt(sessionStorage.getItem(SPOS) || '0', 10);
+  if(y > 8){
+    if('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    var tries = 0;
+    var restore = function(){
+      window.scrollTo(0, y);
+      if(++tries < 14 && Math.abs(window.scrollY - y) > 4) setTimeout(restore, 120);
+    };
+    window.addEventListener('load', function(){ setTimeout(restore, 60); });
+  }
 })();
 </script>
 {% endif %}
