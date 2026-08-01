@@ -323,8 +323,46 @@ extraStyle: |
   <figure class="wmed"><img src="/assets/img/ecosystem-map.webp" alt="GM Energy customer scenarios and product ecosystem — each HEMS product mapped to the customers most likely to want it" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>Customer scenarios × product ecosystem — mapping every HEMS product to who it's for, with the cross-sell sequence between them.</figcaption></figure>
 
+  <h2>Personas</h2>
+  <p>Personas and the first journey maps happened together. The project plan put both in week three — finalize the persona set, begin journey mapping — because each needed the other: a journey is a route somebody takes, and we needed to know who that somebody was.</p>
+  <p>The first personas were built the usual way — stakeholder interviews plus secondary research — producing three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). Dentsu's M1 segmentation sharpened the targeting: Tech Builders near-term, Smart Living long-term. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
+  <p>Later we rebuilt them from evidence. We pulled sentiments out of <em>every</em> usability study run since May 2023, sorted them by knowledge, cost and concerns, grouped the real test participants, and built new attribute charts from what those people had actually said.</p>
+  <p>That turned up a group we hadn't accounted for: people who want home energy security because extreme weather keeps knocking their power out, and who have no interest in an electric vehicle at all. That became <b>Rhonda</b>. For a company built around vehicles it mattered beyond the design — the energy business had customers who would never arrive through vehicle sales.</p>
+  <div class="sub-label">The four personas</div>
+  <div class="jgal-wrap">
+    <div class="jgal">
+      <figure class="jcard"><img src="/assets/img/hems/persona-markus-full.webp" alt="Markus persona card — Tech Builder segment" loading="lazy" />
+        <div class="cap"><span class="step">Tech Builder</span><h4>Markus</h4><p>Efficiency-minded project manager, frustrated by outages — wants visibility and control over home energy, considering an EV.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/hems/persona-tom-full.webp" alt="Tom persona card — Shiny Elite segment" loading="lazy" />
+        <div class="cap"><span class="step">Shiny Elite</span><h4>Tom</h4><p>Finance executive and GM EV owner who wants the best of the best — premium products, reliable through blackouts.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/hems/persona-fiona-full.webp" alt="Fiona persona card — Smart Tech segment" loading="lazy" />
+        <div class="cap"><span class="step">Smart Tech</span><h4>Fiona</h4><p>Research-driven Lyriq owner weighing solar and backup power — values usability, warranties, and the best possible deal.</p></div></figure>
+      <figure class="jcard"><img src="/assets/img/hems/persona-rhonda-full.webp" alt="Rhonda persona card — Smart &amp; Safe segment" loading="lazy" />
+        <div class="cap"><span class="step">Smart &amp; Safe</span><h4>Rhonda</h4><p>Educator nearing retirement in blackout-prone Florida — wants dependable backup power and expert guidance, no EV interest.</p></div></figure>
+    </div>
+  </div>
+  <p style="margin-top:10px;font-size:13px;color:var(--muted)">Each card carries its segmentation lineage. Markus and Tom map to a single M1 segment each — Tech Builder and Shiny Elite. Fiona and Rhonda are blends: Smart Living + Tech Builder, and Smart Living + Safety &amp; Freedom.</p>
+  <p style="margin-top:22px">The personas became a reference packet the Home Energy Consultant team used on sales calls, and the post-purchase care team used after the sale.</p>
+
+  
+  <div class="sub-label">How they evolved</div>
+  <p>Six input streams fed them: early desk research, marketing segmentation, advertising audience data, GM Financial's personas, weather-trend research, and three years of accumulated UserTesting data points.</p>
+  <div class="jgal-wrap"><div class="jgal">
+    <figure class="jcard"><img src="/assets/img/hems/persona-traits.webp" alt="Behavioral traits compared across all four personas" loading="lazy"><div class="cap"><h4>Behavioral traits, side by side</h4><p>Motivations, learning preferences, purchase drivers, and buying styles.</p></div></figure>
+    <figure class="jcard"><img src="/assets/img/hems/persona-matrix.webp" alt="Persona comparison matrix — four personas by eleven attributes" loading="lazy"><div class="cap"><h4>The comparison matrix</h4><p>Four personas × eleven attributes on one slide.</p></div></figure>
+  </div></div>
+  <div class="journey-split" style="align-items:start">
+    <div class="journey-imgs" style="grid-template-columns:1fr"><figure><img src="/assets/img/hems/persona-old-tom.webp" alt="The 2022-era Tom persona card" loading="lazy" /><figcaption>Tom, 2022 — assumption-based, pre-research.</figcaption></figure></div>
+    <div class="journey-text">
+      <h3>Tom, before and after.</h3>
+      <p>The 2022 personas were sketched from assumptions and desk research. Three years of segmentation workshops, validation studies, and shipped-product data turned them into the evidence-based cards above — same names, much sharper people.</p>
+    </div>
+  </div>
+
+
   <h2>The service blueprint</h2>
-  <p>That understanding became a large end-to-end service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the shared reference for what had to be built — and we kept revising it for years as the real product took shape.</p>
+  <p>The blueprint came out of those journeys. At the week-four workshop we walked GM through the research, co-created the work-in-progress journeys with their team, and started blueprinting from there — the two then ran alongside each other for the next two months.</p>
+  <p>What it became was a large end-to-end service blueprint covering the full lifecycle — learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the shared reference for what had to be built — and we kept revising it for years as the real product took shape.</p>
   <p>On the commerce journey alone we mapped 67 potential moments across 12 touchpoints, and 46 of the features that came out of it went into the approved 2024+ roadmap. We built parallel maps for public charging (36 moments) and post-purchase care (35 moments).</p>
   <div class="brief-only" style="max-width:820px;margin:0 auto">
     <h2>The foundation</h2>
@@ -365,41 +403,6 @@ extraStyle: |
   <p>With the journey settled we mapped the structure — every page of the site, before any of it existed.</p>
   <figure class="wmed"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
-
-  <h2>Personas</h2>
-  <p>The first personas were built the usual way — stakeholder interviews plus secondary research — producing three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). Dentsu's M1 segmentation sharpened the targeting: Tech Builders near-term, Smart Living long-term. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
-  <p>Later we rebuilt them from evidence. We pulled sentiments out of <em>every</em> usability study run since May 2023, sorted them by knowledge, cost and concerns, grouped the real test participants, and built new attribute charts from what those people had actually said.</p>
-  <p>That turned up a group we hadn't accounted for: people who want home energy security because extreme weather keeps knocking their power out, and who have no interest in an electric vehicle at all. That became <b>Rhonda</b>. For a company built around vehicles it mattered beyond the design — the energy business had customers who would never arrive through vehicle sales.</p>
-  <div class="sub-label">The four personas</div>
-  <div class="jgal-wrap">
-    <div class="jgal">
-      <figure class="jcard"><img src="/assets/img/hems/persona-markus-full.webp" alt="Markus persona card — Tech Builder segment" loading="lazy" />
-        <div class="cap"><span class="step">Tech Builder</span><h4>Markus</h4><p>Efficiency-minded project manager, frustrated by outages — wants visibility and control over home energy, considering an EV.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/hems/persona-tom-full.webp" alt="Tom persona card — Shiny Elite segment" loading="lazy" />
-        <div class="cap"><span class="step">Shiny Elite</span><h4>Tom</h4><p>Finance executive and GM EV owner who wants the best of the best — premium products, reliable through blackouts.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/hems/persona-fiona-full.webp" alt="Fiona persona card — Smart Tech segment" loading="lazy" />
-        <div class="cap"><span class="step">Smart Tech</span><h4>Fiona</h4><p>Research-driven Lyriq owner weighing solar and backup power — values usability, warranties, and the best possible deal.</p></div></figure>
-      <figure class="jcard"><img src="/assets/img/hems/persona-rhonda-full.webp" alt="Rhonda persona card — Smart &amp; Safe segment" loading="lazy" />
-        <div class="cap"><span class="step">Smart &amp; Safe</span><h4>Rhonda</h4><p>Educator nearing retirement in blackout-prone Florida — wants dependable backup power and expert guidance, no EV interest.</p></div></figure>
-    </div>
-  </div>
-  <p style="margin-top:10px;font-size:13px;color:var(--muted)">Each card carries its segmentation lineage. Markus and Tom map to a single M1 segment each — Tech Builder and Shiny Elite. Fiona and Rhonda are blends: Smart Living + Tech Builder, and Smart Living + Safety &amp; Freedom.</p>
-  <p style="margin-top:22px">The personas became a reference packet the Home Energy Consultant team used on sales calls, and the post-purchase care team used after the sale.</p>
-
-  
-  <div class="sub-label">How they evolved</div>
-  <p>Six input streams fed them: early desk research, marketing segmentation, advertising audience data, GM Financial's personas, weather-trend research, and three years of accumulated UserTesting data points.</p>
-  <div class="jgal-wrap"><div class="jgal">
-    <figure class="jcard"><img src="/assets/img/hems/persona-traits.webp" alt="Behavioral traits compared across all four personas" loading="lazy"><div class="cap"><h4>Behavioral traits, side by side</h4><p>Motivations, learning preferences, purchase drivers, and buying styles.</p></div></figure>
-    <figure class="jcard"><img src="/assets/img/hems/persona-matrix.webp" alt="Persona comparison matrix — four personas by eleven attributes" loading="lazy"><div class="cap"><h4>The comparison matrix</h4><p>Four personas × eleven attributes on one slide.</p></div></figure>
-  </div></div>
-  <div class="journey-split" style="align-items:start">
-    <div class="journey-imgs" style="grid-template-columns:1fr"><figure><img src="/assets/img/hems/persona-old-tom.webp" alt="The 2022-era Tom persona card" loading="lazy" /><figcaption>Tom, 2022 — assumption-based, pre-research.</figcaption></figure></div>
-    <div class="journey-text">
-      <h3>Tom, before and after.</h3>
-      <p>The 2022 personas were sketched from assumptions and desk research. Three years of segmentation workshops, validation studies, and shipped-product data turned them into the evidence-based cards above — same names, much sharper people.</p>
-    </div>
-  </div>
 
   <h2>One map, four ways through it</h2>
   <p>Where the purchase opportunities sat depended on where the customer started. Mapping each persona's route through the journeys is what showed us where those opportunities actually lived.</p>
