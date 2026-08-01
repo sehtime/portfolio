@@ -198,9 +198,10 @@ extraStyle: |
   /* width utility so existing inner grids can join the 1000px system without restructuring */
   .gwrap{width:min(1000px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
   /* compact persona row — the Brief's summary of the four cards */
-  .pstrip{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+  .pstrip{width:min(1160px,94vw);margin:22px 0 30px 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
   .pstrip figure{margin:0}
-  .pstrip img{width:54px;height:54px;border-radius:50%;display:block;margin-bottom:11px}
+  /* beats article.case figure img (0,1,3), which forces width:100% plus a border */
+  article.case .pstrip figure img{width:56px;height:56px;border-radius:50%;border:0;object-fit:cover;display:block;margin-bottom:12px}
   .pstrip .seg{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:4px}
   .pstrip b{display:block;font-size:16px;font-weight:600;margin-bottom:6px}
   .pstrip p{font-size:13.5px;line-height:1.5;color:var(--muted-2);margin:0}
@@ -314,14 +315,14 @@ extraStyle: |
 
   <div class="brief-only">
     <h2>Who we designed for</h2>
-    <p>With no precedent to work from, the first personas were assumptions grounded in the closest adjacent customers — solar and backup-generator buyers. We validated them against stakeholder interviews and secondary research, then kept refining them for three years against sentiment pulled from every usability study. One of the four only exists because the evidence turned her up.</p>
     <div class="pstrip">
       <figure><img src="/assets/img/persona-av-markus.webp" alt="Markus" loading="lazy"><span class="seg">Tech Builder</span><b>Markus</b><p>Efficiency-minded project manager, frustrated by outages — wants visibility and control over home energy, considering an EV.</p></figure>
       <figure><img src="/assets/img/persona-av-tom.webp" alt="Tom" loading="lazy"><span class="seg">Shiny Elite</span><b>Tom</b><p>Finance executive and GM EV owner who wants the best of the best — premium products, reliable through blackouts.</p></figure>
       <figure><img src="/assets/img/persona-av-fiona.webp" alt="Fiona" loading="lazy"><span class="seg">Smart Tech</span><b>Fiona</b><p>Research-driven Lyriq owner weighing solar and backup power — values usability, warranties, and the best possible deal.</p></figure>
       <figure><img src="/assets/img/persona-av-rhonda.webp" alt="Rhonda" loading="lazy"><span class="seg">Smart &amp; Safe</span><b>Rhonda</b><p>Educator nearing retirement in blackout-prone Florida — wants dependable backup power and expert guidance, no EV interest.</p></figure>
     </div>
-    <p style="margin-top:22px">Rhonda is the one the research produced: people who want home energy security because extreme weather keeps knocking their power out, and who have no interest in an electric vehicle at all. For a company built around vehicles, that meant customers who would never arrive through vehicle sales.</p>
+    <p>With no precedent to work from, the first personas were assumptions grounded in the closest adjacent customers — solar and backup-generator buyers. We validated them against stakeholder interviews and secondary research, then kept refining them for three years against sentiment pulled from every usability study. One of the four only exists because the evidence turned her up.</p>
+    <p>Rhonda is the one the research produced: people who want home energy security because extreme weather keeps knocking their power out, and who have no interest in an electric vehicle at all. For a company built around vehicles, that meant customers who would never arrive through vehicle sales.</p>
   </div>
 
   <div class="brief-only">
