@@ -181,6 +181,14 @@ extraStyle: |
   .phases li{padding-top:10px;border-top:1.5px solid var(--accent);font-size:12px;font-weight:600;line-height:1.35;color:var(--ink)}
   .phases li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:4px}
   @media(max-width:700px){.phases{grid-auto-flow:row;gap:12px}}
+  /* blueprint-to-site map — where each phase of the blueprint went */
+  .bmap{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:18px;margin:20px 0 0;padding:0;list-style:none}
+  .bmap li{padding-top:10px;border-top:1.5px solid var(--accent);font-size:12.5px;line-height:1.5;color:var(--muted-2)}
+  .bmap li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
+  .bmap li b{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .bmap li a{display:inline-block;margin-top:7px;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--accent);text-decoration:none}
+  .bmap li a:hover{text-decoration:underline}
+  @media(max-width:760px){.bmap{grid-auto-flow:row;gap:14px}}
   /* one image system for the Genie track: single width, one panel treatment, varying column count */
   .gseq{width:min(1000px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
   .gseq--3{grid-template-columns:repeat(3,1fr)}
@@ -418,6 +426,17 @@ extraStyle: |
   <p>With the journey settled we mapped the structure — every page of the site, before any of it existed.</p>
   <figure class="wmed"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
+
+  <div class="sub-label">From blueprint to site</div>
+  <p>This was the main deliverable, and everything else on this page comes out of it. Each column of the blueprint was pulled out, expanded into its own detailed journey, and built — the site today is the detailed-out version of the blueprint. Its five phases became the five things a customer can do:</p>
+  <ol class="bmap">
+    <li><i>Learn</i><b>Education pages</b>Introducing home energy to people who have never bought it — what GM Energy offers and how it works.<a href="#part-02">Part 02 →</a></li>
+    <li><i>Shop</i><b>The storefront</b>Home, landing, category and product pages.<a href="#part-02">Part 02 →</a></li>
+    <li><i>Buy</i><b>Checkout &amp; financing</b>GM Financial inside the flow rather than beside it.<a href="#part-03">Part 03 →</a></li>
+    <li><i>Install</i><b>Quote &amp; scheduling</b>A home assessment that prices the installation inside checkout.<a href="#part-03">Part 03 →</a></li>
+    <li><i>Own</i><b>Account &amp; care</b>Invoices, returns and support, designed with the same attention as the sale.<a href="#part-04">Part 04 →</a></li>
+  </ol>
+  <p>The supporting tracks in <a href="#part-05">Part 05</a> — the Energy Genie, the executive dashboard, the sales guide — came out of the same blueprint, or out of problems the team ran into along the way.</p>
 
   <h2>One map, four ways through it</h2>
   <p>Where the purchase opportunities sat depended on where the customer started. Mapping each persona's route through the journeys is what showed us where those opportunities actually lived.</p>
@@ -684,6 +703,7 @@ extraStyle: |
 
   
   <div class="act-kicker" id="part-05"><span>Part 05</span>Supporting tracks</div>
+  <p>Three more tracks ran alongside the storefront and checkout — the Energy Genie, an executive dashboard, and a sales guide. Each came out of the same blueprint, or out of a problem the team ran into on the way.</p>
   <h2>Energy Genie: helping people work out what to buy</h2>
   <p>A home energy system is a considered purchase — testers told us they spend weeks or months researching one. They wanted to explore on their own, and they were open to using a tool as long as it was accurate, unbiased and actually personalized.</p>
   <p>What existed was a menu-driven assistant that could answer prompts and pass you to a human, but couldn't help you decide <em>what to buy</em>. We looked at how other companies handled it — Ford's EV lifestyle quiz, Bosch's smart-home configurator, Logitech's setup finder — and at what home-battery owners were saying in their own communities.</p>
@@ -752,7 +772,7 @@ extraStyle: |
 
 
   <h2>Executive dashboard</h2>
-  <p>Leadership needed to see how the business was performing without asking the team for a status update. The executive dashboard became one of the largest efforts alongside the storefront — a business-facing view of funnel performance and program health at a glance.</p>
+  <p>The numbers existed — they lived in Adobe Analytics — but the setup was messy and unorganized enough that nobody could pull a clear read from it. Leadership needed to see how the business was performing without asking the team for a status update, so the dashboard became one of the largest efforts alongside the storefront: a business-facing view of funnel performance and program health at a glance.</p>
   <figure class="wmed"><img src="/assets/img/hems/dash-wip.webp" alt="Executive dashboard design in progress in Figma — annotation card over a line-graph widget" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>Work in progress — an annotation layer lets analysts pin commentary directly onto the data widgets.</figcaption></figure>
   <div class="jgal-wrap" style="margin-top:22px"><div class="jgal">
