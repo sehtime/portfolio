@@ -559,7 +559,9 @@ extraStyle: |
 
   <div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
   <h2>From wireframes to shipped design</h2>
+  <p>The storefront had two jobs, straight from the blueprint's first two phases: teach a category almost nobody knew, and sell it. Most customers had never heard of a HEMS, so the education pages, landing pages and product pages had to explain what GM Energy was offering before they could sell any of it.</p>
   <p>All of that fed into the storefront — the home page, category landing pages and product pages that introduce home energy to people who have never bought it. I wireframed the full site, went deep on the pages that mattered most, and partnered with the UI team on the visual design, working in sprints alongside GM's product and engineering teams.</p>
+  <div class="sub-label">Exploration: every page annotated</div>
   <p>Every page started as an annotated lo-fi wireframe, with the stickies carrying content strategy, personalization notes and stakeholder decisions. It then went through a branded mid-fidelity pass under the Ultium Home name before shipping as GM Energy. Three page types went the whole distance, and putting them side by side is the clearest way to see what changed.</p>
   <div class="lg-afford"><span>Interactive</span>The tall pages scroll on their own — hover to take over.</div>
   <div class="gmatrix">
@@ -584,6 +586,13 @@ extraStyle: |
     <div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-v2h-pdp.webp" alt="V2H Bundle product page — shipped design" loading="lazy"></div>
   </div>
 
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--placeholder">Placeholder — close-up of one annotated wireframe: a single sticky-note decision, legible</div><figcaption>One decision from the boards, up close — Seh to pick the crop.</figcaption></figure>
+  </div>
+  <ul class="findings">
+    <li><b>Plain language beat specifications</b><span>Testing the product pages: a "What's Included" section outperformed technical specs 7 of 10 as the thing that helped people understand what they were buying. The pages lead with plain language; the specs moved down.</span></li>
+  </ul>
+
   <div class="sub-label">The shopping flow</div>
   <p>Every screen of the shopping experience on one board — navigation, landing, category, product and configurator, connected.</p>
   <div class="gseq gseq--full">
@@ -596,12 +605,15 @@ extraStyle: |
     <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-home-lp.webp" alt="GM Energy homepage — shipped design, full page" loading="lazy"></div><figcaption>The homepage, as shipped</figcaption></figure>
   </div>
   <div class="sub-label">The navigation system</div>
-  <p>The three menu systems of the shipped site.</p>
+  <p>The first taxonomy was ours, and a card sort killed it: given 24 energy products to group, most testers used four categories or fewer — far simpler than what we'd built. The shipped navigation runs three product menus.</p>
   <div class="gwrap"><div class="menu-trio">
     <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
     <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
     <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
   </div></div>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--placeholder">Placeholder — the card-sort results</div><figcaption>The card sort behind the simplification — candidate screens in User Testing/Informal tests/Navigation card sort/.</figcaption></figure>
+  </div>
   <div class="sub-label">More from the prototype</div>
   <p>A sample of the prototype file's 140+ frames. Hover any screen to scroll it.</p>
   <div class="gwrap"><div class="chart-grid">
@@ -657,6 +669,11 @@ extraStyle: |
     <figure><div class="shot"><img src="/assets/img/hems/fig-prequal.webp" alt="Financing prequalification landing — final design" loading="lazy"></div><figcaption>Prequalification — see your buying power before committing.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-checkout-review.webp" alt="Checkout review step — final design" loading="lazy"></div><figcaption>Checkout review — the final look before submission.</figcaption></figure>
   </div>
+  <ul class="findings">
+    <li><b>Forced sign-in removed from promo codes</b><span>Testers found requiring an account to redeem a code unusual for a one-time purchase, and several read it as a privacy grab. The requirement came out.</span></li>
+    <li><b>Order status was effectively unfindable</b><span>The account dashboard card was almost universally overlooked; every participant went hunting elsewhere for their order. My Orders was rebuilt around where they actually looked.</span></li>
+  </ul>
+  <blockquote class="pull">"Overall, the feedback highlights a well-designed process with room for minor improvements in clarity, education and support."<cite>Post-launch usability readout — financing flow, N=16</cite></blockquote>
 
   <div class="act-kicker" id="part-04"><span>Part 04</span>Keep it honest</div>
   <h2>Building a testing practice</h2>
@@ -670,15 +687,8 @@ extraStyle: |
     <tr><td>Velocity</td><td>~1 per month</td><td>3–4 per month</td></tr>
     <tr><td>Planning</td><td>A month ahead · ~4-week lifecycle</td><td>Coincides with the design release schedule</td></tr>
   </table>
-  <p style="margin-top:24px">Dozens of studies ran across both tracks — recruited through UserTesting.com, moderated and unmoderated, desktop and mobile, with quarterly check-ins to the client. A sample of what changed because of them:</p>
-  <ul class="findings">
-    <li><b>Forced sign-in removed from promo codes</b><span>Testers found requiring an account to redeem a code unusual for a one-time purchase, and several read it as a privacy grab.</span></li>
-    <li><b>Plain language beat specifications</b><span>A "What's Included" section outperformed technical product specs 7 of 10 as the thing that helped people understand what they were buying.</span></li>
-    <li><b>Navigation simplified after a card sort</b><span>Given 24 energy products to group, most testers used four categories or fewer — far simpler than the taxonomy we'd built.</span></li>
-    <li><b>Order status was effectively unfindable</b><span>The account dashboard card was almost universally overlooked; every participant went hunting elsewhere for their order.</span></li>
-  </ul>
+  <p style="margin-top:24px">Dozens of studies ran across both tracks — recruited through UserTesting.com, moderated and unmoderated, desktop and mobile, with quarterly check-ins to the client. What they changed is shown where it happened: the card sort behind the navigation and the product-page content finding in <a href="#part-02">Part 02</a>, the promo-code sign-in and order-status fixes in <a href="#part-03">Part 03</a>.</p>
   <p>We also acted as a critical partner to GM's own analytics team — reviewing their survey and heat-mapping studies and returning assessments and recommendations. One finding shaped the PDP directly: product specifications drew the highest engagement of any content (31%), yet only 45% of users ever scrolled far enough to see it.</p>
-  <blockquote class="pull">"Overall, the feedback highlights a well-designed process with room for minor improvements in clarity, education and support."<cite>Post-launch usability readout — financing flow, N=16</cite></blockquote>
 
   <h2>Designing the ownership phase</h2>
   <p>In late 2023 the engagement expanded to cover what happens after the sale, with an explicit brief: give the ownership phase the same design attention as the purchase phase.</p>
