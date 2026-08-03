@@ -43,7 +43,7 @@ extraStyle: |
   @media(max-width:900px){.journey-split{grid-template-columns:1fr}}
   @media(max-width:480px){.journey-imgs{grid-template-columns:1fr}}
   :root{--c-markus:#B23A48;--c-tom:#2C97D1;--c-rhonda:#7A4EB2;--c-fiona:#2BA84A}
-  .pmap-legend{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 8px}
+  .pmap-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 8px}
   .pchip{display:flex;align-items:center;gap:9px;border:1px solid var(--hair);border-radius:99px;padding:6px 14px 6px 7px;background:#fffdfb;cursor:pointer;transition:border-color .2s,box-shadow .2s;font-family:inherit;text-align:left}
   .pchip img{width:28px;height:28px;border-radius:50%;display:block;border:2px solid var(--pc)}
   .pchip .nm{font-size:13px;font-weight:600;line-height:1.15}
@@ -52,17 +52,16 @@ extraStyle: |
   .pmap-overview{width:min(1160px,94vw);margin:22px 0 0 50%;transform:translateX(-50%)}
   article.case .pmap-overview img{width:100%;display:block;border:0;border-radius:0;background:none}
   /* the overview sits a little smaller; hovered journeys still take the full 1160 */
-  article.case .pmap-overview #pmoverview-img{max-width:min(980px,100%);margin:0 auto}
+  article.case .pmap-overview #pmoverview-img{max-width:min(880px,100%);margin:0 auto}
   /* hovering a chip swaps the overview for the detailed journey at full width */
   .pmap-overview.dimmed #pmoverview-img{display:none}
   .pmap-modal{display:none}
   .pmap-modal.show{display:block}
   .pmap-modal img{width:100%;display:block}
-  .pmap-notes{width:min(1160px,94vw);margin:36px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 1fr;gap:28px 44px}
+  .pmap-notes{width:min(740px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr;gap:22px}
   .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:8px}
   .pmap-name i{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--muted);font-size:13px;margin-left:8px}
   .pmap-notes p{font-size:15px;color:var(--muted-2);line-height:1.65;margin:0}
-  @media(max-width:780px){.pmap-notes{grid-template-columns:1fr}}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   /* design evolution: 3 fidelity stages */
   .evo-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
