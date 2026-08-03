@@ -162,7 +162,9 @@ extraStyle: |
   .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   /* outcome gallery wide variant */
   .live-grid--wide{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%)}
-  .live-grid--wide .shot{aspect-ratio:1600/1050!important}
+  .live-grid--wide .shot{aspect-ratio:3/4!important}
+  /* the menu panel is a fixed-height fade, not a scroller — crop from the top to fill the taller card */
+  .live-grid--wide .shot.lg-menus img{height:100%!important;object-fit:cover!important;object-position:top!important}
   .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important}
   /* sequence row — tall self-scrolling panels read as a set (Genie) */
   .lg-afford{width:min(1160px,94vw);margin:26px 0 -12px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
