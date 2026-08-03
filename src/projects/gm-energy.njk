@@ -56,14 +56,11 @@ extraStyle: |
   .pmap-modal{display:none}
   .pmap-modal.show{display:block}
   .pmap-modal img{width:100%;display:block}
-  .pmap-detail{width:min(1160px,94vw);margin:40px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
-  .pmap-detail--reverse .pmap-text{order:2}
-  .pmap-detail--reverse .pmap-img{order:1}
-  .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:10px}
+  .pmap-notes{width:min(1160px,94vw);margin:36px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 1fr;gap:28px 44px}
+  .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:8px}
   .pmap-name i{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--muted);font-size:13px;margin-left:8px}
-  .pmap-text p{font-size:15px;color:var(--muted-2);line-height:1.65}
-  .pmap-img img{width:100%;display:block;border-radius:8px;border:1px solid var(--hair);background:#fffdfb}
-  @media(max-width:780px){.pmap-detail{grid-template-columns:1fr}.pmap-detail--reverse .pmap-text{order:1}.pmap-detail--reverse .pmap-img{order:2}}
+  .pmap-notes p{font-size:15px;color:var(--muted-2);line-height:1.65;margin:0}
+  @media(max-width:780px){.pmap-notes{grid-template-columns:1fr}}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   /* design evolution: 3 fidelity stages */
   .evo-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
@@ -473,36 +470,11 @@ extraStyle: |
   })();
   </script>
 
-  <div class="pmap-detail">
-    <div class="pmap-text">
-      <span class="pmap-name" style="color:var(--c-tom)">Tom <i>HEMS Upgrader</i></span>
-      <p>Tom recently purchased a Cadillac Escalade IQ and completed the EV Journey. Now interested in a GM Energy Home system, he crosses over and enters the HEMS Journey through app onboarding — an owner who wants his home to keep up with his vehicle.</p>
-    </div>
-    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/tom.webp" alt="Tom's path — completing the EV Journey, then entering the HEMS Journey" loading="lazy" /></figure>
-  </div>
-
-  <div class="pmap-detail pmap-detail--reverse">
-    <div class="pmap-text">
-      <span class="pmap-name" style="color:var(--c-markus)">Markus <i>EV Intender</i></span>
-      <p>Tom's mirror image. Markus is completing the HEMS Journey for the purchase of a GM Energy Home System, and has decided to purchase a Silverado EV — entering the EV Journey next.</p>
-    </div>
-    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/markus.webp" alt="Markus's path — completing the HEMS Journey, then entering the EV Journey" loading="lazy" /></figure>
-  </div>
-
-  <div class="pmap-detail">
-    <div class="pmap-text">
-      <span class="pmap-name" style="color:var(--c-rhonda)">Rhonda <i>HEMS Focused</i></span>
-      <p>Rhonda is only interested in purchasing the GM Energy Home System and completes the HEMS Journey — start to finish. She never touches the EV path, the segment that proved the energy business isn't downstream of vehicle sales.</p>
-    </div>
-    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/rhonda.webp" alt="Rhonda's path — entering and completing the HEMS Journey only" loading="lazy" /></figure>
-  </div>
-
-  <div class="pmap-detail pmap-detail--reverse">
-    <div class="pmap-text">
-      <span class="pmap-name" style="color:var(--c-fiona)">Fiona <i>EV+HEMS Buyer</i></span>
-      <p>Fiona completes the EV/HEMS Combined Journey to purchase a Blazer EV and GM Energy Home System together — buying both products at once, in a single linear path built specifically for her.</p>
-    </div>
-    <figure class="pmap-img"><img src="/assets/img/journey-map-diagrams/fiona.webp" alt="Fiona's path — completing the combined EV/HEMS Journey" loading="lazy" /></figure>
+  <div class="pmap-notes">
+    <div><span class="pmap-name" style="color:var(--c-tom)">Tom <i>HEMS Upgrader</i></span> <p>Tom recently purchased a Cadillac Escalade IQ and completed the EV Journey. Now interested in a GM Energy Home system, he crosses over and enters the HEMS Journey through app onboarding — an owner who wants his home to keep up with his vehicle.</p></div>
+    <div><span class="pmap-name" style="color:var(--c-markus)">Markus <i>EV Intender</i></span> <p>Tom's mirror image. Markus is completing the HEMS Journey for the purchase of a GM Energy Home System, and has decided to purchase a Silverado EV — entering the EV Journey next.</p></div>
+    <div><span class="pmap-name" style="color:var(--c-rhonda)">Rhonda <i>HEMS Focused</i></span> <p>Rhonda is only interested in purchasing the GM Energy Home System and completes the HEMS Journey — start to finish. She never touches the EV path, the segment that proved the energy business isn't downstream of vehicle sales.</p></div>
+    <div><span class="pmap-name" style="color:var(--c-fiona)">Fiona <i>EV+HEMS Buyer</i></span> <p>Fiona completes the EV/HEMS Combined Journey to purchase a Blazer EV and GM Energy Home System together — buying both products at once, in a single linear path built specifically for her.</p></div>
   </div>
 
   <p>Storyboards went closer in again — one moment at a time, covering the customer, the GM staff involved and the setting, across both digital and physical touchpoints. The install consultation is the clearest example: an authorized installer standing in someone's garage, where the digital experience has to hand over to a person.</p>
