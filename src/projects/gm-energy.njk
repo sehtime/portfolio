@@ -130,7 +130,7 @@ extraStyle: |
   .chart-grid figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
   @media(max-width:760px){.chart-grid{grid-template-columns:repeat(2,1fr)}}
   /* brief tracks — visual cards */
-  .track-cards{display:grid;grid-template-columns:1fr 1fr;gap:30px 26px;margin-top:22px}
+  .track-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:22px;width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%)}
   .tcard .shot{aspect-ratio:16/10;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb}
   .tcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
   .tcard:hover .shot img{object-position:bottom}
@@ -148,6 +148,7 @@ extraStyle: |
   .tcard .shot--future{display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#a5a29b;font:11px ui-monospace,Menlo,monospace;padding:12px}
   .tcard b{display:block;font-size:15.5px;margin-top:12px}
   .tcard span{display:block;font-size:13.5px;color:var(--muted-2);line-height:1.55;margin-top:3px}
+  @media(max-width:980px){.track-cards{grid-template-columns:1fr 1fr}}
   @media(max-width:640px){.track-cards{grid-template-columns:1fr}}
   /* outcome gallery: menu cycle + scrollable page */
   .lg-menus{position:relative}
@@ -303,6 +304,21 @@ extraStyle: |
   </div>
 
   <div class="brief-only">
+    <h2>The major tracks</h2>
+    <p>One engagement with several workstreams running at once, from 2022 through launch and after.</p>
+    <div class="track-cards">
+      <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.webp" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Created the ecommerce experience — wireframed the site, went deep on home, landing and product pages, partnering with the UI team for delivery.</span></div>
+      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/checkout-flow-card.webp" alt="Checkout wireframe flow matrix — four purchase variants" loading="lazy" style="object-fit:contain;background:#fff"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
+      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.webp" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
+      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.webp" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-conversation-card.webp" alt="Energy Genie 2.0 flyout — the assistant reads back what it heard, then moves into structured questions" loading="lazy"></div></div><b>Energy Genie</b><span>A shopping survey — answer the questions, get the products your answers point at. Genie 2.0 added an AI version you could ask directly, or have it ask you.</span></div>
+      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/salesguide-welcome.webp" alt="Sales guide welcome spread (sanitized)" loading="lazy"></div><b>Sales guide</b><span>A walkthrough of the site for home energy consultants — a tool to help them understand it and guide their conversations with customers. Adopted across the GME sales organization.</span></div>
+      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/dash-map-light.webp" alt="Dashboard map component exploration" loading="lazy"></div><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></div>
+      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/journey-v2-2025.webp" alt="2025 journey map" loading="lazy"></div><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></div>
+      <div class="tcard reveal"><div class="shot shot--future">Future-state concepts — in exploration</div><b>Dealership experience</b><span>Future-state concepts for how home energy gets sold in physical retail.</span></div>
+    </div>
+  </div>
+
+  <div class="brief-only">
     <h2>The challenge</h2>
     <p>In fall 2022, home energy management systems were an emerging category and GM was entering it for the first time. There was no ecommerce presence, no established journey, and no agreed definition of who the customer was. It started as a service design engagement: define how GM Energy should engage with and serve its customers, work out the systems and processes that would take, and produce the roadmap for building it.</p>
   </div>
@@ -367,25 +383,11 @@ extraStyle: |
   <p>On the commerce journey alone we mapped 67 potential moments across 12 touchpoints, and 46 of the features that came out of it went into the approved 2024+ roadmap. We built parallel maps for public charging (36 moments) and post-purchase care (35 moments).</p>
   <div class="brief-only" style="max-width:820px;margin:0 auto">
     <h2>The foundation</h2>
-    <p>Every track below uses the same service blueprint and journey system, built in 2022 and revised continuously since. On the commerce journey alone: 67 moments mapped across 12 touchpoints, 46 features carried into the approved roadmap, and 23+ usability tests run against it.</p>
+    <p>Every track above uses the same service blueprint and journey system, built in 2022 and revised continuously since. On the commerce journey alone: 67 moments mapped across 12 touchpoints, 46 features carried into the approved roadmap, and 23+ usability tests run against it.</p>
   </div>
   <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.webp" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems.</figcaption></figure>
 
-  <div class="brief-only">
-    <h2>The major tracks</h2>
-    <p>One engagement with several workstreams running at once, from 2022 through launch and after.</p>
-    <div class="track-cards">
-      <div class="tcard reveal"><div class="shot shot--scroll"><img src="/assets/img/hems/live-home-desktop.webp" alt="The live GM Energy homepage" loading="lazy"></div><b>Storefront</b><span>Created the ecommerce experience — wireframed the site, went deep on home, landing and product pages, partnering with the UI team for delivery.</span></div>
-      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/checkout-flow-card.webp" alt="Checkout wireframe flow matrix — four purchase variants" loading="lazy" style="object-fit:contain;background:#fff"></div><b>Checkout &amp; financing</b><span>Unified purchase, GM Financial financing, and install quoting into one flow — the customer is never passed between three companies.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.webp" alt="Install quote eligibility step" loading="lazy"></div><b>Installation questionnaire</b><span>The step-by-step home assessment that turns an installation into a quote inside checkout.</span></div>
-      <div class="tcard reveal"><div class="shot shot--genie"><img class="bg" src="/assets/img/hems/genie-bg-desktop.webp" alt="" aria-hidden="true" loading="lazy"><div class="flyout" id="genie-shot"><img src="/assets/img/hems/genie-conversation-card.webp" alt="Energy Genie 2.0 flyout — the assistant reads back what it heard, then moves into structured questions" loading="lazy"></div></div><b>Energy Genie</b><span>A shopping survey — answer the questions, get the products your answers point at. Genie 2.0 added an AI version you could ask directly, or have it ask you.</span></div>
-      <div class="tcard reveal"><div class="shot shot--static"><img src="/assets/img/hems/salesguide-welcome.webp" alt="Sales guide welcome spread (sanitized)" loading="lazy"></div><b>Sales guide</b><span>A walkthrough of the site for home energy consultants — a tool to help them understand it and guide their conversations with customers. Adopted across the GME sales organization.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/dash-map-light.webp" alt="Dashboard map component exploration" loading="lazy"></div><b>Executive dashboard</b><span>A business-facing view of funnel and program health for leadership.</span></div>
-      <div class="tcard reveal"><div class="shot"><img src="/assets/img/hems/journey-v2-2025.webp" alt="2025 journey map" loading="lazy"></div><b>Research &amp; testing</b><span>Blueprints, journeys, personas, storyboards — and the validation-testing framework the team still runs on.</span></div>
-      <div class="tcard reveal"><div class="shot shot--future">Future-state concepts — in exploration</div><b>Dealership experience</b><span>Future-state concepts for how home energy gets sold in physical retail.</span></div>
-    </div>
-  </div>
 
   <p>That wide view is what gave the team more parts of the experience to design for: the blueprint let us pick out columns and detail them into experiences, even as we delivered the website.</p>
   <p>We needed to focus on what the website should be, so I highlighted the section of the blueprint where the customer lands to learn, shop and purchase the product — the main focus of the site. From those columns we created journeys for each persona, to understand what each of them needed.</p>
