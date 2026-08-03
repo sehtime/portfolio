@@ -531,29 +531,26 @@ extraStyle: |
     <figure><div class="shot shot--nat"><img src="/assets/img/hems/flow-board-shopping.webp" alt="The full shopping experience flow board — navigation through configurator on one artboard" loading="lazy"></div><figcaption>The shopping flow, start to finish.</figcaption></figure>
   </div>
 
-  <h2>Storyboarding the service moments</h2>
-  <p>The journeys said <em>where</em> each moment happened; the storyboards showed what it looked like. I developed Disney-style storyboards across five workstreams — the shopping experience, checkout, Energy Genie, the installation experience, and the executive dashboard — using images and captions to walk clients and the team through the journey, and coaching teammates on what each frame needed to carry: the physical and emotional decisions a customer faces at that point. The sequence below walks through the in-person install consultation, with the customer's view and the consultant's view side by side in every scene.</p>
-  <div class="sb-wrap">
-    <div class="sb-hint">Scroll the sequence</div>
-    <div class="sb-strip">
-      <figure><img src="/assets/img/hems/story5-0.webp" alt="Story 5 opener — customer and consultant goals with journey locator" loading="lazy"><figcaption><b>Setup</b>Customer &amp; consultant goals, and where this story sits on the journey map.</figcaption></figure>
-      <figure><img src="/assets/img/hems/story5-1.webp" alt="Scene 1 — booking confirmation email" loading="lazy"><figcaption><b>Scene 1</b>The confirmation email sets expectations for the visit.</figcaption></figure>
-      <figure><img src="/assets/img/hems/story5-4.webp" alt="Scene 4 — in-home inspection with checklist" loading="lazy"><figcaption><b>Scene 4</b>The consultant works a structured inspection checklist in the home.</figcaption></figure>
-      <figure><img src="/assets/img/hems/story5-9.webp" alt="Scene 9 — itemized quote walkthrough" loading="lazy"><figcaption><b>Scene 9</b>The itemized quote, walked through line by line.</figcaption></figure>
-      <figure><img src="/assets/img/hems/story5-12.webp" alt="Scene 12 — financing conversation" loading="lazy"><figcaption><b>Scene 12</b>Financing options discussed in context, not in a form.</figcaption></figure>
-      <figure><img src="/assets/img/hems/story5-17.webp" alt="Scene 17 — shipment and installer tracking" loading="lazy"><figcaption><b>Scene 17</b>Shipment and installer tracking close the loop.</figcaption></figure>
-    </div>
+  <div class="sub-label">Learn — the homepage</div>
+  <p>The customer's first job is learning what any of this is, and the homepage carries that load — introducing the category, the products and V2H before asking anyone to shop. Scroll the shipped page end to end:</p>
+  <div class="gseq gseq--1">
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-home-lp.webp" alt="GM Energy homepage — shipped design, full page" loading="lazy"></div><figcaption>The homepage, as shipped</figcaption></figure>
   </div>
-  <figure class="jmap"><img src="/assets/img/hems/story5-board.webp" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
-  <figcaption>The full board — 18 scenes across five phases, with alternate-journey branches for cancellations and rescheduling. A second storyboard covered the remote two-way-video consultation variant.</figcaption></figure>
+
+  <div class="sub-label">Shop — the product page</div>
+  <p>The product page does the convincing. Every section has a job — and testing set the order: a plain-language "What's Included" leads, because it beat the technical specs 7 of 10 as the thing that helped people understand what they were buying.</p>
+  <div class="gseq gseq--1">
+    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-v2h-pdp.webp" alt="V2H Bundle product page — shipped design, full page" loading="lazy"></div><figcaption>The V2H Bundle product page, end to end</figcaption></figure>
+  </div>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--placeholder">Placeholder — the product page, annotated: what each section does</div><figcaption>The PDP anatomy — Seh to provide or pick the annotated version.</figcaption></figure>
+  </div>
+
 
   
 
   <h2>The shipped storefront</h2>
   <p>The full-site prototype carried every page at launch fidelity — over 140 frames covering the storefront, the install quote and the account.</p>
-  <div class="gseq gseq--1">
-    <figure><div class="shot lg-scroll lg-drift"><img src="/assets/img/hems/fig-home-lp.webp" alt="GM Energy homepage — shipped design, full page" loading="lazy"></div><figcaption>The homepage, as shipped</figcaption></figure>
-  </div>
   <div class="sub-label">The navigation system</div>
   <p>The first taxonomy was ours, and a card sort killed it: given 24 energy products to group, most testers used four categories or fewer — far simpler than what we'd built. The shipped navigation runs three product menus.</p>
   <div class="gwrap"><div class="menu-trio">
@@ -604,11 +601,6 @@ extraStyle: |
   <figure class="jmap"><img src="/assets/img/hems/checkout-business-flows.webp" alt="Ecomm 2.0 business flows — swimlane diagrams across payment and financing permutations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The business-flow swimlanes: hardware and install, with and without financing, across credit outcomes — the design's contract with order management, GM Financial, and install partners.</figcaption></figure>
 
-  <h2>Designing for trust: financing inside checkout</h2>
-  <p>Financing was the hardest part. A HEMS purchase is a big financial decision, so GM Financial had to sit inside the journey rather than beside it: a two-step prequalification where customers first see their buying power, then trade more information — including a full social security number — for real rates, terms, and monthly payments.</p>
-  <p>Asking for a social security number online is a lot to ask, and testing told us how it felt from the other side. Participants said an unexplained SSN field made a company seem "scammy." They preferred a concrete rate, term and monthly payment over the abstraction of "buying power." And being asked to prequalify twice with no explanation lost their confidence — <em>"I don't understand why I have to get prequalified again."</em> So we explained ourselves at each sensitive step: why we were asking, what happened next, what they got in return, and what it did to their credit.</p>
-  <p>Getting there took repeated working sessions between the companies — dedicated GMF &amp; Checkout rounds in Detroit and a second in Austin, on top of the sprint-by-sprint iteration. Our director took those sessions; I built the checkout and financing designs they worked through.</p>
-  <p>Behind the visible flow sat a lot of combinations. Checkout wasn't one path but a matrix: hardware only, hardware plus installation, with or without a down payment, in states where financing was available and states where it wasn't, at full approval, partial approval, or decline — plus agent-assisted orders placed on the customer's behalf. Each permutation needed its own designed states and its own validation, and we ran user-acceptance testing across roughly thirty scenarios to prove the flow held together.</p>
   <div class="sub-label">Checkout, shipped</div>
   <div class="jgal-wrap"><div class="jgal">
     <figure class="jcard"><img src="/assets/img/hems/ship-checkout-flow.webp" alt="One-page checkout flow boards — shipped design" loading="lazy"><div class="cap"><h4>The one-page checkout, mapped</h4></div></figure>
@@ -623,6 +615,39 @@ extraStyle: |
     <li><b>Forced sign-in removed from promo codes</b><span>Testers found requiring an account to redeem a code unusual for a one-time purchase, and several read it as a privacy grab. The requirement came out.</span></li>
     <li><b>Order status was effectively unfindable</b><span>The account dashboard card was almost universally overlooked; every participant went hunting elsewhere for their order. My Orders was rebuilt around where they actually looked.</span></li>
   </ul>
+
+  <div class="sub-label">Installation — priced inside checkout</div>
+  <p>Installation is where the purchase leaves the screen. Inside checkout, a home assessment turns the install into a priced quote — eligibility first, then the cost folded into the order total, so the customer never leaves the flow to find out what it really costs.</p>
+  <div class="gseq gseq--2">
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-eligibility.webp" alt="Install quote — eligibility approved" loading="lazy"></div><figcaption>Eligibility, checked first</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/fig-chart-quote-totalcost.webp" alt="Install quote — total order cost" loading="lazy"></div><figcaption>The install, priced inside the order total</figcaption></figure>
+  </div>
+
+  <div class="sub-label">The install consultation, storyboarded</div>
+  <p>Storyboards went closer in again — one moment at a time, covering the customer, the GM staff involved and the setting, across both digital and physical touchpoints. The install consultation is the clearest example: an authorized installer standing in someone's garage, where the digital experience has to hand over to a person.</p>
+  <p>The journeys said <em>where</em> each moment happened; the storyboards showed what it looked like. I developed Disney-style storyboards across five workstreams — the shopping experience, checkout, Energy Genie, the installation experience, and the executive dashboard — using images and captions to walk clients and the team through the journey, and coaching teammates on what each frame needed to carry: the physical and emotional decisions a customer faces at that point. The sequence below walks through the in-person install consultation, with the customer's view and the consultant's view side by side in every scene.</p>
+  <div class="sb-wrap">
+    <div class="sb-hint">Scroll the sequence</div>
+    <div class="sb-strip">
+      <figure><img src="/assets/img/hems/story5-0.webp" alt="Story 5 opener — customer and consultant goals with journey locator" loading="lazy"><figcaption><b>Setup</b>Customer &amp; consultant goals, and where this story sits on the journey map.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-1.webp" alt="Scene 1 — booking confirmation email" loading="lazy"><figcaption><b>Scene 1</b>The confirmation email sets expectations for the visit.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-4.webp" alt="Scene 4 — in-home inspection with checklist" loading="lazy"><figcaption><b>Scene 4</b>The consultant works a structured inspection checklist in the home.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-9.webp" alt="Scene 9 — itemized quote walkthrough" loading="lazy"><figcaption><b>Scene 9</b>The itemized quote, walked through line by line.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-12.webp" alt="Scene 12 — financing conversation" loading="lazy"><figcaption><b>Scene 12</b>Financing options discussed in context, not in a form.</figcaption></figure>
+      <figure><img src="/assets/img/hems/story5-17.webp" alt="Scene 17 — shipment and installer tracking" loading="lazy"><figcaption><b>Scene 17</b>Shipment and installer tracking close the loop.</figcaption></figure>
+    </div>
+  </div>
+  <figure class="jmap"><img src="/assets/img/hems/story5-board.webp" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
+  <figcaption>The full board — 18 scenes across five phases, with alternate-journey branches for cancellations and rescheduling. A second storyboard covered the remote two-way-video consultation variant.</figcaption></figure>
+
+  <div class="sub-label">Paying for it — card or GM Financing</div>
+  <p>Financing was the hardest part. A HEMS purchase is a big financial decision, so GM Financial had to sit inside the journey rather than beside it: a two-step prequalification where customers first see their buying power, then trade more information — including a full social security number — for real rates, terms, and monthly payments.</p>
+  <p>Asking for a social security number online is a lot to ask, and testing told us how it felt from the other side. Participants said an unexplained SSN field made a company seem "scammy." They preferred a concrete rate, term and monthly payment over the abstraction of "buying power." And being asked to prequalify twice with no explanation lost their confidence — <em>"I don't understand why I have to get prequalified again."</em> So we explained ourselves at each sensitive step: why we were asking, what happened next, what they got in return, and what it did to their credit.</p>
+  <p>Getting there took repeated working sessions between the companies — dedicated GMF &amp; Checkout rounds in Detroit and a second in Austin, on top of the sprint-by-sprint iteration. Our director took those sessions; I built the checkout and financing designs they worked through.</p>
+  <p>Behind the visible flow sat a lot of combinations. Checkout wasn't one path but a matrix: hardware only, hardware plus installation, with or without a down payment, in states where financing was available and states where it wasn't, at full approval, partial approval, or decline — plus agent-assisted orders placed on the customer's behalf. Each permutation needed its own designed states and its own validation, and we ran user-acceptance testing across roughly thirty scenarios to prove the flow held together.</p>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--placeholder">Placeholder — the payment step: paying by card, or financing through GM Financial</div><figcaption>Candidates in 05_Sprints/Sprint 3/"finance product…- live" folders — Seh to pick the frames.</figcaption></figure>
+  </div>
   <blockquote class="pull">"Overall, the feedback highlights a well-designed process with room for minor improvements in clarity, education and support."<cite>Post-launch usability readout — financing flow, N=16</cite></blockquote>
 
   <div class="act-kicker" id="part-04"><span>Part 04</span>Keep it honest</div>
