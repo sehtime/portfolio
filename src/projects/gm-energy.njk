@@ -49,14 +49,14 @@ extraStyle: |
   .pchip .nm{font-size:13px;font-weight:600;line-height:1.15}
   .pchip .rl{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:11.5px;color:var(--muted)}
   .pchip:hover,.pchip.on{border-color:var(--pc);box-shadow:0 0 0 1px var(--pc)}
-  .pmap-overview{width:min(1100px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);position:relative}
+  .pmap-overview{width:min(1160px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);position:relative}
   .pmap-overview img{width:100%;display:block;border-radius:10px;border:1px solid var(--hair);background:#fffdfb}
   .pmap-overview::after{content:"";position:absolute;inset:0;z-index:1;border-radius:10px;background:rgba(250,249,246,.72);opacity:0;transition:opacity .18s;pointer-events:none}
   .pmap-overview.dimmed::after{opacity:1}
   .pmap-modal{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;padding:5%;opacity:0;transform:scale(.97);transition:opacity .18s,transform .18s;pointer-events:none}
   .pmap-modal.show{opacity:1;transform:scale(1)}
   .pmap-modal img{max-width:100%;max-height:100%;display:block;border-radius:10px;border:1px solid var(--hair);background:#fffdfb;box-shadow:0 16px 40px rgba(0,0,0,.16)}
-  .pmap-detail{width:min(1100px,94vw);margin:40px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+  .pmap-detail{width:min(1160px,94vw);margin:40px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
   .pmap-detail--reverse .pmap-text{order:2}
   .pmap-detail--reverse .pmap-img{order:1}
   .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:10px}
@@ -163,11 +163,11 @@ extraStyle: |
   .lg-scroll::-webkit-scrollbar{width:6px}
   .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   /* outcome gallery wide variant */
-  .live-grid--wide{width:min(1240px,94vw);margin-left:50%;transform:translateX(-50%)}
+  .live-grid--wide{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%)}
   .live-grid--wide .shot{aspect-ratio:1600/1050!important}
   .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important}
   /* sequence row — tall self-scrolling panels read as a set (Genie) */
-  .lg-afford{width:min(1000px,94vw);margin:26px 0 -12px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
+  .lg-afford{width:min(1160px,94vw);margin:26px 0 -12px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
   .lg-afford span{font-family:var(--sans);font-style:normal;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:var(--accent);border-radius:999px;padding:3px 10px}
   .lg-auto img{width:100%;height:auto;object-fit:unset;transition:none;animation:lgAuto 60s ease-in-out infinite}
   @keyframes lgAuto{0%,4%{transform:translateY(0)}46%,54%{transform:translateY(-89%)}96%,100%{transform:translateY(0)}}
@@ -190,7 +190,7 @@ extraStyle: |
   .bmap li a:hover{text-decoration:underline}
   @media(max-width:760px){.bmap{grid-auto-flow:row;gap:14px}}
   /* one image system for the Genie track: single width, one panel treatment, varying column count */
-  .gseq{width:min(1000px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
+  .gseq{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
   .gseq--3{grid-template-columns:repeat(3,1fr)}
   .gseq--2{grid-template-columns:repeat(2,1fr)}
   .gseq--1{grid-template-columns:minmax(0,520px);justify-content:center}
@@ -198,14 +198,14 @@ extraStyle: |
   .gseq .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;display:grid;align-content:safe center}
   .gseq--3 .shot,.gseq--1 .shot{aspect-ratio:3/4}
   .gseq--2 .shot{aspect-ratio:16/10}
-  .gseq--full{grid-template-columns:minmax(0,1000px)}
+  .gseq--full{grid-template-columns:minmax(0,1160px)}
   .gseq--copy{grid-template-columns:minmax(0,740px);justify-content:center}
   .gseq .shot--nat{aspect-ratio:auto}
   .gseq .shot--bare{border:0;background:none;border-radius:0}
   /* evolution matrix — stages across, page types down, every cell the same fixed frame */
-  .gmatrix{width:min(1000px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:88px repeat(3,1fr);gap:12px 14px;align-items:start}
+  .gmatrix{width:min(1160px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:88px repeat(3,1fr);gap:12px 14px;align-items:start}
   /* width utility so existing inner grids can join the 1000px system without restructuring */
-  .gwrap{width:min(1000px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
+  .gwrap{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
   /* compact persona row — the Brief's summary of the four cards */
   .pstrip{width:min(1160px,94vw);margin:22px 0 30px 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
   .pstrip figure{margin:0}
@@ -423,8 +423,9 @@ extraStyle: |
   </div></div>
   <div class="sub-label">Information architecture</div>
   <p>With the journey settled we mapped the structure — every page of the site, before any of it existed.</p>
-  <figure class="wmed"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" loading="lazy"></div><figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
+  </div>
 
   <div class="sub-label">From blueprint to site</div>
   <p>This was the main deliverable, and everything else on this page comes out of it. Each column of the blueprint was pulled out, expanded into its own detailed journey, and built — the site today is the detailed-out version of the blueprint. Its five phases became the five things a customer can do:</p>
@@ -702,13 +703,15 @@ extraStyle: |
 
   <div class="sub-label">And where it goes wrong</div>
   <p>We mapped the unhappy paths the same way. The returns and cancellations journey runs six steps across two sub-phases, tracking what the customer is doing and thinking at each one, the feeling we anticipated, the pain points, and the opportunity that came out of it — with the concierge escalation tiers mapped alongside, since who picks up the phone changes what the experience can be.</p>
-  <figure class="wmed"><img src="/assets/img/hems/care-returns-journey.webp" alt="Returns and cancellations journey map — doing, thinking, anticipated feeling, pain points and opportunities across six steps" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>Returns &amp; cancellations. The pain points row is the useful one: tracking that isn't accurate, customers without a printer for a return label, confusion over who to pay when a third party did the install.</figcaption></figure>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/care-returns-journey.webp" alt="Returns and cancellations journey map — doing, thinking, anticipated feeling, pain points and opportunities across six steps" loading="lazy"></div><figcaption>Returns &amp; cancellations. The pain points row is the useful one: tracking that isn't accurate, customers without a printer for a return label, confusion over who to pay when a third party did the install.</figcaption></figure>
+  </div>
 
   <p>It also meant designing the feedback system itself. We mapped customer-satisfaction survey triggers across the entire ecosystem — post-sale, post-install, post-support-call, per partner — and then did the less obvious work of pruning them, prioritizing which moments genuinely warranted asking so customers weren't buried under surveys from four companies about the same purchase.</p>
   <p>The same logic applied to the messages themselves. Every email the care team could send was inventoried, assigned an audience, and ranked into three priority tiers — because at launch an agent would be picking these from a template library by hand, and the first tier had to be the one that actually mattered.</p>
-  <figure class="wmed"><img src="/assets/img/hems/care-email-taxonomy.webp" alt="Customer care email taxonomy — messages grouped into three priority tiers with their audiences" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>The care email set, tiered. Note the audience column: seven of the twenty-five never reach the customer at all — they coordinate the installation, logistics and administration partners around them.</figcaption></figure>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/care-email-taxonomy.webp" alt="Customer care email taxonomy — messages grouped into three priority tiers with their audiences" loading="lazy"></div><figcaption>The care email set, tiered. Note the audience column: seven of the twenty-five never reach the customer at all — they coordinate the installation, logistics and administration partners around them.</figcaption></figure>
+  </div>
 
   
   <div class="act-kicker" id="part-05"><span>Part 05</span>Supporting tracks</div>
@@ -782,8 +785,9 @@ extraStyle: |
 
   <h2>Executive dashboard</h2>
   <p>The numbers existed — they lived in Adobe Analytics — but the setup was messy and unorganized enough that nobody could pull a clear read from it. Leadership needed to see how the business was performing without asking the team for a status update, so the dashboard became one of the largest efforts alongside the storefront: a business-facing view of funnel performance and program health at a glance.</p>
-  <figure class="wmed"><img src="/assets/img/hems/dash-wip.webp" alt="Executive dashboard design in progress in Figma — annotation card over a line-graph widget" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
-  <figcaption>Work in progress — an annotation layer lets analysts pin commentary directly onto the data widgets.</figcaption></figure>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/dash-wip.webp" alt="Executive dashboard design in progress in Figma — annotation card over a line-graph widget" loading="lazy"></div><figcaption>Work in progress — an annotation layer lets analysts pin commentary directly onto the data widgets.</figcaption></figure>
+  </div>
   <div class="jgal-wrap" style="margin-top:22px"><div class="jgal">
     <figure class="jcard"><img src="/assets/img/hems/dash-map-light.webp" alt="US map component exploration — light theme" loading="lazy"><div class="cap"><h4>Map exploration — light</h4><p>Regional install and sales density, editorial-styled for executive readouts.</p></div></figure>
     <figure class="jcard"><img src="/assets/img/hems/dash-map-dark.webp" alt="US map component exploration — dark theme" loading="lazy"><div class="cap"><h4>Map exploration — dark</h4><p>The same component tuned for the dashboard's dark data-panel context.</p></div></figure>
