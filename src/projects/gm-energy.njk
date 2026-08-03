@@ -182,14 +182,6 @@ extraStyle: |
   .phases li{padding-top:10px;border-top:1.5px solid var(--accent);font-size:12px;font-weight:600;line-height:1.35;color:var(--ink)}
   .phases li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:4px}
   @media(max-width:700px){.phases{grid-auto-flow:row;gap:12px}}
-  /* blueprint-to-site map — where each phase of the blueprint went */
-  .bmap{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:18px;margin:20px 0 0;padding:0;list-style:none}
-  .bmap li{padding-top:10px;border-top:1.5px solid var(--accent);font-size:12.5px;line-height:1.5;color:var(--muted-2)}
-  .bmap li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:5px}
-  .bmap li b{display:block;font-size:13.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
-  .bmap li a{display:inline-block;margin-top:7px;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--accent);text-decoration:none}
-  .bmap li a:hover{text-decoration:underline}
-  @media(max-width:760px){.bmap{grid-auto-flow:row;gap:14px}}
   /* one image system for the Genie track: single width, one panel treatment, varying column count */
   .gseq{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
   .gseq--3{grid-template-columns:repeat(3,1fr)}
@@ -490,23 +482,6 @@ extraStyle: |
 
 
 
-  <div class="sub-label">Information architecture</div>
-  <p>With the journey settled we mapped the structure — every page of the site, before any of it existed.</p>
-  <div class="gseq gseq--full">
-    <figure><div class="shot shot--nat"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" loading="lazy"></div><figcaption>The sitemap: GM → GM Energy → For Home, with Genie, Live Demo, cart, and payment flows.</figcaption></figure>
-  </div>
-
-  <div class="sub-label">From blueprint to site</div>
-  <p>This was the main deliverable, and everything else on this page comes out of it. Each column of the blueprint was pulled out, expanded into its own detailed journey, and built — the site today is the detailed-out version of the blueprint. Its five phases became the five things a customer can do:</p>
-  <ol class="bmap">
-    <li><i>Learn</i><b>Education pages</b>Introducing home energy to people who have never bought it — what GM Energy offers and how it works.<a href="#part-02">Part 02 →</a></li>
-    <li><i>Shop</i><b>The storefront</b>Home, landing, category and product pages.<a href="#part-02">Part 02 →</a></li>
-    <li><i>Buy</i><b>Checkout &amp; financing</b>GM Financial inside the flow rather than beside it.<a href="#part-03">Part 03 →</a></li>
-    <li><i>Install</i><b>Quote &amp; scheduling</b>A home assessment that prices the installation inside checkout.<a href="#part-03">Part 03 →</a></li>
-    <li><i>Own</i><b>Account &amp; care</b>Invoices, returns and support, designed with the same attention as the sale.<a href="#part-04">Part 04 →</a></li>
-  </ol>
-  <p>The supporting tracks in <a href="#part-05">Part 05</a> — the Energy Genie, the executive dashboard, the sales guide — came out of the same blueprint, or out of problems the team ran into along the way.</p>
-
   <h2>Storyboarding the service moments</h2>
   <p>The journeys said <em>where</em> each moment happened; the storyboards showed what it looked like. I developed Disney-style storyboards across five workstreams — the shopping experience, checkout, Energy Genie, the installation experience, and the executive dashboard — using images and captions to walk clients and the team through the journey, and coaching teammates on what each frame needed to carry: the physical and emotional decisions a customer faces at that point. The sequence below walks through the in-person install consultation, with the customer's view and the consultant's view side by side in every scene.</p>
   <div class="sb-wrap">
@@ -523,10 +498,19 @@ extraStyle: |
   <figure class="jmap"><img src="/assets/img/hems/story5-board.webp" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
   <figcaption>The full board — 18 scenes across five phases, with alternate-journey branches for cancellations and rescheduling. A second storyboard covered the remote two-way-video consultation variant.</figcaption></figure>
 
-  <div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
+  
+
+  <div class="sub-label">Information architecture</div>
+  <p>With the journey settled we mapped the structure, and kept the sitemap current as the site grew. This is the September 2025 version — every page of the live site.</p>
+  <div class="gseq gseq--full">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" loading="lazy"></div><figcaption>The GM Energy sitemap, September 2025 — main navigation, footer, checkout and account flows, down to the error pages.</figcaption></figure>
+  </div>
+
+
+<div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
   <h2>From wireframes to shipped design</h2>
   <p>The storefront had two jobs, straight from the blueprint's first two phases: teach a category almost nobody knew, and sell it. Most customers had never heard of a HEMS, so the education pages, landing pages and product pages had to explain what GM Energy was offering before they could sell any of it.</p>
-  <p>All of that fed into the storefront — the home page, category landing pages and product pages that introduce home energy to people who have never bought it. I wireframed the full site, went deep on the pages that mattered most, and partnered with the UI team on the visual design, working in sprints alongside GM's product and engineering teams.</p>
+  <p>From that structure I wireframed the site section by section, going deep on the pages that mattered most. The flows, and the content inside them, were shaped to support each persona's journey — what the blueprint and the journey maps had taught us each of them needed to learn, compare and decide. I worked in sprints alongside GM's product and engineering teams, partnering with the UI team on the visual design.</p>
   <div class="sub-label">Exploration: every page annotated</div>
   <p>Every page started as an annotated lo-fi wireframe, with the stickies carrying content strategy, personalization notes and stakeholder decisions. It then went through a branded mid-fidelity pass under the Ultium Home name before shipping as GM Energy. Three page types went the whole distance, and putting them side by side is the clearest way to see what changed.</p>
   <div class="lg-afford"><span>Interactive</span>The tall pages scroll on their own — hover to take over.</div>
@@ -653,7 +637,7 @@ extraStyle: |
     <tr><td>Velocity</td><td>~1 per month</td><td>3–4 per month</td></tr>
     <tr><td>Planning</td><td>A month ahead · ~4-week lifecycle</td><td>Coincides with the design release schedule</td></tr>
   </table>
-  <p style="margin-top:24px">Dozens of studies ran across both tracks — recruited through UserTesting.com, moderated and unmoderated, desktop and mobile, with quarterly check-ins to the client. What they changed is shown where it happened: the card sort behind the navigation and the product-page content finding in <a href="#part-02">Part 02</a>, the promo-code sign-in and order-status fixes in <a href="#part-03">Part 03</a>.</p>
+  <p style="margin-top:24px">Dozens of studies ran across both tracks — recruited through UserTesting.com, moderated and unmoderated, desktop and mobile, with quarterly check-ins to the client. What they changed is shown where it happened: the card sort behind the navigation, the product-page content finding, the promo-code sign-in, the order-status fix — each is told where the work is shown.</p>
   <p>We also acted as a critical partner to GM's own analytics team — reviewing their survey and heat-mapping studies and returning assessments and recommendations. One finding shaped the PDP directly: product specifications drew the highest engagement of any content (31%), yet only 45% of users ever scrolled far enough to see it.</p>
 
   <h2>Designing the ownership phase</h2>
