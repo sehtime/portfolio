@@ -6,10 +6,15 @@ module.exports = function (eleventyConfig) {
   // (password included) — this transform is what actually protects it.
   const GATED_PAGES = /(gm-energy|shell-pricing)\.html$/;
 
+  // The un-transformed HTML of each gated page, kept so the protected /full/
+  // build can be written from it after the public build is done.
+  const fullSource = new Map();
+
   if (process.env.BRIEF_ONLY === "1") {
     const { parse } = require("node-html-parser");
     eleventyConfig.addTransform("briefOnly", function (content) {
       if (!this.page.outputPath || !GATED_PAGES.test(this.page.outputPath)) return content;
+      fullSource.set(this.page.outputPath, content);
       const root = parse(content);
       const article = root.querySelector("article.case");
       if (!article) return content;
@@ -31,6 +36,17 @@ module.exports = function (eleventyConfig) {
       for (const sc of root.querySelectorAll("script")) {
         const t = sc.text || "";
         if (/PASSWORD|vt-full|evo-tab|pmlegend/.test(t)) sc.remove();
+      }
+      // The in-page gate is gone; point at the password-protected build instead.
+      // Safe to link publicly — /full/* is behind Basic Auth at the edge.
+      const notice = article.querySelector(".notice");
+      if (notice) {
+        const href =
+          "/full/" + this.page.outputPath.replace(/^\.?\/?_site\//, "");
+        notice.insertAdjacentHTML(
+          "afterend",
+          `<p class="full-link brief-keep"><a href="${href}">Read the full case study</a><span>Password required — available on request</span></p>`
+        );
       }
       return root.toString();
     });
@@ -74,23 +90,72 @@ module.exports = function (eleventyConfig) {
       walk("_site");
 
       // 3. Full-view-only assets = referenced by a gated page, needed by nobody
+      //    on the public site. These MOVE to _site/full/assets/, which the
+      //    full-auth edge function protects — off the public site, still
+      //    reachable by the password-protected build.
       const pruned = [];
       for (const rel of gatedRefs) {
         if (shippedRefs.has(rel)) continue;
         const abs = path.join("_site", "assets", rel);
         if (fs.existsSync(abs) && fs.statSync(abs).isFile()) {
-          fs.unlinkSync(abs);
+          const dest = path.join("_site", "full", "assets", rel);
+          fs.mkdirSync(path.dirname(dest), { recursive: true });
+          fs.renameSync(abs, dest);
           pruned.push(rel);
         }
       }
       console.log(
-        `[briefOnly] pruned ${pruned.length} Full-view-only asset(s) from _site`
+        `[briefOnly] moved ${pruned.length} Full-view-only asset(s) to _site/full/`
+      );
+
+      // 4. Write the protected Full build. Same HTML the local Full view shows,
+      //    with two changes: it opens unlocked (the edge function already did
+      //    the authenticating, so the in-page password is dead weight), and
+      //    Full-only asset refs point at /full/assets/ where they now live.
+      const { parse } = require("node-html-parser");
+      const fullOnly = new Set(pruned);
+      let written = 0;
+      for (const [outputPath, html] of fullSource) {
+        const root = parse(html);
+        const article = root.querySelector("article.case");
+        // render Full immediately, before any script runs
+        if (article) article.classList.remove("case--brief");
+        // Neutralise the in-page gate. The unlock flag has to be set BEFORE the
+        // gate IIFE runs (it reads sessionStorage on load), and the gate element
+        // stays in the DOM — it is display:none until .open, and setView() would
+        // throw without it, breaking the Brief/Full toggle.
+        for (const sc of root.querySelectorAll("script")) {
+          if (sc.text && /var PASSWORD/.test(sc.text)) {
+            sc.set_content(
+              "try{sessionStorage.setItem('hems-gate','1');}catch(e){}\n" +
+                sc.text.replace(/var PASSWORD = "[^"]*"/, "var PASSWORD = null")
+            );
+          }
+        }
+        // rewrite only the Full-only refs; shared assets stay on the public path
+        let out = root
+          .toString()
+          .replace(/\/assets\/([^"'`)\s\\?#]+)/g, (m, rel) =>
+            fullOnly.has(decodeURIComponent(rel)) ? `/full/assets/${rel}` : m
+          );
+        const dest = path.join(
+          "_site",
+          "full",
+          path.relative("_site", outputPath)
+        );
+        fs.mkdirSync(path.dirname(dest), { recursive: true });
+        fs.writeFileSync(dest, out);
+        written++;
+      }
+      console.log(
+        `[briefOnly] wrote ${written} password-protected page(s) to _site/full/`
       );
     });
   }
 
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addGlobalData("permalink", () => "{{ page.filePathStem }}.html");
   eleventyConfig.addFilter("isDraft", function (collection, slug) {
     const item = (collection || []).find((p) => p.fileSlug === slug);

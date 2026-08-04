@@ -5,3 +5,11 @@
 [build.environment]
   NODE_VERSION = "20"
   BRIEF_ONLY = "1"
+
+# The Full case study lives under /full/ and is protected by HTTP Basic Auth at
+# the edge (netlify/edge-functions/full-auth.js). The password comes from the
+# FULL_PASSWORD environment variable; with it unset the function denies every
+# request, so a missing variable fails closed rather than exposing the build.
+[[edge_functions]]
+  function = "full-auth"
+  path = "/full/*"

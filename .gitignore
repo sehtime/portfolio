@@ -13,3 +13,7 @@ assets/background/
 # it (the prune is a set difference over *referenced* assets, so a file nothing
 # references is in neither set).
 _staging/
+
+# Local Netlify folder
+.netlify
+.env
