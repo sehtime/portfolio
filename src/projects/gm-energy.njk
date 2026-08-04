@@ -112,9 +112,6 @@ extraStyle: |
   .menu-stack .note{position:sticky;top:80px;font-size:13.5px;line-height:1.6;color:var(--muted-2)}
   .menu-stack .note p{margin:0 0 12px}
   @media(max-width:900px){.menu-stack{grid-template-columns:1fr}.menu-stack .note{position:static}}
-  /* Brief menu grid — the five shipped menus, three up */
-  .menu-grid{width:min(1160px,94vw);margin:22px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  @media(max-width:760px){.menu-grid{grid-template-columns:1fr}}
   /* screen chart */
   .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
@@ -382,19 +379,24 @@ extraStyle: |
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems.</figcaption></figure>
 
   <div class="brief-only">
-    <h2>Teaching a new product category</h2>
+    <h2>Product education</h2>
     <p>Because this was a new product offering from GM Energy, we needed a way for customers to understand what these products are and how they are used. We provided introductions to the products, specifications, use cases, and lifestyle images that showed context in a home setting. Providing this education on the products was a theme we carried throughout the site — on the home page, product landing pages, and product detail pages — going from a high-level understanding to a deeper one about each product.</p>
     <div class="gseq gseq--full">
       <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/learn-flow.webp" alt="The Learn compilation — annotated homepage and product wireframes, the Ultium Home mid-fidelity pages, and the shipped GM Energy homepage, energy storage page and V2H product page" loading="lazy"></div><figcaption>The education pages, from annotated wireframe to shipped design.</figcaption></figure>
     </div>
 
-    <p>Customers also needed to learn about the buying process, how installation is performed, quoting, and financing options. Mega menus were designed to give them the visual they needed, and to help them find what they were looking for to learn more about the products, with explainers and FAQs.</p>
-    <div class="menu-grid">
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-learn.webp" alt="Learn mega menu open on the live site" loading="lazy"></div><figcaption>Learn</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-support.webp" alt="Support mega menu open on the live site" loading="lazy"></div><figcaption>Support</figcaption></figure>
+    <div class="menu-stack">
+      <div class="cols">
+        <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
+        <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
+        <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
+        <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-learn.webp" alt="Learn mega menu open on the live site" loading="lazy"></div><figcaption>Learn</figcaption></figure>
+        <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-support.webp" alt="Support mega menu open on the live site" loading="lazy"></div><figcaption>Support</figcaption></figure>
+      </div>
+      <div class="note">
+        <p>Customers also needed to learn about the buying process, how installation is performed, quoting, and financing options.</p>
+        <p>Mega menus were designed to give them the visual they needed, and to help them find what they were looking for to learn more about the products, with explainers and FAQs.</p>
+      </div>
     </div>
   </div>
 
