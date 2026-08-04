@@ -39,7 +39,8 @@ module.exports = function (eleventyConfig) {
       }
       // The in-page gate is gone; point at the password-protected build instead.
       // Safe to link publicly — /full/* is behind Basic Auth at the edge.
-      const notice = article.querySelector(".notice");
+      const notice =
+        process.env.FULL_BUILD === "1" ? article.querySelector(".notice") : null;
       if (notice) {
         const href =
           "/full/" + this.page.outputPath.replace(/^\.?\/?_site\//, "");
@@ -93,20 +94,33 @@ module.exports = function (eleventyConfig) {
       //    on the public site. These MOVE to _site/full/assets/, which the
       //    full-auth edge function protects — off the public site, still
       //    reachable by the password-protected build.
+      //    FULL_BUILD=1 must be set to ship the protected build at all. With it
+      //    unset these files are deleted outright, exactly as before — so the
+      //    edge guard can be proved live in production (it answers /full/* even
+      //    when nothing is there) before any sensitive content sits behind it.
+      const shipFull = process.env.FULL_BUILD === "1";
       const pruned = [];
       for (const rel of gatedRefs) {
         if (shippedRefs.has(rel)) continue;
         const abs = path.join("_site", "assets", rel);
         if (fs.existsSync(abs) && fs.statSync(abs).isFile()) {
-          const dest = path.join("_site", "full", "assets", rel);
-          fs.mkdirSync(path.dirname(dest), { recursive: true });
-          fs.renameSync(abs, dest);
+          if (shipFull) {
+            const dest = path.join("_site", "full", "assets", rel);
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            fs.renameSync(abs, dest);
+          } else {
+            fs.unlinkSync(abs);
+          }
           pruned.push(rel);
         }
       }
       console.log(
-        `[briefOnly] moved ${pruned.length} Full-view-only asset(s) to _site/full/`
+        `[briefOnly] ${shipFull ? "moved" : "pruned"} ${pruned.length} Full-view-only asset(s)`
       );
+      if (!shipFull) {
+        console.log("[briefOnly] FULL_BUILD unset — no protected build written");
+        return;
+      }
 
       // 4. Write the protected Full build. Same HTML the local Full view shows,
       //    with two changes: it opens unlocked (the edge function already did
