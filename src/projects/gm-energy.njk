@@ -64,22 +64,6 @@ extraStyle: |
   .pmap-notes p{font-size:15px;color:var(--muted-2);line-height:1.65;margin:0}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   /* design evolution: 3 fidelity stages */
-  .evo-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
-  .evo-tabs{display:flex;gap:8px;margin-bottom:18px}
-  .evo-tab{border:1px solid var(--hair);background:#fffdfb;border-radius:99px;padding:8px 18px;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--muted);cursor:pointer;transition:all .2s}
-  .evo-tab.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-  .evo-tab:not(.on):hover{color:var(--ink)}
-  .evo-grid{display:none;grid-template-columns:1fr 1fr 1fr;gap:18px}
-  .evo-grid.on{display:grid}
-  .evo-stage{position:relative}
-  .evo-stage .frame{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/4}
-  .evo-stage .frame img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 6s ease}
-  .evo-stage:hover .frame img{object-position:bottom}
-  .evo-stage .lbl{margin-top:10px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:var(--muted)}
-  .evo-stage .lbl b{display:block;font-family:var(--serif);font-style:italic;font-weight:500;text-transform:none;letter-spacing:0;font-size:14px;color:var(--ink);margin-top:2px}
-  .evo-stage:not(:first-child)::before{content:"→";position:absolute;left:-16px;top:40%;color:var(--accent);font-size:18px;font-weight:600}
-  @media(max-width:760px){.evo-grid{grid-template-columns:1fr}.evo-stage:not(:first-child)::before{content:"↓";left:50%;top:-24px}}
-  .evo-note{margin-top:14px;font-size:13px;color:var(--muted);font-family:var(--serif);font-style:italic;text-align:center}
   /* storyboard scroll strip */
   .sb-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
   .sb-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
@@ -523,24 +507,6 @@ extraStyle: |
   <h2>Solving the checkout experience</h2>
   <p>Buying a home energy system took weeks. The customer added the product to their cart, went through an installation quote, waited for it, came back to finalize the cart, left for a separate site to apply for GM Financing, returned to pay — and that payment was only a deposit, because the install wasn't done. Scheduling the install meant another partner site, then a physical visit to measure the home and pull permits. Only after all of that did anyone know the all-in cost.</p>
   <p>That was the barrier: a willing customer had to work through weeks of steps before a sale could happen. I worked through the install quoting process, checkout and financing together, consolidating those steps inside the GM Energy site so the sale could finish with less friction and less chance of abandonment.</p>
-  <div class="evo-wrap">
-    <div class="evo-tabs" role="tablist" aria-label="Checkout design evolution">
-      <button class="evo-tab on" data-evo="cart" type="button">Cart</button>
-      <button class="evo-tab" data-evo="checkout" type="button">Checkout</button>
-    </div>
-    <div class="evo-grid on" id="evo-cart">
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-cart.webp" alt="Lo-fi cart wireframe" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-cart.webp" alt="Ultium Home mid-fidelity cart" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-cart.webp" alt="Shipped GM Energy cart summary" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
-    </div>
-    <div class="evo-grid" id="evo-checkout">
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-lofi-checkout.webp" alt="Lo-fi checkout wireframe with deposit annotation" loading="lazy"></div><div class="lbl">Stage 1 · Jan 2023<b>Annotated wireframe</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-mid-checkout.webp" alt="Ultium Home mid-fidelity checkout" loading="lazy"></div><div class="lbl">Stage 2 · Feb 2023<b>Ultium Home hi-fi</b></div></div>
-      <div class="evo-stage"><div class="frame"><img src="/assets/img/hems/evo-ship-checkout.webp" alt="Shipped GM Energy one-page checkout with GM Financial financing" loading="lazy"></div><div class="lbl">Stage 3 · Shipped<b>GM Energy 2.0</b></div></div>
-    </div>
-    <p class="evo-note">One product, three names, three years — the underlying journey held from wireframe to launch.</p>
-  </div>
-
   <figure class="jmap"><img src="/assets/img/hems/purchase-paths.webp" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
   <figcaption>All the checkout flows on one board — product-only and product-plus-install, paying by card or financing through GM Financial, with the installer handoffs annotated. Shown at scale.</figcaption></figure>
   <div class="sub-label">The machinery underneath</div>
@@ -844,17 +810,6 @@ extraStyle: |
       if (pos <= 0) { pos = 0; dir = 1; }
       el.scrollTop = pos;
     }, 40);
-  });
-})();
-(function(){
-  var tabs = document.querySelectorAll('.evo-tab');
-  tabs.forEach(function(t){
-    t.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.classList.toggle('on', x === t); });
-      document.querySelectorAll('.evo-grid').forEach(function(g){
-        g.classList.toggle('on', g.id === 'evo-' + t.dataset.evo);
-      });
-    });
   });
 })();
 </script>
