@@ -5,6 +5,8 @@
 [build.environment]
   NODE_VERSION = "20"
   BRIEF_ONLY = "1"
+  # ship the password-protected Full build at /full/ (guarded by full-auth)
+  FULL_BUILD = "1"
 
 # The Full case study lives under /full/ and is protected by HTTP Basic Auth at
 # the edge (netlify/edge-functions/full-auth.js). The password comes from the
