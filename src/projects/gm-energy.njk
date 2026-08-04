@@ -106,6 +106,12 @@ extraStyle: |
   .menu-col .frame img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
   .menu-col figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
   @media(max-width:760px){.menu-trio{grid-template-columns:1fr}}
+  /* menu stack — all five menus down one column, copy alongside */
+  .menu-stack{width:min(1160px,94vw);margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 340px;gap:34px;align-items:start}
+  .menu-stack .cols{display:grid;gap:16px}
+  .menu-stack .note{position:sticky;top:80px;font-size:14.5px;line-height:1.65;color:var(--muted-2)}
+  .menu-stack .note p{margin:0 0 14px}
+  @media(max-width:900px){.menu-stack{grid-template-columns:1fr}.menu-stack .note{position:static}}
   /* screen chart */
   .chart-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:26px}
   .chart-grid .shot{border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb;aspect-ratio:3/5}
@@ -492,11 +498,19 @@ extraStyle: |
   <p>The full-site prototype carried every page at launch fidelity — over 140 frames covering the storefront, the install quote and the account.</p>
   <div class="sub-label">The navigation system</div>
   <p>The first taxonomy was ours, and a card sort killed it: given 24 energy products to group, most testers used four categories or fewer — far simpler than what we'd built. The shipped navigation runs three product menus.</p>
-  <div class="gwrap"><div class="menu-trio">
-    <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
-    <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
-    <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
-  </div></div>
+  <div class="menu-stack">
+    <div class="cols">
+      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
+      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
+      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
+      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-learn.webp" alt="Learn mega menu open on the live site" loading="lazy"></div><figcaption>Learn</figcaption></figure>
+      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-support.webp" alt="Support mega menu open on the live site" loading="lazy"></div><figcaption>Support</figcaption></figure>
+    </div>
+    <div class="note">
+      <p>Products had to sit under categories customers could find, and each menu had to preview what the products actually looked like — not just name them.</p>
+      <p>The last two carry the other half of the job: easy ways to learn about the products, and easy ways to get support.</p>
+    </div>
+  </div>
   <div class="gseq gseq--full">
     <figure><div class="shot shot--placeholder">Placeholder — the card-sort results</div><figcaption>The card sort behind the simplification — candidate screens in User Testing/Informal tests/Navigation card sort/.</figcaption></figure>
   </div>
