@@ -21,8 +21,7 @@ module.exports = function (eleventyConfig) {
       for (const child of [...article.childNodes]) {
         const cls = child.classList ? [...child.classList.values()] : [];
         const keep = cls.includes("brief-keep") || cls.includes("brief-only");
-        const isGateOrToggle = cls.includes("case-gate") || (child.querySelector && child.querySelector(".view-toggle"));
-        if (child.nodeType === 1 && (!keep || isGateOrToggle)) child.remove();
+        if (child.nodeType === 1 && !keep) child.remove();
       }
       article.classList.remove("case--brief");
       // `.case:not(.case--brief) > .brief-only{display:none}` would now hide the
@@ -37,16 +36,48 @@ module.exports = function (eleventyConfig) {
         const t = sc.text || "";
         if (/PASSWORD|vt-full|evo-tab|pmlegend/.test(t)) sc.remove();
       }
-      // The in-page gate is gone; point at the password-protected build instead.
-      // Safe to link publicly — /full/* is behind Basic Auth at the edge.
-      const notice =
-        process.env.FULL_BUILD === "1" ? article.querySelector(".notice") : null;
-      if (notice) {
-        const href =
-          "/full/" + this.page.outputPath.replace(/^\.?\/?_site\//, "");
-        notice.insertAdjacentHTML(
-          "afterend",
-          `<p class="full-link brief-keep"><a href="${href}">Read the full case study</a><span>Password required — available on request</span></p>`
+      // The toggle and gate box stay, but the password is checked server-side:
+      // POST it to /api/unlock, which sets the cookie full-auth.js accepts, then
+      // land on the protected build. Nothing secret is in this page.
+      if (process.env.FULL_BUILD === "1") {
+        const href = "/full/" + this.page.outputPath.replace(/^\.?\/?_site\//, "");
+        root.querySelector("body").insertAdjacentHTML(
+          "beforeend",
+          `<script>
+(function(){
+  var FULL = ${JSON.stringify(href)};
+  var bF = document.getElementById('vt-full'), bB = document.getElementById('vt-brief');
+  var gate = document.getElementById('hems-gate');
+  var pw = document.getElementById('hems-pw'), err = document.getElementById('hems-err'), go = document.getElementById('hems-go');
+  if(!bF || !gate) return;
+  var params = new URLSearchParams(location.search);
+  var next = params.get('next');
+  if(next && next.indexOf('/full/') !== 0) next = null;
+  function open(){ gate.classList.add('open'); pw.focus(); }
+  bF.addEventListener('click', open);
+  if(params.get('unlock') === '1') open();
+  function unlock(){
+    err.textContent = '';
+    go.disabled = true;
+    fetch('/api/unlock', {
+      method: 'POST',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({password: pw.value})
+    }).then(function(r){
+      go.disabled = false;
+      if(r.ok){ location.href = next || FULL; return; }
+      err.textContent = r.status === 503 ? 'Full view is not available yet' : 'Incorrect password';
+      pw.value = ''; pw.focus();
+    }).catch(function(){
+      go.disabled = false;
+      err.textContent = 'Something went wrong — try again';
+    });
+  }
+  go.addEventListener('click', unlock);
+  pw.addEventListener('keydown', function(e){ if(e.key === 'Enter') unlock(); });
+  bB.addEventListener('click', function(){ gate.classList.remove('open'); err.textContent = ''; });
+})();
+</script>`
         );
       }
       return root.toString();
