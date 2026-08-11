@@ -10,4 +10,7 @@
      snippet because the domain is DNS-only on Cloudflare, so automatic
      injection never runs. Token is public by design. -->
 <script defer type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "3056599aa5794768a894280777c6f506"}'></script>
+<!-- Umami — cookieless too; runs alongside Cloudflare for city-level geography
+     and per-page detail. Website id is public by design. -->
+<script defer src="https://cloud.umami.is/script.js" data-website-id="5c36f0bd-8072-4b04-8fc0-d58cf10511c3" data-domains="sehyoung.com"></script>
 {% if extraStyle %}{{ extraStyle | safe }}{% endif %}
