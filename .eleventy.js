@@ -4,7 +4,7 @@ module.exports = function (eleventyConfig) {
   // Every password-gated case study must be listed here. The gate is
   // client-side only, so anything left in the HTML is readable via view-source
   // (password included) — this transform is what actually protects it.
-  const GATED_PAGES = /(gm-energy|shell-pricing)\.html$/;
+  const GATED_PAGES = /(gm-energy|shell-pricing|content-curation)\.html$/;
 
   // The un-transformed HTML of each gated page, kept so the protected /full/
   // build can be written from it after the public build is done.
@@ -47,9 +47,9 @@ module.exports = function (eleventyConfig) {
 (function(){
   var FULL = ${JSON.stringify(href)};
   var bF = document.getElementById('vt-full'), bB = document.getElementById('vt-brief');
-  var gate = document.getElementById('hems-gate');
-  var pw = document.getElementById('hems-pw'), err = document.getElementById('hems-err'), go = document.getElementById('hems-go');
+  var gate = document.querySelector('.case-gate');
   if(!bF || !gate) return;
+  var pw = gate.querySelector('input[type=password]'), err = gate.querySelector('.gate-err'), go = gate.querySelector('button');
   var params = new URLSearchParams(location.search);
   var next = params.get('next');
   if(next && next.indexOf('/full/') !== 0) next = null;
@@ -171,8 +171,10 @@ module.exports = function (eleventyConfig) {
         // throw without it, breaking the Brief/Full toggle.
         for (const sc of root.querySelectorAll("script")) {
           if (sc.text && /var PASSWORD/.test(sc.text)) {
+            const keyMatch = sc.text.match(/KEY = "([^"]+)"/);
+            const gateKey = keyMatch ? keyMatch[1] : "hems-gate";
             sc.set_content(
-              "try{sessionStorage.setItem('hems-gate','1');}catch(e){}\n" +
+              `try{sessionStorage.setItem('${gateKey}','1');}catch(e){}\n` +
                 sc.text.replace(/var PASSWORD = "[^"]*"/, "var PASSWORD = null")
             );
           }
@@ -197,17 +199,6 @@ module.exports = function (eleventyConfig) {
       );
     });
   }
-
-  // Inside EMIT is toggleable (src/_data/emit.json). When disabled the page
-  // is not built at all, but passthrough copy would still ship its images —
-  // the unreferenced-asset leak. Delete them from the output in that state.
-  eleventyConfig.on("eleventy.after", async () => {
-    const emitCfg = require("./src/_data/emit.json");
-    if (!emitCfg.enabled) {
-      require("fs").rmSync("_site/assets/img/emit", { recursive: true, force: true });
-      console.log("[emit] disabled — removed _site/assets/img/emit");
-    }
-  });
 
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
