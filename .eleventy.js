@@ -145,6 +145,25 @@ module.exports = function (eleventyConfig) {
           pruned.push(rel);
         }
       }
+      // assets/img/emit/ is sensitive material for gated Full views. Anything
+      // left there that no shipped page references must not go out publicly —
+      // move it behind /full (or delete it when no protected build ships).
+      const emitDir = path.join("_site", "assets", "img", "emit");
+      if (fs.existsSync(emitDir)) {
+        for (const f of fs.readdirSync(emitDir)) {
+          const rel = "img/emit/" + f;
+          if (shippedRefs.has(rel)) continue;
+          const abs = path.join(emitDir, f);
+          if (shipFull) {
+            const dest = path.join("_site", "full", "assets", rel);
+            fs.mkdirSync(path.dirname(dest), { recursive: true });
+            fs.renameSync(abs, dest);
+          } else {
+            fs.unlinkSync(abs);
+          }
+          console.log(`[briefOnly] emit safety: ${shipFull ? "moved" : "removed"} ${rel}`);
+        }
+      }
       console.log(
         `[briefOnly] ${shipFull ? "moved" : "pruned"} ${pruned.length} Full-view-only asset(s)`
       );
