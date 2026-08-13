@@ -198,6 +198,17 @@ module.exports = function (eleventyConfig) {
     });
   }
 
+  // Inside EMIT is toggleable (src/_data/emit.json). When disabled the page
+  // is not built at all, but passthrough copy would still ship its images —
+  // the unreferenced-asset leak. Delete them from the output in that state.
+  eleventyConfig.on("eleventy.after", async () => {
+    const emitCfg = require("./src/_data/emit.json");
+    if (!emitCfg.enabled) {
+      require("fs").rmSync("_site/assets/img/emit", { recursive: true, force: true });
+      console.log("[emit] disabled — removed _site/assets/img/emit");
+    }
+  });
+
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");

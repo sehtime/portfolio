@@ -1,0 +1,64 @@
+---js
+{
+  title: "Inside EMIT — Sehyoung Hamjong",
+  description: "Inside EMIT — rebuilding an internal communications platform. UX strategy, research, and content strategy by Sehyoung Hamjong.",
+  track: "ux",
+  eleventyComputed: {
+    permalink: (data) => data.emit && data.emit.enabled ? "/projects/inside-emit.html" : false,
+    eleventyExcludeFromCollections: (data) => !(data.emit && data.emit.enabled)
+  }
+}
+---
+{% include "partials/back-link.njk" %}
+
+<style>
+.gal-stack{display:grid;grid-template-columns:1fr;gap:26px;margin-top:26px}
+.gal-stack figure{margin:0}
+.gal-stack img{width:100%;border-radius:8px;border:1px solid var(--hair);display:block}
+.gal-stack figcaption{font-family:var(--serif);font-style:italic;font-size:13.5px;color:var(--muted-2);margin-top:8px}
+</style>
+
+<header class="page-hero wrap">
+  <span class="eyebrow">EMIT · via Softway</span>
+  <h1>Inside EMIT</h1>
+  <p class="lead">Rebuilding the internal communications platform for the IT organization of a Fortune-10 energy company — research, content strategy, and a full redesign, from kickoff to launch in one quarter.</p>
+</header>
+
+<article class="case">
+
+  <figure style="margin-top:0"><img class="case-hero-img" src="/assets/img/emit/home.webp" alt="Inside EMIT homepage — leadership highlights hero and a news feed of stories across culture, strategy, tech and career growth" /></figure>
+
+  <div class="case-meta">
+    <div><span>Role</span>UX Strategist</div>
+    <div><span>Agency</span>Softway</div>
+    <div><span>Timeline</span>Sept – Dec 2018 · kickoff to Release 1</div>
+    <div><span>Team</span>PM, UX ×2, design, content, engineering</div>
+  </div>
+
+  <p class="notice"><b>Note</b>Client marks, employee names, and faces are blurred throughout. Some screens carry placeholder copy from the design files.</p>
+
+  <h2>Overview</h2>
+  <p>EMIT is the IT organization of a major energy company. Its internal site, Inside EMIT, was how leadership communicated with thousands of IT employees — and it needed to be rebuilt. A predecessor site had set a new benchmark for storytelling and content inside the organization, but had a short lifespan. The rebuild had to carry that content forward and give the organization a durable platform for its three strategic pillars: culture, strategy, and learning &amp; growth.</p>
+
+  <h2>The approach</h2>
+  <p>The project ran in four phases over one quarter: initiation, discovery, planning and strategy, then design and development of Release 1.</p>
+  <ul>
+    <li><b>Discovery</b> — reviewed existing research and analytics, then interviewed stakeholders, users, and the people who managed and contributed content. Findings were synthesized into proto-personas and read out to stakeholders.</li>
+    <li><b>Planning &amp; strategy</b> — a joint work session with stakeholders: card sorting the existing content and experience mapping. Out of it came the content strategy and the finalized information architecture.</li>
+    <li><b>Release 1</b> — wireframes, copy for the main pages, A/B homepage concepts, ten page templates, and development in two batches — live before the end of the year.</li>
+  </ul>
+
+  <h2>What success meant</h2>
+  <p>Success was defined per pillar before any design started. For culture: leaders building trust through transparency, and employees feeling valued and able to decide without micromanagement. For strategy: every employee understanding where the organization is going and how their work fits. For learning &amp; growth: self-learning as a habit, and one place where every learning opportunity across the organization can be found.</p>
+
+  <h2>The design</h2>
+  <p>The site shipped as a news platform: a homepage feed of stories tagged by pillar, an About section explaining the organization and its strategic framework, leadership pages that put faces and voices to the names, and a filterable stories &amp; videos library.</p>
+
+  <div class="gal-stack">
+    <figure><img src="/assets/img/emit/about.webp" alt="About EMIT page — who the organization is, what it does, its way forward, communities and Yammer groups" loading="lazy" /><figcaption>About — who the organization is, its communities, and its groups.</figcaption></figure>
+    <figure><img src="/assets/img/emit/saf.webp" alt="Strategic framework page — objectives, goals, plans and values in one diagram, with the work supporting them" loading="lazy" /><figcaption>The strategic framework, explained on one page — objectives through values, with the stories that show the work behind them.</figcaption></figure>
+    <figure><img src="/assets/img/emit/leadership.webp" alt="Leadership page — a letter from IT leadership and the full leadership team grid, blurred" loading="lazy" /><figcaption>Leadership — a letter from the top, the full team, and the "Off the Cuff" video series that humanizes them.</figcaption></figure>
+    <figure><img src="/assets/img/emit/stories.webp" alt="Stories and videos library — filterable by culture, strategy, tech, business and career growth" loading="lazy" /><figcaption>Stories &amp; videos — the full library, filterable by pillar.</figcaption></figure>
+  </div>
+
+</article>
