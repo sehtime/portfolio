@@ -37,7 +37,7 @@ extraStyle: |
 <div class="wrap" style="max-width:640px;padding:8px var(--gut) clamp(56px,8vw,88px);text-align:center">
   <span class="draft-badge" style="position:static;transform:none;display:inline-block;margin-bottom:14px">In progress</span>
   <div style="font-weight:600;font-size:19px;letter-spacing:-.01em;margin-bottom:10px">This case study is still being written</div>
-  <p style="color:var(--muted-2);font-size:15.5px;line-height:1.6">Check back soon — in the meantime, continue on to the next project below.</p>
+  <p style="color:var(--muted-2);font-size:15.5px;line-height:1.6">Check back soon. In the meantime, continue on to the next project below.</p>
 </div>
 {% else %}
 <article class="case case--brief" id="shell-case">
@@ -58,11 +58,11 @@ extraStyle: |
     </div>
   </div>
 
-  <p class="notice brief-keep"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted — only publicly available visuals are shown.</p>
+  <p class="notice brief-keep"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted; only publicly available visuals are shown.</p>
 
-  <div class="brief-keep" style="max-width:820px;margin:26px auto 0">
+  <div class="brief-keep" style="max-width:var(--measure);margin:26px auto 0">
     <h2 style="padding-top:0">Overview</h2>
-    <p>A Pricing and Forecasting Platform now used across Shell's global chemicals business — from a design workshop in Rotterdam to a first release that nearly tripled weekly active users.</p>
+    <p>A Pricing and Forecasting Platform now used across Shell's global chemicals business, from a design workshop in Rotterdam to a first release that nearly tripled weekly active users.</p>
   </div>
 
   <div class="case-meta brief-keep">
@@ -74,9 +74,9 @@ extraStyle: |
   <div class="impact-block brief-keep">
     <h2>Impact</h2>
     <ul class="impact-list">
-      <li><b>Nearly tripled weekly active users with the first release</b><span>From 28 to 80 weekly active users, with parallel gains in shared analyses and time in tool — on a problem an external vendor had already failed at once.</span></li>
-      <li><b>Reframed a "technology problem" into a trust problem</b><span>The Rotterdam design workshop revealed the failed tool was a symptom — data lived everywhere and nobody trusted it. That insight drove a foundation-first data strategy and a no-black-box design principle.</span></li>
-      <li><b>Designed a system that scaled to five modules</b><span>As product designer, built the design system and module architecture that let the product grow for two and a half years without users relearning anything — now used across Shell's global chemicals business.</span></li>
+      <li><b>Nearly tripled weekly active users with the first release</b><span>From 28 to 80 weekly active users, with parallel gains in shared analyses and time in tool, on a problem an external vendor had already failed at once.</span></li>
+      <li><b>Reframed a "technology problem" into a trust problem</b><span>The Rotterdam design workshop revealed the failed tool was a symptom: data lived everywhere and nobody trusted it. That insight drove a foundation-first data strategy and a no-black-box design principle.</span></li>
+      <li><b>Designed a system that scaled to five modules</b><span>As product designer, built the design system and module architecture that let the product grow for two and a half years without users relearning anything, now used across Shell's global chemicals business.</span></li>
     </ul>
     <div class="stat-row">
       <div class="stat"><b>28 → 80</b><span>Weekly active users after the first release — nearly 3×</span></div>
@@ -86,7 +86,7 @@ extraStyle: |
   </div>
 
   <h2>The challenge</h2>
-  <p>Shell's Chemicals Commercial Business wrote contracts annually using what they themselves called an "art-based" approach — gut feel, personal spreadsheets, and institutional knowledge. To grow revenue they wanted data-driven pricing decisions, with the ability to track actuals alongside market insights.</p>
+  <p>Shell's Chemicals Commercial Business wrote contracts annually using what they themselves called an "art-based" approach: gut feel, personal spreadsheets, and institutional knowledge. To grow revenue they wanted data-driven pricing decisions, with the ability to track actuals alongside market insights.</p>
   <p>They'd tried before. An external vendor had built a pricing tool in Excel that never met the business's needs, was extremely challenging to use, and had been effectively abandoned. Stakeholders were exhausted from talking about it. Trust — in tools, and in data — was the real starting deficit.</p>
 
   <h2>Kickoff: a design workshop in Rotterdam</h2>
@@ -102,7 +102,7 @@ extraStyle: |
   <h2>The insight that reframed everything</h2>
   <p>The problem arrived at the Agile Hub framed as a technology problem: "the tool needs to be improved." The workshop revealed the technology issues were symptoms. The real problems: data lived in too many places, and nobody fully trusted it.</p>
   <p>Commercial Analysts — who wanted to be strategists — were spending their days acting as human data libraries for everyone else's requests. Gathering pricing data was voted the single most frustrating step by every user group. And the group was emphatic about trust: <b>no black box</b>. Users needed to interrogate inputs, see source formulas, and keep business logic transparent.</p>
-  <p>So the team aligned on a foundation-first strategy — build a central data repository (a data lake) before the analytics — captured in a shared vision:</p>
+  <p>So the team aligned on a foundation-first strategy: build a central data repository (a data lake) before the analytics, captured in a shared vision:</p>
   <blockquote class="pull">"An easy to use tool that can be trusted and is transparent across all roles and regions so that users have the power to make informed pricing decisions to maximize margins."<cite>Product vision, co-created at the Rotterdam workshop</cite></blockquote>
 
   <h2>End-to-end design</h2>
@@ -114,7 +114,7 @@ extraStyle: |
   <p>Two design principles carried through every sprint, straight from the workshop's risk list: <b>transparency</b> — every chart can show its source formula and data lineage, because trust was the product's real currency — and <b>consistency across roles and regions</b>, so an analyst in Houston and a marketing manager in Singapore read the same numbers the same way.</p>
 
   <h2>Designing the system</h2>
-  <p>Shipping one screen at a time for two and a half years only works if the parts agree with each other. I built and maintained the product's design system — a UI kit (first in Sketch, later Figma), a color palette tuned for dense data visualization, and a consistent architecture every module inherits: a dark data panel on the left for products, regions, scenarios and units; a light chart canvas on the right with export, chart options, and comments.</p>
+  <p>Shipping one screen at a time for two and a half years only works if the parts agree with each other. I built and maintained the product's design system: a UI kit (first in Sketch, later Figma), a color palette tuned for dense data visualization, and a consistent architecture every module inherits: a dark data panel on the left for products, regions, scenarios and units; a light chart canvas on the right with export, chart options, and comments.</p>
   <p>That skeleton let the product grow to five modules — Supply &amp; Demand, Price Viewer, Cash Cost Curve, Value in Use, and user Profiles — without users relearning anything. It also carried the collaboration layer the workshop asked for: comments and replies on outages, super-user roles for maintaining shared data, notifications, and the ability to save, organize, and share analyses from a personal account — so an analysis stops being one person's spreadsheet and becomes something the whole team can pick up.</p>
 
   <div class="brief-keep">

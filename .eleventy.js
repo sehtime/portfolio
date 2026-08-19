@@ -222,6 +222,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("robots.txt");
+  eleventyConfig.addPassthroughCopy("_redirects");
   eleventyConfig.addGlobalData("permalink", () => "{{ page.filePathStem }}.html");
   eleventyConfig.addFilter("isDraft", function (collection, slug) {
     const item = (collection || []).find((p) => p.fileSlug === slug);
