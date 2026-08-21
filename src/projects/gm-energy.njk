@@ -43,18 +43,33 @@ extraStyle: |
   @media(max-width:900px){.journey-split{grid-template-columns:1fr}}
   @media(max-width:480px){.journey-imgs{grid-template-columns:1fr}}
   :root{--c-markus:#B23A48;--c-tom:#2C97D1;--c-rhonda:#7A4EB2;--c-fiona:#2BA84A}
+  /* persona grid + full-journey modal */
+  .pgrid{width:min(var(--measure),94vw);margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pcard{border:1px solid var(--hair);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column}
+  .pcard .ph{display:flex;align-items:center;gap:11px;margin-bottom:10px}
+  article.case .pcard img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--pc);display:block;flex:none}
+  .pcard .pn{font-size:15px;font-weight:600;line-height:1.2}
+  .pcard .pr{display:block;font-family:var(--serif);font-style:italic;font-weight:500;font-size:12.5px;color:var(--muted)}
+  .pcard p{font-size:14px;line-height:1.6;color:var(--muted-2);margin:0 0 14px}
+  .pcta{margin-top:auto;align-self:flex-start;background:none;border:0;padding:0 0 2px;font-family:inherit;font-size:13px;font-weight:600;color:var(--pc);border-bottom:1.5px solid var(--pc);cursor:pointer}
+  @media(max-width:640px){.pgrid{grid-template-columns:1fr}}
+  .jmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;background:rgba(18,14,12,.86);padding:clamp(16px,3vw,44px)}
+  .jmodal.open{display:flex}
+  article.case .jmodal img{max-width:100%;max-height:100%;width:auto;object-fit:contain;display:block;border:0;border-radius:6px;background:#fff}
+  .jmodal-close{position:absolute;top:16px;right:18px;width:40px;height:40px;border-radius:50%;border:0;background:#fff;color:var(--ink);font-size:22px;line-height:1;cursor:pointer;font-family:inherit}
+  .jmodal-cap{position:absolute;top:22px;left:24px;color:#fff;font-size:13.5px;font-weight:600}
+  .jmodal-cap i{font-family:var(--serif);font-style:italic;font-weight:500;color:rgba(255,255,255,.72);margin-left:8px}
+  body.jm-open{overflow:hidden}
   .pmap-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:26px 0 8px}
   .pchip{display:flex;align-items:center;gap:9px;border:1px solid var(--hair);border-radius:99px;padding:6px 14px 6px 7px;background:#fffdfb;cursor:pointer;transition:border-color .2s,box-shadow .2s;font-family:inherit;text-align:left}
   .pchip img{width:28px;height:28px;border-radius:50%;display:block;border:2px solid var(--pc)}
   .pchip .nm{font-size:13px;font-weight:600;line-height:1.15}
   .pchip .rl{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:11.5px;color:var(--muted)}
   .pchip:hover,.pchip.on{border-color:var(--pc);box-shadow:0 0 0 1px var(--pc)}
-  .pmap-overview{width:min(1160px,94vw);margin:22px 0 0 50%;transform:translateX(-50%)}
+  .pmap-overview{width:min(var(--measure),94vw);margin:22px 0 0 50%;transform:translateX(-50%)}
   article.case .pmap-overview img{width:100%;display:block;border:0;border-radius:0;background:none}
   /* the overview sits a little smaller; hovered journeys still take the full 1160 */
-  article.case .pmap-overview #pmoverview-img{max-width:min(880px,100%);margin:0 auto}
   /* hovering a chip swaps the overview for the detailed journey at full width */
-  .pmap-overview.dimmed #pmoverview-img{display:none}
   .pmap-modal{display:none}
   .pmap-modal.show{display:block}
   .pmap-modal img{width:100%;display:block}
@@ -143,6 +158,7 @@ extraStyle: |
   /* outcome gallery: menu cycle + scrollable page */
   .lg-menus{position:relative}
   .lg-menus .mstate{position:absolute;top:0;left:0;width:100%;height:auto;opacity:0;animation:menuSeq 24s ease-in-out infinite}
+  .lg-menus.lg-scroll .mstate{z-index:2}
   .lg-menus .mstate:nth-of-type(3){animation-delay:8s}
   .lg-menus .mstate:nth-of-type(4){animation-delay:16s}
   @keyframes menuSeq{0%{opacity:0}5%,28%{opacity:1}33%,100%{opacity:0}}
@@ -152,23 +168,25 @@ extraStyle: |
   .lg-scroll::-webkit-scrollbar{width:6px}
   .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   /* outcome gallery wide variant */
-  .live-grid--wide{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%)}
-  .live-grid--wide .shot{aspect-ratio:3/4!important}
+  .live-grid--wide{width:min(var(--measure),94vw);margin-left:50%;transform:translateX(-50%)}
+  .live-grid--wide .shot{aspect-ratio:337/800!important;border:0!important;box-shadow:none}
   /* the menu captures are landscape; show the whole page and let its own dark theme continue below */
-  .live-grid--wide .shot.lg-menus{background:#010829}
+  .live-grid--wide .shot.lg-scroll::-webkit-scrollbar,
+  .live-grid--wide .shot.lg-scroll::-webkit-scrollbar-track{background:transparent}
   .live-grid--wide .shot.lg-menus img{height:auto!important;object-fit:unset!important}
-  .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important}
+  article.case .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important;border:0!important;border-radius:0!important}
   /* width utility so existing inner grids can join the 1160px system without restructuring */
   .gwrap{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
   /* compact persona row — the Brief's summary of the four personas */
   .pstrip{width:min(var(--measure),94vw);margin:22px 0 30px 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:34px 40px}
-  .pstrip figure{margin:0}
+  .pstrip figure{margin:0;display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;align-items:center}
+  .pstrip .pid{text-align:center}
   /* beats article.case figure img (0,1,3), which forces width:100% plus a border */
-  article.case .pstrip figure img{width:96px;height:96px;border-radius:50%;border:0;object-fit:cover;display:block;margin-bottom:12px}
-  .pstrip .seg{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:4px}
-  .pstrip b{display:block;font-size:16px;font-weight:600;margin-bottom:6px}
+  article.case .pstrip figure img{width:96px;height:96px;border-radius:50%;border:0;object-fit:cover;display:block;margin:0 auto 10px}
+  .pstrip .seg{display:block;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin-bottom:2px}
+  .pstrip b{display:block;font-size:16px;font-weight:600;margin-bottom:0}
   .pstrip p{font-size:13.5px;line-height:1.5;color:var(--muted-2);margin:0}
-  @media(max-width:460px){.pstrip{grid-template-columns:1fr;gap:26px}}
+  @media(max-width:460px){.pstrip{grid-template-columns:1fr;gap:26px}.pstrip figure{grid-template-columns:1fr;gap:10px}.pstrip .pid{text-align:left}}
   /* blueprint → journey stack: the simplified map floats above the blueprint it was derived from */
   article.case .bpstack .bs-base{width:100%;border-radius:8px;border:1px solid var(--hair);display:block}
   article.case .bpstack .bs-float{width:78%;margin:-24% 3% 0 auto;display:block;border-radius:10px;border:1px solid var(--hair);box-shadow:0 22px 54px rgba(20,16,10,.25);position:relative;z-index:2;background:#fff}
@@ -200,12 +218,15 @@ extraStyle: |
   .gseq--copy{grid-template-columns:minmax(0,var(--measure));justify-content:center}
   .gseq .shot--nat{aspect-ratio:auto}
   .gseq .shot--bare{border:0;background:none;border-radius:0}
+  .gseq .shot--tint{background:#f4f2ee;padding:clamp(16px,3vw,34px)}
+  article.case .gseq .shot--tint img{border:0;border-radius:0}
+  article.case .gseq .shot--bare img{border:0;border-radius:0}
   .gseq .shot--tall{aspect-ratio:16/10}
   .gseq .shot img{width:100%;height:auto;display:block}
   .gseq .shot.lg-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
   .gseq .shot.lg-scroll::-webkit-scrollbar{width:6px}
   .gseq .shot.lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
-  .gseq figcaption{font-size:12px;color:var(--muted);margin-top:9px;text-align:center}
+  .gseq figcaption{font-size:12px;color:var(--muted);margin-top:9px}
   /* a text cell inside a gseq row, paired with an image alongside it */
   .gseq .gcopy{align-self:center}
   .gseq .gcopy p{margin:0;color:var(--muted-2);font-size:16.5px}
@@ -264,7 +285,7 @@ extraStyle: |
     <div class="gate-err" id="hems-err"></div>
     <button id="hems-go" type="button">View full case study</button>
   </div>
-  <p class="notice brief-keep"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted; only publicly available visuals are shown.</p>
+  <p class="notice brief-keep"><b>Note</b>Due to the sensitive nature of this work, some images are blurred or omitted. Unreadable details are intentional, protecting client confidentiality.</p>
   <div class="brief-keep" style="max-width:var(--measure);margin:26px auto 0">
     <h2 style="padding-top:0">Overview</h2>
     <p>GM Energy's first step into ecommerce, taking their home energy management system (HEMS) line from no digital presence to a launched, financed, installable commerce experience, and building the research practice that keeps improving it.</p>
@@ -315,10 +336,10 @@ extraStyle: |
   <div class="brief-only">
     <h2>Who we designed for</h2>
     <div class="pstrip">
-      <figure><img src="/assets/img/persona-av-markus.webp" alt="Markus" loading="lazy"><span class="seg">Tech Builder</span><b>Markus</b><p>Efficiency-minded project manager, frustrated by outages. Wants visibility and control over home energy, considering an EV.</p></figure>
-      <figure><img src="/assets/img/persona-av-tom.webp" alt="Tom" loading="lazy"><span class="seg">Shiny Elite</span><b>Tom</b><p>Finance executive and GM EV owner who wants the best of the best: premium products, reliable through blackouts.</p></figure>
-      <figure><img src="/assets/img/persona-av-fiona.webp" alt="Fiona" loading="lazy"><span class="seg">Smart Tech</span><b>Fiona</b><p>Research-driven Lyriq owner weighing solar and backup power. Values usability, warranties, and the best possible deal.</p></figure>
-      <figure><img src="/assets/img/persona-av-rhonda.webp" alt="Rhonda" loading="lazy"><span class="seg">Smart &amp; Safe</span><b>Rhonda</b><p>Educator nearing retirement in blackout-prone Florida. Wants dependable backup power and expert guidance, no EV interest.</p></figure>
+      <figure><div class="pid"><img src="/assets/img/persona-av-markus.webp" alt="Markus" loading="lazy"><span class="seg">Tech Builder</span><b>Markus</b></div><p>Efficiency-minded project manager, frustrated by outages. Wants visibility and control over home energy, considering an EV.</p></figure>
+      <figure><div class="pid"><img src="/assets/img/persona-av-tom.webp" alt="Tom" loading="lazy"><span class="seg">Shiny Elite</span><b>Tom</b></div><p>Finance executive and GM EV owner who wants the best of the best: premium products, reliable through blackouts.</p></figure>
+      <figure><div class="pid"><img src="/assets/img/persona-av-fiona.webp" alt="Fiona" loading="lazy"><span class="seg">Smart Tech</span><b>Fiona</b></div><p>Research-driven Lyriq owner weighing solar and backup power. Values usability, warranties, and the best possible deal.</p></figure>
+      <figure><div class="pid"><img src="/assets/img/persona-av-rhonda.webp" alt="Rhonda" loading="lazy"><span class="seg">Smart &amp; Safe</span><b>Rhonda</b></div><p>Educator nearing retirement in blackout-prone Florida. Wants dependable backup power and expert guidance, no EV interest.</p></figure>
     </div>
 
     <p>We created the first personas from the closest customer types that already existed: solar buyers and backup-generator owners, the people most likely to resemble a HEMS customer. We validated them with stakeholder interviews, secondary research and segmentation research, then kept refining them for three years against sentiment pulled from every usability study.</p>
@@ -326,7 +347,7 @@ extraStyle: |
   </div>
 
   <div class="brief-only">
-    <h2>Four starting points, three journeys</h2>
+    <h2>Understanding the customer journey</h2>
     <p>Each persona enters differently. Rhonda buys home energy only, Tom arrives after an EV purchase, Markus goes the other way, and Fiona buys both at once. Their routes resolve into three journeys — HEMS, EV, and a combined one — same underlying map, different touchpoints, different order of events.</p>
     <div class="gseq gseq--full">
       <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/journey-map-diagrams/overview.webp" alt="Diagram mapping four personas to three journeys — HEMS, EV, and the combined journey" style="max-width:880px;margin:0 auto" loading="lazy"></div></figure>
@@ -348,12 +369,12 @@ extraStyle: |
   <p>We created the first personas from the closest customer types that already existed: solar buyers and backup-generator owners, the people most likely to resemble a HEMS customer.</p>
   <p>To validate our assumptions we then gathered stakeholder interviews and secondary research, which resolved them into three EV-centric archetypes: <b>Markus</b> (electro-curious), <b>Tom</b> (Sierra EV buyer), and <b>Fiona</b> (other EV buyers). We obtained segmentation research that helped us validate our personas further, establishing the three personas we created. A GM Financial journey workshop added Voice-of-Customer personas that pushed us to consider financing behavior explicitly.</p>
   <p>Early on we also discovered a group we hadn't accounted for: people who want home energy security because extreme weather keeps knocking their power out, and who have no interest in an electric vehicle at all. That became <b>Rhonda</b>, and for a company built around vehicles it mattered beyond the design: the energy business had customers who would never arrive through vehicle sales. That gave us the four personas we needed to build journeys specific to each one.</p>
-  <p>Throughout the project we kept refining them against evidence. We pulled sentiments out of <em>every</em> usability study run since May 2023, sorted them by knowledge, cost and concerns, grouped the real test participants, and built new attribute charts from what those people had actually said, evolving them into an intimate understanding of who our customers are.</p>
   <div class="sub-label">Evidence based</div>
   <div class="gseq gseq--copy">
     <figure><div class="shot"><img src="/assets/img/hems/segmentation-map.webp" alt="GM Energy segmentation — eight segments plotted by EV consideration and HEMS consideration, with population share" loading="lazy"></div><figcaption>The 2023 segmentation the personas map to. Smart Living (20%) and Safety &amp; Freedom (15%) sit below the EV line: a third of the market with no vehicle attached. Rhonda's territory.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/persona-evidence-timeline.webp" alt="Persona validation board, 2023 to 2025 — evidence cards from every study pinned against the persona they belong to" loading="lazy"></div><figcaption>Three years of validation, 2023 → 2025. Sentiments from each study pinned to the persona they belonged to, sorted by knowledge, cost and concerns.</figcaption></figure>
   </div>
+  <p>Throughout the project we kept refining them against evidence. We pulled sentiments out of <em>every</em> usability study run since May 2023, sorted them by knowledge, cost and concerns, grouped the real test participants, and built new attribute charts from what those people had actually said, evolving them into an intimate understanding of who our customers are.</p>
   <div class="sub-label">The four personas</div>
   <div class="gseq gseq--copy">
     <figure><div class="shot shot--nat"><img src="/assets/img/hems/persona-comparison.webp" alt="Persona comparison — Fiona, Rhonda, Markus and Tom side by side: journey paths, motivations, concerns, key attributes, goals, values and behavioral traits" loading="lazy"></div><figcaption>All four side by side: journey paths, motivations, concerns, attributes, goals, values and behavioral traits.</figcaption></figure>
@@ -367,149 +388,135 @@ extraStyle: |
   <h2>The service blueprint</h2>
   <p>My strategy was to build a big-picture understanding of the customer experience, not just the website. I never focused on one part of it; I wanted everything before and after understood, so we knew what the experience was outside GM Energy too: before a customer ever reaches the site, and after they leave it.</p>
   <p>I created the blueprint from research and stated assumptions. It was then taken to a workshop with GM to validate it further and make it more accurate.</p>
-  <p>Nobody had mapped this category yet, so waiting for solid data would have stalled the project. We wrote our assumptions down instead and kept going, treating the blueprint as <em>something to correct rather than something finished</em>. Each assumption became a thing to test: usability studies and surveys went after the riskiest ones, and we folded in new research as it arrived — the audience segmentation especially — which either confirmed what we'd sketched or overturned it.</p>
+  <p>Nobody had mapped this category yet, so waiting for solid data would have stalled the project. We wrote our assumptions down instead and kept going, treating the blueprint as <em>a living document to validate our assumptions</em>. Each assumption was tested with usability studies and surveys, starting with the riskiest, and we folded in new research as it arrived — the audience segmentation especially — which either confirmed what we'd sketched or overturned it.</p>
   <p>What it became was a large end-to-end service blueprint covering the full lifecycle: learn, shop, buy, install, own. For every customer step it mapped the touchpoints, the frontstage staff actions, and the backstage machinery: which teams, which platforms, which support processes had to exist for that moment to work. For a company standing up commerce, an installer network, and financing all at once, the blueprint became the shared reference for what had to be built — and we kept revising it for years as the real product took shape.</p>
   <p>On the commerce journey alone we mapped 67 potential moments across 12 touchpoints, and 46 of the features that came out of it went into the approved 2024+ roadmap. We built parallel maps for public charging (36 moments) and post-purchase care (35 moments).</p>
   <div class="brief-only" style="max-width:var(--measure);margin:0 auto">
     <h2>The foundation</h2>
     <p>Every track above uses the same service blueprint and journey system, built in 2022 and revised continuously since. On the commerce journey alone: 67 moments mapped across 12 touchpoints, 46 features carried into the approved roadmap, and 23+ usability tests run against it.</p>
   </div>
-  <figure class="jmap brief-keep"><img src="/assets/img/journey-service-map.webp" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <p>This holistic view is what gave the team direction on which experiences we could design for now and in the future.</p>
+  <figure class="jmap brief-keep" style="width:min(var(--measure),94vw)"><img src="/assets/img/journey-service-map.webp" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems.</figcaption></figure>
 
   <div class="brief-only">
     <h2>Product education</h2>
     <p>Because this was a new product offering from GM Energy, we needed a way for customers to understand what these products are and how they are used. We provided introductions to the products, specifications, use cases, and lifestyle images that showed context in a home setting. Providing this education on the products was a theme we carried throughout the site — on the home page, product landing pages, and product detail pages — going from a high-level understanding to a deeper one about each product.</p>
-    <div class="gseq gseq--full">
-      <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/learn-flow.webp" alt="The Learn compilation — annotated homepage and product wireframes, the Ultium Home mid-fidelity pages, and the shipped GM Energy homepage, energy storage page and V2H product page" loading="lazy"></div><figcaption>The education pages, from annotated wireframe to shipped design.</figcaption></figure>
+    <div class="gseq gseq--copy">
+      <figure><div class="shot shot--nat shot--tint"><img src="/assets/img/hems/learn-flow.webp" alt="The Learn compilation — annotated homepage and product wireframes, the Ultium Home mid-fidelity pages, and the shipped GM Energy homepage, energy storage page and V2H product page" loading="lazy"></div><figcaption>The education pages, from annotated wireframe to shipped design.</figcaption></figure>
     </div>
 
   </div>
 
 
-  <p>That wide view is what gave the team more parts of the experience to design for: the blueprint let us pick out columns and detail them into experiences, even as we delivered the website.</p>
-  <p>We needed to focus on what the website should be, so I highlighted the section of the blueprint where the customer lands to learn, shop and purchase the product, the main focus of the site. From those columns we created journeys for each persona, to understand what each of them needed.</p>
+
+  <div class="gseq gseq--2" style="width:min(var(--measure),94vw)">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/gmf-micro-journey.webp" alt="A single blueprint column, financing pre-qualification, detailed into a GM Financial micro journey with touchpoints, actions, feelings, people, process, technology and risks" loading="lazy"></div></figure>
+    <div class="gcopy">
+      <p>The blueprint let us pick out columns and detail them into experiences, even as we delivered the website.</p>
+      <p>Financing pre-qualification is one column on the master blueprint. Detailed out, it becomes its own micro journey: five steps from GM Financial information through pre-approval, each with its own touchpoints, feelings, the people and systems behind it, and the risks to design against.</p>
+    </div>
+  </div>
   <div class="sub-label">One blueprint, many journeys</div>
-  <p>The same blueprint could be drawn in detail or at a high level depending on who needed to read it, and each new version took in whatever the latest research had told us.</p>
+
+  <p>We needed to focus on what the website should be, so I highlighted the section of the blueprint where the customer lands to learn, shop and purchase the product, the main focus of the site. From those columns we created journeys for each persona, to understand what each of them needed.</p>
 
   <figure class="jmap bpstack" style="width:min(var(--measure),94vw)">
     <img class="bs-base" src="/assets/img/hems/blueprint-zoom.webp" alt="Zoomed view of the master blueprint with the learn, shop and purchase section highlighted and the rest dimmed" loading="lazy" />
     <img class="bs-float" src="/assets/img/hems/journey-v2-2025.webp" alt="GM Energy for Home Journey Map V2, May 2025 — the simplified shopping journey derived from the highlighted section" loading="lazy" />
   <figcaption>The simplified journey map sits on the blueprint it was derived from: the highlighted section, where the customer learns, shops and purchases, detailed into the shopping journey for stakeholders and cross-functional teams.</figcaption></figure>
-  <h2>Four starting points, three journeys</h2>
-  <p>Where the purchase opportunities sat depended on where the customer started. Mapping each persona's route through the journeys is what showed us where those opportunities actually lived: same underlying map, different touchpoints, different order of events.</p>
-  <div class="pmap-notes">
-    <div><span class="pmap-name" style="color:var(--c-tom)">Tom <i>HEMS Upgrader</i></span> <p>Tom recently purchased a Cadillac Escalade IQ and completed the EV Journey. Now interested in a GM Energy Home system, he crosses over and enters the HEMS Journey through app onboarding — an owner who wants his home to keep up with his vehicle.</p></div>
-    <div><span class="pmap-name" style="color:var(--c-markus)">Markus <i>EV Intender</i></span> <p>Tom's mirror image. Markus is completing the HEMS Journey for the purchase of a GM Energy Home System, and has decided to purchase a Silverado EV, entering the EV Journey next.</p></div>
-    <div><span class="pmap-name" style="color:var(--c-rhonda)">Rhonda <i>HEMS Focused</i></span> <p>Rhonda is only interested in purchasing the GM Energy Home System and completes the HEMS Journey, start to finish. She never touches the EV path, the segment that proved the energy business isn't downstream of vehicle sales.</p></div>
-    <div><span class="pmap-name" style="color:var(--c-fiona)">Fiona <i>EV+HEMS Buyer</i></span> <p>Fiona completes the EV/HEMS Combined Journey to purchase a Blazer EV and GM Energy Home System together, buying both products at once, in a single linear path built specifically for her.</p></div>
-  </div>
-  <p>Working through the four personas produced <b>three journeys</b> — HEMS, EV, and a combined one for customers buying both together. Some personas share a journey but enter and leave at different points; some cross from one into another partway through. <em>Hover a persona to see their path.</em></p>
+  <h2>Understanding the customer journey</h2>
+  <p>Working through the four personas produced <b>three journeys</b> — HEMS, EV, and a combined one for customers buying both together. Some personas share a journey but enter and leave at different points; some cross from one into another partway through.</p>
 
-  <div class="pmap-legend" id="pmlegend">
-    <button class="pchip" data-p="tom" style="--pc:var(--c-tom)" type="button">
-      <img src="/assets/img/persona-av-tom.webp" alt="">
-      <span class="nm">Tom<span class="rl">HEMS Upgrader</span></span>
-    </button>
-    <button class="pchip" data-p="markus" style="--pc:var(--c-markus)" type="button">
-      <img src="/assets/img/persona-av-markus.webp" alt="">
-      <span class="nm">Markus<span class="rl">EV Intender</span></span>
-    </button>
-    <button class="pchip" data-p="rhonda" style="--pc:var(--c-rhonda)" type="button">
-      <img src="/assets/img/persona-av-rhonda.webp" alt="">
-      <span class="nm">Rhonda<span class="rl">HEMS Focused</span></span>
-    </button>
-    <button class="pchip" data-p="fiona" style="--pc:var(--c-fiona)" type="button">
-      <img src="/assets/img/persona-av-fiona.webp" alt="">
-      <span class="nm">Fiona<span class="rl">EV+HEMS Buyer</span></span>
-    </button>
-  </div>
-
-  <figure class="pmap-overview" id="pmoverview-wrap">
-    <img id="pmoverview-img" src="/assets/img/journey-map-diagrams/overview.webp" alt="Diagram mapping four personas to three journeys — HEMS, EV, and EV/HEMS combined — with colored lanes showing entry and exit points" loading="lazy" />
-    <div class="pmap-modal" id="pmmodal">
-      <img id="pmmodal-img" src="" alt="" />
-    </div>
+  <figure class="pmap-overview">
+    <img src="/assets/img/journey-map-diagrams/overview.webp" alt="Diagram mapping four personas to three journeys — HEMS, EV, and EV/HEMS combined — with colored lanes showing entry and exit points" loading="lazy" />
   </figure>
+
+  <p>Where the purchase opportunities sat depended on where the customer started. Although the blueprint shows us all the steps, depending on the customer they may not touch every column. The three journeys we produced detail how each persona may enter or leave the flow.</p>
+
+  <div class="pgrid">
+    <article class="pcard" style="--pc:var(--c-tom)">
+      <div class="ph"><img src="/assets/img/persona-av-tom.webp" alt="" loading="lazy" /><span class="pn">Tom<span class="pr">HEMS Upgrader</span></span></div>
+      <p>Tom recently purchased a Cadillac Escalade IQ and completed the EV Journey. Now interested in a GM Energy Home system, he crosses over and enters the HEMS Journey through app onboarding, an owner who wants his home to keep up with his vehicle.</p>
+      <button class="pcta" type="button" data-p="tom">View full journey →</button>
+    </article>
+    <article class="pcard" style="--pc:var(--c-markus)">
+      <div class="ph"><img src="/assets/img/persona-av-markus.webp" alt="" loading="lazy" /><span class="pn">Markus<span class="pr">EV Intender</span></span></div>
+      <p>Tom's mirror image. Markus is completing the HEMS Journey for the purchase of a GM Energy Home System, and has decided to purchase a Silverado EV, entering the EV Journey next.</p>
+      <button class="pcta" type="button" data-p="markus">View full journey →</button>
+    </article>
+    <article class="pcard" style="--pc:var(--c-rhonda)">
+      <div class="ph"><img src="/assets/img/persona-av-rhonda.webp" alt="" loading="lazy" /><span class="pn">Rhonda<span class="pr">HEMS Focused</span></span></div>
+      <p>Rhonda is only interested in purchasing the GM Energy Home System and completes the HEMS Journey, start to finish. She never touches the EV path, the segment that proved the energy business isn't downstream of vehicle sales.</p>
+      <button class="pcta" type="button" data-p="rhonda">View full journey →</button>
+    </article>
+    <article class="pcard" style="--pc:var(--c-fiona)">
+      <div class="ph"><img src="/assets/img/persona-av-fiona.webp" alt="" loading="lazy" /><span class="pn">Fiona<span class="pr">EV+HEMS Buyer</span></span></div>
+      <p>Fiona completes the EV/HEMS Combined Journey to purchase a Blazer EV and GM Energy Home System together, buying both products at once, in a single linear path built specifically for her.</p>
+      <button class="pcta" type="button" data-p="fiona">View full journey →</button>
+    </article>
+  </div>
+
+  <div class="jmodal" id="jmodal" role="dialog" aria-modal="true" aria-label="Persona journey map">
+    <div class="jmodal-cap" id="jmcap"></div>
+    <button class="jmodal-close" id="jmclose" type="button" aria-label="Close journey map">&times;</button>
+    <img id="jmimg" src="" alt="" />
+  </div>
 
   <script>
   (function(){
-    var wrap = document.getElementById('pmoverview-wrap');
-    var modal = document.getElementById('pmmodal');
-    var modalImg = document.getElementById('pmmodal-img');
-    var chips = document.querySelectorAll('#pmlegend .pchip');
+    var modal=document.getElementById('jmodal'), img=document.getElementById('jmimg'),
+        cap=document.getElementById('jmcap'), btnClose=document.getElementById('jmclose'), last=null;
     var data = {
-      tom: { src: '/assets/img/journey-map-diagrams/tom-detailed.webp', alt: "Tom's detailed EV Journey — starting in the EV Journey, transitioning into the Home Integrated Journey" },
-      markus: { src: '/assets/img/journey-map-diagrams/markus-detailed.webp', alt: "Markus's detailed Home Integrated Journey — starting in the HEMS Journey, transitioning into the EV Journey" },
-      rhonda: { src: '/assets/img/journey-map-diagrams/rhonda-detailed.webp', alt: "Rhonda's detailed Home Integrated Journey — HEMS only, start to finish" },
-      fiona: { src: '/assets/img/journey-map-diagrams/fiona-detailed.webp', alt: "Fiona's detailed EV & HEMS Combined Journey" }
+      tom: { src:'/assets/img/journey-map-diagrams/tom-detailed.webp', alt:"Tom's detailed EV Journey — starting in the EV Journey, transitioning into the Home Integrated Journey", name:'Tom', role:'HEMS Upgrader', c:'var(--c-tom)' },
+      markus: { src:'/assets/img/journey-map-diagrams/markus-detailed.webp', alt:"Markus's detailed Home Integrated Journey — starting in the HEMS Journey, transitioning into the EV Journey", name:'Markus', role:'EV Intender', c:'var(--c-markus)' },
+      rhonda: { src:'/assets/img/journey-map-diagrams/rhonda-detailed.webp', alt:"Rhonda's detailed Home Integrated Journey — HEMS only, start to finish", name:'Rhonda', role:'HEMS Focused', c:'var(--c-rhonda)' },
+      fiona: { src:'/assets/img/journey-map-diagrams/fiona-detailed.webp', alt:"Fiona's detailed EV & HEMS Combined Journey", name:'Fiona', role:'EV+HEMS Buyer', c:'var(--c-fiona)' }
     };
-    var cur = null;
-    function set(p){
-      var d = p && data[p];
-      if(d){
-        modalImg.setAttribute('src', d.src);
-        modalImg.setAttribute('alt', d.alt);
-        modal.classList.add('show');
-        wrap.classList.add('dimmed');
-      } else {
-        modal.classList.remove('show');
-        wrap.classList.remove('dimmed');
-      }
-      chips.forEach(function(c){ c.classList.toggle('on', c.dataset.p === p); });
-      cur = p;
+    function open(p, btn){
+      var d=data[p]; if(!d) return;
+      last=btn; img.setAttribute('src',d.src); img.setAttribute('alt',d.alt);
+      cap.innerHTML='<span style="color:'+d.c+'">\u25CF</span> '+d.name+' <i>'+d.role+'</i>';
+      modal.classList.add('open'); document.body.classList.add('jm-open'); btnClose.focus();
     }
-    chips.forEach(function(c){
-      c.addEventListener('mouseenter', function(){ set(c.dataset.p); });
-      c.addEventListener('mouseleave', function(){ if(cur === c.dataset.p && !c.classList.contains('lock')) set(null); });
-      c.addEventListener('click', function(){
-        var lock = c.classList.contains('lock');
-        chips.forEach(function(x){ x.classList.remove('lock'); });
-        if(!lock){ c.classList.add('lock'); set(c.dataset.p); } else { set(null); }
-      });
+    function shut(){
+      modal.classList.remove('open'); document.body.classList.remove('jm-open');
+      img.removeAttribute('src'); if(last){ last.focus(); last=null; }
+    }
+    document.querySelectorAll('.pcta').forEach(function(b){
+      b.addEventListener('click', function(){ open(b.dataset.p, b); });
+    });
+    btnClose.addEventListener('click', shut);
+    modal.addEventListener('click', function(e){ if(e.target===modal) shut(); });
+    document.addEventListener('keydown', function(e){
+      if(e.key==='Escape' && modal.classList.contains('open')) shut();
     });
   })();
   </script>
 
 
 
-  <div class="sub-label">Information architecture</div>
-  <p>With the journey settled we mapped the structure, and kept the sitemap current as the site grew. This is the September 2025 version: every page of the live site.</p>
-  <div class="gseq gseq--copy">
-    <figure><div class="shot shot--nat"><img src="/assets/img/hems/sitemap.webp" alt="Basic sitemap — the full site page tree" loading="lazy"></div><figcaption>The GM Energy sitemap, September 2025 — main navigation, footer, checkout and account flows, down to the error pages.</figcaption></figure>
-  </div>
-
-
 <div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
-  <h2>From wireframes to shipped design</h2>
-  <p>The storefront had two jobs, straight from the blueprint's first two phases: teach a category almost nobody knew, and sell it. Most customers had never heard of a HEMS, so the education pages, landing pages and product pages had to explain what GM Energy was offering before they could sell any of it.</p>
+  <h2>Site design</h2>
+  <p>The GM Energy site needed to include education on Home Energy Management Systems (HEMS). Because these were being offered for the first time, we needed to explain the products, install process, and purchase flows.</p>
   <p>From that structure I wireframed the site section by section, going deep on the pages that mattered most. The flows, and the content inside them, were shaped to support each persona's journey — what the blueprint and the journey maps had taught us each of them needed to learn, compare and decide. I worked in sprints alongside GM's product and engineering teams, partnering with the UI team on the visual design.</p>
-  <div class="sub-label">Exploration: every page annotated</div>
-  <p>Every page started as an annotated lo-fi wireframe, with the stickies carrying content strategy, personalization notes and stakeholder decisions. It then went through a branded mid-fidelity pass under the Ultium Home name before shipping as GM Energy.</p>
-  <div class="gseq gseq--full">
-    <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/wireframe-flow.webp" alt="The early wireframe compilation — the high-level Energy Storage purchase flow at top, broken into detailed flows and iterated below" loading="lazy"></div><figcaption>The early compilation: the high-level Energy Storage purchase flow, the detailed flows it broke into, and the iterations that followed.</figcaption></figure>
+  <div class="sub-label">High level flows</div>
+  <div class="gseq gseq--copy">
+    <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/wireframe-flow.webp" alt="The Energy Storage purchase flow — landing page, product listing and detail pages into the cart, then splitting into a financed checkout or an installation-quote path, each ending in delivery" loading="lazy"></div><figcaption>The high-level Energy Storage purchase flow: landing page through to the cart, then either a simple checkout with financing or the installation quote path.</figcaption></figure>
   </div>
 
   <div class="sub-label">Learn — the homepage</div>
   <p>Because this was a new product offering from GM Energy, we needed a way for customers to understand what these products are and how they are used. We provided introductions to the products, specifications, use cases, and lifestyle images that showed context in a home setting. Providing this education on the products was a theme we carried throughout the site — on the home page, product landing pages, and product detail pages — going from a high-level understanding to a deeper one about each product.</p>
   <p>The board traces that work from annotated wireframes through the Ultium Home pass to the shipped GM Energy pages.</p>
-  <div class="gseq gseq--full">
-    <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/learn-flow.webp" alt="The Learn compilation — annotated homepage and product wireframes, the dark Ultium Home mid-fidelity pages, and the shipped GM Energy homepage, energy storage page and V2H product page" loading="lazy"></div><figcaption>The homepage and the education pages around it — annotated wireframe, Ultium Home mid-fidelity, shipped GM Energy.</figcaption></figure>
+  <div class="gseq gseq--copy">
+    <figure><div class="shot shot--nat shot--tint"><img src="/assets/img/hems/learn-flow.webp" alt="The Learn compilation — annotated homepage and product wireframes, the dark Ultium Home mid-fidelity pages, and the shipped GM Energy homepage, energy storage page and V2H product page" loading="lazy"></div><figcaption>The homepage and the education pages around it — annotated wireframe, Ultium Home mid-fidelity, shipped GM Energy.</figcaption></figure>
   </div>
 
   <div class="sub-label">The navigation system</div>
-  <p>The first taxonomy was ours, and a card sort killed it: given 24 energy products to group, most testers used four categories or fewer, far simpler than what we'd built. The shipped navigation runs three product menus.</p>
-  <div class="menu-stack">
-    <div class="cols">
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-ev-charging.webp" alt="EV Charging mega menu open on the live site" loading="lazy"></div><figcaption>EV Charging</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="Vehicle-To-Home mega menu open on the live site" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-home-energy.webp" alt="Home Energy mega menu open on the live site" loading="lazy"></div><figcaption>Home Energy</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-learn.webp" alt="Learn mega menu open on the live site" loading="lazy"></div><figcaption>Learn</figcaption></figure>
-      <figure class="menu-col" style="margin:0"><div class="frame"><img src="/assets/img/hems/live-menu-support.webp" alt="Support mega menu open on the live site" loading="lazy"></div><figcaption>Support</figcaption></figure>
-    </div>
-    <div class="note">
-      <p>Customers also needed to learn about the buying process, how installation is performed, quoting, and financing options.</p>
-      <p>Mega menus were designed to give them the visual they needed, and to help them find what they were looking for to learn more about the products, with explainers and FAQs.</p>
+  <div class="gseq gseq--2" style="width:min(var(--measure),94vw)">
+    <figure><div class="shot shot--nat"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="The Vehicle-To-Home mega menu open on the live site, with the three product bundles" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
+    <div class="gcopy">
+      <p>Mega menus were designed to give customers the visual they needed, and to help them find what they were looking for to learn more about the products, with explainers and FAQs.</p>
     </div>
   </div>
   <div class="gseq gseq--full">
@@ -736,9 +743,9 @@ extraStyle: |
   <h2>Outcome</h2>
   <p>GM Energy went from no ecommerce presence to a launched, financed, installable product experience. It also came away with the things built around it: a service blueprint the organization designs against, personas that have evolved over time with evidence and testing, a two-track testing program feeding into every release, an ownership experience worked out as carefully as the sale, and a sales guide that puts the journey in every seller's hands.</p>
   <div class="live-grid live-grid--wide">
-    <figure><div class="shot lg-menus"><img src="/assets/img/hems/live-home-desktop.webp" alt="Live gmenergy.gm.com homepage — full page" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.webp" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.webp" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — mega menus in motion.</figcaption></figure>
+    <figure><div class="shot lg-menus lg-scroll"><img src="/assets/img/hems/live-home-desktop.webp" alt="Live gmenergy.gm.com homepage — full page" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-ev-charging.webp" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="" aria-hidden="true" loading="lazy"><img class="mstate" src="/assets/img/hems/live-menu-home-energy.webp" alt="" aria-hidden="true" loading="lazy"></div><figcaption>The live site — mega menus in motion.</figcaption></figure>
     <figure><div class="shot lg-scroll"><img src="/assets/img/hems/live-hes-fullpage.webp" alt="GM Energy Home System product page, live — full page" loading="lazy"></div><figcaption>Energy Home System PDP, live — scroll the full page.</figcaption></figure>
-    <figure><div class="shot lg-scroll"><img src="/assets/img/hems/live-howitworks.webp" alt="How It Works page, live — full page auto-scrolling" loading="lazy"></div><figcaption>How It Works, live — scroll the full page.</figcaption></figure>
+    <figure><div class="shot"><img src="/assets/img/hems/live-howitworks.webp" alt="How It Works page, live — the full page" loading="lazy"></div><figcaption>How It Works, live — the full page.</figcaption></figure>
   </div>
   </div>
 
