@@ -135,7 +135,7 @@ extraStyle: |
   .chart-grid figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
   @media(max-width:760px){.chart-grid{grid-template-columns:repeat(2,1fr)}}
   /* brief tracks — visual cards */
-  .track-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:22px;width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%)}
+  .track-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:22px;width:min(var(--measure),94vw);margin-left:50%;transform:translateX(-50%)}
   .tcard .shot{aspect-ratio:16/10;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb}
   .tcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
   .tcard:hover .shot img{object-position:bottom}
