@@ -460,7 +460,7 @@ extraStyle: |
   <div class="jmodal" id="jmodal" role="dialog" aria-modal="true" aria-label="Persona journey map">
     <div class="jmodal-cap" id="jmcap"></div>
     <button class="jmodal-close" id="jmclose" type="button" aria-label="Close journey map">&times;</button>
-    <img id="jmimg" src="" alt="" />
+    <img id="jmimg" alt="" />
   </div>
 
   <script>
@@ -499,7 +499,7 @@ extraStyle: |
 <div class="act-kicker" id="part-02"><span>Part 02</span>Design the storefront</div>
   <h2>Site design</h2>
   <p>The GM Energy site needed to include education on Home Energy Management Systems (HEMS). Because these were being offered for the first time, we needed to explain the products, install process, and purchase flows.</p>
-  <p>From that structure I wireframed the site section by section, going deep on the pages that mattered most. The flows, and the content inside them, were shaped to support each persona's journey — what the blueprint and the journey maps had taught us each of them needed to learn, compare and decide. I worked in sprints alongside GM's product and engineering teams, partnering with the UI team on the visual design.</p>
+  <p>From that structure I wireframed the site section by section, going deep on the pages that mattered most. The flows, and the content inside them, were shaped to support each persona's journey — what the blueprint and the journey maps had taught us each of them needed to learn, compare and decide.</p>
   <div class="sub-label">High level flows</div>
   <div class="gseq gseq--copy">
     <figure><div class="shot shot--nat shot--bare"><img src="/assets/img/hems/wireframe-flow.webp" alt="The Energy Storage purchase flow — landing page, product listing and detail pages into the cart, then splitting into a financed checkout or an installation-quote path, each ending in delivery" loading="lazy"></div><figcaption>The high-level Energy Storage purchase flow: landing page through to the cart, then either a simple checkout with financing or the installation quote path.</figcaption></figure>
@@ -519,18 +519,15 @@ extraStyle: |
       <p>Mega menus were designed to give customers the visual they needed, and to help them find what they were looking for to learn more about the products, with explainers and FAQs.</p>
     </div>
   </div>
-  <div class="gseq gseq--full">
-    <figure><div class="shot shot--placeholder">Placeholder — the card-sort results</div><figcaption>The card sort behind the simplification — candidate screens in User Testing/Informal tests/Navigation card sort/.</figcaption></figure>
-  </div>
   <div class="act-kicker" id="part-03"><span>Part 03</span>Solve checkout</div>
-  <h2>Solving the checkout experience</h2>
+  <h2>Checkout experience</h2>
   <p>Buying a home energy system took weeks. The customer added the product to their cart, went through an installation quote, waited for it, came back to finalize the cart, left for a separate site to apply for GM Financing, returned to pay — and that payment was only a deposit, because the install wasn't done. Scheduling the install meant another partner site, then a physical visit to measure the home and pull permits. Only after all of that did anyone know the all-in cost.</p>
   <p>That was the barrier: a willing customer had to work through weeks of steps before a sale could happen. I worked through the install quoting process, checkout and financing together, consolidating those steps inside the GM Energy site so the sale could finish with less friction and less chance of abandonment.</p>
-  <figure class="jmap"><img src="/assets/img/hems/purchase-paths.webp" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
+  <figure class="jmap" style="width:min(var(--measure),94vw)"><img src="/assets/img/hems/purchase-paths.webp" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
   <figcaption>All the checkout flows on one board: product-only and product-plus-install, paying by card or financing through GM Financial, with the installer handoffs annotated. Shown at scale.</figcaption></figure>
 
-  <div class="sub-label">One cart instead of three sites</div>
-  <p>The change was to make the cart hold everything. Product, installation, solar interest and payment option all sit in one cart summary, and the customer checks out from there. What used to be three separate sites — GM Energy for the product, the installer's site for the quote, GM Financial for the credit application — became one flow with the other two brought inside it.</p>
+  <div class="sub-label">Simplified checkout experience</div>
+  <p>The checkout experience allows the customer to choose a product, view available installation quoting options, and estimate their pre-approval for financing. These all happen in one flow, keeping the customer engaged and ready to make a decision to move forward with the financing credit application and installation appointment.</p>
   <p>The branches on the right of the board are the combinations an order can take: hardware on its own, hardware with installation, with or without solar, paid by card or financed through GM Financial. They are variations of the same checkout, not trips to another site. That is the difference between this board and the one above it.</p>
   <figure class="jmap"><img src="/assets/img/hems/cart-summary-hub.webp" alt="Simplified customer journey — a single cart summary holding product, install, solar interest and payment option, branching into the eight order combinations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
   <figcaption>The simplified journey. Every build path feeds one cart summary on the left; the eight rows to the right are the order combinations that cart can produce, each ending in payment and an order status. Internal review notes are left in place, with the reviewer's name blurred.</figcaption></figure>
@@ -541,10 +538,6 @@ extraStyle: |
   <figcaption>The business-flow swimlanes: hardware and install, with and without financing, across credit outcomes: the design's contract with order management, GM Financial, and install partners.</figcaption></figure>
 
   <div class="sub-label">Checkout, shipped</div>
-  <div class="jgal-wrap"><div class="jgal">
-    <figure class="jcard"><img src="/assets/img/hems/ship-checkout-flow.webp" alt="One-page checkout flow boards — shipped design" loading="lazy"><div class="cap"><h4>The one-page checkout, mapped</h4></div></figure>
-    <figure class="jcard"><img src="/assets/img/hems/ship-my-orders.webp" alt="My Orders — desktop and mobile empty states" loading="lazy"><div class="cap"><h4>My Orders — desktop &amp; mobile</h4></div></figure>
-  </div></div>
   <div class="live-grid">
     <figure><div class="shot"><img src="/assets/img/hems/fig-cart.webp" alt="Cart — final design" loading="lazy"></div><figcaption>The cart — final design.</figcaption></figure>
     <figure><div class="shot"><img src="/assets/img/hems/fig-prequal.webp" alt="Financing prequalification landing — final design" loading="lazy"></div><figcaption>Prequalification — see your buying power before committing.</figcaption></figure>
