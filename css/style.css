@@ -197,7 +197,8 @@ article.case figcaption{font-size:13px;color:var(--muted);margin-top:10px;font-f
 .case-meta{display:flex;gap:40px;flex-wrap:wrap;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);padding:20px 0;margin:34px 0}
 .case-meta div span{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;margin-bottom:4px}
 .case-meta div{font-size:15px}
-.case-hero-img{border-radius:8px;border:1px solid var(--hair);width:100%;margin-top:8px}
+.case-hero-img{border-radius:8px;border:1px solid var(--hair);width:min(800px,100%);display:block;margin:8px auto 0}
+article.case .case-hero-img{width:min(800px,100%);display:block;margin:8px auto 0}
 .back{font-size:13px;color:var(--muted);display:inline-block;margin-top:26px}
 .back:hover{color:var(--ink)}
 .pager{display:flex;justify-content:space-between;gap:16px;max-width:var(--measure-box);margin:0 auto;padding:26px var(--gut) 0;border-top:1px solid var(--hair);font-weight:600;font-size:15px}
