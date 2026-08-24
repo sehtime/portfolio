@@ -239,6 +239,8 @@ body.page-dark .pager-tag{color:var(--on-dark-muted);background:var(--dark-2);bo
 .res-item h3 span{color:var(--accent);font-weight:600}
 .res-item .dates{font-size:13px;color:var(--muted)}
 .res-item p{margin-top:10px;color:var(--muted-2);font-size:15px}
+.res-item ul{margin:10px 0 0;padding-left:18px;color:var(--muted-2);font-size:15px}
+.res-item li{margin-top:8px}
 /* start the skills column level with the first role, not the section heading */
 .res-side{padding-top:105px}
 .res-side h4{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);margin:26px 0 10px}
