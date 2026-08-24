@@ -15,7 +15,7 @@
   --sans:'Hanken Grotesk',system-ui,sans-serif;
   --serif:'Newsreader',Georgia,serif;
   /* layout */
-  --maxw:1240px; --gut:clamp(20px,4vw,40px);
+  --maxw:1240px; --gut:clamp(20px,4vw,40px); --bleed:calc(100vw - var(--gut)*2);
   /* reading measure for case studies; boxes that carry their own gutter add it back */
   --measure:980px; --measure-box:calc(980px + var(--gut)*2);
   --hero-measure:32rem;

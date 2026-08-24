@@ -7,7 +7,7 @@ pager:
   nextTitle: Pricing Tool
 extraStyle: |
   <style>
-  .edu-list{width:min(var(--measure),94vw);margin:16px auto 6px;padding-left:22px;font-size:15px;line-height:1.65;color:var(--muted-2)}
+  .edu-list{width:min(var(--measure),var(--bleed));margin:16px auto 6px;padding-left:22px;font-size:15px;line-height:1.65;color:var(--muted-2)}
   .edu-list li{margin-bottom:10px}
   .edu-list b{font-weight:600;color:var(--ink)}
   .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
@@ -23,9 +23,9 @@ extraStyle: |
   .findings li{border-left:2px solid var(--hair);padding:4px 0 4px 18px;margin-bottom:18px}
   .findings li b{display:block;font-size:15px;margin-bottom:3px}
   .findings li span{font-size:14.5px;color:var(--muted-2)}
-  .jmap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:8px}
-  .wmed{width:min(1000px,94vw);margin-left:50%;transform:translateX(-50%)}
-  .jgal-wrap{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
+  .jmap{width:min(1160px,var(--bleed));margin-left:50%;transform:translateX(-50%);margin-top:8px}
+  .wmed{width:min(1000px,var(--bleed));margin-left:50%;transform:translateX(-50%)}
+  .jgal-wrap{width:min(1160px,var(--bleed));margin-left:50%;transform:translateX(-50%);margin-top:26px}
   .jgal{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .jcard{border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:#fffdfb}
   .jcard img{width:100%;display:block;border-bottom:1px solid var(--hair)}
@@ -34,7 +34,7 @@ extraStyle: |
   .jcard h4{font-size:15px;font-weight:600;margin:0 0 5px;padding:0}
   .jcard p{font-size:13px;color:var(--muted-2);margin:0;line-height:1.46}
   @media(max-width:640px){.jgal{grid-template-columns:1fr}}
-  .journey-split{width:min(1160px,94vw);margin-left:50%;transform:translateX(-50%);margin-top:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+  .journey-split{width:min(1160px,var(--bleed));margin-left:50%;transform:translateX(-50%);margin-top:24px;display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
   .journey-imgs{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .journey-imgs figure{margin:0}
   .journey-imgs img{width:100%;display:block;border-radius:8px;border:1px solid var(--hair)}
@@ -46,7 +46,7 @@ extraStyle: |
   @media(max-width:480px){.journey-imgs{grid-template-columns:1fr}}
   :root{--c-markus:#B23A48;--c-tom:#2C97D1;--c-rhonda:#7A4EB2;--c-fiona:#2BA84A}
   /* persona grid + full-journey modal */
-  .pgrid{width:min(var(--measure),94vw);margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .pgrid{width:min(var(--measure),var(--bleed));margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
   .pcard{border:1px solid var(--hair);border-radius:12px;padding:18px 20px;display:flex;flex-direction:column}
   .pcard .ph{display:flex;align-items:center;gap:11px;margin-bottom:10px}
   article.case .pcard img{width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid var(--pc);display:block;flex:none}
@@ -68,21 +68,21 @@ extraStyle: |
   .pchip .nm{font-size:13px;font-weight:600;line-height:1.15}
   .pchip .rl{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:11.5px;color:var(--muted)}
   .pchip:hover,.pchip.on{border-color:var(--pc);box-shadow:0 0 0 1px var(--pc)}
-  .pmap-overview{width:min(var(--measure),94vw);margin:22px 0 0 50%;transform:translateX(-50%)}
+  .pmap-overview{width:min(var(--measure),var(--bleed));margin:22px 0 0 50%;transform:translateX(-50%)}
   article.case .pmap-overview img{width:100%;display:block;border:0;border-radius:0;background:none}
   /* the overview sits a little smaller; hovered journeys still take the full 1160 */
   /* hovering a chip swaps the overview for the detailed journey at full width */
   .pmap-modal{display:none}
   .pmap-modal.show{display:block}
   .pmap-modal img{width:100%;display:block}
-  .pmap-notes{width:min(var(--measure),94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr;gap:22px}
+  .pmap-notes{width:min(var(--measure),var(--bleed));margin:24px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr;gap:22px}
   .pmap-name{display:block;font-size:16px;font-weight:600;margin-bottom:8px}
   .pmap-name i{font-family:var(--serif);font-style:italic;font-weight:500;color:var(--muted);font-size:13px;margin-left:8px}
   .pmap-notes p{font-size:15px;color:var(--muted-2);line-height:1.65;margin:0}
   .footnote{margin-top:18px;font-size:13px;color:var(--muted)}
   /* design evolution: 3 fidelity stages */
   /* storyboard scroll strip */
-  .sb-wrap{width:min(var(--measure),94vw);margin-left:50%;transform:translateX(-50%);margin-top:26px}
+  .sb-wrap{width:min(var(--measure),var(--bleed));margin-left:50%;transform:translateX(-50%);margin-top:26px}
   .sb-strip{display:flex;gap:16px;overflow-x:auto;padding-bottom:14px;scroll-snap-type:x mandatory}
   .sb-strip figure{flex:0 0 min(340px,80vw);margin:0;scroll-snap-align:start}
   .sb-strip img{width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fffdfb}
@@ -124,7 +124,7 @@ extraStyle: |
   .menu-col figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
   @media(max-width:760px){.menu-trio{grid-template-columns:1fr}}
   /* menu stack — all five menus down one column, copy alongside */
-  .menu-stack{width:min(var(--measure),94vw);margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 232px;gap:26px;align-items:start}
+  .menu-stack{width:min(var(--measure),var(--bleed));margin:26px 0 0 50%;transform:translateX(-50%);display:grid;grid-template-columns:1fr 232px;gap:26px;align-items:start}
   .menu-stack .cols{display:grid;gap:14px}
   .menu-stack .note{position:sticky;top:80px;font-size:13.5px;line-height:1.6;color:var(--muted-2)}
   .menu-stack .note p{margin:0 0 12px}
@@ -137,7 +137,7 @@ extraStyle: |
   .chart-grid figcaption{font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
   @media(max-width:760px){.chart-grid{grid-template-columns:repeat(2,1fr)}}
   /* brief tracks — visual cards */
-  .track-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:22px;width:min(var(--measure),94vw);margin-left:50%;transform:translateX(-50%)}
+  .track-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 26px;margin-top:22px;width:min(var(--measure),var(--bleed));margin-left:50%;transform:translateX(-50%)}
   .tcard .shot{aspect-ratio:16/10;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:#fffdfb}
   .tcard .shot img{width:100%;height:100%;object-fit:cover;object-position:top;transition:object-position 7s ease}
   .tcard:hover .shot img{object-position:bottom}
@@ -170,7 +170,7 @@ extraStyle: |
   .lg-scroll::-webkit-scrollbar{width:6px}
   .lg-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.22);border-radius:3px}
   /* outcome gallery wide variant */
-  .live-grid--wide{width:min(var(--measure),94vw);margin-left:50%;transform:translateX(-50%)}
+  .live-grid--wide{width:min(var(--measure),var(--bleed));margin-left:50%;transform:translateX(-50%)}
   .live-grid--wide .shot{aspect-ratio:337/800!important;border:0!important;box-shadow:none}
   /* the menu captures are landscape; show the whole page and let its own dark theme continue below */
   .live-grid--wide .shot.lg-scroll::-webkit-scrollbar,
@@ -178,9 +178,9 @@ extraStyle: |
   .live-grid--wide .shot.lg-menus img{height:auto!important;object-fit:unset!important}
   article.case .live-grid--wide .shot img{width:100%!important;height:auto!important;object-fit:unset!important;object-position:unset!important;transition:none!important;border:0!important;border-radius:0!important}
   /* width utility so existing inner grids can join the 1160px system without restructuring */
-  .gwrap{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%)}
+  .gwrap{width:min(1160px,var(--bleed));margin:24px 0 0 50%;transform:translateX(-50%)}
   /* compact persona row — the Brief's summary of the four personas */
-  .pstrip{width:min(var(--measure),94vw);margin:22px 0 30px 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:34px 40px}
+  .pstrip{width:min(var(--measure),var(--bleed));margin:22px 0 30px 50%;transform:translateX(-50%);display:grid;grid-template-columns:repeat(2,1fr);gap:34px 40px}
   .pstrip figure{margin:0;display:grid;grid-template-columns:112px minmax(0,1fr);gap:18px;align-items:center}
   .pstrip .pid{text-align:center}
   /* beats article.case figure img (0,1,3), which forces width:100% plus a border */
@@ -193,7 +193,7 @@ extraStyle: |
   article.case .bpstack .bs-base{width:100%;border-radius:8px;border:1px solid var(--hair);display:block}
   article.case .bpstack .bs-float{width:78%;margin:-24% 3% 0 auto;display:block;border-radius:10px;border:1px solid var(--hair);box-shadow:0 22px 54px rgba(20,16,10,.25);position:relative;z-index:2;background:#fff}
   /* sequence row — tall self-scrolling panels read as a set (Genie) */
-  .lg-afford{width:min(1160px,94vw);margin:26px 0 -12px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
+  .lg-afford{width:min(1160px,var(--bleed));margin:26px 0 -12px 50%;transform:translateX(-50%);display:flex;align-items:center;justify-content:center;gap:10px;font-family:var(--serif);font-style:italic;font-size:13px;color:var(--muted)}
   .lg-afford span{font-family:var(--sans);font-style:normal;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#fff;background:var(--accent);border-radius:999px;padding:3px 10px}
   .lg-auto img{width:100%;height:auto;object-fit:unset;transition:none;animation:lgAuto 60s ease-in-out infinite}
   @keyframes lgAuto{0%,4%{transform:translateY(0)}46%,54%{transform:translateY(-89%)}96%,100%{transform:translateY(0)}}
@@ -208,7 +208,7 @@ extraStyle: |
   .phases li i{display:block;font-style:normal;font-size:10.5px;font-weight:600;letter-spacing:.1em;color:var(--accent);margin-bottom:4px}
   @media(max-width:700px){.phases{grid-auto-flow:row;gap:12px}}
   /* one image system for the Genie track: single width, one panel treatment, varying column count */
-  .gseq{width:min(1160px,94vw);margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
+  .gseq{width:min(1160px,var(--bleed));margin:24px 0 0 50%;transform:translateX(-50%);display:grid;gap:16px}
   .gseq--3{grid-template-columns:repeat(3,1fr)}
   .gseq--2{grid-template-columns:repeat(2,1fr)}
   .gseq--1{grid-template-columns:minmax(0,520px);justify-content:center}
@@ -234,7 +234,7 @@ extraStyle: |
   .gseq .gcopy p{margin:0;color:var(--muted-2);font-size:16.5px}
   .gseq .gcopy p + p{margin-top:14px}
   .gseq .shot--placeholder{aspect-ratio:16/7;display:flex;align-items:center;justify-content:center;text-align:center;background:repeating-linear-gradient(45deg,#ecebe6,#ecebe6 10px,#f2f1ec 10px,#f2f1ec 20px);color:#8f8c85;font:12px ui-monospace,Menlo,monospace;padding:16px}
-  @media(max-width:760px){.gseq{grid-template-columns:1fr!important}}
+  @media(max-width:860px){.gseq{grid-template-columns:1fr!important}}
   /* part rail — sticky section nav (Full view only; hidden in Brief by the case--brief rule) */
   .part-rail{position:fixed;left:clamp(10px,2vw,26px);top:50%;transform:translateY(-50%);z-index:30;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:opacity .45s var(--ease)}
   .part-rail.on{opacity:1;pointer-events:auto}
@@ -422,7 +422,7 @@ extraStyle: |
     <p>Every track above uses the same service blueprint and journey system, built in 2022 and revised continuously since. On the commerce journey alone: 67 moments mapped across 12 touchpoints, 46 features carried into the approved roadmap, and 23+ usability tests run against it.</p>
   </div>
   <p>This holistic view is what gave the team direction on which experiences we could design for now and in the future.</p>
-  <figure class="jmap brief-keep" style="width:min(var(--measure),94vw)"><img src="/assets/img/journey-service-map.webp" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="jmap brief-keep" style="width:min(var(--measure),var(--bleed))"><img src="/assets/img/journey-service-map.webp" alt="The master service blueprint — the full HEMS customer lifecycle at scale" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The master service blueprint — the full HEMS lifecycle across phases, touchpoints, and backstage systems.</figcaption></figure>
 
   <div class="brief-only">
@@ -444,7 +444,7 @@ extraStyle: |
 
 
 
-  <div class="gseq gseq--2" style="width:min(var(--measure),94vw)">
+  <div class="gseq gseq--2" style="width:min(var(--measure),var(--bleed))">
     <figure><div class="shot shot--nat"><img src="/assets/img/hems/gmf-micro-journey.webp" alt="A single blueprint column, financing pre-qualification, detailed into a GM Financial micro journey with touchpoints, actions, feelings, people, process, technology and risks" loading="lazy"></div></figure>
     <div class="gcopy">
       <p>The blueprint let us pick out columns and detail them into experiences, even as we delivered the website.</p>
@@ -455,7 +455,7 @@ extraStyle: |
 
   <p>We needed to focus on what the website should be, so I highlighted the section of the blueprint where the customer lands to learn, shop and purchase the product, the main focus of the site. From those columns we created journeys for each persona, to understand what each customer type needed.</p>
 
-  <figure class="jmap bpstack" style="width:min(var(--measure),94vw)">
+  <figure class="jmap bpstack" style="width:min(var(--measure),var(--bleed))">
     <img class="bs-base" src="/assets/img/hems/blueprint-zoom.webp" alt="Zoomed view of the master blueprint with the learn, shop and purchase section highlighted and the rest dimmed" loading="lazy" />
     <img class="bs-float" src="/assets/img/hems/journey-v2-2025.webp" alt="GM Energy for Home Journey Map V2, May 2025 — the simplified shopping journey derived from the highlighted section" loading="lazy" />
   <figcaption>The simplified journey map sits on the blueprint it was derived from: the highlighted section, where the customer learns, shops and purchases, detailed into the shopping journey for stakeholders and cross-functional teams.</figcaption></figure>
@@ -554,7 +554,7 @@ extraStyle: |
   </div>
 
   <div class="sub-label">The navigation system</div>
-  <div class="gseq gseq--2" style="width:min(var(--measure),94vw)">
+  <div class="gseq gseq--2" style="width:min(var(--measure),var(--bleed))">
     <figure><div class="shot shot--nat"><img src="/assets/img/hems/live-menu-vehicle-to-home.webp" alt="The Vehicle-To-Home mega menu open on the live site, with the three product bundles" loading="lazy"></div><figcaption>Vehicle-To-Home</figcaption></figure>
     <div class="gcopy">
       <p>Mega menus housed visual wayfinding to understand categories that fit the customer's shopping intent. These menus give new and existing customers clear paths to purchasing, learning, and support pages. <ins class="rev-new rev-alt">To streamline navigation across a complex product ecosystem, we implemented mega menus featuring visual wayfinding. By organizing categories around explicit customer shopping intent, the system provides both new and returning users with frictionless pathways to purchase, educational content, and support resources.</ins></p>
@@ -564,18 +564,18 @@ extraStyle: |
   <h2>Checkout experience</h2>
   <p>Buying a home energy system took weeks. The customer added the product to their cart, went through an installation quote, waited for it, came back to finalize the cart, left for a separate site to apply for GM Financing, returned to pay — and that payment was only a deposit, because the install wasn't done. Scheduling the install meant another partner site, then a physical visit to measure the home and pull permits. Only after all of that did anyone know the all-in cost.</p>
   <p>That was the barrier: a willing customer had to work through weeks of steps before a sale could happen. I worked through the install quoting process, checkout and financing together, consolidating those steps inside the GM Energy site so the sale could finish with less friction and less chance of abandonment.</p>
-  <figure class="jmap" style="width:min(var(--measure),94vw)"><img src="/assets/img/hems/purchase-paths.webp" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
+  <figure class="jmap" style="width:min(var(--measure),var(--bleed))"><img src="/assets/img/hems/purchase-paths.webp" alt="The full checkout wireframe flow matrix — product-only and install flows, card and financing, with Qmerit handoffs annotated" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
   <figcaption>All the checkout flows on one board: product-only and product-plus-install, paying by card or financing through GM Financial, with the installer handoffs annotated. Shown at scale.</figcaption></figure>
 
   <div class="sub-label">Simplified checkout experience</div>
   <p>The checkout experience allows the customer to choose a product, view available installation quoting options, and estimate their pre-approval for financing. These all happen in one flow, keeping the customer engaged and ready to make a decision to move forward with the financing credit application and installation appointment.</p>
   <p>The branches on the right of the board are the combinations an order can take: hardware on its own, hardware with installation, with or without solar, paid by card or financed through GM Financial. They are variations of the same checkout, not trips to another site. That is the difference between this board and the one above it.</p>
-  <figure class="jmap" style="width:min(var(--measure),94vw)"><img src="/assets/img/hems/cart-summary-hub.webp" alt="Simplified customer journey — a single cart summary holding product, install, solar interest and payment option, branching into the eight order combinations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
+  <figure class="jmap" style="width:min(var(--measure),var(--bleed))"><img src="/assets/img/hems/cart-summary-hub.webp" alt="Simplified customer journey — a single cart summary holding product, install, solar interest and payment option, branching into the eight order combinations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block;background:#fff" loading="lazy" />
   <figcaption>The simplified journey. Every build path feeds one cart summary on the left; the eight rows to the right are the order combinations that cart can produce, each ending in payment and an order status. Internal review notes are left in place, with the reviewer's name blurred.</figcaption></figure>
 
   <div class="sub-label">The machinery underneath</div>
   <p>Checkout wasn't one flow; it was a matrix of business flows spanning hardware, installation, financing, and payment states, each mapped end to end with order management and partner systems.</p>
-  <figure class="jmap" style="width:min(var(--measure),94vw)"><img src="/assets/img/hems/checkout-business-flows.webp" alt="Ecomm 2.0 business flows — swimlane diagrams across payment and financing permutations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
+  <figure class="jmap" style="width:min(var(--measure),var(--bleed))"><img src="/assets/img/hems/checkout-business-flows.webp" alt="Ecomm 2.0 business flows — swimlane diagrams across payment and financing permutations" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" loading="lazy" />
   <figcaption>The business-flow swimlanes: hardware and install, with and without financing, across credit outcomes: the design's contract with order management, GM Financial, and install partners.</figcaption></figure>
 
 
@@ -596,7 +596,7 @@ extraStyle: |
       <figure><img src="/assets/img/hems/story5-17.webp" alt="Scene 17 — shipment and installer tracking" loading="lazy"><figcaption><b>Scene 17</b>Shipment and installer tracking close the loop.</figcaption></figure>
     </div>
   </div>
-  <figure class="jmap" style="width:min(var(--measure),94vw)"><img src="/assets/img/hems/story5-board.webp" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
+  <figure class="jmap" style="width:min(var(--measure),var(--bleed))"><img src="/assets/img/hems/story5-board.webp" alt="The full Story 5 board with alternate-journey branches" loading="lazy" style="width:100%;border-radius:8px;border:1px solid var(--hair);display:block" />
   <figcaption>The full board — 18 scenes across five phases, with alternate-journey branches for cancellations and rescheduling. A second storyboard covered the remote two-way-video consultation variant.</figcaption></figure>
 
   <div class="sub-label">Payment methods</div>
@@ -756,7 +756,7 @@ extraStyle: |
 
   <h2>The sales guide</h2>
   <p>Home energy consultants needed a way to understand the site and guide their conversations with customers, so I built a walkthrough of the whole journey and stayed its primary point of contact. It was adopted across the GME sales organization. Seven versions came out between April 2024 and December 2025; consultant feedback reduced it from a 48-page graphics-heavy deck to a 35-page step-by-step guide.</p>
-  <div class="jgal-wrap" style="width:min(var(--measure),94vw)"><div class="jgal" style="grid-template-columns:1fr">
+  <div class="jgal-wrap" style="width:min(var(--measure),var(--bleed))"><div class="jgal" style="grid-template-columns:1fr">
     <figure class="jcard"><img src="/assets/img/hems/salesguide-checkout.webp" alt="Sales guide page — Step 4a, Payment Information: entering a promo code and credit card details at checkout, annotated" loading="lazy"><div class="cap"><h4>Walking a consultant through checkout, step by step</h4></div></figure>
     <figure class="jcard"><img src="/assets/img/hems/salesguide-p5.webp" alt="Basic Sitemap page — every page of the site at a glance" loading="lazy"><div class="cap"><h4>Site at a glance</h4></div></figure>
     <figure class="jcard"><img src="/assets/img/hems/salesguide-p6.webp" alt="Explore Products flowchart page" loading="lazy"><div class="cap"><h4>Guided flowcharts</h4></div></figure>
